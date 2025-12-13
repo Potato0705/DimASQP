@@ -1,20 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-SemEval-2026 Task3 (DimASQP) - Predict Script (V3)
-目标：
-- 纠正 head 语义：BA-BO/EA-EO/BA-EO-(dim,sent) 是“跨实体边”，不是 span 头
-- 显著降低无意义 global fallback，同时避免把 opinion 过度置 null
-- VA：优先使用 (Category, dim, sent) 条件统计（dim/sent 来自 BA-EO head 名）
+DimASQP / SemEval Task3 - Predict (V4, conservative & stable)
 
-兼容你现有命令行参数风格（thr_aux/topk_aux/max_span_len/thr_rel/topk_rel/max_pair_dist/max_quads/null_thr_o 等）
+目标：在你当前 0.2183 解码策略基础上，进一步降低 FP 并提升 priors 命中率，避免退化为 global fallback。
 """
 
 import os
-import re
 import json
+import re
 import math
 import argparse
-import statistics
 from collections import Counter, defaultdict
 
 import torch
@@ -29,10 +24,16 @@ from utils.utils import set_seeds
 set_seeds(42)
 
 ALNUM_RE = re.compile(r"[A-Za-z0-9]")
+SPACE_AROUND_APOS_RE = re.compile(r"\s+'\s*|\s*'\s+")
+NT_FIX_RE = re.compile(r"\b(n)\s*'\s*(t)\b", flags=re.IGNORECASE)
 
-# ----------------------------
-# IO
-# ----------------------------
+STOPWORDS = {
+    "a","an","the","this","that","these","those","it","its","i","you","we","they",
+    "is","are","was","were","be","been","being","am",
+    "and","or","but","if","then","than","so","to","of","in","on","for","with","as","at","by",
+    "not","no","yes","do","does","did","done","have","has","had",
+}
+
 def read_jsonl(path):
     rows = []
     with open(path, "r", encoding="utf-8") as f:
@@ -47,103 +48,68 @@ def write_jsonl(path, rows):
         for x in rows:
             fw.write(json.dumps(x, ensure_ascii=False) + "\n")
 
-# ----------------------------
-# text helpers
-# ----------------------------
 def clean_ws(s: str) -> str:
     return " ".join(str(s).strip().split()) if s is not None else ""
 
-def norm_key(s: str) -> str:
+def fix_apostrophes(s: str) -> str:
     t = clean_ws(s)
-    return t.lower() if t else "null"
+    if not t:
+        return t
+    t = t.replace(" ' ", "'")
+    t = t.replace(" '", "'").replace("' ", "'")
+    t = NT_FIX_RE.sub(r"\1'\2", t)                 # n ' t -> n't
+    t = SPACE_AROUND_APOS_RE.sub("'", t)           # 通用收紧
+    return clean_ws(t)
 
-def is_bad_span(text: str) -> bool:
+def norm_key(s: str, apostrophe_norm: bool = True) -> str:
+    t = fix_apostrophes(s) if apostrophe_norm else clean_ws(s)
+    t = t.lower()
+    return t if t else "null"
+
+def canon_cat(s: str, cat_case: str = "upper") -> str:
+    t = clean_ws(s) or "LAPTOP#GENERAL"
+    return t.lower() if cat_case == "lower" else t.upper()
+
+def is_bad_span(text: str, apostrophe_norm: bool = True) -> bool:
     if text is None:
         return True
-    t = clean_ws(text)
+    t = fix_apostrophes(text) if apostrophe_norm else clean_ws(text)
     if len(t) < 2:
         return True
     if not ALNUM_RE.search(t):
         return True
+    if len(t.split()) == 1 and t.lower() in STOPWORDS:
+        return True
     return False
 
 def safe_decode(tokenizer, input_ids_1d, i, j):
-    ids = input_ids_1d[i : j + 1].tolist()
+    ids = input_ids_1d[i:j+1].tolist()
     s = tokenizer.decode(ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)
     return clean_ws(s)
 
-# ----------------------------
-# VA parse + coarse mapping (与 dataset.py 的划分一致)
-# sentiment by Valence (V), dimension by Arousal (A)
-# ----------------------------
-def parse_va(va_str: str, default=(5.0, 5.0)):
+def parse_va(va_str: str):
     try:
-        s = str(va_str).strip()
-        if "#" not in s:
-            return default
-        v, a = s.split("#", 1)
-        return float(v), float(a)
+        a, b = va_str.split("#")
+        return float(a), float(b)
     except Exception:
-        return default
+        return None
 
-def va_to_sent(v: float) -> str:
-    # dataset.py: V>=6 positive, V<=4 negative else neutral
-    if v >= 6.0:
-        return "positive"
-    if v <= 4.0:
-        return "negative"
-    return "neutral"
+def fmt_va(x: float, y: float) -> str:
+    return f"{x:.2f}#{y:.2f}"
 
-def va_to_dim(a: float) -> str:
-    # dataset.py: A>=6 performance, A<=4 usability else quality
-    if a >= 6.0:
-        return "performance"
-    if a <= 4.0:
-        return "usability"
-    return "quality"
-
-def fmt_va(v: float, a: float) -> str:
-    return f"{v:.2f}#{a:.2f}"
-
-# ----------------------------
-# Category case
-# ----------------------------
-def canon_cat(s: str, cat_case: str, default="LAPTOP#GENERAL") -> str:
-    t = clean_ws(s)
-    if not t:
-        t = default
-    if cat_case == "upper":
-        return t.upper()
-    if cat_case == "lower":
-        return t.lower()
-    return t
-
-# ----------------------------
-# Priors
-# ----------------------------
-def build_priors(train_stats_path, cat_case="upper", va_stat="median"):
-    """
-    返回：
-    - pair2cats: (a_key,o_key)->Counter(cat)
-    - asp2cats : a_key->Counter(cat)
-    - global_cat
-    - pair_freq, asp_freq
-    - cat_va_vals: cat -> list[(v,a)]
-    - cat_dim_sent_va_vals: (cat,dim,sent) -> list[(v,a)]
-    - cat_dim_cnt: cat -> Counter(dim)
-    """
+def build_priors(train_stats_path, cat_case="upper", va_stat="median", apostrophe_norm=True):
     rows = read_jsonl(train_stats_path)
 
-    pair2cats = defaultdict(Counter)
-    asp2cats = defaultdict(Counter)
     cat_cnt = Counter()
+    asp_cat_cnt = Counter()
+    pair_cat_cnt = Counter()
 
-    pair_freq = Counter()
     asp_freq = Counter()
+    op_freq = Counter()
+    pair_freq = Counter()
 
-    cat_va_vals = defaultdict(list)
-    cat_dim_sent_va_vals = defaultdict(list)
-    cat_dim_cnt = defaultdict(Counter)
+    cat_va_list = defaultdict(list)
+    cat_va_mode = defaultdict(Counter)
 
     for r in rows:
         qs = r.get("Quadruplet") or r.get("Quadruplets") or r.get("quadruplets") or []
@@ -151,127 +117,103 @@ def build_priors(train_stats_path, cat_case="upper", va_stat="median"):
             a_raw = q.get("Aspect", "null")
             o_raw = q.get("Opinion", "null")
             c_raw = q.get("Category", "LAPTOP#GENERAL")
-            va_raw = q.get("VA", "5.00#5.00")
+            va = q.get("VA", "5.00#5.00")
 
-            a = norm_key(a_raw)
-            o = norm_key(o_raw)
+            a = norm_key(a_raw, apostrophe_norm=apostrophe_norm)
+            o = norm_key(o_raw, apostrophe_norm=apostrophe_norm)
             c = canon_cat(c_raw, cat_case=cat_case)
 
-            pair_freq[(a, o)] += 1
             asp_freq[a] += 1
+            op_freq[o] += 1
+            pair_freq[(a, o)] += 1
 
-            pair2cats[(a, o)][c] += 1
-            asp2cats[a][c] += 1
             cat_cnt[c] += 1
+            asp_cat_cnt[(a, c)] += 1
+            pair_cat_cnt[(a, o, c)] += 1
 
-            v, ar = parse_va(va_raw)
-            cat_va_vals[c].append((v, ar))
+            cat_va_mode[c][va] += 1
+            xy = parse_va(va)
+            if xy is not None:
+                cat_va_list[c].append(xy)
 
-            dim = va_to_dim(ar)
-            sent = va_to_sent(v)
-            cat_dim_cnt[c][dim] += 1
-            cat_dim_sent_va_vals[(c, dim, sent)].append((v, ar))
+    global_cat = cat_cnt.most_common(1)[0][0] if len(cat_cnt) else canon_cat("LAPTOP#GENERAL", cat_case=cat_case)
 
-    global_cat = cat_cnt.most_common(1)[0][0] if len(cat_cnt) else canon_cat("", cat_case, "LAPTOP#GENERAL")
+    # pair->cat (mode)
+    pair2cat = {}
+    best = {}
+    for (a, o, c), cnt in pair_cat_cnt.items():
+        key = (a, o)
+        if key not in best or cnt > best[key][1]:
+            best[key] = (c, cnt)
+    for k, (c, _) in best.items():
+        pair2cat[k] = c
 
-    logger.info(
-        f"[Priors] pair2cats={len(pair2cats)} asp2cats={len(asp2cats)} "
-        f"global_cat={global_cat} va_stat={va_stat}"
-    )
+    # asp->cat (mode)
+    asp2cat = {}
+    best2 = {}
+    for (a, c), cnt in asp_cat_cnt.items():
+        if a not in best2 or cnt > best2[a][1]:
+            best2[a] = (c, cnt)
+    for a, (c, _) in best2.items():
+        asp2cat[a] = c
 
-    return pair2cats, asp2cats, global_cat, pair_freq, asp_freq, cat_va_vals, cat_dim_sent_va_vals, cat_dim_cnt
+    # cat->va
+    cat2va = {}
+    for c in cat_cnt.keys():
+        if va_stat == "mode":
+            cat2va[c] = cat_va_mode[c].most_common(1)[0][0] if len(cat_va_mode[c]) else fmt_va(5.0, 5.0)
+        else:
+            vals = cat_va_list.get(c, [])
+            if not vals:
+                cat2va[c] = cat_va_mode[c].most_common(1)[0][0] if len(cat_va_mode[c]) else fmt_va(5.0, 5.0)
+            else:
+                xs = sorted([x for x, _ in vals])
+                ys = sorted([y for _, y in vals])
+                if va_stat == "mean":
+                    cat2va[c] = fmt_va(sum(xs)/len(xs), sum(ys)/len(ys))
+                else:
+                    mid = len(xs)//2
+                    if len(xs) % 2 == 1:
+                        cat2va[c] = fmt_va(xs[mid], ys[mid])
+                    else:
+                        cat2va[c] = fmt_va((xs[mid-1]+xs[mid])/2.0, (ys[mid-1]+ys[mid])/2.0)
 
-def stat_va(vals, va_stat="median"):
-    if not vals:
-        return (5.0, 5.0)
-    vs = [x[0] for x in vals]
-    ars = [x[1] for x in vals]
-    if va_stat == "mean":
-        return (sum(vs)/len(vs), sum(ars)/len(ars))
-    # median default
-    return (statistics.median(vs), statistics.median(ars))
+    logger.info(f"[Priors] pair2cat={len(pair2cat)} asp2cat={len(asp2cat)} cat2va={len(cat2va)} global_cat={global_cat} va_stat={va_stat}")
+    return pair2cat, asp2cat, cat2va, global_cat, asp_freq, op_freq, pair_freq
 
-def choose_va(cat, dim, sent, cat_va_vals, cat_dim_sent_va_vals, global_cat, va_stat="median"):
-    # 优先 (cat,dim,sent)
-    key = (cat, dim, sent)
-    if key in cat_dim_sent_va_vals and len(cat_dim_sent_va_vals[key]) > 0:
-        v, a = stat_va(cat_dim_sent_va_vals[key], va_stat=va_stat)
-        return fmt_va(v, a)
-    # 退化 cat
-    if cat in cat_va_vals and len(cat_va_vals[cat]) > 0:
-        v, a = stat_va(cat_va_vals[cat], va_stat=va_stat)
-        return fmt_va(v, a)
-    # 退化 global
-    if global_cat in cat_va_vals and len(cat_va_vals[global_cat]) > 0:
-        v, a = stat_va(cat_va_vals[global_cat], va_stat=va_stat)
-        return fmt_va(v, a)
-    return "5.00#5.00"
+def topk_mask(scores_1d, valid_pos, k):
+    """在 valid_pos 里保留 top-k 位置（k<=0 表示不限制）"""
+    if k is None or k <= 0:
+        return valid_pos.clone()
+    sc = scores_1d.clone()
+    sc[~valid_pos] = -1e9
+    n = int(valid_pos.sum().item())
+    if n <= k:
+        return valid_pos.clone()
+    _, idx = torch.topk(sc, k=k, largest=True)
+    m = torch.zeros_like(valid_pos)
+    m[idx] = True
+    return m & valid_pos
 
-def choose_cat(a_key, o_key, dim, pair2cats, asp2cats, cat_dim_cnt, global_cat):
-    # candidates from pair -> asp -> global
-    if (a_key, o_key) in pair2cats and len(pair2cats[(a_key, o_key)]) > 0:
-        cand = pair2cats[(a_key, o_key)]
-    elif a_key in asp2cats and len(asp2cats[a_key]) > 0:
-        cand = asp2cats[a_key]
-    else:
-        return global_cat, "global"
+def extract_top_pairs(scores_LL, pair_mask, thr, topk, max_pair_dist):
+    """scores_LL: [L,L]，pair_mask: [L,L]"""
+    L = scores_LL.shape[0]
+    device = scores_LL.device
 
-    # 如果有 dim，则优先 dim 一致性（count 大），再按原频次
-    if dim is not None:
-        best_cat = None
-        best_tuple = None
-        for c, cnt in cand.items():
-            dcnt = cat_dim_cnt.get(c, Counter()).get(dim, 0)
-            tup = (dcnt, cnt)
-            if best_tuple is None or tup > best_tuple:
-                best_tuple = tup
-                best_cat = c
-        if best_cat is not None:
-            return best_cat, "prior_dim"
+    mask = pair_mask.clone()
 
-    # 无 dim 直接 mode
-    return cand.most_common(1)[0][0], "prior"
-
-# ----------------------------
-# Head parsing
-# ----------------------------
-def parse_rel_head_name(name: str):
-    # "BA-EO-{dim}-{sent}"
-    # return (dim, sent) or (None, None)
-    parts = str(name).split("-")
-    if len(parts) >= 4 and parts[0] == "BA" and parts[1] == "EO":
-        dim = parts[2]
-        sent = parts[3]
-        return dim, sent
-    return None, None
-
-# ----------------------------
-# Candidate extraction for BA-EO
-# ----------------------------
-def extract_top_aStart_oEnd(scores, valid_a, valid_o, thr, topk, max_pair_dist=None):
-    """
-    scores: [L,L] after sigmoid, index [a_start, o_end]
-    """
-    L = scores.shape[0]
-    device = scores.device
-
-    va = valid_a.to(device)
-    vo = valid_o.to(device)
-    mask = va[:, None] & vo[None, :]
-
-    if max_pair_dist is not None and max_pair_dist > 0:
+    if max_pair_dist and max_pair_dist > 0:
         idx = torch.arange(L, device=device)
-        dist = (idx[None, :] - idx[:, None]).abs()   # |o_end - a_start|
+        dist = (idx[None, :] - idx[:, None]).abs()
         mask = mask & (dist <= max_pair_dist)
 
-    flat = scores.masked_fill(~mask, -1e9).view(-1)
+    flat = scores_LL.masked_fill(~mask, -1e9).view(-1)
     cand = (flat >= thr)
     if not cand.any():
         return []
 
     idxs = torch.nonzero(cand, as_tuple=False).squeeze(-1)
     vals = flat[idxs]
-
     if idxs.numel() > topk:
         topv, topi = torch.topk(vals, k=topk, largest=True)
         idxs = idxs[topi]
@@ -282,16 +224,61 @@ def extract_top_aStart_oEnd(scores, valid_a, valid_o, thr, topk, max_pair_dist=N
     vals = vals[order]
 
     out = []
-    for k in range(idxs.numel()):
-        p = int(idxs[k].item())
-        a_start = p // L
-        o_end = p % L
-        out.append((a_start, o_end, float(vals[k].item())))
+    for p, v in zip(idxs.tolist(), vals.tolist()):
+        i = int(p // L)
+        j = int(p % L)
+        out.append((i, j, float(v)))
     return out
 
-# ----------------------------
-# model loader
-# ----------------------------
+def best_span_end(span_mat, valid_end_mask, tokenizer, input_ids, start_i, max_span_len, priors_freq=None, prior_alpha=0.0, apostrophe_norm=True):
+    L = span_mat.shape[0]
+    j_max = min(L - 1, start_i + max_span_len - 1) if (max_span_len and max_span_len > 0) else (L - 1)
+
+    mask = valid_end_mask.clone()
+    mask[:start_i] = False
+    if j_max < L - 1:
+        mask[(j_max + 1):] = False
+
+    row = span_mat[start_i].masked_fill(~mask, -1e9)
+    k = min(16, int(mask.sum().item())) if int(mask.sum().item()) > 0 else 0
+    if k == 0:
+        return start_i, 0.0, "null"
+
+    topv, topi = torch.topk(row, k=k, largest=True)
+
+    best = (start_i, -1e18, "null")
+    for sc, j in zip(topv.tolist(), topi.tolist()):
+        j = int(j)
+        txt = safe_decode(tokenizer, input_ids, start_i, j)
+        if is_bad_span(txt, apostrophe_norm=apostrophe_norm):
+            continue
+        bonus = 0.0
+        if priors_freq is not None and prior_alpha > 0:
+            bonus = prior_alpha * math.log(1.0 + float(priors_freq.get(norm_key(txt, apostrophe_norm), 0)))
+        sc2 = float(sc) + bonus
+        if sc2 > best[1]:
+            best = (j, sc2, txt)
+
+    if best[2] == "null":
+        j = int(torch.argmax(row).item())
+        return j, float(row[j].item()), safe_decode(tokenizer, input_ids, start_i, j)
+    return best
+
+def refine_start(span_mat, valid_pos, tokenizer, input_ids, base_i, window, max_span_len, priors_freq=None, prior_alpha=0.0, apostrophe_norm=True):
+    L = span_mat.shape[0]
+    lo = max(0, base_i - window)
+    hi = min(L - 1, base_i + window)
+    best = (base_i, base_i, -1e18, "null")  # (i,j,sc,txt)
+    for i in range(lo, hi + 1):
+        if not bool(valid_pos[i].item()):
+            continue
+        j, sc, txt = best_span_end(span_mat, valid_pos, tokenizer, input_ids, i, max_span_len, priors_freq, prior_alpha, apostrophe_norm)
+        if is_bad_span(txt, apostrophe_norm=apostrophe_norm):
+            continue
+        if sc > best[2]:
+            best = (i, j, sc, txt)
+    return best
+
 def load_model(ckpt, model_name, num_label_types, num_dims, max_len, device):
     model = QuadrupleModel(num_label_types, num_dims, max_len, model_name).to(device)
     state = torch.load(ckpt, map_location=device)
@@ -299,12 +286,8 @@ def load_model(ckpt, model_name, num_label_types, num_dims, max_len, device):
     model.eval()
     return model
 
-# ----------------------------
-# main
-# ----------------------------
 def main():
     ap = argparse.ArgumentParser()
-
     ap.add_argument("--input", required=True)
     ap.add_argument("--train_stats", required=True)
     ap.add_argument("--ckpt", required=True)
@@ -312,72 +295,62 @@ def main():
     ap.add_argument("--max_len", type=int, default=256)
     ap.add_argument("--batch", type=int, default=8)
 
-    # compatibility knobs
-    ap.add_argument("--thr_aux", type=float, default=0.05)   # used for BA-BO / EA-EO gate
-    ap.add_argument("--topk_aux", type=int, default=80)      # reserved
-    ap.add_argument("--max_span_len", type=int, default=12)  # used as max_as_len & max_op_len
+    ap.add_argument("--thr_aux", type=float, default=0.05)
+    ap.add_argument("--topk_aux", type=int, default=80)
+    ap.add_argument("--max_span_len", type=int, default=12)
 
     ap.add_argument("--thr_rel", type=float, default=0.15)
     ap.add_argument("--topk_rel", type=int, default=800)
     ap.add_argument("--max_pair_dist", type=int, default=120)
 
     ap.add_argument("--max_quads", type=int, default=2)
+    ap.add_argument("--null_thr_o", type=float, default=0.12)
 
-    ap.add_argument("--null_thr_o", type=float, default=0.12)     # BA-BO gate
-    ap.add_argument("--null_thr_rel", type=float, default=None)   # BA-EO gate (None->thr_rel)
+    ap.add_argument("--va_stat", type=str, default="median", choices=["mode","median","mean"])
+    ap.add_argument("--cat_case", type=str, default="upper", choices=["upper","lower"])
 
-    ap.add_argument("--va_stat", type=str, default="median", choices=["median", "mean"])
-    ap.add_argument("--cat_case", type=str, default="upper", choices=["upper", "lower", "raw"])
+    ap.add_argument("--apostrophe_norm", action="store_true")
+    ap.add_argument("--start_refine", type=int, default=2)
+    ap.add_argument("--prior_alpha", type=float, default=0.12)
+
+    ap.add_argument("--no_pair2cat_when_op_null", action="store_true")
+    ap.add_argument("--dedup_by_aspect", action="store_true")
 
     ap.add_argument("--diag", action="store_true")
     ap.add_argument("--output", required=True)
-
     args = ap.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     logger.info(f"[Device] {device}")
 
-    # priors
-    (
-        pair2cats, asp2cats, global_cat,
-        pair_freq, asp_freq,
-        cat_va_vals, cat_dim_sent_va_vals, cat_dim_cnt
-    ) = build_priors(args.train_stats, cat_case=args.cat_case, va_stat=args.va_stat)
+    pair2cat, asp2cat, cat2va, global_cat, asp_freq, op_freq, pair_freq = build_priors(
+        args.train_stats,
+        cat_case=args.cat_case,
+        va_stat=args.va_stat,
+        apostrophe_norm=args.apostrophe_norm
+    )
 
     tok = AutoTokenizer.from_pretrained(args.model_name)
     ds = AcqpDataset("PredictSet", args.input, args.max_len, tok, label_pattern="sentiment_dim")
     dl = torch.utils.data.DataLoader(ds, batch_size=args.batch, shuffle=False, collate_fn=collate_fn)
 
-    # heads
-    try:
-        h_ba_bo = ds.label_types.index("BA-BO")
-        h_ea_eo = ds.label_types.index("EA-EO")
-    except ValueError:
+    if "BA-BO" not in ds.label_types or "EA-EO" not in ds.label_types:
         raise RuntimeError(f"label_types missing BA-BO/EA-EO: {ds.label_types}")
-
-    rel_heads = []
-    for i, nm in enumerate(ds.label_types):
-        if nm in ("BA-BO", "EA-EO"):
-            continue
-        dim, sent = parse_rel_head_name(nm)
-        rel_heads.append((i, dim, sent))
-
-    null_thr_rel = args.null_thr_rel if args.null_thr_rel is not None else args.thr_rel
-    max_as_len = max(1, int(args.max_span_len))
-    max_op_len = max(1, int(args.max_span_len))
+    AC = ds.label_types.index("BA-BO")
+    EO = ds.label_types.index("EA-EO")
+    rel_heads = [i for i, nm in enumerate(ds.label_types) if nm not in ["BA-BO", "EA-EO"]]
 
     model = load_model(args.ckpt, args.model_name, len(ds.label_types), len(ds.dimension2id), args.max_len, device)
 
     preds = []
     base = 0
 
-    # diagnostics
-    diag_total = 0
-    diag_global = 0
-    diag_null_a = 0
-    diag_null_o = 0
-    diag_asp_hit = 0
-    diag_pair_hit = 0
+    total_quads = 0
+    global_cnt = 0
+    null_asp_cnt = 0
+    null_op_cnt = 0
+    asp_hit = 0
+    pair_hit = 0
     cat_counter = Counter()
 
     for batch in tqdm(dl, desc="Predict", ncols=90):
@@ -386,221 +359,140 @@ def main():
 
         with torch.no_grad():
             out = model(batch["input_ids"], batch["token_type_ids"], batch["attention_mask"])
-            mat = torch.sigmoid(out["matrix"])   # [B,C,L,L]
+            mat = torch.sigmoid(out["matrix"])  # [B,C,L,L]
 
         B, _, L, _ = mat.shape
 
         for bi in range(B):
             idx = base + bi
-            # robust id fetch
-            try:
-                sid = ds.df.iloc[idx]["id"]
-            except Exception:
-                sid = ds.df[idx].get("id", str(idx))
+            sid = ds.df.iloc[idx]["id"]
 
             input_ids = batch["input_ids"][bi]
             attn = batch["attention_mask"][bi].bool()
 
-            # valid positions: allow CLS(0) + normal tokens, exclude PAD/SEP
-            valid = attn.clone()
-            sep_id = tok.sep_token_id
-            pad_id = tok.pad_token_id
-            if sep_id is not None:
-                valid = valid & (input_ids != sep_id)
-            if pad_id is not None:
-                valid = valid & (input_ids != pad_id)
-            # ensure CLS allowed if present
-            valid[0] = True
+            valid_pos = attn.clone()
+            specials = torch.tensor([tok.cls_token_id, tok.sep_token_id, tok.pad_token_id], device=input_ids.device)
+            is_special = (input_ids[..., None] == specials[None, ...]).any(dim=-1)
+            valid_pos = valid_pos & (~is_special)
 
-            # -------- 1) BA-EO candidates: (a_start, o_end) --------
-            cand_list = []
-            for (h, dim, sent) in rel_heads:
-                pairs = extract_top_aStart_oEnd(
-                    mat[bi, h], valid, valid,
-                    thr=args.thr_rel,
-                    topk=args.topk_rel,
-                    max_pair_dist=args.max_pair_dist
-                )
-                for (a_start, o_end, rel_sc) in pairs:
-                    cand_list.append((rel_sc, h, dim, sent, a_start, o_end))
+            mask_2d = (valid_pos[:, None] & valid_pos[None, :])
+            ac_mat = mat[bi, AC].masked_fill(~mask_2d, -1e9)
+            eo_mat = mat[bi, EO].masked_fill(~mask_2d, -1e9)
 
-            cand_list.sort(key=lambda x: x[0], reverse=True)
+            # aux gating：用 BA-BO / EA-EO 的 start 置信度筛 start
+            a_start = torch.max(ac_mat, dim=1).values
+            o_start = torch.max(eo_mat, dim=1).values
 
-            # -------- 2) decode spans using BA-BO and EA-EO (correct semantics) --------
+            a_ok = topk_mask(a_start, valid_pos, args.topk_aux) & (a_start >= args.thr_aux)
+            o_ok = topk_mask(o_start, valid_pos, args.topk_aux) & (o_start >= args.thr_aux)
+
+            pair_mask = (a_ok[:, None] & o_ok[None, :])
+
+            pair_cands = []
+            for h in rel_heads:
+                pairs = extract_top_pairs(mat[bi, h], pair_mask, args.thr_rel, args.topk_rel, args.max_pair_dist)
+                for (i, j, sc) in pairs:
+                    pair_cands.append((sc, h, i, j))
+            pair_cands.sort(key=lambda x: x[0], reverse=True)
+
+            cand = []  # (score, quad, used_pair)
+
+            for rel_sc, h, i, j in pair_cands:
+                # aspect decode
+                if args.start_refine and args.start_refine > 0:
+                    ai, aj, a_sc, a_txt = refine_start(ac_mat, valid_pos, tok, input_ids, i, args.start_refine, args.max_span_len, asp_freq, args.prior_alpha, args.apostrophe_norm)
+                else:
+                    aj, a_sc, a_txt = best_span_end(ac_mat, valid_pos, tok, input_ids, i, args.max_span_len, asp_freq, args.prior_alpha, args.apostrophe_norm)
+                    ai = i
+
+                if is_bad_span(a_txt, apostrophe_norm=args.apostrophe_norm):
+                    continue
+
+                # opinion decode
+                if args.start_refine and args.start_refine > 0:
+                    oi, oj, o_sc, o_txt = refine_start(eo_mat, valid_pos, tok, input_ids, j, args.start_refine, args.max_span_len, op_freq, 0.5*args.prior_alpha, args.apostrophe_norm)
+                else:
+                    oj, o_sc, o_txt = best_span_end(eo_mat, valid_pos, tok, input_ids, j, args.max_span_len, op_freq, 0.5*args.prior_alpha, args.apostrophe_norm)
+                    oi = j
+
+                if is_bad_span(o_txt, apostrophe_norm=args.apostrophe_norm):
+                    o_txt = "null"
+
+                a_key = norm_key(a_txt, apostrophe_norm=args.apostrophe_norm)
+                o_key = norm_key(o_txt, apostrophe_norm=args.apostrophe_norm)
+
+                # opinion null rule：关系弱 + 训练没见过 -> null
+                if (o_txt != "null") and (rel_sc < args.null_thr_o) and (pair_freq.get((a_key, o_key), 0) == 0):
+                    o_txt = "null"
+                    o_key = "null"
+
+                # cat mapping
+                used_pair = False
+                cat = None
+                if not (args.no_pair2cat_when_op_null and o_txt == "null"):
+                    cat = pair2cat.get((a_key, o_key))
+                    if cat is not None:
+                        used_pair = True
+                if cat is None:
+                    cat = asp2cat.get(a_key)
+                if cat is None:
+                    cat = global_cat
+
+                va = cat2va.get(cat, fmt_va(5.0, 5.0))
+
+                score = float(rel_sc) + 0.6*float(a_sc) + 0.4*float(o_sc)
+                cand.append((score, {
+                    "Aspect": fix_apostrophes(a_txt) if args.apostrophe_norm else clean_ws(a_txt),
+                    "Category": cat,
+                    "Opinion": "null" if o_txt == "null" else (fix_apostrophes(o_txt) if args.apostrophe_norm else clean_ws(o_txt)),
+                    "VA": va
+                }, used_pair))
+
+            if not cand:
+                # fallback
+                flat = ac_mat.view(-1)
+                p = int(torch.argmax(flat).item())
+                ai, aj = p // L, p % L
+                if aj < ai:
+                    aj = ai
+                a_txt = safe_decode(tok, input_ids, ai, aj)
+                if is_bad_span(a_txt, apostrophe_norm=args.apostrophe_norm):
+                    a_txt = "null"
+                a_key = norm_key(a_txt, apostrophe_norm=args.apostrophe_norm)
+                cat = asp2cat.get(a_key, global_cat)
+                va = cat2va.get(cat, fmt_va(5.0, 5.0))
+                cand = [(float(torch.max(ac_mat[ai]).item()), {"Aspect": clean_ws(a_txt), "Category": cat, "Opinion": "null", "VA": va}, False)]
+
+            cand.sort(key=lambda x: x[0], reverse=True)
+
             quads = []
-            used = set()
+            seen = set()
+            for score, q, used_pair in cand:
+                a_key = norm_key(q["Aspect"], apostrophe_norm=args.apostrophe_norm)
+                o_key = norm_key(q["Opinion"], apostrophe_norm=args.apostrophe_norm)
 
-            for (rel_sc, h, dim, sent, a_start, o_end) in cand_list:
+                dedup_key = a_key if args.dedup_by_aspect else (a_key, q["Category"])
+                if dedup_key in seen:
+                    continue
+                seen.add(dedup_key)
+
+                quads.append(q)
+
+                total_quads += 1
+                cat_counter[q["Category"]] += 1
+                if q["Category"] == global_cat:
+                    global_cnt += 1
+                if a_key == "null":
+                    null_asp_cnt += 1
+                if o_key == "null":
+                    null_op_cnt += 1
+                if used_pair:
+                    pair_hit += 1
+                elif a_key in asp2cat:
+                    asp_hit += 1
+
                 if len(quads) >= args.max_quads:
                     break
-
-                # aspect implicit
-                if a_start == 0:
-                    a_end = 0
-                    a_text = "null"
-                else:
-                    # choose a_end using EA-EO[:, o_end] with constraint a_end>=a_start and len<=max_as_len
-                    col = mat[bi, h_ea_eo][:, o_end].clone()
-                    col = col.masked_fill(~valid, -1e9)
-
-                    lo = a_start
-                    hi = min(L - 1, a_start + max_as_len - 1)
-                    if lo > hi:
-                        lo, hi = a_start, a_start
-
-                    best_sc = -1e9
-                    best_end = a_start
-                    for ae in range(lo, hi + 1):
-                        sc = float(col[ae].item())
-                        if sc > best_sc:
-                            best_sc = sc
-                            best_end = ae
-                    a_end = best_end
-                    a_text = safe_decode(tok, input_ids, a_start, a_end)
-                    if is_bad_span(a_text):
-                        a_text = "null"
-                        a_start, a_end = 0, 0
-
-                # opinion implicit
-                if o_end == 0:
-                    o_start = 0
-                    o_text = "null"
-                else:
-                    # choose o_start using BA-BO[a_start, :] if a_start!=0 else choose global best start->o_start
-                    row = mat[bi, h_ba_bo][a_start].clone() if a_start != 0 else mat[bi, h_ba_bo][0].clone()
-                    row = row.masked_fill(~valid, -1e9)
-
-                    lo = 1
-                    hi = min(o_end, L - 1)
-                    lo2 = max(lo, hi - max_op_len + 1)
-                    if lo2 > hi:
-                        lo2 = lo
-                    best_sc = -1e9
-                    best_st = lo2
-                    for os_ in range(lo2, hi + 1):
-                        sc = float(row[os_].item())
-                        if sc > best_sc:
-                            best_sc = sc
-                            best_st = os_
-                    o_start = best_st
-
-                    o_text = safe_decode(tok, input_ids, o_start, o_end)
-                    if is_bad_span(o_text):
-                        o_text = "null"
-                        o_start, o_end = 0, 0
-
-                a_key = norm_key(a_text)
-                o_key = norm_key(o_text)
-
-                # 3) opinion null gate: 只有当 rel 也低 + pair 未见过 + BA-BO 也低 才置空
-                pf = pair_freq.get((a_key, o_key), 0)
-                bo_sc = float(mat[bi, h_ba_bo][a_start, o_start].item()) if (a_start < L and o_start < L) else 0.0
-
-                if o_text != "null":
-                    if (bo_sc < args.null_thr_o) and (rel_sc < null_thr_rel) and (pf == 0):
-                        o_text = "null"
-                        o_key = "null"
-
-                # 4) category mapping (pair->asp->global) with dim tie-break
-                cat, how = choose_cat(a_key, o_key, dim, pair2cats, asp2cats, cat_dim_cnt, global_cat)
-
-                # 5) VA choose (cat,dim,sent) -> cat -> global
-                va = choose_va(cat, dim, sent, cat_va_vals, cat_dim_sent_va_vals, global_cat, va_stat=args.va_stat)
-
-                key = (a_key, o_key, cat)
-                if key in used:
-                    continue
-                used.add(key)
-
-                if how == "global":
-                    diag_global += 1
-                if a_text == "null":
-                    diag_null_a += 1
-                if o_text == "null":
-                    diag_null_o += 1
-
-                if (a_key in asp2cats) and len(asp2cats[a_key]) > 0:
-                    diag_asp_hit += 1
-                if ((a_key, o_key) in pair2cats) and len(pair2cats[(a_key, o_key)]) > 0:
-                    diag_pair_hit += 1
-
-                cat_counter[cat] += 1
-                diag_total += 1
-
-                quads.append({
-                    "Aspect": clean_ws(a_text),
-                    "Category": cat,
-                    "Opinion": "null" if o_text == "null" else clean_ws(o_text),
-                    "VA": va
-                })
-
-            # -------- 6) fallback: no BA-EO candidates -> output one null-safe quad --------
-            if len(quads) == 0:
-                # pick strongest BA-BO (a_start,o_start), then pick o_end by best BA-EO head under this a_start
-                bo = mat[bi, h_ba_bo].clone()
-                mask = valid[:, None] & valid[None, :]
-                bo = bo.masked_fill(~mask, -1e9)
-                p = int(torch.argmax(bo.view(-1)).item())
-                a_start = p // L
-                o_start = p % L
-
-                # pick o_end using best BA-EO head for this a_start
-                best = (-1e9, 0, "quality", "neutral")  # (score, o_end, dim, sent)
-                for (h, dim, sent) in rel_heads:
-                    row = mat[bi, h][a_start].clone()
-                    row = row.masked_fill(~valid, -1e9)
-                    o_end = int(torch.argmax(row).item())
-                    sc = float(row[o_end].item())
-                    if sc > best[0]:
-                        best = (sc, o_end, dim, sent)
-
-                rel_sc, o_end, dim, sent = best
-
-                # aspect end from EA-EO[:,o_end]
-                if a_start == 0:
-                    a_end = 0
-                    a_text = "null"
-                else:
-                    col = mat[bi, h_ea_eo][:, o_end].clone()
-                    col = col.masked_fill(~valid, -1e9)
-                    lo = a_start
-                    hi = min(L - 1, a_start + max_as_len - 1)
-                    a_end = int(torch.argmax(col[lo:hi+1]).item() + lo)
-                    a_text = safe_decode(tok, input_ids, a_start, a_end)
-                    if is_bad_span(a_text):
-                        a_text = "null"
-
-                # opinion span
-                if o_end == 0 or o_start == 0:
-                    o_text = "null"
-                else:
-                    if o_start > o_end:
-                        o_start = o_end
-                    o_text = safe_decode(tok, input_ids, o_start, o_end)
-                    if is_bad_span(o_text):
-                        o_text = "null"
-
-                a_key = norm_key(a_text)
-                o_key = norm_key(o_text)
-
-                cat, _ = choose_cat(a_key, o_key, dim, pair2cats, asp2cats, cat_dim_cnt, global_cat)
-                va = choose_va(cat, dim, sent, cat_va_vals, cat_dim_sent_va_vals, global_cat, va_stat=args.va_stat)
-
-                quads = [{
-                    "Aspect": clean_ws(a_text),
-                    "Category": cat,
-                    "Opinion": "null" if o_text == "null" else clean_ws(o_text),
-                    "VA": va
-                }]
-
-                cat_counter[cat] += 1
-                diag_total += 1
-                if cat == global_cat:
-                    diag_global += 1
-                if a_text == "null":
-                    diag_null_a += 1
-                if o_text == "null":
-                    diag_null_o += 1
 
             preds.append({"ID": sid, "Quadruplet": quads})
 
@@ -611,12 +503,11 @@ def main():
     logger.success(f"Saved -> {args.output}")
 
     if args.diag:
-        total_quads = max(1, diag_total)
-        logger.info(
-            f"[Diag] total_quads={diag_total}  global_rate={diag_global/total_quads:.3f}  "
-            f"null_aspect_rate={diag_null_a/total_quads:.3f}  null_opinion_rate={diag_null_o/total_quads:.3f}"
-        )
-        logger.info(f"[Diag] asp_hit={diag_asp_hit} pair_hit={diag_pair_hit}")
+        global_rate = global_cnt / max(1, total_quads)
+        null_asp_rate = null_asp_cnt / max(1, total_quads)
+        null_op_rate = null_op_cnt / max(1, total_quads)
+        logger.info(f"[Diag] total_quads={total_quads} global_rate={global_rate:.3f} null_aspect_rate={null_asp_rate:.3f} null_opinion_rate={null_op_rate:.3f}")
+        logger.info(f"[Diag] asp_hit={asp_hit} pair_hit={pair_hit}")
         logger.info(f"[Diag] top10_cats={cat_counter.most_common(10)}")
 
 if __name__ == "__main__":
