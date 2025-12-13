@@ -1,22 +1,27 @@
 # -*- coding: utf-8 -*-
 """
-SemEval-2026 Task3 (DimASQP) - Predict Script (V5)
-核心修复（针对你现在 global_rate=1.0 的现象）：
-1) Span rescue：BA-BO / EA-EO 在阈值下无候选时，强制取 masked top1，避免大量 Aspect='null'
-2) Category backoff：除了 pair2cat / asp2cat 精确匹配，增加 token->category 投票映射（train_stats 构建）
-3) Span 轻量长度惩罚 + 去重：减少 "wireless signals weakly" 这类把 opinion 吃进 aspect 的情况
-4) 输出 Category 大小写可控（--cat_case upper/lower），默认 upper（内部 priors 用 upper）
+SemEval-2026 Task3 (DimASQP) - Predict Script (V3)
+目标：
+- 降低 global fallback (LAPTOP#GENERAL + 默认 VA) 的比例
+- 修复 span end 解码容易把多余词粘进去的问题
+- VA 使用更稳健的统计量（默认 median），避免被 5.00#5.00 统治
+
+核心策略：
+1) relation heads 提名 pair (a_start, o_start)
+2) span heads (BA-BO / EA-EO) 在局部窗口内搜索最优 end，并加 prior bonus
+3) Category 用 pair2cat -> asp2cat -> global 的 canonical 映射
+4) VA 用 cat->median(V,A)（或 mean）并格式化成 "x.xx#y.yy"
 """
 
 import os
-import json
 import re
+import json
 import math
 import argparse
-import collections
-from typing import List, Dict, Tuple
+from collections import Counter, defaultdict
 
 import torch
+import numpy as np
 from tqdm import tqdm
 from loguru import logger
 from transformers import AutoTokenizer
@@ -28,13 +33,11 @@ from utils.utils import set_seeds
 set_seeds(42)
 
 ALNUM_RE = re.compile(r"[A-Za-z0-9]")
-WORD_RE  = re.compile(r"[A-Za-z0-9]+")
 
-
-# -----------------------------
-# IO
-# -----------------------------
-def read_jsonl(path: str) -> List[dict]:
+# ----------------------------
+# I/O
+# ----------------------------
+def read_jsonl(path):
     out = []
     with open(path, "r", encoding="utf-8") as f:
         for line in f:
@@ -43,100 +46,71 @@ def read_jsonl(path: str) -> List[dict]:
                 out.append(json.loads(line))
     return out
 
-
-def write_jsonl(path: str, rows: List[dict]) -> None:
+def write_jsonl(path, rows):
     with open(path, "w", encoding="utf-8") as fw:
         for x in rows:
             fw.write(json.dumps(x, ensure_ascii=False) + "\n")
 
-
-# -----------------------------
-# text utils
-# -----------------------------
+# ----------------------------
+# Text utils
+# ----------------------------
 def clean_ws(s: str) -> str:
     return " ".join(str(s).strip().split()) if s is not None else ""
 
-
-def trim_edge_punct(s: str) -> str:
-    """只裁首尾无用符号，尽量不破坏实体词"""
-    if s is None:
-        return ""
-    t = clean_ws(s)
-    if not t:
-        return t
-    i = 0
-    while i < len(t) and (not t[i].isalnum()) and t[i] not in ["#"]:
-        i += 1
-    j = len(t) - 1
-    while j >= 0 and (not t[j].isalnum()) and t[j] not in ["#"]:
-        j -= 1
-    if i <= j:
-        t = t[i : j + 1]
-    return clean_ws(t)
-
-
 def norm_key(s: str) -> str:
-    t = trim_edge_punct(s)
+    """用于 priors key：小写 + 去多余空白"""
+    t = clean_ws(s)
     return t.lower() if t else "null"
 
-
-def canon_cat(s: str) -> str:
+def canon_cat(s: str, case: str = "upper") -> str:
+    """Category canonical：upper/lower"""
     t = clean_ws(s)
-    return t.upper() if t else "LAPTOP#GENERAL"
-
-
-def cat_out(cat_upper: str, cat_case: str) -> str:
-    if cat_case == "lower":
-        return cat_upper.lower()
-    return cat_upper
-
+    if not t:
+        t = "LAPTOP#GENERAL"
+    if case == "lower":
+        return t.lower()
+    return t.upper()
 
 def is_bad_span(text: str) -> bool:
+    """过滤：纯标点/太短/无字母数字"""
     if text is None:
         return True
-    t = trim_edge_punct(text)
+    t = clean_ws(text)
     if len(t) < 2:
         return True
     if not ALNUM_RE.search(t):
         return True
     return False
 
-
-def safe_decode(tokenizer, input_ids_1d, i: int, j: int) -> str:
+def safe_decode(tokenizer, input_ids_1d, i, j):
     ids = input_ids_1d[i : j + 1].tolist()
     s = tokenizer.decode(ids, skip_special_tokens=True, clean_up_tokenization_spaces=True)
-    return trim_edge_punct(s)
+    return clean_ws(s)
 
-
-def to_tokens_lower(s: str) -> List[str]:
-    if not s:
-        return []
-    return [w.lower() for w in WORD_RE.findall(s)]
-
-
-# -----------------------------
-# priors
-# -----------------------------
-def build_priors(train_stats_path: str):
+# ----------------------------
+# Priors
+# ----------------------------
+def build_priors(train_stats_path, cat_case="upper", va_stat="median"):
     """
     返回：
-    - pair2cat: (a_key,o_key)->CAT_UPPER (mode)
-    - asp2cat : a_key->CAT_UPPER (mode)
-    - cat2va_mode: CAT_UPPER->va_str (mode)
-    - global_cat: CAT_UPPER
-    - asp_freq: a_key->count
-    - pair_freq: (a_key,o_key)->count
-    - token2cat: token(lower)->Counter(CAT_UPPER)
+    - pair2cat: (a_key,o_key)->cat_canon(众数)
+    - asp2cat : a_key->cat_canon(众数)
+    - cat2va  : cat_canon->(V,A) 使用 mean/median
+    - global_cat
+    - asp_freq / op_freq / pair_freq
     """
     rows = read_jsonl(train_stats_path)
 
-    cat_cnt = {}
-    asp_cat_cnt = {}
-    pair_cat_cnt = {}
-    asp_freq = {}
-    pair_freq = {}
-    cat_va_cnt: Dict[str, Dict[str, int]] = {}
-    token2cat: Dict[str, Dict[str, int]] = {}
+    cat_cnt = Counter()
+    asp_cat_cnt = Counter()
+    pair_cat_cnt = Counter()
+
+    asp_freq = Counter()
+    op_freq = Counter()
+    pair_freq = Counter()
+
+    cat_vs = defaultdict(list)  # cat -> list of V
+    cat_as = defaultdict(list)  # cat -> list of A
 
     for r in rows:
         qs = r.get("Quadruplet") or r.get("Quadruplets") or r.get("quadruplets") or []
@@ -148,30 +122,27 @@ def build_priors(train_stats_path: str):
 
             a = norm_key(a_raw)
             o = norm_key(o_raw)
-            c = canon_cat(c_raw)
+            c = canon_cat(c_raw, case=cat_case)
 
-            asp_freq[a] = asp_freq.get(a, 0) + 1
-            pair_freq[(a, o)] = pair_freq.get((a, o), 0) + 1
+            asp_freq[a] += 1
+            op_freq[o] += 1
+            pair_freq[(a, o)] += 1
 
-            cat_cnt[c] = cat_cnt.get(c, 0) + 1
-            asp_cat_cnt[(a, c)] = asp_cat_cnt.get((a, c), 0) + 1
-            pair_cat_cnt[(a, o, c)] = pair_cat_cnt.get((a, o, c), 0) + 1
+            cat_cnt[c] += 1
+            asp_cat_cnt[(a, c)] += 1
+            pair_cat_cnt[(a, o, c)] += 1
 
-            if c not in cat_va_cnt:
-                cat_va_cnt[c] = {}
-            cat_va_cnt[c][va] = cat_va_cnt[c].get(va, 0) + 1
+            try:
+                v_str, a_str = str(va).split("#")
+                v, ar = float(v_str), float(a_str)
+                cat_vs[c].append(v)
+                cat_as[c].append(ar)
+            except:
+                pass
 
-            # token->cat votes (主要从 aspect tokens，必要时也加一点 opinion tokens)
-            for tk in to_tokens_lower(a_raw):
-                token2cat.setdefault(tk, {})
-                token2cat[tk][c] = token2cat[tk].get(c, 0) + 1
-            for tk in to_tokens_lower(o_raw):
-                token2cat.setdefault(tk, {})
-                token2cat[tk][c] = token2cat[tk].get(c, 0) + 1
+    global_cat = cat_cnt.most_common(1)[0][0] if len(cat_cnt) else canon_cat("LAPTOP#GENERAL", case=cat_case)
 
-    global_cat = max(cat_cnt.items(), key=lambda x: x[1])[0] if cat_cnt else "LAPTOP#GENERAL"
-
-    # pair->cat mode
+    # pair -> cat (mode)
     pair2cat = {}
     best = {}
     for (a, o, c), cnt in pair_cat_cnt.items():
@@ -181,7 +152,7 @@ def build_priors(train_stats_path: str):
     for k, (c, _) in best.items():
         pair2cat[k] = c
 
-    # asp->cat mode
+    # asp -> cat (mode)
     asp2cat = {}
     best2 = {}
     for (a, c), cnt in asp_cat_cnt.items():
@@ -190,84 +161,69 @@ def build_priors(train_stats_path: str):
     for a, (c, _) in best2.items():
         asp2cat[a] = c
 
-    # cat->va mode
-    cat2va_mode = {}
-    for c, d in cat_va_cnt.items():
-        va_mode = max(d.items(), key=lambda x: x[1])[0]
-        cat2va_mode[c] = va_mode
+    # cat -> VA (mean/median)
+    cat2va = {}
+    for c in cat_cnt.keys():
+        vs = cat_vs.get(c, [])
+        ars = cat_as.get(c, [])
+        if len(vs) == 0 or len(ars) == 0:
+            continue
+        if va_stat == "mean":
+            v = float(np.mean(vs))
+            ar = float(np.mean(ars))
+        else:
+            v = float(np.median(vs))
+            ar = float(np.median(ars))
+        # 保守 clamp（避免异常）
+        v = max(0.0, min(10.0, v))
+        ar = max(0.0, min(10.0, ar))
+        cat2va[c] = (v, ar)
 
     logger.info(
-        f"[Priors] pair2cat={len(pair2cat)} asp2cat={len(asp2cat)} token2cat={len(token2cat)} cat2va={len(cat2va_mode)} global_cat={global_cat}"
+        f"[Priors] pair2cat={len(pair2cat)} asp2cat={len(asp2cat)} cat2va={len(cat2va)} "
+        f"global_cat={global_cat} va_stat={va_stat}"
     )
-    return pair2cat, asp2cat, cat2va_mode, global_cat, asp_freq, pair_freq, token2cat
+    return pair2cat, asp2cat, cat2va, global_cat, asp_freq, op_freq, pair_freq
 
-
-def guess_cat_by_tokens(a_text: str, o_text: str, token2cat: Dict[str, Dict[str, int]], min_votes: int = 3):
+# ----------------------------
+# Pair extraction from relation heads
+# ----------------------------
+def extract_top_pairs(scores_LL, valid_pos, thr, topk, max_pair_dist=None):
     """
-    词典投票：把 aspect/opinion 的 token 映射到类别计数，选最高票
-    min_votes：过低会引入噪声，建议 3~6
-    """
-    votes = collections.Counter()
-    toks = to_tokens_lower(a_text) + to_tokens_lower(o_text)
-    for tk in toks:
-        if tk in token2cat:
-            votes.update(token2cat[tk])
-    if not votes:
-        return None
-    cat, v = votes.most_common(1)[0]
-    if v < min_votes:
-        return None
-    return cat
-
-
-# -----------------------------
-# span extraction (with rescue)
-# -----------------------------
-def extract_spans(scores_LL: torch.Tensor,
-                  valid_pos: torch.Tensor,
-                  thr: float,
-                  topk: int,
-                  max_span_len: int,
-                  rescue_top1: bool = True):
-    """
-    scores_LL: [L,L] sigmoid 后
-    return (i,j,score) desc; if none >=thr and rescue_top1=True -> return masked top1
+    scores_LL: [L,L] sigmoid后（关系头）
+    返回 (i,j,score) 按 score 降序
     """
     L = scores_LL.shape[0]
     device = scores_LL.device
 
     vp = valid_pos.to(device)
-    mask = vp[:, None].expand(L, L) & vp[None, :].expand(L, L)
+    ii = vp[:, None].expand(L, L)
+    jj = vp[None, :].expand(L, L)
+    mask = ii & jj
 
-    idx = torch.arange(L, device=device)
-    ii = idx[:, None].expand(L, L)
-    jj = idx[None, :].expand(L, L)
+    tri = torch.triu(torch.ones((L, L), device=device, dtype=torch.bool), diagonal=0)
+    mask = mask & tri
 
-    mask = mask & (jj >= ii)
-    if max_span_len and max_span_len > 0:
-        mask = mask & ((jj - ii) < max_span_len)
+    if max_pair_dist is not None and max_pair_dist > 0:
+        idx = torch.arange(L, device=device)
+        dist = (idx[None, :] - idx[:, None])  # j-i
+        mask = mask & (dist >= 0) & (dist <= max_pair_dist)
 
     flat = scores_LL.masked_fill(~mask, -1e9).view(-1)
     cand = (flat >= thr)
-
     if not cand.any():
-        if not rescue_top1:
-            return []
-        bestv, besti = torch.max(flat, dim=0)
-        if bestv.item() <= -1e8:
-            return []
-        idxs = besti.view(1)
-        vals = bestv.view(1)
-    else:
-        idxs = torch.nonzero(cand, as_tuple=False).squeeze(-1)
-        vals = flat[idxs]
-        if idxs.numel() > topk:
-            topv, topi = torch.topk(vals, k=topk, largest=True)
-            idxs = idxs[topi]
-            vals = topv
-        order = torch.argsort(vals, descending=True)
-        idxs = idxs[order]
-        vals = vals[order]
+        return []
+
+    idxs = torch.nonzero(cand, as_tuple=False).squeeze(-1)
+    vals = flat[idxs]
+    if idxs.numel() > topk:
+        topv, topi = torch.topk(vals, k=topk, largest=True)
+        idxs = idxs[topi]
+        vals = topv
+
+    order = torch.argsort(vals, descending=True)
+    idxs = idxs[order]
+    vals = vals[order]
 
     out = []
     for k in range(idxs.numel()):
@@ -277,103 +233,135 @@ def extract_spans(scores_LL: torch.Tensor,
         out.append((i, j, float(vals[k].item())))
     return out
 
-
-def dedup_terms(terms: List[dict], key_name: str = "key"):
+# ----------------------------
+# Span end search with prior bonus
+# ----------------------------
+def best_span_end(
+    tokenizer,
+    input_ids,
+    valid_pos,
+    span_mat,          # [L,L] for BA-BO or EA-EO
+    start_i: int,
+    max_span_len: int,
+    priors_freq: Counter = None,
+    priors_hit: dict = None,
+    prior_alpha: float = 0.7,
+    len_penalty: float = 0.08,
+):
     """
-    同 key 去重：保留 score 更高的；如分数相近则保留更短的 span（更像纯 aspect/opinion）
+    在 [start_i, start_i+max_span_len) 搜索 end：
+    objective = span_score + alpha*log(freq+1) - len_penalty*(len-1)
+    若 priors_hit 提供，则只有命中才给 freq 奖励（更稳健）
+    返回 (best_end, best_text, raw_span_score, best_obj, key_norm)
     """
-    best = {}
-    for t in terms:
-        k = t[key_name]
-        if k not in best:
-            best[k] = t
-        else:
-            # compare by score, then by length
-            if t["score"] > best[k]["score"] + 1e-6:
-                best[k] = t
-            elif abs(t["score"] - best[k]["score"]) <= 1e-6:
-                if t["len_w"] < best[k]["len_w"]:
-                    best[k] = t
-    return list(best.values())
+    L = span_mat.shape[0]
+    jmax = min(L - 1, start_i + max_span_len - 1)
+    best = None
 
+    for end_j in range(start_i, jmax + 1):
+        if not bool(valid_pos[end_j].item()):
+            continue
+        sc = float(span_mat[start_i, end_j].item())
+        txt = safe_decode(tokenizer, input_ids, start_i, end_j)
+        if is_bad_span(txt):
+            continue
 
-def load_model(ckpt: str, model_name: str, num_label_types: int, num_dims: int, max_len: int, device: str):
+        key = norm_key(txt)
+        freq = 0
+        if priors_freq is not None:
+            freq = int(priors_freq.get(key, 0))
+
+        hit_ok = True
+        if priors_hit is not None:
+            hit_ok = (key in priors_hit)
+
+        bonus = prior_alpha * math.log(freq + 1.0) if hit_ok else 0.0
+        length = max(1, len(txt.split()))
+        obj = sc + bonus - len_penalty * (length - 1)
+
+        if (best is None) or (obj > best[0]):
+            best = (obj, end_j, txt, sc, key)
+
+    if best is None:
+        # fallback：只取 start 自己
+        txt = safe_decode(tokenizer, input_ids, start_i, start_i)
+        key = norm_key(txt)
+        sc = float(span_mat[start_i, start_i].item())
+        return start_i, txt, sc, sc, key
+
+    _, end_j, txt, sc, key = best
+    return end_j, txt, sc, best[0], key
+
+# ----------------------------
+# Model load
+# ----------------------------
+def load_model(ckpt, model_name, num_label_types, num_dims, max_len, device):
     model = QuadrupleModel(num_label_types, num_dims, max_len, model_name).to(device)
     state = torch.load(ckpt, map_location=device)
     model.load_state_dict(state, strict=True)
     model.eval()
     return model
 
-
-# -----------------------------
-# main
-# -----------------------------
+# ----------------------------
+# Main
+# ----------------------------
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--input", required=True)
     ap.add_argument("--train_stats", required=True)
     ap.add_argument("--ckpt", required=True)
     ap.add_argument("--model_name", required=True)
-
     ap.add_argument("--max_len", type=int, default=256)
     ap.add_argument("--batch", type=int, default=8)
 
+    # span heads（BA-BO / EA-EO）
     ap.add_argument("--thr_aux", type=float, default=0.05)
     ap.add_argument("--topk_aux", type=int, default=80)
-    ap.add_argument("--max_span_len", type=int, default=16)
+    ap.add_argument("--max_span_len", type=int, default=12)
 
-    ap.add_argument("--thr_rel", type=float, default=0.55)
+    # relation heads（BA-EO-...）
+    ap.add_argument("--thr_rel", type=float, default=0.15)
     ap.add_argument("--topk_rel", type=int, default=800)
     ap.add_argument("--max_pair_dist", type=int, default=160)
 
-    ap.add_argument("--max_quads", type=int, default=4)
-    ap.add_argument("--null_thr_o", type=float, default=0.12)
+    ap.add_argument("--max_quads", type=int, default=2)
+    ap.add_argument("--null_thr_o", type=float, default=0.12)   # opinion 判空阈值（结合 rel + prior）
+    ap.add_argument("--cat_case", type=str, default="upper", choices=["upper", "lower"])
+    ap.add_argument("--va_stat", type=str, default="median", choices=["median", "mean"])
 
-    # scoring weights
-    ap.add_argument("--w_rel", type=float, default=1.0)
-    ap.add_argument("--w_a", type=float, default=0.25)
-    ap.add_argument("--w_o", type=float, default=0.25)
-    ap.add_argument("--w_dist", type=float, default=0.02)
-    ap.add_argument("--w_pf", type=float, default=0.80)
-    ap.add_argument("--w_af", type=float, default=0.35)
-    ap.add_argument("--len_pen", type=float, default=0.03)  # 每多1个词扣一点，鼓励短 span
-
-    # token vote backoff
-    ap.add_argument("--token_min_votes", type=int, default=3)
-    ap.add_argument("--token_override_global", action="store_true")  # 若 cat=global 且 token vote 有更强建议，则覆盖
-
-    ap.add_argument("--cat_case", choices=["upper", "lower"], default="upper")
+    ap.add_argument("--diag", action="store_true")
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
     logger.info(f"[Device] {device}")
 
-    pair2cat, asp2cat, cat2va_mode, global_cat, asp_freq, pair_freq, token2cat = build_priors(args.train_stats)
-    default_va = cat2va_mode.get(global_cat, "5.00#5.00")
+    pair2cat, asp2cat, cat2va, global_cat, asp_freq, op_freq, pair_freq = build_priors(
+        args.train_stats, cat_case=args.cat_case, va_stat=args.va_stat
+    )
 
     tok = AutoTokenizer.from_pretrained(args.model_name)
     ds = AcqpDataset("PredictSet", args.input, args.max_len, tok, label_pattern="sentiment_dim")
     dl = torch.utils.data.DataLoader(ds, batch_size=args.batch, shuffle=False, collate_fn=collate_fn)
 
-    H_ASP = ds.label_types.index("BA-BO")
-    H_OPN = ds.label_types.index("EA-EO")
+    # heads
+    AC = ds.label_types.index("BA-BO")
+    EO = ds.label_types.index("EA-EO")
     rel_heads = [i for i, nm in enumerate(ds.label_types) if nm not in ["BA-BO", "EA-EO"]]
 
     model = load_model(args.ckpt, args.model_name, len(ds.label_types), len(ds.dimension2id), args.max_len, device)
 
-    # diag
-    total_quads = 0
-    global_cnt = 0
-    null_a_cnt = 0
-    null_o_cnt = 0
-    asp_hit = 0
-    pair_hit = 0
-    token_used = 0
-    cat_counter = collections.Counter()
-
     preds = []
     base = 0
+
+    # diagnostics
+    diag_total_quads = 0
+    diag_global = 0
+    diag_null_a = 0
+    diag_null_o = 0
+    diag_asp_hit = 0
+    diag_pair_hit = 0
+    diag_cat = Counter()
 
     for batch in tqdm(dl, desc="Predict", ncols=90):
         for k in batch:
@@ -392,198 +380,166 @@ def main():
             input_ids = batch["input_ids"][bi]
             attn = batch["attention_mask"][bi].bool()
 
+            # valid positions: attn=1 & not special
             valid_pos = attn.clone()
             specials = torch.tensor([tok.cls_token_id, tok.sep_token_id, tok.pad_token_id], device=input_ids.device)
             is_special = (input_ids[..., None] == specials[None, ...]).any(dim=-1)
             valid_pos = valid_pos & (~is_special)
 
-            # 1) extract spans with rescue
-            a_spans = extract_spans(mat[bi, H_ASP], valid_pos, args.thr_aux, args.topk_aux, args.max_span_len, rescue_top1=True)
-            o_spans = extract_spans(mat[bi, H_OPN], valid_pos, args.thr_aux, args.topk_aux, args.max_span_len, rescue_top1=True)
+            # ----- 1) relation heads 提名 pairs
+            pair_map = {}  # (i,j) -> best_rel_score
+            for h in rel_heads:
+                pairs = extract_top_pairs(
+                    mat[bi, h],
+                    valid_pos,
+                    thr=args.thr_rel,
+                    topk=args.topk_rel,
+                    max_pair_dist=args.max_pair_dist,
+                )
+                for (i, j, sc) in pairs:
+                    key = (i, j)
+                    if (key not in pair_map) or (sc > pair_map[key]):
+                        pair_map[key] = sc
 
-            aspects = []
-            for (ai, aj, sc) in a_spans:
-                t = safe_decode(tok, input_ids, ai, aj)
-                if is_bad_span(t):
-                    continue
-                len_w = max(1, len(t.split()))
-                score = sc - args.len_pen * (len_w - 1)
-                akey = norm_key(t)
-                score = score + args.w_af * math.log(asp_freq.get(akey, 0) + 1.0)
-                aspects.append({"bi": ai, "bj": aj, "raw_sc": sc, "score": score, "text": t, "key": akey, "len_w": len_w})
+            pair_cands = [(sc, i, j) for (i, j), sc in pair_map.items()]
+            pair_cands.sort(key=lambda x: x[0], reverse=True)
 
-            opinions = []
-            for (oi, oj, sc) in o_spans:
-                t = safe_decode(tok, input_ids, oi, oj)
-                if is_bad_span(t):
-                    continue
-                len_w = max(1, len(t.split()))
-                score = sc - args.len_pen * (len_w - 1)
-                okey = norm_key(t)
-                opinions.append({"ei": oi, "ej": oj, "raw_sc": sc, "score": score, "text": t, "key": okey, "len_w": len_w})
-
-            aspects = dedup_terms(aspects, "key")
-            opinions = dedup_terms(opinions, "key")
-
-            aspects.sort(key=lambda x: x["score"], reverse=True)
-            opinions.sort(key=lambda x: x["score"], reverse=True)
-
-            # 永远加入一个 null opinion 候选，便于出“有类别的 null”
-            opinions.append({"ei": -1, "ej": -1, "raw_sc": 0.0, "score": 0.0, "text": "null", "key": "null", "len_w": 1})
-
-            # 如果 aspect 真的一个都没抽出来（极少），做硬兜底
-            if len(aspects) == 0:
-                quads = [{"Aspect": "null", "Category": cat_out(global_cat, args.cat_case), "Opinion": "null", "VA": default_va}]
-                preds.append({"ID": sid, "Quadruplet": quads})
-                total_quads += 1
-                global_cnt += 1
-                null_a_cnt += 1
-                null_o_cnt += 1
-                cat_counter[global_cat] += 1
-                continue
-
-            # 截断候选数量，控复杂度
-            aspects = aspects[: min(len(aspects), max(20, args.max_quads * 8))]
-            opinions_real = [o for o in opinions if o["key"] != "null"][: min(40, args.max_quads * 12)]
-            has_real_op = len(opinions_real) > 0
-
-            pair_scores = []
-
-            # 2) relation pairing（只对 real opinions）
-            if has_real_op:
-                ba = torch.tensor([a["bi"] for a in aspects], device=device, dtype=torch.long)
-                eo = torch.tensor([o["ej"] for o in opinions_real], device=device, dtype=torch.long)
-
-                rel_stack = mat[bi, rel_heads]  # [H,L,L]
-                rel_vals = rel_stack[:, ba[:, None], eo[None, :]]  # [H,na,no]
-                rel_max, rel_arg = rel_vals.max(dim=0)             # [na,no]
-
-                if args.max_pair_dist and args.max_pair_dist > 0:
-                    dist = (ba[:, None] - eo[None, :]).abs()
-                    rel_max = rel_max.masked_fill(dist >= args.max_pair_dist, -1e9)
-
-                a_sc = torch.tensor([a["score"] for a in aspects], device=device).view(-1, 1)
-                o_sc = torch.tensor([o["score"] for o in opinions_real], device=device).view(1, -1)
-                distf = (ba[:, None] - eo[None, :]).abs().float()
-
-                comb = args.w_rel * rel_max + args.w_a * a_sc + args.w_o * o_sc - args.w_dist * distf
-                comb = comb.masked_fill(rel_max < args.thr_rel, -1e9)
-
-                flat = comb.view(-1)
-                if (flat > -1e8).any():
-                    k = min(args.topk_rel, flat.numel())
-                    topv, topi = torch.topk(flat, k=k, largest=True)
-                    for vv, pp in zip(topv.tolist(), topi.tolist()):
-                        if vv <= -1e8:
-                            break
-                        ia = pp // len(opinions_real)
-                        io = pp % len(opinions_real)
-                        r = float(rel_max[ia, io].item())
-                        pair_scores.append((float(vv), ia, io, r))
-
-            # 3) add null-opinion pairs（保证有输出，且能用 asp2cat/token2cat 决类目）
-            null_idx = len(opinions_real)  # 虚拟索引
-            for ia, a in enumerate(aspects):
-                # null pair score：主要看 aspect
-                vv = a["score"]
-                pair_scores.append((vv, ia, null_idx, 0.0))
-
-            pair_scores.sort(key=lambda x: x[0], reverse=True)
-
-            used = set()
             quads = []
+            used = set()
 
-            for (vv, ia, io, relv) in pair_scores:
+            # ----- 2) 对每个 pair：局部搜索 best aspect/opinion end（带 prior bonus）
+            for (rel_sc, i, j) in pair_cands:
                 if len(quads) >= args.max_quads:
                     break
 
-                a = aspects[ia]
-                a_text, a_key = a["text"], a["key"]
+                # aspect end search
+                ac_mat = mat[bi, AC]  # [L,L]
+                # 将无效位置 mask 掉
+                mask_2d = (valid_pos[:, None] & valid_pos[None, :])
+                ac_mat_m = ac_mat.masked_fill(~mask_2d, -1e9)
 
-                if io == null_idx:
-                    o_text, o_key, o_raw_sc = "null", "null", 0.0
-                else:
-                    o = opinions_real[io]
-                    o_text, o_key, o_raw_sc = o["text"], o["key"], o["raw_sc"]
+                a_end, a_text, a_span_sc, a_obj, a_key = best_span_end(
+                    tok, input_ids, valid_pos, ac_mat_m, i, args.max_span_len,
+                    priors_freq=asp_freq, priors_hit=asp2cat, prior_alpha=0.9, len_penalty=0.10
+                )
+                if is_bad_span(a_text) or a_key == "null":
+                    continue
 
-                # opinion null gate（只对 real opinion）
-                if o_key != "null":
-                    pf = pair_freq.get((a_key, o_key), 0)
-                    if (o_raw_sc < args.null_thr_o) and (pf == 0):
-                        o_text, o_key = "null", "null"
+                # opinion end search
+                eo_mat = mat[bi, EO]
+                eo_mat_m = eo_mat.masked_fill(~mask_2d, -1e9)
 
-                # 4) category mapping：pair->asp->token_vote->global
-                cat = None
-                if o_key != "null":
-                    cat = pair2cat.get((a_key, o_key))
-                    if cat is not None:
-                        pair_hit += 1
+                o_end, o_text, o_span_sc, o_obj, o_key = best_span_end(
+                    tok, input_ids, valid_pos, eo_mat_m, j, args.max_span_len,
+                    priors_freq=op_freq, priors_hit=None, prior_alpha=0.4, len_penalty=0.08
+                )
+                if is_bad_span(o_text):
+                    o_text = "null"
+                    o_key = "null"
 
+                # opinion 判空：rel 低 + pair 未见过 + opinion span 低
+                pf = int(pair_freq.get((a_key, o_key), 0))
+                if (o_key != "null") and (rel_sc < args.null_thr_o) and (pf == 0) and (o_span_sc < args.thr_aux):
+                    o_text = "null"
+                    o_key = "null"
+
+                # category：pair -> asp -> global
+                cat = pair2cat.get((a_key, o_key))
                 if cat is None:
                     cat = asp2cat.get(a_key)
-                    if cat is not None:
-                        asp_hit += 1
-
-                if cat is None:
-                    g = guess_cat_by_tokens(a_text, "" if o_key == "null" else o_text, token2cat, min_votes=args.token_min_votes)
-                    if g is not None:
-                        cat = g
-                        token_used += 1
-
                 if cat is None:
                     cat = global_cat
 
-                # 可选：若最终仍是 global，但 token vote 很确定，则覆盖
-                if args.token_override_global and cat == global_cat:
-                    g = guess_cat_by_tokens(a_text, "" if o_key == "null" else o_text, token2cat, min_votes=max(args.token_min_votes, 5))
-                    if g is not None and g != global_cat:
-                        cat = g
-                        token_used += 1
+                # VA：cat 的 mean/median
+                if cat in cat2va:
+                    v, ar = cat2va[cat]
+                    va = f"{v:.2f}#{ar:.2f}"
+                else:
+                    va = "5.00#5.00"
 
-                va = cat2va_mode.get(cat, default_va)
-
-                key = (a_key, o_key, cat)
-                if key in used:
+                tup = (a_key, o_key, cat)
+                if tup in used:
                     continue
-                used.add(key)
+                used.add(tup)
 
                 quads.append({
-                    "Aspect": clean_ws(a_text) if a_key != "null" else "null",
-                    "Category": cat_out(cat, args.cat_case),
+                    "Aspect": clean_ws(a_text),
+                    "Category": cat,
                     "Opinion": "null" if o_key == "null" else clean_ws(o_text),
                     "VA": va
                 })
 
+            # ----- 3) 没有 pair：退化输出一个最可信 aspect（仍走 end 搜索 + asp2cat）
             if len(quads) == 0:
-                quads = [{"Aspect": "null", "Category": cat_out(global_cat, args.cat_case), "Opinion": "null", "VA": default_va}]
+                ac_mat = mat[bi, AC]
+                mask_2d = (valid_pos[:, None] & valid_pos[None, :])
+                ac_mat_m = ac_mat.masked_fill(~mask_2d, -1e9)
+                flat = ac_mat_m.view(-1)
+                p = int(torch.argmax(flat).item())
+                ai = p // L
+                aj = p % L
+                if aj < ai:
+                    aj = ai
+                # 用 ai 作为 start，再用 V3 的 end 搜索（带 prior）
+                a_end, a_text, a_span_sc, a_obj, a_key = best_span_end(
+                    tok, input_ids, valid_pos, ac_mat_m, ai, args.max_span_len,
+                    priors_freq=asp_freq, priors_hit=asp2cat, prior_alpha=0.9, len_penalty=0.10
+                )
+                if is_bad_span(a_text):
+                    a_text = "null"
+                    a_key = "null"
+
+                cat = asp2cat.get(a_key, global_cat)
+                if cat in cat2va:
+                    v, ar = cat2va[cat]
+                    va = f"{v:.2f}#{ar:.2f}"
+                else:
+                    va = "5.00#5.00"
+
+                quads = [{
+                    "Aspect": clean_ws(a_text),
+                    "Category": cat,
+                    "Opinion": "null",
+                    "VA": va
+                }]
 
             preds.append({"ID": sid, "Quadruplet": quads})
 
-            # diag update
-            for q in quads:
-                total_quads += 1
-                cat_u = q["Category"].upper() if args.cat_case == "lower" else q["Category"]
-                cat_counter[cat_u] += 1
-                if cat_u == global_cat:
-                    global_cnt += 1
-                if q["Aspect"] == "null":
-                    null_a_cnt += 1
-                if q["Opinion"] == "null":
-                    null_o_cnt += 1
+            # ----- diag
+            if args.diag:
+                for q in quads:
+                    diag_total_quads += 1
+                    cat = q.get("Category", "")
+                    diag_cat[cat] += 1
+                    if cat == global_cat:
+                        diag_global += 1
+                    a = norm_key(q.get("Aspect", "null"))
+                    o = norm_key(q.get("Opinion", "null"))
+                    if a == "null":
+                        diag_null_a += 1
+                    if o == "null":
+                        diag_null_o += 1
+                    if a in asp2cat:
+                        diag_asp_hit += 1
+                    if (a, o) in pair2cat:
+                        diag_pair_hit += 1
 
         base += B
 
     os.makedirs(os.path.dirname(args.output) or ".", exist_ok=True)
     write_jsonl(args.output, preds)
-
     logger.success(f"Saved -> {args.output}")
-    if total_quads > 0:
-        logger.info(
-            f"[Diag] total_quads={total_quads}  global_rate={global_cnt/total_quads:.3f}  null_aspect_rate={null_a_cnt/total_quads:.3f}  null_opinion_rate={null_o_cnt/total_quads:.3f}"
-        )
-        logger.info(f"[Diag] asp_hit={asp_hit} pair_hit={pair_hit} token_used={token_used}")
-        logger.info(f"[Diag] top10_cats={cat_counter.most_common(10)}")
 
+    if args.diag and diag_total_quads > 0:
+        global_rate = diag_global / diag_total_quads
+        null_a_rate = diag_null_a / diag_total_quads
+        null_o_rate = diag_null_o / diag_total_quads
+        logger.info(
+            f"[Diag] total_quads={diag_total_quads}  global_rate={global_rate:.3f}  "
+            f"null_aspect_rate={null_a_rate:.3f}  null_opinion_rate={null_o_rate:.3f}"
+        )
+        logger.info(f"[Diag] asp_hit={diag_asp_hit} pair_hit={diag_pair_hit}")
+        logger.info(f"[Diag] top10_cats={diag_cat.most_common(10)}")
 
 if __name__ == "__main__":
     main()
