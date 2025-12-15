@@ -1,349 +1,309 @@
 # -*- coding: utf-8 -*-
-"""
-SemEval-2026 Task 3 (DimABSA) Dataset (Fixed Alignment Version)
-- 直接基于 Text 编码（add_special_tokens=True, offsets_mapping）
-- 标签矩阵与 input_ids 的 token index 严格对齐（不再使用历史 +2/+1 偏移）
-- 隐式 Aspect/Opinion 使用 CLS 位置 (index=0) 表示
-"""
-
 import json
-import re
-from typing import List, Dict, Any, Optional, Tuple
+import math
+from typing import List, Dict, Any, Tuple, Optional
+from collections import defaultdict
 
-import numpy as np
-import pandas as pd
 import torch
 from torch.utils.data import Dataset
+import pandas as pd
 from loguru import logger
 
 
-# =========================
-#  VA -> sentiment / dimension (仅作为辅助标签/通道)
-# =========================
-def _va_to_sentiment(valence: float) -> str:
-    if valence >= 6.0:
+NULL_STR = "null"
+
+
+def read_jsonl(path: str) -> List[Dict[str, Any]]:
+    rows = []
+    with open(path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line:
+                rows.append(json.loads(line))
+    return rows
+
+
+def clean_ws(s: str) -> str:
+    return " ".join(str(s).strip().split()) if s is not None else ""
+
+
+def parse_va(va_str: str) -> Optional[Tuple[float, float]]:
+    try:
+        a, b = str(va_str).split("#")
+        return float(a), float(b)
+    except Exception:
+        return None
+
+
+def va_to_sentiment(v: float) -> str:
+    # 与你 predict.py 内保持一致
+    if v >= 6.0:
         return "positive"
-    elif valence <= 4.0:
+    elif v <= 4.0:
         return "negative"
     else:
         return "neutral"
 
 
-def _va_to_dimension(arousal: float) -> str:
-    # 这里是你原来的简化映射（只是辅助），后续你会改成真正可学习的 Category/VA
-    if arousal >= 6.0:
+def va_to_dimension(a: float) -> str:
+    if a >= 6.0:
         return "performance"
-    elif arousal <= 4.0:
+    elif a <= 4.0:
         return "usability"
     else:
         return "quality"
 
 
-def parse_quadruplet(q: Dict[str, Any]) -> Dict[str, Any]:
+def _build_label_types(label_pattern: str) -> List[str]:
     """
-    输入：{"Aspect": "...", "Category":"DOMAIN#ATTR", "Opinion":"...", "VA":"7.12#7.12"}
-    输出：标准化 dict（同时附加 sentiment/dimension）
+    raw:           ["BA-BO","EA-EO","BA-EO"]
+    sentiment:     ["BA-BO","EA-EO","BA-EO-negative","BA-EO-neutral","BA-EO-positive"]
+    sentiment_dim: ["BA-BO","EA-EO"] + 3dims*3sents
     """
-    aspect = q.get("Aspect", "NULL")
-    category = q.get("Category", "NULL")
-    opinion = q.get("Opinion", "NULL")
-    va = q.get("VA", "5.00#5.00")
+    if label_pattern == "raw":
+        return ["BA-BO", "EA-EO", "BA-EO"]
+    if label_pattern == "sentiment":
+        return ["BA-BO", "EA-EO", "BA-EO-negative", "BA-EO-neutral", "BA-EO-positive"]
+    if label_pattern == "sentiment_dim":
+        dims = ["usability", "quality", "performance"]
+        sents = ["negative", "neutral", "positive"]
+        heads = ["BA-BO", "EA-EO"]
+        for d in dims:
+            for s in sents:
+                heads.append(f"BA-EO-{d}-{s}")
+        return heads
+    raise ValueError(f"Unknown label_pattern={label_pattern}")
 
-    try:
-        v, a = map(float, va.split("#"))
-    except Exception:
-        v, a = 5.0, 5.0
 
-    sentiment = _va_to_sentiment(v)
-    dimension = _va_to_dimension(a)
+def _find_sublist(haystack: List[int], needle: List[int], start_from: int = 0) -> Optional[int]:
+    """返回 needle 在 haystack 的起始 index；找不到返回 None"""
+    if not needle:
+        return None
+    n = len(needle)
+    H = len(haystack)
+    for i in range(start_from, H - n + 1):
+        if haystack[i:i + n] == needle:
+            return i
+    return None
 
-    return {
-        "aspect": aspect,
-        "category": category,
-        "opinion": opinion,
-        "va": f"{v:.2f}#{a:.2f}",
-        "sentiment": sentiment,
-        "dimension": dimension,
-    }
+
+def _find_span_by_token_ids(input_ids: List[int], needle_ids: List[int], search_from: int = 1) -> Optional[Tuple[int, int]]:
+    """在 input_ids 中找连续子串 needle_ids"""
+    st = _find_sublist(input_ids, needle_ids, start_from=search_from)
+    if st is None:
+        return None
+    return st, st + len(needle_ids) - 1
+
+
+def _locate_phrase(tokenizer, input_ids: List[int], phrase: str) -> Optional[Tuple[int, int]]:
+    """
+    优先使用 token id 子串匹配，避免 char offset 的坑。
+    phrase 为空/NULL -> None（交给上层映射到 CLS）
+    """
+    phrase = clean_ws(phrase)
+    if not phrase or phrase.lower() in {"null", "none"}:
+        return None
+
+    # 1) 直接 encode
+    ids1 = tokenizer.encode(phrase, add_special_tokens=False)
+    sp = _find_span_by_token_ids(input_ids, ids1, search_from=1)
+    if sp is not None:
+        return sp
+
+    # 2) 前面加空格再 encode（对 sentencepiece/roberta 类常见）
+    ids2 = tokenizer.encode(" " + phrase, add_special_tokens=False)
+    sp = _find_span_by_token_ids(input_ids, ids2, search_from=1)
+    if sp is not None:
+        return sp
+
+    # 3) 低风险兜底：小写再试一次（有些 tokenizer 会受大小写影响）
+    ids3 = tokenizer.encode(phrase.lower(), add_special_tokens=False)
+    sp = _find_span_by_token_ids(input_ids, ids3, search_from=1)
+    if sp is not None:
+        return sp
+
+    return None
 
 
 class AcqpDataset(Dataset):
     """
-    输出契约（兼容你现有 model.py / train.py）：
-    - input_ids / token_type_ids / attention_mask
-    - matrix_ids / dimension_ids / dimension_sequences / sentiment_sequences
+    输出字段：
+      input_ids, token_type_ids, attention_mask
+      matrix_ids: [C,L,L] float
+      dimension_ids: [D] float (multi-hot)
+      boundary labels: a_start_ids/a_end_ids/o_start_ids/o_end_ids: [L] float
     """
 
     def __init__(
         self,
-        task_domain: str,
-        data_path: str,
-        max_seq_len: int,
+        name: str,
+        jsonl_path: str,
+        max_len: int,
         tokenizer,
         label_pattern: str = "sentiment_dim",
-        **kwargs
+        keep_cls_as_null: bool = True,
     ):
-        self.task_domain = task_domain
-        self.data_path = data_path
-        self.max_seq_len = max_seq_len
+        super().__init__()
+        self.name = name
+        self.path = jsonl_path
+        self.max_len = int(max_len)
         self.tokenizer = tokenizer
         self.label_pattern = label_pattern
+        self.keep_cls_as_null = keep_cls_as_null
 
-        if not getattr(self.tokenizer, "is_fast", False):
-            raise RuntimeError(
-                "This dataset implementation requires a FAST tokenizer (offset_mapping). "
-                "Please use AutoTokenizer(..., use_fast=True)."
-            )
+        self.label_types = _build_label_types(label_pattern)
+        self.label2id = {x: i for i, x in enumerate(self.label_types)}
 
-        # 辅助标签空间（你当前版本用于 BA-EO-{dim}-{sent} 通道）
-        self.sentiment2id = {"negative": 0, "neutral": 1, "positive": 2}
-        self.id2sentiment = {v: k for k, v in self.sentiment2id.items()}
+        # 固定维度/情感空间（与你 predict 的 va_to_* 一致）
+        self.dimensions = ["usability", "quality", "performance"]
+        self.sentiments = ["negative", "neutral", "positive"]
+        self.dimension2id = {d: i for i, d in enumerate(self.dimensions)}
+        self.sentiment2id = {s: i for i, s in enumerate(self.sentiments)}
 
-        self.dimension2id = {"usability": 0, "quality": 1, "performance": 2}
-        self.id2dimension = {v: k for k, v in self.dimension2id.items()}
-        self.num_dimension_types = len(self.dimension2id)
+        rows = read_jsonl(jsonl_path)
 
-        self.label_types = self.get_label_types()
-        self.num_label_types = len(self.label_types)
+        # 兼容字段命名
+        items = []
+        for r in rows:
+            _id = r.get("ID") or r.get("id") or r.get("Id")
+            _text = r.get("Text") or r.get("text") or ""
+            qs = r.get("Quadruplet") or r.get("Quadruplets") or r.get("quadruplets") or []
+            items.append({"id": _id, "text": _text, "quads": qs})
 
-        self.df_raw = self._read_jsonl(self.data_path)
-        self.df = self._build_encoded_df(self.df_raw)
-
+        self.df = pd.DataFrame(items)
         logger.info(
-            f"[Dataset Ready] samples={len(self.df)} "
-            f"label_pattern={self.label_pattern} "
-            f"num_label_types={self.num_label_types} "
-            f"dimensions={list(self.dimension2id.keys())} "
-            f"sentiments={list(self.sentiment2id.keys())}"
+            f"[Dataset Ready] samples={len(self.df)} label_pattern={self.label_pattern} "
+            f"num_label_types={len(self.label_types)} dimensions={self.dimensions} sentiments={self.sentiments}"
         )
 
-    def get_label_types(self) -> List[str]:
-        label_types = ["BA-BO", "EA-EO"]
-        if self.label_pattern == "raw":
-            label_types.append("BA-EO")
-        elif self.label_pattern == "sentiment":
-            for s in self.sentiment2id.keys():
-                label_types.append(f"BA-EO-{s}")
-        else:
-            for dim in self.dimension2id.keys():
-                for s in self.sentiment2id.keys():
-                    label_types.append(f"BA-EO-{dim}-{s}")
-        return label_types
-
-    def _read_jsonl(self, path: str) -> pd.DataFrame:
-        rows = []
-        with open(path, "r", encoding="utf-8") as f:
-            for i, line in enumerate(f):
-                line = line.strip()
-                if not line:
-                    continue
-                j = json.loads(line)
-
-                text = j.get("Text") or j.get("text") or ""
-                sid = j.get("ID") or j.get("id") or f"sample_{i}"
-
-                quads = j.get("Quadruplet") or j.get("quadruplet") or []
-                parsed = [parse_quadruplet(q) for q in quads]
-
-                rows.append({"id": sid, "text": text, "quads": parsed})
-
-        df = pd.DataFrame(rows)
-        df["Text_Id"] = np.arange(len(df))
-        logger.info(f"[Load JSONL] {path} -> {len(df)} rows")
-        return df
-
-    @staticmethod
-    def _find_first_span(text: str, phrase: str) -> Optional[Tuple[int, int]]:
-        """
-        找 phrase 在 text 的第一个出现区间 [start, end)
-        phrase 为 NULL 或空返回 None
-        """
-        if not phrase or phrase == "NULL":
-            return None
-        p = phrase.strip("` ").strip()
-        if not p:
-            return None
-        m = re.search(re.escape(p), text, flags=re.IGNORECASE)
-        if not m:
-            return None
-        return m.start(), m.end()
-
-    @staticmethod
-    def _char_to_token_index(offsets: List[Tuple[int, int]], char_pos: int) -> Optional[int]:
-        """
-        给定 char_pos，找到包含它的 token index（跳过 special token 的 (0,0) offset）
-        """
-        for ti, (s, e) in enumerate(offsets):
-            if s == 0 and e == 0:
-                continue
-            if s <= char_pos < e:
-                return ti
-        return None
-
-    def _span_to_token_span(
-        self, offsets: List[Tuple[int, int]], char_span: Optional[Tuple[int, int]]
-    ) -> Optional[Tuple[int, int]]:
-        """
-        char_span [c_start, c_end) -> token span [t_start, t_end] (inclusive)
-        """
-        if char_span is None:
-            return None
-        c_start, c_end = char_span
-        if c_end <= c_start:
-            return None
-
-        t_start = self._char_to_token_index(offsets, c_start)
-        t_end = self._char_to_token_index(offsets, c_end - 1)
-        if t_start is None or t_end is None:
-            return None
-        if t_end < t_start:
-            return None
-        return t_start, t_end
-
-    def _build_encoded_df(self, df_raw: pd.DataFrame) -> pd.DataFrame:
-        """
-        把每条样本 encode 并构造 new_answer（token index 形式）
-        """
-        records = []
-        for _, row in df_raw.iterrows():
-            text = row["text"]
-            sid = row["id"]
-            quads = row["quads"]
-
-            enc = self.tokenizer(
-                text,
-                add_special_tokens=True,
-                max_length=self.max_seq_len,
-                truncation=True,
-                padding="max_length",
-                return_offsets_mapping=True,
-                return_attention_mask=True,
-                return_token_type_ids=True,
-            )
-
-            input_ids = enc["input_ids"]
-            token_type_ids = enc.get("token_type_ids", [0] * len(input_ids))
-            attention_mask = enc["attention_mask"]
-            offsets = enc["offset_mapping"]
-
-            # new_answer: list of dict
-            new_answer = []
-            for q in quads:
-                aspect = q["aspect"]
-                opinion = q["opinion"]
-                sent = q["sentiment"]
-                dim = q["dimension"]
-
-                a_char = self._find_first_span(text, aspect)
-                o_char = self._find_first_span(text, opinion)
-
-                # 隐式用 CLS=0
-                if a_char is None:
-                    a_span = (0, 0)
-                else:
-                    a_span = self._span_to_token_span(offsets, a_char)
-                    if a_span is None:
-                        # 超出截断窗口/无法对齐：跳过该标签，避免训练噪声
-                        continue
-
-                if o_char is None:
-                    o_span = (0, 0)
-                else:
-                    o_span = self._span_to_token_span(offsets, o_char)
-                    if o_span is None:
-                        continue
-
-                new_answer.append(
-                    {
-                        "a_start": int(a_span[0]),
-                        "a_end": int(a_span[1]),
-                        "o_start": int(o_span[0]),
-                        "o_end": int(o_span[1]),
-                        "sent_id": int(self.sentiment2id.get(sent, 1)),
-                        "dim_key": dim if dim in self.dimension2id else "quality",
-                    }
-                )
-
-            records.append(
-                {
-                    "id": sid,
-                    "text": text,
-                    "input_ids": input_ids,
-                    "token_type_ids": token_type_ids,
-                    "attention_mask": attention_mask,
-                    "offsets": offsets,
-                    "new_answer": new_answer,
-                }
-            )
-
-        return pd.DataFrame(records)
-
-    def __len__(self) -> int:
+    def __len__(self):
         return len(self.df)
 
-    def __getitem__(self, index: int) -> Dict[str, torch.Tensor]:
-        row = self.df.iloc[index]
-        answers: List[Dict[str, Any]] = row["new_answer"]
+    def _make_empty(self):
+        C = len(self.label_types)
+        L = self.max_len
+        D = len(self.dimension2id)
+        matrix = torch.zeros((C, L, L), dtype=torch.float32)
+        dim_ids = torch.zeros((D,), dtype=torch.float32)
+        a_s = torch.zeros((L,), dtype=torch.float32)
+        a_e = torch.zeros((L,), dtype=torch.float32)
+        o_s = torch.zeros((L,), dtype=torch.float32)
+        o_e = torch.zeros((L,), dtype=torch.float32)
+        return matrix, dim_ids, a_s, a_e, o_s, o_e
 
-        input_ids = torch.tensor(row["input_ids"], dtype=torch.long)
-        token_type_ids = torch.tensor(row["token_type_ids"], dtype=torch.long)
-        attention_mask = torch.tensor(row["attention_mask"], dtype=torch.long)
+    def __getitem__(self, idx: int) -> Dict[str, torch.Tensor]:
+        row = self.df.iloc[idx]
+        text = clean_ws(row["text"])
+        quads = row["quads"] or []
 
-        matrix_ids = torch.zeros((self.num_label_types, self.max_seq_len, self.max_seq_len), dtype=torch.float32)
-        dimension_ids = torch.zeros(self.num_dimension_types, dtype=torch.float32)
-        dimension_sequences = torch.zeros((self.num_dimension_types, self.max_seq_len), dtype=torch.float32)
-        sentiment_sequences = torch.zeros((3, self.max_seq_len), dtype=torch.float32)
+        enc = self.tokenizer(
+            text,
+            truncation=True,
+            max_length=self.max_len,
+            padding="max_length",
+            return_tensors=None,
+            return_attention_mask=True,
+        )
+        input_ids = enc["input_ids"]
+        attn = enc["attention_mask"]
+        token_type_ids = enc.get("token_type_ids", [0] * len(input_ids))
 
-        for a in answers:
-            a_start, a_end = a["a_start"], a["a_end"]
-            o_start, o_end = a["o_start"], a["o_end"]
-            sent_id = a["sent_id"]
-            dim_key = a["dim_key"]
+        # torch 化
+        input_ids_t = torch.tensor(input_ids, dtype=torch.long)
+        attn_t = torch.tensor(attn, dtype=torch.long)
+        token_type_ids_t = torch.tensor(token_type_ids, dtype=torch.long)
 
-            if self.label_pattern == "raw":
-                query = "BA-EO"
-            elif self.label_pattern == "sentiment":
-                query = f"BA-EO-{self.id2sentiment[sent_id]}"
+        matrix, dim_ids, a_s, a_e, o_s, o_e = self._make_empty()
+
+        # CLS 作为 NULL
+        null_pos = (0, 0) if self.keep_cls_as_null else None
+
+        # 收集每条 quad -> span
+        for q in quads:
+            asp = q.get("Aspect", NULL_STR)
+            opi = q.get("Opinion", NULL_STR)
+            cat = q.get("Category", "LAPTOP#GENERAL")
+            va = q.get("VA", "5.00#5.00")
+
+            asp = clean_ws(asp)
+            opi = clean_ws(opi)
+
+            # span locate
+            asp_span = _locate_phrase(self.tokenizer, input_ids, asp)
+            opi_span = _locate_phrase(self.tokenizer, input_ids, opi)
+
+            if asp_span is None:
+                if null_pos is None:
+                    continue
+                a_st, a_ed = null_pos
             else:
-                query = f"BA-EO-{dim_key}-{self.id2sentiment[sent_id]}"
+                a_st, a_ed = asp_span
 
-            # 防越界
-            if a_start >= self.max_seq_len or a_end >= self.max_seq_len or o_start >= self.max_seq_len or o_end >= self.max_seq_len:
-                continue
+            if opi_span is None:
+                if null_pos is None:
+                    continue
+                o_st, o_ed = null_pos
+            else:
+                o_st, o_ed = opi_span
 
-            # 关系点（按照你原先 head 语义）
-            matrix_ids[self.label_types.index("BA-BO"), a_start, o_start] = 1.0
-            matrix_ids[self.label_types.index("EA-EO"), a_end, o_end] = 1.0
-            matrix_ids[self.label_types.index(query), a_start, o_end] = 1.0
+            # 边界监督（span 正则用）
+            a_s[a_st] = 1.0
+            a_e[a_ed] = 1.0
+            o_s[o_st] = 1.0
+            o_e[o_ed] = 1.0
 
-            # 序列辅助
-            if a_start != 0 and a_end != 0 and a_end >= a_start:
-                dimension_sequences[self.dimension2id[dim_key], a_start : a_end + 1] = 1.0
-                sentiment_sequences[sent_id, a_start : a_end + 1] = 1.0
-            if o_start != 0 and o_end != 0 and o_end >= o_start:
-                dimension_sequences[self.dimension2id[dim_key], o_start : o_end + 1] = 1.0
-                sentiment_sequences[sent_id, o_start : o_end + 1] = 1.0
+            # 维度多标签
+            xy = parse_va(va)
+            if xy is not None:
+                v, ar = xy
+                dim = va_to_dimension(ar)
+                if dim in self.dimension2id:
+                    dim_ids[self.dimension2id[dim]] = 1.0
 
-            dimension_ids[self.dimension2id[dim_key]] = 1.0
+            # heads 标注
+            # BA-BO: (a_start, o_start)
+            matrix[self.label2id["BA-BO"], a_st, o_st] = 1.0
+            # EA-EO: (a_end, o_end)
+            matrix[self.label2id["EA-EO"], a_ed, o_ed] = 1.0
+
+            # relation: (a_start, o_end)
+            if self.label_pattern == "raw":
+                matrix[self.label2id["BA-EO"], a_st, o_ed] = 1.0
+            elif self.label_pattern == "sentiment":
+                # 从 VA 推 sent
+                sent = "neutral"
+                if xy is not None:
+                    sent = va_to_sentiment(xy[0])
+                head = f"BA-EO-{sent}"
+                if head in self.label2id:
+                    matrix[self.label2id[head], a_st, o_ed] = 1.0
+            else:
+                # sentiment_dim
+                dim = "quality"
+                sent = "neutral"
+                if xy is not None:
+                    sent = va_to_sentiment(xy[0])
+                    dim = va_to_dimension(xy[1])
+                head = f"BA-EO-{dim}-{sent}"
+                if head in self.label2id:
+                    matrix[self.label2id[head], a_st, o_ed] = 1.0
 
         return {
-            "input_ids": input_ids,
-            "token_type_ids": token_type_ids,
-            "attention_mask": attention_mask,
-            "matrix_ids": matrix_ids,
-            "dimension_ids": dimension_ids,
-            "dimension_sequences": dimension_sequences,
-            "sentiment_sequences": sentiment_sequences,
+            "input_ids": input_ids_t,
+            "token_type_ids": token_type_ids_t,
+            "attention_mask": attn_t,
+            "matrix_ids": matrix,
+            "dimension_ids": dim_ids,
+            "a_start_ids": a_s,
+            "a_end_ids": a_e,
+            "o_start_ids": o_s,
+            "o_end_ids": o_e,
         }
 
 
 def collate_fn(batch: List[Dict[str, torch.Tensor]]) -> Dict[str, torch.Tensor]:
-    return {
-        "input_ids": torch.stack([x["input_ids"] for x in batch]),
-        "token_type_ids": torch.stack([x["token_type_ids"] for x in batch]),
-        "attention_mask": torch.stack([x["attention_mask"] for x in batch]),
-        "matrix_ids": torch.stack([x["matrix_ids"] for x in batch]),
-        "dimension_ids": torch.stack([x["dimension_ids"] for x in batch]),
-        "dimension_sequences": torch.stack([x["dimension_sequences"] for x in batch]),
-        "sentiment_sequences": torch.stack([x["sentiment_sequences"] for x in batch]),
-    }
+    keys = batch[0].keys()
+    out = {}
+    for k in keys:
+        out[k] = torch.stack([x[k] for x in batch], dim=0)
+    return out
