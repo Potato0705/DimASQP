@@ -1,32 +1,18 @@
-# python
 __pycache__/
+**/__pycache__/
 *.pyc
-*.pyo
-*.pyd
-*.egg-info/
-.venv/
-env/
-venv/
 
-# logs / outputs
-logs/
 output/
-outputs/
-wandb/
-runs/
-*.log
+!output/**/train_config.json
+!output/**/best_model.pt
+!output/**/best_params.json
 
-# data / datasets
 data/
-dataset_cache/
-*.jsonl  # 如果你不想提交预测/中间jsonl，可保留；若要提交gold就删掉这一行
+retrieval/
+deberta-v3-base/
 *.pt
 *.bin
-*.ckpt
 *.safetensors
-
-# OS / IDE
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
+*.ckpt
+*.log
+*.csv
