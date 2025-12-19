@@ -1,0 +1,6 @@
+train: data/eng-Laptop/local/train.jsonl
+valid: data/eng-Laptop/local/valid.jsonl
+test:  data/eng-Laptop/local/test.jsonl
+dev:   data/eng-Laptop/official/eng_laptop_dev_task3.jsonl
+train_all: data/eng-Laptop/official/eng_laptop_train_alltasks.jsonl
+categories: configs/eng-Laptop/categories.txt

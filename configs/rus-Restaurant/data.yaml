@@ -1,0 +1,6 @@
+train: data/rus-Restaurant/local/train.jsonl
+valid: data/rus-Restaurant/local/valid.jsonl
+test:  data/rus-Restaurant/local/test.jsonl
+dev:   data/rus-Restaurant/official/rus_restaurant_dev_task3.jsonl
+train_all: data/rus-Restaurant/official/rus_restaurant_train_alltasks.jsonl
+categories: configs/rus-Restaurant/categories.txt

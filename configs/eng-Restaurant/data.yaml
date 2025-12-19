@@ -1,0 +1,6 @@
+train: data/eng-Restaurant/local/train.jsonl
+valid: data/eng-Restaurant/local/valid.jsonl
+test:  data/eng-Restaurant/local/test.jsonl
+dev:   data/eng-Restaurant/official/eng_restaurant_dev_task3.jsonl
+train_all: data/eng-Restaurant/official/eng_restaurant_train_alltasks.jsonl
+categories: configs/eng-Restaurant/categories.txt

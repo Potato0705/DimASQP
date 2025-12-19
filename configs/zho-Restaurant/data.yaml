@@ -1,0 +1,6 @@
+train: data/zho-Restaurant/local/train.jsonl
+valid: data/zho-Restaurant/local/valid.jsonl
+test:  data/zho-Restaurant/local/test.jsonl
+dev:   data/zho-Restaurant/official/zho_restaurant_dev_task3.jsonl
+train_all: data/zho-Restaurant/official/zho_restaurant_train_alltasks.jsonl
+categories: configs/zho-Restaurant/categories.txt

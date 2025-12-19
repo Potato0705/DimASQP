@@ -1,0 +1,166 @@
+version: 1
+defaults:
+  paths:
+    model_name: ./deberta-v3-base
+    max_len: 256
+  train:
+    batch: 16
+    epochs: 60
+    lr: 2e-5
+    weight_decay: 0.01
+    warmup_ratio: 0.1
+    seed: 42
+    fp16: true
+    label_pattern: sentiment_dim
+    w_ent: 2.0
+    w_rel: 1.0
+    w_dim: 0.2
+    w_dim_seq: 0.2
+    w_sen_seq: 0.2
+    w_cat: 1.0
+    neg_ratio: 3.0
+    neg_shift: 1
+    neg_max_per_sample: 64
+    neg_include_cross: false
+    neg_include_random: false
+    early_stop: true
+    patience: 10
+    min_delta: 0.0005
+    min_epochs: 8
+    select_by: cf1
+    pred_batch: 8
+    thr_aux: 0.05
+    topk_aux: 80
+    max_span_len: 12
+    thr_rel: 0.05
+    topk_rel: 300
+    max_pair_dist: 80
+    max_quads: 4
+    min_score: 1.7
+    null_thr_o: 0.0
+    va_stat: median
+    cat_case: upper
+    cat_source: mix
+    cat_head_min_conf: 0.9
+  predict:
+    batch: 8
+    label_pattern: sentiment_dim
+    thr_aux: 0.05
+    topk_aux: 80
+    max_span_len: 12
+    thr_rel: 0.065
+    topk_rel: 200
+    max_pair_dist: 100
+    max_quads: 4
+    min_score: 1.6
+    null_thr_o: 0.0
+    va_stat: median
+    cat_case: upper
+    apostrophe_norm: false
+    no_pair2cat_when_op_null: false
+    dedup_by_aspect: false
+    refine_span: false
+    span_expand: 2
+    span_min_gain: 0.15
+    cat_source: mix
+    cat_head_min_conf: 0.9
+    cat_head_batch: 2048
+    diag: true
+targets:
+  eng-Laptop:
+    paths:
+      data_yaml: configs/eng-Laptop/data.yaml
+      output_dir: output/runs/eng_laptop_cf1_v1
+      ckpt: output/runs/eng_laptop_cf1_v1/best_model.pt
+      pred_output: output/preds/eng-Laptop_dev.jsonl
+    best:
+      metric: cf1
+      value: 0.380135
+      updated_at: '2025-12-19 15:03:35'
+      source: output/sweep_valid_biggrid_fp_gate
+      train_overrides: {}
+      predict_overrides: {}
+  eng-Restaurant:
+    paths:
+      data_yaml: configs/eng-Restaurant/data.yaml
+      output_dir: output/runs/eng_restaurant_cf1_v1
+      ckpt: output/runs/eng_restaurant_cf1_v1/best_model.pt
+      pred_output: output/preds/eng-Restaurant_dev.jsonl
+    best:
+      metric: null
+      value: null
+      updated_at: null
+      source: null
+      train_overrides: {}
+      predict_overrides: {}
+  zho-Laptop:
+    paths:
+      data_yaml: data/zho-Laptop/local/data.yaml
+      output_dir: output/runs/zho_laptop_cf1_v1
+      ckpt: output/runs/zho_laptop_cf1_v1/best_model.pt
+      pred_output: output/preds/zho-Laptop_dev.jsonl
+    best:
+      metric: null
+      value: null
+      updated_at: null
+      source: null
+      train_overrides: {}
+      predict_overrides: {}
+eng-Laptop:
+  label_pattern: sentiment_dim
+  max_len: 256
+  train_batch: 16
+  pred_batch: 8
+  lr: 2.0e-05
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  neg_ratio: 3.0
+  neg_shift: 1
+  neg_max_per_sample: 64
+  early_stop: true
+  patience: 10
+  min_epochs: 8
+  min_delta: 0.0005
+  thr_aux: 0.05
+  topk_aux: 80
+  max_span_len: 12
+  thr_rel: 0.065
+  topk_rel: 200
+  max_pair_dist: 100
+  max_quads: 4
+  min_score: 1.6
+  null_thr_o: 0
+  va_stat: median
+  cat_case: upper
+  cat_source: mix
+  cat_head_min_conf: 0.9
+  train_stats: data/eng-Laptop/official/eng_laptop_train_alltasks.jsonl
+eng-Restaurant:
+  label_pattern: sentiment_dim
+  max_len: 256
+  train_batch: 16
+  pred_batch: 8
+  lr: 2.0e-05
+  weight_decay: 0.01
+  warmup_ratio: 0.1
+  neg_ratio: 3.0
+  neg_shift: 1
+  neg_max_per_sample: 64
+  early_stop: true
+  patience: 10
+  min_epochs: 8
+  min_delta: 0.0005
+  thr_aux: 0.05
+  topk_aux: 80
+  max_span_len: 12
+  thr_rel: 0.065
+  topk_rel: 200
+  max_pair_dist: 100
+  max_quads: 4
+  min_score: 1.6
+  null_thr_o: 0
+  va_stat: median
+  cat_case: upper
+  cat_source: mix
+  cat_head_min_conf: 0.9
+  train_stats: data/eng-Restaurant/official/eng_restaurant_train_alltasks.jsonl

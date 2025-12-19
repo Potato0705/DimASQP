@@ -1,0 +1,102 @@
+############################
+# OS / IDE
+############################
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.code-workspace
+
+############################
+# Python
+############################
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.env
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+.ipynb_checkpoints/
+
+############################
+# Logs / temp
+############################
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+
+############################
+# Large artifacts / checkpoints
+############################
+*.pt
+*.bin
+*.safetensors
+*.ckpt
+*.pth
+*.onnx
+*.npz
+*.npy
+
+############################
+# Training outputs / experiment tracking
+############################
+output/
+runs/
+wandb/
+mlruns/
+tensorboard/
+lightning_logs/
+
+############################
+# Project-specific: datasets
+# 只建议保留 configs 和 sample_submission_files
+############################
+data/**/local/
+data/**/official/
+
+############################
+# Project-specific: pretrained model dirs (huggingface snapshot)
+############################
+deberta-v3-base/
+mdeberta-v3-base/
+# 如果你还会下载别的 encoder，本地目录也建议忽略
+*/deberta*/
+*/mdeberta*/
+*/roberta*/
+*/bert*/
+
+############################
+# Project-specific: archives / backups
+############################
+archive/
+*.tar
+*.tar.gz
+*.zip
+backup_before_git_reset.tar.gz
+
+############################
+# Retrieval / index / faiss / caches (如果你不打算上传索引)
+############################
+retrieval/
+*.faiss
+*.index
+*.idx
+*.pkl
+*.pickle
+
+############################
+# Keep submission examples (DO NOT ignore)
+############################
+!sample_submission_files/
+!sample_submission_files/**/*

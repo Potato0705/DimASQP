@@ -1,0 +1,6 @@
+train: data/jpn-Hotel/local/train.jsonl
+valid: data/jpn-Hotel/local/valid.jsonl
+test:  data/jpn-Hotel/local/test.jsonl
+dev:   data/jpn-Hotel/official/jpn_hotel_dev_task3.jsonl
+train_all: data/jpn-Hotel/official/jpn_hotel_train_alltasks.jsonl
+categories: configs/jpn-Hotel/categories.txt

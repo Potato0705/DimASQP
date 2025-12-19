@@ -1,0 +1,6 @@
+train: data/ukr-Restaurant/local/train.jsonl
+valid: data/ukr-Restaurant/local/valid.jsonl
+test:  data/ukr-Restaurant/local/test.jsonl
+dev:   data/ukr-Restaurant/official/ukr_restaurant_dev_task3.jsonl
+train_all: data/ukr-Restaurant/official/ukr_restaurant_train_alltasks.jsonl
+categories: configs/ukr-Restaurant/categories.txt

@@ -1,0 +1,6 @@
+train: data/zho-Laptop/local/train.jsonl
+valid: data/zho-Laptop/local/valid.jsonl
+test:  data/zho-Laptop/local/test.jsonl
+dev:   data/zho-Laptop/official/zho_laptop_dev_task3.jsonl
+train_all: data/zho-Laptop/official/zho_laptop_train_alltasks.jsonl
+categories: configs/zho-Laptop/categories.txt

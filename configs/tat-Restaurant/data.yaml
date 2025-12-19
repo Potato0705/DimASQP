@@ -1,0 +1,6 @@
+train: data/tat-Restaurant/local/train.jsonl
+valid: data/tat-Restaurant/local/valid.jsonl
+test:  data/tat-Restaurant/local/test.jsonl
+dev:   data/tat-Restaurant/official/tat_restaurant_dev_task3.jsonl
+train_all: data/tat-Restaurant/official/tat_restaurant_train_alltasks.jsonl
+categories: configs/tat-Restaurant/categories.txt
