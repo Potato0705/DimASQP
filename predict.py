@@ -349,10 +349,13 @@ def create_triplet_pred_answer(pred_matrix,
         aspect_char_index = ','.join([str(aspect_char_start_index), str(aspect_char_end_index)])
         opinion_char_index = ','.join([str(opinion_char_start_index), str(opinion_char_end_index)])
 
-        sentiment = label_types[label_type_id].split('-')[-1]
-        sentiment_id = sentiment2id[sentiment]
-
-        results.append([aspect_char_index, opinion_char_index, str(sentiment_id)])
+        if label_pattern == 'category':
+            # For category pattern, no sentiment in label; use placeholder
+            results.append([aspect_char_index, opinion_char_index, "1"])
+        else:
+            sentiment = label_types[label_type_id].split('-')[-1]
+            sentiment_id = sentiment2id[sentiment]
+            results.append([aspect_char_index, opinion_char_index, str(sentiment_id)])
 
 
     # fix
@@ -431,8 +434,11 @@ def create_quadruple(text, answer, id2sentiment):
             aspect = text[aspect_char_start_index: aspect_char_end_index].strip()
         # category
         category = category
-        # sentiment
-        sentiment = id2sentiment[int(sentimentid)]
+        # sentiment: handle both int id and VA string "V#A"
+        if '#' in str(sentimentid):
+            sentiment = str(sentimentid)  # VA string as-is
+        else:
+            sentiment = id2sentiment.get(int(sentimentid), str(sentimentid))
         # opinion
         opinion_char_start_index, opinion_char_end_index = opinion_index.split(',')
         opinion_char_start_index, opinion_char_end_index = int(opinion_char_start_index), int(opinion_char_end_index)
@@ -458,9 +464,11 @@ def create_triplet(text, answer, id2sentiment):
                 aspect = None
             else:
                 aspect = text[aspect_char_start_index: aspect_char_end_index].strip()
-            # category
-            # sentiment
-            sentiment = id2sentiment[int(sentimentid)]
+            # sentiment: handle both int id and VA string
+            if '#' in str(sentimentid):
+                sentiment = str(sentimentid)
+            else:
+                sentiment = id2sentiment.get(int(sentimentid), str(sentimentid))
             # opinion
             opinion_char_start_index, opinion_char_end_index = opinion_index.split(',')
             opinion_char_start_index, opinion_char_end_index = int(opinion_char_start_index), int(
