@@ -65,13 +65,18 @@ def pred_to_submission(predictions, sidecar_data, use_va_pred=False):
         original_text = sidecar_entry["Text"]
 
         # Process predicted quadruplets
-        pred_answer = pred.get("pred_answer", [])
+        # Prefer pred_answer_with_va (has real VA predictions) if available
+        if use_va_pred and "pred_answer_with_va" in pred:
+            pred_answer = pred.get("pred_answer_with_va", pred.get("pred_answer", []))
+        else:
+            pred_answer = pred.get("pred_answer", [])
+
         quadruplets = []
         for quad in pred_answer:
             if len(quad) < 4:
                 continue
 
-            category, aspect_idx, opinion_idx, sentiment_id = quad[0], quad[1], quad[2], quad[3]
+            category, aspect_idx, opinion_idx, sentiment_or_va = quad[0], quad[1], quad[2], quad[3]
 
             # Extract text spans from char indices
             asp_start, asp_end = map(int, aspect_idx.split(","))
@@ -80,18 +85,18 @@ def pred_to_submission(predictions, sidecar_data, use_va_pred=False):
             if asp_start == -1:
                 aspect_text = "NULL"
             else:
-                aspect_text = original_text[asp_start:asp_end]
+                aspect_text = original_text[asp_start:asp_end].strip()
 
             if opi_start == -1:
                 opinion_text = "NULL"
             else:
-                opinion_text = original_text[opi_start:opi_end]
+                opinion_text = original_text[opi_start:opi_end].strip()
 
-            # VA value
-            if use_va_pred and "va_pred" in quad:
-                va_str = quad["va_pred"]
+            # VA value: check if sentiment_or_va is already a "V#A" string
+            if '#' in str(sentiment_or_va):
+                va_str = str(sentiment_or_va)
             else:
-                va_str = SENTIMENT_VA_MAP.get(str(sentiment_id), "5.00#5.50")
+                va_str = SENTIMENT_VA_MAP.get(str(sentiment_or_va), "5.00#5.50")
 
             quadruplets.append({
                 "Aspect": aspect_text,

@@ -560,6 +560,9 @@ class AcqpDataset(Dataset):
                 for sentiment_type in list(self.sentiment2id.keys()):
                     tmp.append(f'BA-EO-{dimension_type}-{sentiment_type}')
             label_types.extend(tmp)
+        if self.label_pattern == "category":
+            tmp = ['BA-EO-' + x for x in list(self.dimension2id.keys())]
+            label_types.extend(tmp)
         return label_types
 
     def __len__(self):
@@ -586,6 +589,9 @@ class AcqpDataset(Dataset):
         dimension_ids = torch.zeros(self.num_dimension_types, dtype=torch.float32)
         dimension_sequences = torch.zeros([self.num_dimension_types, self.max_seq_len], dtype=torch.int32)  # category序列
         sentiment_sequences = torch.zeros([3, self.max_seq_len], dtype=torch.int32)  # sentiment序列
+        # VA regression targets: [L, 2] for (valence, arousal), va_mask: [L] indicates which positions have VA labels
+        va_targets = torch.zeros([self.max_seq_len, 2], dtype=torch.float32)
+        va_mask = torch.zeros([self.max_seq_len], dtype=torch.float32)
 
         for category, aspcet, opinion, sentiment_id in answers:
 
@@ -599,6 +605,23 @@ class AcqpDataset(Dataset):
                 query = f'BA-EO-{self.id2sentiment[int(sentiment_id)]}'
             elif self.label_pattern == "sentiment_dim":
                 query = f'BA-EO-{category}-{self.id2sentiment[int(sentiment_id)]}'
+            elif self.label_pattern == "category":
+                query = f'BA-EO-{category}'
+
+            # Parse VA values from sentiment_id field (which stores "V#A" or discrete id)
+            va_v, va_a = 5.0, 5.0  # default
+            sid_str = str(sentiment_id)
+            if '#' in sid_str:
+                try:
+                    va_v, va_a = float(sid_str.split('#')[0]), float(sid_str.split('#')[1])
+                except ValueError:
+                    pass
+            else:
+                # Discrete sentiment -> centroid VA (Phase 1 fallback)
+                sid_int = int(sentiment_id)
+                va_v = [2.5, 5.0, 7.5][sid_int] if 0 <= sid_int <= 2 else 5.0
+                va_a = 5.5
+
             # EA & EO
             if BA != -1 and EA != -1 and BO != -1 and EO != -1:
                 matrix_ids[self.label_types.index(query), BA + 2, EO + 1] = 1
@@ -606,8 +629,12 @@ class AcqpDataset(Dataset):
                 matrix_ids[self.label_types.index("EA-EO"), EA + 1, EO + 1] = 1
                 dimension_sequences[self.dimension2id[category], BA + 2: EA + 2] = 1
                 dimension_sequences[self.dimension2id[category], BO + 2: EO + 2] = 1
-                sentiment_sequences[int(sentiment_id), BA + 2: EA + 2] = 1
-                sentiment_sequences[int(sentiment_id), BO + 2: EO + 2] = 1
+                sentiment_sequences[int(float(sentiment_id)) if '#' not in str(sentiment_id) else 1, BA + 2: EA + 2] = 1
+                sentiment_sequences[int(float(sentiment_id)) if '#' not in str(sentiment_id) else 1, BO + 2: EO + 2] = 1
+                # VA targets on aspect span
+                va_targets[BA + 2: EA + 2, 0] = va_v
+                va_targets[BA + 2: EA + 2, 1] = va_a
+                va_mask[BA + 2: EA + 2] = 1.0
 
             # IA & EO  (implicit aspect)
             elif BA == -1 and EA == -1 and BO != -1 and EO != -1:
@@ -615,7 +642,11 @@ class AcqpDataset(Dataset):
                 matrix_ids[self.label_types.index("BA-BO"), 1, BO + 2] = 1
                 matrix_ids[self.label_types.index("EA-EO"), 1, EO + 1] = 1
                 dimension_sequences[self.dimension2id[category], BO + 2: EO + 2] = 1
-                sentiment_sequences[int(sentiment_id), BO + 2: EO + 2] = 1
+                sentiment_sequences[int(float(sentiment_id)) if '#' not in str(sentiment_id) else 1, BO + 2: EO + 2] = 1
+                # VA targets on [SEP] position (implicit aspect)
+                va_targets[1, 0] = va_v
+                va_targets[1, 1] = va_a
+                va_mask[1] = 1.0
 
             # EA & IO (implicit opinion)
             elif BA != -1 and EA != -1 and BO == -1 and EO == -1:
@@ -623,14 +654,11 @@ class AcqpDataset(Dataset):
                 matrix_ids[self.label_types.index("BA-BO"), BA + 2, 1] = 1
                 matrix_ids[self.label_types.index("EA-EO"), EA + 1, 1] = 1
                 dimension_sequences[self.dimension2id[category], BA + 2: EA + 2] = 1
-                sentiment_sequences[int(sentiment_id), BA + 2: EA + 2] = 1
-
-            # elif BA == -1 and EA == -1 and BO == -1 and EO == -1:
-            #     matrix_ids[self.label_types.index(query), 1, 1] = 1
-            #     matrix_ids[self.label_types.index("BA-BO"), 1, 1] = 1
-            #     matrix_ids[self.label_types.index("EA-EO"), 1, 1] = 1
-            #     dimension_sequences[self.dimension2id[category], 1] = 1
-            #     sentiment_sequences[int(sentiment_id), 1] = 1
+                sentiment_sequences[int(float(sentiment_id)) if '#' not in str(sentiment_id) else 1, BA + 2: EA + 2] = 1
+                # VA targets on aspect span
+                va_targets[BA + 2: EA + 2, 0] = va_v
+                va_targets[BA + 2: EA + 2, 1] = va_a
+                va_mask[BA + 2: EA + 2] = 1.0
 
             dimension_ids[self.dimension2id[category]] = 1
 
@@ -640,7 +668,9 @@ class AcqpDataset(Dataset):
                 "matrix_ids": matrix_ids,
                 "dimension_ids": dimension_ids,
                 "dimension_sequences": dimension_sequences,
-                "sentiment_sequences": sentiment_sequences}
+                "sentiment_sequences": sentiment_sequences,
+                "va_targets": va_targets,
+                "va_mask": va_mask}
 
     @staticmethod
     def token_index_map_char_index(token_level_label_index: List[str]):
@@ -795,6 +825,8 @@ def collate_fn(batch):
     dimension_ids = torch.stack([x["dimension_ids"] for x in batch])
     dimension_sequences = torch.stack([x["dimension_sequences"] for x in batch])
     sentiment_sequences = torch.stack([x["sentiment_sequences"] for x in batch])
+    va_targets = torch.stack([x["va_targets"] for x in batch])
+    va_mask = torch.stack([x["va_mask"] for x in batch])
 
     return {
         "input_ids": input_ids,
@@ -803,7 +835,9 @@ def collate_fn(batch):
         "matrix_ids": matrix_ids,
         "dimension_ids": dimension_ids,
         "dimension_sequences": dimension_sequences,
-        "sentiment_sequences": sentiment_sequences
+        "sentiment_sequences": sentiment_sequences,
+        "va_targets": va_targets,
+        "va_mask": va_mask,
     }
 
 

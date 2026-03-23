@@ -65,8 +65,8 @@ def load_train_model(model_path):
     best_model_path = os.path.join(model_path, "best_model.pt")
     fallback_model_path = os.path.join(model_path, "model.pt")
     if os.path.exists(best_model_path):
-        return torch.load(best_model_path)
-    return torch.load(fallback_model_path)
+        return torch.load(best_model_path, weights_only=False)
+    return torch.load(fallback_model_path, weights_only=False)
 
 
 def dump_args(output_dir, args):

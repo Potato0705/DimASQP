@@ -106,6 +106,11 @@ class QuadrupleModel(Module):
         self.sentiment_sequence_output = torch.nn.Linear(in_features=sentiment_sequence_hidden_size,
                                                          out_features=self.num_sentiment_types)
 
+        # VA回归头: 每个token位置预测 [V, A], 通过 sigmoid*8+1 映射到 [1, 9]
+        va_hidden_size = 256
+        self.va_linear = torch.nn.Linear(in_features=self.encoder_hidden_size, out_features=va_hidden_size)
+        self.va_output = torch.nn.Linear(in_features=va_hidden_size, out_features=2)
+
     def forward(self, input_ids=None, token_type_ids=None, attention_mask=None):
 
         outputs = self.encoder(input_ids=input_ids,
@@ -164,10 +169,18 @@ class QuadrupleModel(Module):
         sen_seq_output = self.sentiment_sequence_output(sen_seq_output)
         sen_seq_output = sen_seq_output.transpose(1, 2)
 
+        # VA回归: [B, L, 2] -> sigmoid*8+1 -> [1, 9]
+        va_output = self.va_linear(sequence_output)
+        va_output = F.relu(va_output)
+        va_output = self.dropout_layer(va_output)
+        va_output = self.va_output(va_output)
+        va_output = torch.sigmoid(va_output) * 8.0 + 1.0  # map to [1, 9]
+
         return {"matrix": matrix_output,
                 "dimension": cls_dim_output,
                 "dimension_sequence": dim_seq_output,
-                "sentiment_sequence": sen_seq_output}
+                "sentiment_sequence": sen_seq_output,
+                "va": va_output}
 
 
 if __name__ == '__main__':

@@ -54,6 +54,7 @@ def predict(args):
     dim_seq_preds = []
     sen_seq_preds = []
     dim_seq_trues = []
+    va_preds = []
     with torch.no_grad():
         for step, data in loop:
             for key in data:
@@ -65,6 +66,7 @@ def predict(args):
             pred_matrix = pred["matrix"].cpu().numpy()
             pred_dim_seq = pred["dimension_sequence"].cpu().numpy()
             pred_sen_seq = pred["sentiment_sequence"].cpu().numpy()
+            pred_va = pred["va"].cpu().numpy()  # [B, L, 2]
             for matrix_ in pred_matrix:
                 mat_preds.append(np.argwhere(matrix_ > 0).tolist())
             for dim_seq_ in pred_dim_seq:
@@ -73,12 +75,15 @@ def predict(args):
                 sen_seq_preds.append(np.argwhere(sen_seq_ > 0).tolist())
             for true_dimension_sequences in data['dimension_sequences'].cpu().numpy():
                 dim_seq_trues.append(np.argwhere(true_dimension_sequences > 0).tolist())
+            for va_ in pred_va:
+                va_preds.append(va_)
 
     df_test = test_dataset.df
     df_test["pred_matrix"] = mat_preds
     df_test['pred_dim_seq'] = dim_seq_preds
     df_test['true_dim_seq'] = dim_seq_trues
     df_test['pred_sen_seq'] = sen_seq_preds
+    df_test['pred_va'] = va_preds
     label_types = test_dataset.label_types
     sentiment2id = test_dataset.sentiment2id
     id2sentiment = test_dataset.id2sentiment
@@ -87,16 +92,28 @@ def predict(args):
     # decode
     df_test, reports = decode(df_test, label_pattern, label_types, dimension_types, sentiment2id, id2sentiment)
 
+    # Extract VA predictions for each predicted quad
+    if label_pattern == 'category' and 'pred_va' in df_test.columns:
+        df_test['pred_answer_with_va'] = df_test.apply(
+            lambda row: attach_va_to_pred_answer(row['pred_answer'], row['pred_va'],
+                                                  row['Token_Index_Map_Char_Index']),
+            axis=1)
+    else:
+        df_test['pred_answer_with_va'] = df_test['pred_answer']
+
     predict_file_name = os.path.split(args.test_data)[1].replace('.txt', '_predict.csv')
     predict_file_path = os.path.join(args.model_path, predict_file_name)
-    df_test.to_csv(predict_file_path, index=False, encoding="utf-8-sig")
+    # Don't save pred_va (numpy arrays) to CSV
+    save_cols = [c for c in df_test.columns if c != 'pred_va']
+    df_test[save_cols].to_csv(predict_file_path, index=False, encoding="utf-8-sig")
     logger.info(f'predict_csv save in {predict_file_path}')
     metric_file_path = os.path.join(args.model_path, os.path.split(args.test_data)[1].replace('.txt', '_metrics.json'))
     with open(metric_file_path, "w", encoding="utf-8") as f:
         json.dump(reports, f, indent=2, ensure_ascii=False)
     logger.info(f'metrics_json save in {metric_file_path}')
     preds_file_path = os.path.join(args.model_path, os.path.split(args.test_data)[1].replace('.txt', '_predictions.json'))
-    keep_cols = ['Text_Id', 'text', 'answer', 'pred_answer', 'true_quadruple', 'pred_quadruple', 'true_triplet', 'pred_triplet']
+    keep_cols = ['Text_Id', 'text', 'answer', 'pred_answer', 'pred_answer_with_va', 'true_quadruple', 'pred_quadruple', 'true_triplet', 'pred_triplet']
+    keep_cols = [c for c in keep_cols if c in df_test.columns]
     with open(preds_file_path, "w", encoding="utf-8") as f:
         json.dump(df_test[keep_cols].to_dict(orient="records"), f, indent=2, ensure_ascii=False, default=list)
     logger.info(f'predictions_json save in {preds_file_path}')
@@ -138,6 +155,48 @@ def decode(df, label_pattern, label_types, dimension_types, sentiment2id, id2sen
         "triplet_report": triplet_report,
         "quad_report": quad_report,
     }
+
+
+def attach_va_to_pred_answer(pred_answer, pred_va, token_index_map_char_index):
+    """Attach VA prediction values to each predicted quadruple.
+
+    For each pred quad, extract VA from the aspect start token position.
+    pred_va: numpy array [L, 2] with predicted (V, A) per token position.
+    Returns list of [category, aspect_idx, opinion_idx, "V#A"] quads.
+    """
+    import numpy as np
+    results = []
+    for quad in pred_answer:
+        if len(quad) < 4:
+            results.append(quad)
+            continue
+        category, aspect_idx, opinion_idx, _ = quad[0], quad[1], quad[2], quad[3]
+        asp_start, asp_end = map(int, aspect_idx.split(","))
+
+        if asp_start >= 0:
+            # Find the token index for the aspect start char
+            token_idx = None
+            for tok_idx, char_indices in token_index_map_char_index.items():
+                char_list = list(map(int, str(char_indices).split(','))) if isinstance(char_indices, str) else char_indices
+                if asp_start in char_list:
+                    token_idx = tok_idx
+                    break
+            if token_idx is not None and (token_idx + 2) < len(pred_va):
+                v = float(pred_va[token_idx + 2, 0])
+                a = float(pred_va[token_idx + 2, 1])
+            else:
+                v, a = float(pred_va[2, 0]), float(pred_va[2, 1])
+        else:
+            # Implicit aspect: use [SEP] position (index 1)
+            v = float(pred_va[1, 0])
+            a = float(pred_va[1, 1])
+
+        # Clamp to [1, 9]
+        v = max(1.0, min(9.0, v))
+        a = max(1.0, min(9.0, a))
+        va_str = f"{v:.2f}#{a:.2f}"
+        results.append([category, aspect_idx, opinion_idx, va_str])
+    return results
 
 
 def is_equal(true_quadruple, pred_quadruple):
@@ -207,6 +266,11 @@ def create_pred_answer(pred_matrix,
             for category_id in category_ids:
                 category = dimension_types[category_id]
                 results.append([category, aspect_char_index, opinion_char_index, str(sentiment_id)])
+        elif label_pattern == 'category':
+            # BA-EO-{category} -> extract category directly from label type
+            _, _, *category_parts = label_types[label_type_id].split('-')
+            category = "-".join(category_parts)
+            results.append([category, aspect_char_index, opinion_char_index, "1"])  # placeholder sentiment
         elif label_pattern == 'raw':
             category_ids, sentiment_ids = find_category_sentiment_by_dim_seq(aspect_token_start_index,
                                                                              opinion_token_start_index,

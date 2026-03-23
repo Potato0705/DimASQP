@@ -123,7 +123,7 @@ def convert_jsonl_to_txt(jsonl_path, txt_path, sidecar_path):
                 category,
                 f"{asp_start},{asp_end}",
                 f"{opi_start},{opi_end}",
-                str(sentiment_id)
+                va_str  # Store raw VA string "V#A" instead of discrete sentiment_id
             ])
             sidecar_quads.append({
                 "Aspect": aspect_text,

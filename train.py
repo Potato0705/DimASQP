@@ -61,6 +61,16 @@ def set_optimer(args, model):
     return optimizer
 
 
+def compute_va_loss(pred_va, va_targets, va_mask):
+    """Masked MSE loss for VA regression. Only computes on positions with VA annotations."""
+    # pred_va: [B, L, 2], va_targets: [B, L, 2], va_mask: [B, L]
+    mask = va_mask.unsqueeze(-1)  # [B, L, 1]
+    diff = (pred_va - va_targets) * mask
+    n_valid = mask.sum().clamp(min=1.0)
+    mse = (diff ** 2).sum() / n_valid
+    return mse
+
+
 def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn):
     """Compute total loss based on label_pattern."""
     loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
@@ -77,6 +87,10 @@ def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         loss_sen_seq = loss_dim_seq_fn(y_true=data["sentiment_sequences"], y_pred=pred["sentiment_sequence"],
                                        mask_rate=args.mask_rate)
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq + args.weight4 * loss_sen_seq
+    elif args.label_pattern == 'category':
+        # category mode: matrix encodes category directly, VA regression replaces sentiment
+        loss_va = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"])
+        loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight4 * loss_va
     return loss, loss_mat, loss_cls_dim
 
 
@@ -163,18 +177,9 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
             loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
             loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
 
-            if args.label_pattern == 'sentiment_dim':
-                loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
-            elif args.label_pattern == 'sentiment':
-                loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
-                                               mask_rate=args.mask_rate)
-                loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq
-            elif args.label_pattern == 'raw':
-                loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
-                                               mask_rate=args.mask_rate)
-                loss_sen_seq = loss_dim_seq_fn(y_true=data["sentiment_sequences"], y_pred=pred["sentiment_sequence"],
-                                               mask_rate=args.mask_rate)
-                loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq + args.weight4 * loss_sen_seq
+            loss, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+            loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
+            loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
 
             metrics_mat.update(y_true=data["matrix_ids"], y_pred=pred["matrix"])
 
@@ -192,14 +197,6 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
             postfix_dic = {'loss': total_loss / (step + 1),
                            'loss_mat': total_loss_mat / (step + 1),
                            'loss_cls_dim': total_loss_cls_dim / (step + 1)}
-            if args.label_pattern == 'sentiment':
-                total_loss_dim_seq += loss_dim_seq.item()
-                postfix_dic.update({'loss_dim_seq': total_loss_dim_seq / (step + 1)})
-            elif args.label_pattern == 'raw':
-                total_loss_dim_seq += loss_dim_seq.item()
-                postfix_dic.update({'loss_dim_seq': total_loss_dim_seq / (step + 1)})
-                total_loss_sen_seq += loss_sen_seq.item()
-                postfix_dic.update({'loss_sen_seq': total_loss_sen_seq / (step + 1)})
 
             loop.set_postfix(postfix_dic)
 
@@ -346,6 +343,8 @@ def main(args):
             score = (mat_f1_score + dim_seq_f1_score) / 2
         elif args.label_pattern == 'raw':
             score = (mat_f1_score + dim_seq_f1_score + sen_seq_f1_score) / 3
+        elif args.label_pattern == 'category':
+            score = mat_f1_score  # category is encoded in matrix, so matrix F1 is the primary metric
 
         scheduler.step(score)
         train_history.append({
