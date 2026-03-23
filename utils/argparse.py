@@ -54,4 +54,6 @@ def get_predict_argparse():
     parser.add_argument("--model_path", default=0, type=str)
     parser.add_argument("--test_data", required=True, type=str)
     parser.add_argument("--per_gpu_test_batch_size", default=32, type=int)
+    parser.add_argument("--threshold", default=0.0, type=float,
+                        help="Matrix logit threshold for predictions (default: 0.0)")
     return parser

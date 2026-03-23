@@ -67,8 +67,9 @@ def predict(args):
             pred_dim_seq = pred["dimension_sequence"].cpu().numpy()
             pred_sen_seq = pred["sentiment_sequence"].cpu().numpy()
             pred_va = pred["va"].cpu().numpy()  # [B, L, 2]
+            threshold = getattr(args, 'threshold', 0.0)
             for matrix_ in pred_matrix:
-                mat_preds.append(np.argwhere(matrix_ > 0).tolist())
+                mat_preds.append(np.argwhere(matrix_ > threshold).tolist())
             for dim_seq_ in pred_dim_seq:
                 dim_seq_preds.append(np.argwhere(dim_seq_ > 0).tolist())
             for sen_seq_ in pred_sen_seq:
