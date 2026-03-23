@@ -21,10 +21,15 @@ from utils.utils import smart_read_csv, read_data_from_txt
 
 try:
     import MySQLdb
-except Exception as e:
-    print("[Warning]: can not find 'MySQLdb', replace with 'pymysql' ")
-    import pymysql as MySQLdb
-import configparser
+except Exception:
+    try:
+        import pymysql as MySQLdb
+    except Exception:
+        MySQLdb = None  # MySQL not needed for TXT-based pipeline
+try:
+    import configparser
+except Exception:
+    configparser = None
 
 
 class AcqpDataset_bak(Dataset):

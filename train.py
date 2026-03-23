@@ -61,16 +61,35 @@ def set_optimer(args, model):
     return optimizer
 
 
+def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn):
+    """Compute total loss based on label_pattern."""
+    loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
+    loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
+    if args.label_pattern == 'sentiment_dim':
+        loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
+    elif args.label_pattern == 'sentiment':
+        loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
+                                       mask_rate=args.mask_rate)
+        loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq
+    elif args.label_pattern == 'raw':
+        loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
+                                       mask_rate=args.mask_rate)
+        loss_sen_seq = loss_dim_seq_fn(y_true=data["sentiment_sequences"], y_pred=pred["sentiment_sequence"],
+                                       mask_rate=args.mask_rate)
+        loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq + args.weight4 * loss_sen_seq
+    return loss, loss_mat, loss_cls_dim
+
+
 def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn, optimizer, scaler,
           adversial_model=None, **kwargs):
     model.train()
-    # pbar = ProgressBar(n_total=len(dataloader), desc='Training')
     total_loss = 0
     total_loss_mat = 0
     total_loss_cls_dim = 0
     total_loss_dim_seq = 0
     total_loss_sen_seq = 0
     total_step = len(dataloader)
+    accum_steps = getattr(args, 'gradient_accumulation_steps', 1)
     loop = tqdm(enumerate(dataloader), total=total_step, ncols=150)
     for step, data in loop:
         for key in data:
@@ -81,24 +100,11 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
             pred = model(input_ids=data["input_ids"],
                          token_type_ids=data["token_type_ids"],
                          attention_mask=data["attention_mask"])
-            loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
-            loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
-            # 不同情况下的loss
-            if args.label_pattern == 'sentiment_dim':
-                loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
-            elif args.label_pattern == 'sentiment':
-                loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
-                                               mask_rate=args.mask_rate)
-                loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq
-            elif args.label_pattern == 'raw':
-                loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
-                                               mask_rate=args.mask_rate)
-                loss_sen_seq = loss_dim_seq_fn(y_true=data["sentiment_sequences"], y_pred=pred["sentiment_sequence"],
-                                               mask_rate=args.mask_rate)
-                loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq + args.weight4 * loss_sen_seq
+            loss, loss_mat, loss_cls_dim = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+            loss = loss / accum_steps
 
         # Backpropagation
-        scaler.scale(loss).backward()  # 反向传播
+        scaler.scale(loss).backward()
 
         # adversial_training
         if adversial_model is not None:
@@ -107,49 +113,26 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
                 pred = model(input_ids=data["input_ids"],
                              token_type_ids=data["token_type_ids"],
                              attention_mask=data["attention_mask"])
-                loss_adv_mat = loss_matrix_fn(y_true=data["matrix_ids"],
-                                              y_pred=pred["matrix"],
-                                              mask_rate=args.mask_rate)
-                loss_adv_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
-                # 不同情况下的loss
-                if args.label_pattern == 'sentiment_dim':
-                    loss_adv = args.weight1 * loss_adv_mat + args.weight2 * loss_adv_cls_dim
-                elif args.label_pattern == 'sentiment':
-                    loss_adv_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"],
-                                                       y_pred=pred["dimension_sequence"],
-                                                       mask_rate=args.mask_rate)
-                    loss_adv = args.weight1 * loss_adv_mat + args.weight2 * loss_adv_cls_dim + args.weight3 * loss_adv_dim_seq
-                elif args.label_pattern == 'raw':
-                    loss_adv_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"],
-                                                       y_pred=pred["dimension_sequence"],
-                                                       mask_rate=args.mask_rate)
-                    loss_adv_sen_seq = loss_dim_seq_fn(y_true=data["sentiment_sequences"],
-                                                       y_pred=pred["sentiment_sequence"],
-                                                       mask_rate=args.mask_rate)
-                    loss_adv = args.weight1 * loss_adv_mat + args.weight2 * loss_adv_cls_dim + args.weight3 * loss_adv_dim_seq + args.weight4 * loss_adv_sen_seq
+                loss_adv, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+                loss_adv = loss_adv / accum_steps
 
-            scaler.scale(loss_adv).backward()  # 反向传播，并在正常的grad基础上，累加对抗训练的梯度
-            adversial_model.restore()  # 恢复embedding参数
+            scaler.scale(loss_adv).backward()
+            adversial_model.restore()
 
-        total_loss += loss.item()
+        total_loss += loss.item() * accum_steps
         total_loss_mat += loss_mat.item()
         total_loss_cls_dim += loss_cls_dim.item()
 
-        scaler.step(optimizer)
-        scaler.update()
-        optimizer.zero_grad()
+        # Gradient accumulation: only step every accum_steps
+        if (step + 1) % accum_steps == 0 or (step + 1) == total_step:
+            scaler.step(optimizer)
+            scaler.update()
+            optimizer.zero_grad()
+
         loop.set_description(f'Train step [{step}/{total_step}]')
         postfix_dic = {'loss': total_loss / (step + 1),
                        'loss_mat': total_loss_mat / (step + 1),
                        'loss_cls_dim': total_loss_cls_dim / (step + 1)}
-        if args.label_pattern == 'sentiment':
-            total_loss_dim_seq += loss_dim_seq.item()
-            postfix_dic.update({'loss_dim_seq': total_loss_dim_seq / (step + 1)})
-        elif args.label_pattern == 'raw':
-            total_loss_dim_seq += loss_dim_seq.item()
-            postfix_dic.update({'loss_dim_seq': total_loss_dim_seq / (step + 1)})
-            total_loss_sen_seq += loss_sen_seq.item()
-            postfix_dic.update({'loss_sen_seq': total_loss_sen_seq / (step + 1)})
 
         loop.set_postfix(postfix_dic)
 
@@ -314,7 +297,6 @@ def main(args):
                                   factor=0.9,
                                   patience=2,
                                   min_lr=1e-05,
-                                  verbose=True
                                   )
     if args.with_adversarial_training:
         fgm = FGM(model, epsilon=1, emb_name='word_embeddings.weight')

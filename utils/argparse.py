@@ -30,6 +30,7 @@ def get_argparse():
     parser.add_argument("--early_stop", default=4, type=int)
     parser.add_argument("--per_gpu_train_batch_size", default=32, type=int)
     parser.add_argument("--per_gpu_eval_batch_size", default=32, type=int)
+    parser.add_argument("--gradient_accumulation_steps", default=1, type=int)
     parser.add_argument("--num_workers", default=0, type=int)
     parser.add_argument("--use_amp", action="store_true")
     parser.add_argument("--do_distri_train", action="store_true")

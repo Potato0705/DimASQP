@@ -46,6 +46,8 @@ class MetricsCalculator(object):
             self.trues.append(dim)
 
     def result(self):
+        if not self.trues and not self.preds:
+            return {}
         print(classification_report(y_true=self.trues,
                                     y_pred=self.preds,
                                     # labels=list(range(len(self.labels) + 1)),

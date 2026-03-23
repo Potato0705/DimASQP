@@ -1,0 +1,5118 @@
+[
+  {
+    "ID": "1427:2_70",
+    "Text": "Сезгә шуны әйтәсем килә: Марат урамындагы сезнең оешмага бару минем мөнәсәбәтемне яхшы якка үзгәртте.",
+    "line_index": 0,
+    "quads": [
+      {
+        "Aspect": "Марат урамындагы сезнең оешмага",
+        "Opinion": "минем мөнәсәбәтемне яхшы якка үзгәртте",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.8#8.3",
+        "aspect_span": [
+          25,
+          56
+        ],
+        "opinion_span": [
+          62,
+          100
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:3_71",
+    "Text": "Кич белән сезнең янга арыган килеш кердек,барлык заллар да тулы булып чыкты, ә верандада бала белән утыру шулай да салкынча булып чыкты, безне егет кеше каршы алды, утырырга мөмкин булган берничә өстәл тәкъдим итте. Өстәлгә кадәр кыз кеше озатты(кызганычка каршы исемен хәтерләмим) тышкы кыяфәтенә караганда администратор,ул меню бирде, иң гаҗәпләндергәне безнең бокалларга бөтенләй бушлай су салулары иде, бик күңелебез булды..",
+    "line_index": 1,
+    "quads": [
+      {
+        "Aspect": "заллар",
+        "Opinion": "тулы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "2.9#6.7",
+        "aspect_span": [
+          49,
+          55
+        ],
+        "opinion_span": [
+          59,
+          63
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "верандада",
+        "Opinion": "салкынча",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.5#6.1",
+        "aspect_span": [
+          79,
+          88
+        ],
+        "opinion_span": [
+          115,
+          123
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "егет кеше",
+        "Opinion": "каршы алды",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          143,
+          152
+        ],
+        "opinion_span": [
+          153,
+          163
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "егет кеше",
+        "Opinion": "тәкъдим итте",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6.67",
+        "aspect_span": [
+          143,
+          152
+        ],
+        "opinion_span": [
+          202,
+          214
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кыз кеше",
+        "Opinion": "озатты",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          230,
+          238
+        ],
+        "opinion_span": [
+          239,
+          245
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "администратор",
+        "Opinion": "озатты",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          308,
+          321
+        ],
+        "opinion_span": [
+          239,
+          245
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:5_72",
+    "Text": "Хезмәт күрсәтү бәйләнчек түгел, үзебезне өйдәге кебек хис иттек.",
+    "line_index": 2,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "бәйләнчек түгел",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.5#6.3",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          30
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "өйдәге кебек",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.62#7.62",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          41,
+          53
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:6_73",
+    "Text": "Гадәттә кичләрен кайда да булса ашарга яратабыз һәм хәтта администраторның сайлауда ярдәм итүенә бераз гаҗәпләнәм,гадәттә кая карама, алар залда касса янында күренеп китүче, официантларга нәрсәдер мыгырдаучы шәүләләр..",
+    "line_index": 3,
+    "quads": [
+      {
+        "Aspect": "администраторның",
+        "Opinion": "ярдәм итүенә",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.67",
+        "aspect_span": [
+          58,
+          74
+        ],
+        "opinion_span": [
+          84,
+          96
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:7_74",
+    "Text": "Безгә заказны бер егет алып килде,нибары 20 минуттан кайнар риәык.ә тагын тере музыка да башланды.",
+    "line_index": 4,
+    "quads": [
+      {
+        "Aspect": "егет",
+        "Opinion": "нибары 20 минуттан",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.25#7.12",
+        "aspect_span": [
+          18,
+          22
+        ],
+        "opinion_span": [
+          34,
+          52
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "тере музыка",
+        "Opinion": "башланды",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.88#6.75",
+        "aspect_span": [
+          74,
+          85
+        ],
+        "opinion_span": [
+          89,
+          97
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:9_75",
+    "Text": "Кызга ямьле мохит өчен һәм яшь егет кешегә аерым рәхмәт, Питер оешмаларында нәкъ мондый хезмәткәрләрне күрәсе килә.",
+    "line_index": 5,
+    "quads": [
+      {
+        "Aspect": "Кызга",
+        "Opinion": "аерым рәхмәт",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.38",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          43,
+          55
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "мохит",
+        "Opinion": "ямьле",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.3#7.3",
+        "aspect_span": [
+          12,
+          17
+        ],
+        "opinion_span": [
+          6,
+          11
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "яшь егет кешегә",
+        "Opinion": "аерым рәхмәт",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.38",
+        "aspect_span": [
+          27,
+          42
+        ],
+        "opinion_span": [
+          43,
+          55
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәткәрләрне",
+        "Opinion": "күрәсе килә",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.38",
+        "aspect_span": [
+          88,
+          102
+        ],
+        "opinion_span": [
+          103,
+          114
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:3_541",
+    "Text": "Тәмәке тартмаучылар өчен зал сайладык, Приморскаядагы Харбиннан аермалы буларак, ул тәмәке тартучылардан бөтенләй аерым урнашкан.",
+    "line_index": 6,
+    "quads": [
+      {
+        "Aspect": "Тәмәке тартмаучылар өчен зал",
+        "Opinion": "бөтенләй аерым урнашкан",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.33#7",
+        "aspect_span": [
+          0,
+          28
+        ],
+        "opinion_span": [
+          105,
+          128
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:4_542",
+    "Text": "Тәмәке тартмаучылар өчен залдагы урындыклар Европаныкы, алар, башка залдагыларыннан аермалы буларак бик уңайлы, андагылары Кытай стилендә эшләнгән, ләкин аларда утыру уңайлы түгел.",
+    "line_index": 7,
+    "quads": [
+      {
+        "Aspect": "урындыклар",
+        "Opinion": "бик уңайлы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8#7.7",
+        "aspect_span": [
+          33,
+          43
+        ],
+        "opinion_span": [
+          100,
+          110
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "залдагыларыннан",
+        "Opinion": "уңайлы түгел",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3#7.25",
+        "aspect_span": [
+          68,
+          83
+        ],
+        "opinion_span": [
+          167,
+          179
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "13912:7_543",
+    "Text": "Ресторанда ризыклар бик тәмле, әзерләү сыйфаты, безнең зәвыгыбызга караганда, Приморскаядагы Харбинга караганда күпкә яхшырак (чагыштыру максатыннан башка ресторандагы кебек үк берничә ризыкка заказ бирдек).",
+    "line_index": 8,
+    "quads": [
+      {
+        "Aspect": "ризыклар",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#7.7",
+        "aspect_span": [
+          11,
+          19
+        ],
+        "opinion_span": [
+          20,
+          29
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "әзерләү сыйфаты",
+        "Opinion": "күпкә яхшырак",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.1#7.8",
+        "aspect_span": [
+          31,
+          46
+        ],
+        "opinion_span": [
+          112,
+          125
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:9_544",
+    "Text": "Монда сайлау мөмкинлеге күпкә яхшырак һәм баерак.",
+    "line_index": 9,
+    "quads": [
+      {
+        "Aspect": "сайлау мөмкинлеге",
+        "Opinion": "күпкә яхшырак",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "8#7.5",
+        "aspect_span": [
+          6,
+          23
+        ],
+        "opinion_span": [
+          24,
+          37
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "сайлау мөмкинлеге",
+        "Opinion": "баерак",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "7.8#7.3",
+        "aspect_span": [
+          6,
+          23
+        ],
+        "opinion_span": [
+          42,
+          48
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:11_545",
+    "Text": "Приморская урамындагы рестораннан аермалы буларак, чәйнең пакетланмаган булуы күңелле.",
+    "line_index": 10,
+    "quads": [
+      {
+        "Aspect": "чәйнең",
+        "Opinion": "пакетланмаган булуы",
+        "Category": "DRINKS#QUALITY",
+        "VA": "6.88#6.5",
+        "aspect_span": [
+          51,
+          57
+        ],
+        "opinion_span": [
+          58,
+          77
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:12_546",
+    "Text": "Менюда Яхшы Француз Кызыл коры шәрабы.",
+    "line_index": 11,
+    "quads": [
+      {
+        "Aspect": "Француз Кызыл коры шәрабы",
+        "Opinion": "Яхшы",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7#6.6",
+        "aspect_span": [
+          12,
+          37
+        ],
+        "opinion_span": [
+          7,
+          11
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:13_547",
+    "Text": "Хезмәт күрсәтү ошады, тиз һәм сыйфатлы, бушаган савыт-саба һәм башка вак-төякләр вакытында җыештырылды, күңелле булды.",
+    "line_index": 12,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "ошады",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.7",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          20
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "тиз",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.1#6.9",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          22,
+          25
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "сыйфатлы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.25#7",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          30,
+          38
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "күңелле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.12#7",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          104,
+          111
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "вакытында җыештырылды",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#7",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          81,
+          102
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:15_548",
+    "Text": "Ресторанны килү өчен киңәш итәбез.",
+    "line_index": 13,
+    "quads": [
+      {
+        "Aspect": "Ресторанны",
+        "Opinion": "киңәш итәбез",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.62#6.75",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          21,
+          33
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:0_357",
+    "Text": "Бу ресторанда бер генә тапкыр булдым, ләкин Рәхәтләнеп тагын бер тапкыр барачакмын.",
+    "line_index": 14,
+    "quads": [
+      {
+        "Aspect": "ресторанда",
+        "Opinion": "Рәхәтләнеп",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.67#7.33",
+        "aspect_span": [
+          3,
+          13
+        ],
+        "opinion_span": [
+          44,
+          54
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:2_358",
+    "Text": "Бик яхшы хезмәт күрсәтү, барысын да тиз һәм әдәпле алып килделәр-киттеләр.",
+    "line_index": 15,
+    "quads": [
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "Бик яхшы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8#7.62",
+        "aspect_span": [
+          9,
+          23
+        ],
+        "opinion_span": [
+          0,
+          8
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "тиз",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          9,
+          23
+        ],
+        "opinion_span": [
+          36,
+          39
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "әдәпле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          9,
+          23
+        ],
+        "opinion_span": [
+          44,
+          50
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:3_359",
+    "Text": "Менюдагы сайлау мөмкинлеге бик ошады, ризыкларның күптөрлелеге аркасында нәрсә заказ бирергә икәнен озак хәл итә алмадык.",
+    "line_index": 16,
+    "quads": [
+      {
+        "Aspect": "Менюдагы",
+        "Opinion": "бик ошады",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "8#7.67",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          27,
+          36
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ризыкларның",
+        "Opinion": "күптөрлелеге",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7.2#7.2",
+        "aspect_span": [
+          38,
+          49
+        ],
+        "opinion_span": [
+          50,
+          62
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:4_360",
+    "Text": "Барысы да бик тәмле иде, аш-суга бернинди шелтәләр дә юк.",
+    "line_index": 17,
+    "quads": [
+      {
+        "Aspect": "аш-суга",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#7.6",
+        "aspect_span": [
+          25,
+          32
+        ],
+        "opinion_span": [
+          10,
+          19
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "аш-суга",
+        "Opinion": "бернинди шелтәләр дә юк",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.25#7.12",
+        "aspect_span": [
+          25,
+          32
+        ],
+        "opinion_span": [
+          33,
+          56
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:6_361",
+    "Text": "Аларның музыкасы бик ошады.",
+    "line_index": 18,
+    "quads": [
+      {
+        "Aspect": "музыкасы",
+        "Opinion": "бик ошады",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8#7.6",
+        "aspect_span": [
+          8,
+          16
+        ],
+        "opinion_span": [
+          17,
+          26
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:7_362",
+    "Text": "Матур, ләкин бәйләнчек түгел. кыскасы, ресторан бик яхшы.",
+    "line_index": 19,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "бик яхшы",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.9#7.7",
+        "aspect_span": [
+          39,
+          47
+        ],
+        "opinion_span": [
+          48,
+          56
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:1_248",
+    "Text": "Бусагадан ук ачык мөнәсәбәт.",
+    "line_index": 20,
+    "quads": [
+      {
+        "Aspect": "мөнәсәбәт",
+        "Opinion": "ачык",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.62",
+        "aspect_span": [
+          18,
+          27
+        ],
+        "opinion_span": [
+          13,
+          17
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:2_249",
+    "Text": "Гардеробтан ир-ат бик әдәпле һәм ягымлы.",
+    "line_index": 21,
+    "quads": [
+      {
+        "Aspect": "Гардеробтан ир-ат",
+        "Opinion": "бик әдәпле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.88#7.5",
+        "aspect_span": [
+          0,
+          17
+        ],
+        "opinion_span": [
+          18,
+          28
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Гардеробтан ир-ат",
+        "Opinion": "ягымлы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.1#6.6",
+        "aspect_span": [
+          0,
+          17
+        ],
+        "opinion_span": [
+          33,
+          39
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:4_250",
+    "Text": "Безгә Администратор чакырттык, мөлаемнан мөлаем кыз, барысын да сөйләде, күрсәтте ,бернинди сораулар да тумады, хәтта күз кырые белән кече залга карадык (бу вакытта анда банкет башлана иде).",
+    "line_index": 22,
+    "quads": [
+      {
+        "Aspect": "Администратор",
+        "Opinion": "мөлаемнан мөлаем",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8.17#8.5",
+        "aspect_span": [
+          6,
+          19
+        ],
+        "opinion_span": [
+          31,
+          47
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Администратор",
+        "Opinion": "бернинди сораулар да тумады",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6.5",
+        "aspect_span": [
+          6,
+          19
+        ],
+        "opinion_span": [
+          83,
+          110
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кыз",
+        "Opinion": "мөлаемнан мөлаем",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.8#7.9",
+        "aspect_span": [
+          48,
+          51
+        ],
+        "opinion_span": [
+          31,
+          47
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:6_251",
+    "Text": "Официант кызлар барысы да исәнләшә һәм елмая, интерьер искиткеч.",
+    "line_index": 23,
+    "quads": [
+      {
+        "Aspect": "Официант кызлар",
+        "Opinion": "исәнләшә",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#7",
+        "aspect_span": [
+          0,
+          15
+        ],
+        "opinion_span": [
+          26,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Официант кызлар",
+        "Opinion": "елмая",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.75#6.5",
+        "aspect_span": [
+          0,
+          15
+        ],
+        "opinion_span": [
+          39,
+          44
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "интерьер",
+        "Opinion": "искиткеч",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.25#8.12",
+        "aspect_span": [
+          46,
+          54
+        ],
+        "opinion_span": [
+          55,
+          63
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:8_252",
+    "Text": "Кабат гардеробта җылы очрашу.",
+    "line_index": 24,
+    "quads": [
+      {
+        "Aspect": "очрашу",
+        "Opinion": "җылы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.3#7.5",
+        "aspect_span": [
+          22,
+          28
+        ],
+        "opinion_span": [
+          17,
+          21
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:9_253",
+    "Text": "Салкын һава торышы чорында рәхәт комплимент, заказ көткән арада кайнар чәй эчтек, искиткеч!",
+    "line_index": 25,
+    "quads": [
+      {
+        "Aspect": "чәй",
+        "Opinion": "кайнар",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7.17#6.83",
+        "aspect_span": [
+          71,
+          74
+        ],
+        "opinion_span": [
+          64,
+          70
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "чәй",
+        "Opinion": "искиткеч",
+        "Category": "DRINKS#QUALITY",
+        "VA": "8.1#8.3",
+        "aspect_span": [
+          71,
+          74
+        ],
+        "opinion_span": [
+          82,
+          90
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:10_254",
+    "Text": "официантка кыз (чекта Луиза дип язылган иде) әдәпле, хезмәт күрсәтү тыйнак, сыйфатлы.",
+    "line_index": 26,
+    "quads": [
+      {
+        "Aspect": "официантка кыз",
+        "Opinion": "әдәпле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.9#6.2",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          45,
+          51
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "тыйнак",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.5#5.8",
+        "aspect_span": [
+          53,
+          67
+        ],
+        "opinion_span": [
+          68,
+          74
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "сыйфатлы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.8#6.2",
+        "aspect_span": [
+          53,
+          67
+        ],
+        "opinion_span": [
+          76,
+          84
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:11_255",
+    "Text": "Аш-су бик әйбәт!",
+    "line_index": 27,
+    "quads": [
+      {
+        "Aspect": "Аш-су",
+        "Opinion": "бик әйбәт",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.88#7.88",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          15
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:12_256",
+    "Text": "Үзләре ыслаган ит искиткеч, бик тәмле!",
+    "line_index": 28,
+    "quads": [
+      {
+        "Aspect": "ит",
+        "Opinion": "искиткеч",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.8#8.4",
+        "aspect_span": [
+          15,
+          17
+        ],
+        "opinion_span": [
+          18,
+          26
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ит",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.6#8.6",
+        "aspect_span": [
+          15,
+          17
+        ],
+        "opinion_span": [
+          28,
+          37
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:13_257",
+    "Text": "Өлешләр зур.",
+    "line_index": 29,
+    "quads": [
+      {
+        "Aspect": "Өлешләр",
+        "Opinion": "зур",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.75#6.25",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          8,
+          11
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:15_258",
+    "Text": "Туйга ресторан сайлау уңаеннан шик тумады, тормышыбызның иң мөһим көнендә без дә канәгать калырбыз дип өметләнәм, бу атнада заказ бирергә барабыз:).",
+    "line_index": 30,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "канәгать калырбыз",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.88",
+        "aspect_span": [
+          6,
+          14
+        ],
+        "opinion_span": [
+          81,
+          98
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:16_259",
+    "Text": "Барыгызга да бу искиткеч урынга барырга киңәш итәм!",
+    "line_index": 31,
+    "quads": [
+      {
+        "Aspect": "урынга",
+        "Opinion": "искиткеч",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8#8",
+        "aspect_span": [
+          25,
+          31
+        ],
+        "opinion_span": [
+          16,
+          24
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "урынга",
+        "Opinion": "барырга киңәш итәм",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.17#7",
+        "aspect_span": [
+          25,
+          31
+        ],
+        "opinion_span": [
+          32,
+          50
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:2_260",
+    "Text": "Моның сәбәпләре күп: төп сәбәпләрнең берсе-яхшы аш-су.",
+    "line_index": 32,
+    "quads": [
+      {
+        "Aspect": "аш-су",
+        "Opinion": "яхшы",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.1#6.7",
+        "aspect_span": [
+          48,
+          53
+        ],
+        "opinion_span": [
+          43,
+          47
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:3_261",
+    "Text": "Аннары-игътибарлы персонал,адекват бәяләр, уңайлы һәм матур интерьер, шәһәр үзәге.",
+    "line_index": 33,
+    "quads": [
+      {
+        "Aspect": "персонал",
+        "Opinion": "игътибарлы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.88",
+        "aspect_span": [
+          18,
+          26
+        ],
+        "opinion_span": [
+          7,
+          17
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "интерьер",
+        "Opinion": "уңайлы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.6",
+        "aspect_span": [
+          60,
+          68
+        ],
+        "opinion_span": [
+          43,
+          49
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "интерьер",
+        "Opinion": "матур",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.8",
+        "aspect_span": [
+          60,
+          68
+        ],
+        "opinion_span": [
+          54,
+          59
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:5_262",
+    "Text": "Килгән тамашачы да миңа ошый .",
+    "line_index": 34,
+    "quads": [
+      {
+        "Aspect": "тамашачы",
+        "Opinion": "ошый",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.7#6.2",
+        "aspect_span": [
+          7,
+          15
+        ],
+        "opinion_span": [
+          24,
+          28
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:6_263",
+    "Text": "Игътибарлы һәм профессиональ кешеләр булдырган бу ресторанда яхшы энергетика.",
+    "line_index": 35,
+    "quads": [
+      {
+        "Aspect": "ресторанда",
+        "Opinion": "яхшы энергетика",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.75",
+        "aspect_span": [
+          50,
+          60
+        ],
+        "opinion_span": [
+          61,
+          76
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кешеләр",
+        "Opinion": "Игътибарлы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.2#6.8",
+        "aspect_span": [
+          29,
+          36
+        ],
+        "opinion_span": [
+          0,
+          10
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кешеләр",
+        "Opinion": "профессиональ",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.6",
+        "aspect_span": [
+          29,
+          36
+        ],
+        "opinion_span": [
+          15,
+          28
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:7_264",
+    "Text": "Кызганыч, күпләр бу искиткеч ресторанны белми.",
+    "line_index": 36,
+    "quads": [
+      {
+        "Aspect": "ресторанны",
+        "Opinion": "искиткеч",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.8#7.5",
+        "aspect_span": [
+          29,
+          39
+        ],
+        "opinion_span": [
+          20,
+          28
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:8_265",
+    "Text": "Монда үзеңне теләсә кайсы вакытта һәм теләсә кайсы залда бик яхшы хис итәсең, зур бәйрәм булсынмы (мәсәлән банкет)) яки очраклы рәвештә бер чынаяк кофе эчәргә керәсеңме.",
+    "line_index": 37,
+    "quads": [
+      {
+        "Aspect": "залда",
+        "Opinion": "бик яхшы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.83#7.5",
+        "aspect_span": [
+          51,
+          56
+        ],
+        "opinion_span": [
+          57,
+          65
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:9_266",
+    "Text": "Сине күреп монда һәрвакыт сөенәләр, бу ресторанда өйдәгечә мохит.",
+    "line_index": 38,
+    "quads": [
+      {
+        "Aspect": "мохит",
+        "Opinion": "өйдәгечә",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.8#6.9",
+        "aspect_span": [
+          59,
+          64
+        ],
+        "opinion_span": [
+          50,
+          58
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:10_267",
+    "Text": "Мондый яхшы һәм уңайлы урыннар Питерда алай күп түгел.",
+    "line_index": 39,
+    "quads": [
+      {
+        "Aspect": "урыннар",
+        "Opinion": "яхшы",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.5",
+        "aspect_span": [
+          23,
+          30
+        ],
+        "opinion_span": [
+          7,
+          11
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "урыннар",
+        "Opinion": "уңайлы",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.12#6.62",
+        "aspect_span": [
+          23,
+          30
+        ],
+        "opinion_span": [
+          16,
+          22
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:11_268",
+    "Text": "Минем уйлавымча,бу ресторанга килгән кунак аның даими кунагына әйләнәчәк.",
+    "line_index": 40,
+    "quads": [
+      {
+        "Aspect": "ресторанга",
+        "Opinion": "даими кунагына",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.1#6.6",
+        "aspect_span": [
+          19,
+          29
+        ],
+        "opinion_span": [
+          48,
+          62
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:3_796",
+    "Text": "Чыннан да, ресторан, өстәвенә, яхшы.",
+    "line_index": 41,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "яхшы",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.3#6.8",
+        "aspect_span": [
+          11,
+          19
+        ],
+        "opinion_span": [
+          31,
+          35
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:5_797",
+    "Text": "Интерьер тәэсирле, бик яхшы, матур, стильле.",
+    "line_index": 42,
+    "quads": [
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "тәэсирле",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.9#7.1",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          17
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "бик яхшы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.5#6.9",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          19,
+          27
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "матур",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.7",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          29,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "стильле",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.6",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          36,
+          43
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:6_798",
+    "Text": "Бигрәк тә шунысы ошады, өстәлләр бер-берсеннән ерак урнаштырылган, килүчеләр бер-берсенә комачауламый, алар күренми һәм ишетелми, мондый аулак уңайлылык тудырыла.",
+    "line_index": 43,
+    "quads": [
+      {
+        "Aspect": "өстәлләр",
+        "Opinion": "аулак уңайлылык",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8#8",
+        "aspect_span": [
+          24,
+          32
+        ],
+        "opinion_span": [
+          137,
+          152
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "өстәлләр",
+        "Opinion": "Бигрәк тә шунысы ошады",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.67#6.5",
+        "aspect_span": [
+          24,
+          32
+        ],
+        "opinion_span": [
+          0,
+          22
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "өстәлләр",
+        "Opinion": "бер-берсеннән ерак урнаштырылган",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.67#6.5",
+        "aspect_span": [
+          24,
+          32
+        ],
+        "opinion_span": [
+          33,
+          65
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:7_799",
+    "Text": "Хезмәт күрсәтү шәп!",
+    "line_index": 44,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "шәп",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8.3#8.1",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          18
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:11_800",
+    "Text": "Аш-су югарыда: салатлар гадәти түгел, тәмле, өлешләре шактый зур.",
+    "line_index": 45,
+    "quads": [
+      {
+        "Aspect": "Аш-су",
+        "Opinion": "югарыда",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          13
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "салатлар",
+        "Opinion": "гадәти түгел",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.88#6.12",
+        "aspect_span": [
+          15,
+          23
+        ],
+        "opinion_span": [
+          24,
+          36
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "салатлар",
+        "Opinion": "тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          15,
+          23
+        ],
+        "opinion_span": [
+          38,
+          43
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "өлешләре",
+        "Opinion": "шактый зур",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "6.88#6.38",
+        "aspect_span": [
+          45,
+          53
+        ],
+        "opinion_span": [
+          54,
+          64
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:12_801",
+    "Text": "Кайнар ризык - искиткеч.",
+    "line_index": 46,
+    "quads": [
+      {
+        "Aspect": "Кайнар ризык",
+        "Opinion": "искиткеч",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.3#8",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          15,
+          23
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:13_802",
+    "Text": "Бозау итеннән медальоннар искиткеч, ит авызда эри, соус бик тәмле.",
+    "line_index": 47,
+    "quads": [
+      {
+        "Aspect": "Бозау итеннән медальоннар",
+        "Opinion": "искиткеч",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.6#8.3",
+        "aspect_span": [
+          0,
+          25
+        ],
+        "opinion_span": [
+          26,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ит",
+        "Opinion": "авызда эри",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.2#7.6",
+        "aspect_span": [
+          6,
+          8
+        ],
+        "opinion_span": [
+          39,
+          49
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "соус",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.9#7.3",
+        "aspect_span": [
+          51,
+          55
+        ],
+        "opinion_span": [
+          56,
+          65
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:14_803",
+    "Text": "Әфлисун соусындагы үрдәк тә бик яхшы килеп чыккан.",
+    "line_index": 48,
+    "quads": [
+      {
+        "Aspect": "Әфлисун соусындагы үрдәк",
+        "Opinion": "бик яхшы килеп чыккан",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.25#7.88",
+        "aspect_span": [
+          0,
+          24
+        ],
+        "opinion_span": [
+          28,
+          49
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:15_804",
+    "Text": "Десерт, каймаклы һәм җиләк-җимешле бизе, шулай ук начар булмады, гәрчә ашның азагында да- ашап арыдык:)",
+    "line_index": 49,
+    "quads": [
+      {
+        "Aspect": "Десерт",
+        "Opinion": "начар булмады",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.6#5.9",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          50,
+          63
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "каймаклы һәм җиләк-җимешле бизе",
+        "Opinion": "начар булмады",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.5#5.88",
+        "aspect_span": [
+          8,
+          39
+        ],
+        "opinion_span": [
+          50,
+          63
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "24713:1_997",
+    "Text": "Зал бик шәп.",
+    "line_index": 50,
+    "quads": [
+      {
+        "Aspect": "Зал",
+        "Opinion": "шәп",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.8#7.1",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          8,
+          11
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "24713:3_998",
+    "Text": "Без менюның бәя категориясендә уртачасын сайладык.",
+    "line_index": 51,
+    "quads": [
+      {
+        "Aspect": "менюның",
+        "Opinion": "уртачасын",
+        "Category": "RESTAURANT#PRICES",
+        "VA": "5#16.5",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          31,
+          40
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "24713:4_999",
+    "Text": "Килгәч, мине бик аз кабымлыклар гаҗәпләндерде.",
+    "line_index": 52,
+    "quads": [
+      {
+        "Aspect": "кабымлыклар",
+        "Opinion": "бик аз",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "3.33#5.67",
+        "aspect_span": [
+          20,
+          31
+        ],
+        "opinion_span": [
+          13,
+          19
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:6_1000",
+    "Text": "Сыр тәлинкәсе корыган сыр белән шаккатырды.",
+    "line_index": 53,
+    "quads": [
+      {
+        "Aspect": "Сыр тәлинкәсе",
+        "Opinion": "корыган сыр белән шаккатырды",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.67#7.67",
+        "aspect_span": [
+          0,
+          13
+        ],
+        "opinion_span": [
+          14,
+          42
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "сыр белән",
+        "Opinion": "корыган",
+        "Category": "FOOD#QUALITY",
+        "VA": "2#7.5",
+        "aspect_span": [
+          22,
+          31
+        ],
+        "opinion_span": [
+          14,
+          21
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:7_1001",
+    "Text": "Җимешләр соңгы сулышын ала иделәр.",
+    "line_index": 54,
+    "quads": [
+      {
+        "Aspect": "Җимешләр",
+        "Opinion": "соңгы сулышын ала иделәр",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.5#7.75",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          33
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:8_1002",
+    "Text": "Салатларны татып карагач, котым алынды.",
+    "line_index": 55,
+    "quads": [
+      {
+        "Aspect": "Салатларны",
+        "Opinion": "котым алынды",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.33#8.33",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          26,
+          38
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:11_1003",
+    "Text": "Ашау ошады.",
+    "line_index": 56,
+    "quads": [
+      {
+        "Aspect": "Ашау",
+        "Opinion": "ошады",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.9#6.3",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          10
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "24713:13_1004",
+    "Text": "Кайнар ризык та ошамады.",
+    "line_index": 57,
+    "quads": [
+      {
+        "Aspect": "Кайнар ризык",
+        "Opinion": "ошамады",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.9#6.4",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          16,
+          23
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:15_1005",
+    "Text": "Туй, әлбәттә, күңелле узды, әмма ризыкның сыйфаты аны бизәмәде.",
+    "line_index": 58,
+    "quads": [
+      {
+        "Aspect": "ризыкның",
+        "Opinion": "бизәмәде",
+        "Category": "FOOD#QUALITY",
+        "VA": "3.12#6.38",
+        "aspect_span": [
+          33,
+          41
+        ],
+        "opinion_span": [
+          54,
+          62
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:18_1006",
+    "Text": "Минем гаҗәпләнүемә каршы, официантлар миңа өстәлләрдән барысын да үзем җыя алам алар аерым түләү өчен миңа контейнерлар бирәчәкләр, диделәр.",
+    "line_index": 59,
+    "quads": [
+      {
+        "Aspect": "официантлар",
+        "Opinion": "миңа өстәлләрдән барысын да үзем җыя алам",
+        "Category": "SERVICE#GENERAL",
+        "VA": "2.38#7.12",
+        "aspect_span": [
+          26,
+          37
+        ],
+        "opinion_span": [
+          38,
+          79
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "11388:2_351",
+    "Text": "Интерьер сөйкемле, барысын да чамалап!",
+    "line_index": 60,
+    "quads": [
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "сөйкемле",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.7#6.1",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          17
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "барысын да чамалап",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          19,
+          37
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:3_352",
+    "Text": "Аш-су ошады!",
+    "line_index": 61,
+    "quads": [
+      {
+        "Aspect": "Аш-су",
+        "Opinion": "ошады",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.2#7.3",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          11
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:6_353",
+    "Text": "Музыкаль коллектив бик ошады, яхшы музыка!",
+    "line_index": 62,
+    "quads": [
+      {
+        "Aspect": "Музыкаль коллектив",
+        "Opinion": "бик ошады",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.1#8.1",
+        "aspect_span": [
+          0,
+          18
+        ],
+        "opinion_span": [
+          19,
+          28
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "музыка",
+        "Opinion": "яхшы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          35,
+          41
+        ],
+        "opinion_span": [
+          30,
+          34
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:7_354",
+    "Text": "Хезмәт күрсәтү буенча дәгъвалар юк, яхшы каршы алдылар, өстәл артына озаттылар (VIP зонада алдан броньладык, бәясе 400 сум).",
+    "line_index": 63,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "дәгъвалар юк",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.4#6.2",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          22,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "яхшы каршы алдылар",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.33#6.83",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          36,
+          54
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:8_355",
+    "Text": "Официантлар үзләрен озак көттермәделәр, барысы да бик әдәпле һәм түбәнчелекле иде!",
+    "line_index": 64,
+    "quads": [
+      {
+        "Aspect": "Официантлар",
+        "Opinion": "үзләрен озак көттермәделәр",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          0,
+          11
+        ],
+        "opinion_span": [
+          12,
+          38
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Официантлар",
+        "Opinion": "түбәнчелекле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.75",
+        "aspect_span": [
+          0,
+          11
+        ],
+        "opinion_span": [
+          65,
+          77
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Официантлар",
+        "Opinion": "барысы да бик әдәпле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.25#7",
+        "aspect_span": [
+          0,
+          11
+        ],
+        "opinion_span": [
+          40,
+          60
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:9_356",
+    "Text": "Бик әйбәт урын!",
+    "line_index": 65,
+    "quads": [
+      {
+        "Aspect": "урын",
+        "Opinion": "Бик әйбәт",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "6.62#6.5",
+        "aspect_span": [
+          10,
+          14
+        ],
+        "opinion_span": [
+          0,
+          9
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:4_941",
+    "Text": "Халык аз иде, тирә-як бик ямьле, һәм озын кич утыруларга этәрә торган иде.",
+    "line_index": 66,
+    "quads": [
+      {
+        "Aspect": "тирә-як",
+        "Opinion": "бик ямьле",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.8#7.2",
+        "aspect_span": [
+          14,
+          21
+        ],
+        "opinion_span": [
+          22,
+          31
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "тирә-як",
+        "Opinion": "этәрә торган",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.67#7.67",
+        "aspect_span": [
+          14,
+          21
+        ],
+        "opinion_span": [
+          57,
+          69
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:5_942",
+    "Text": "Интерьер шактый гади,әмма гөрҗе өслүбендә, күңелле музыка уйный.",
+    "line_index": 67,
+    "quads": [
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "шактый гади",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "5#3.33",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          20
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "музыка",
+        "Opinion": "күңелле",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.5#5.6",
+        "aspect_span": [
+          51,
+          57
+        ],
+        "opinion_span": [
+          43,
+          50
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:7_943",
+    "Text": "Официант белән бик бәхет елмайды,ул безгә бик игелекле һәм оператив хезмәт күрсәтте.",
+    "line_index": 68,
+    "quads": [
+      {
+        "Aspect": "Официант белән",
+        "Opinion": "бик бәхет елмайды",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8.12#7.62",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          32
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Официант белән",
+        "Opinion": "бик игелекле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          42,
+          54
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Официант белән",
+        "Opinion": "оператив",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.5",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          59,
+          67
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:10_944",
+    "Text": "Аш-су турында нәрсә әйтергә мөмкин...кайнар ризык бик сөендерде,аеруча тәмле итеп ит әзерләнгән-сусыл, йомшак, яшелчәләр тәмле итеп әзерләнгән.",
+    "line_index": 69,
+    "quads": [
+      {
+        "Aspect": "кайнар ризык",
+        "Opinion": "бик сөендерде",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.12#7.62",
+        "aspect_span": [
+          37,
+          49
+        ],
+        "opinion_span": [
+          50,
+          63
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ит",
+        "Opinion": "аеруча тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.7#7.2",
+        "aspect_span": [
+          77,
+          79
+        ],
+        "opinion_span": [
+          64,
+          76
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ит",
+        "Opinion": "йомшак",
+        "Category": "FOOD#QUALITY",
+        "VA": "7#6.5",
+        "aspect_span": [
+          77,
+          79
+        ],
+        "opinion_span": [
+          103,
+          109
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ит",
+        "Opinion": "сусыл",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.12#6.62",
+        "aspect_span": [
+          77,
+          79
+        ],
+        "opinion_span": [
+          96,
+          101
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "яшелчәләр",
+        "Opinion": "тәмле итеп",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          111,
+          120
+        ],
+        "opinion_span": [
+          71,
+          81
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:11_945",
+    "Text": "Сөләйман балыгыннан ясалган шашлык порциядә азрак иде,һәм яшелчәләр юк диярлек иде.",
+    "line_index": 70,
+    "quads": [
+      {
+        "Aspect": "Сөләйман балыгыннан ясалган шашлык",
+        "Opinion": "азрак",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "3.67#5.67",
+        "aspect_span": [
+          0,
+          34
+        ],
+        "opinion_span": [
+          44,
+          49
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "23369:13_946",
+    "Text": "Салат артык ачы соус белән тәмләтелгән булып чыкты.",
+    "line_index": 71,
+    "quads": [
+      {
+        "Aspect": "Салат",
+        "Opinion": "артык ачы",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.5#6.75",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          15
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "соус белән",
+        "Opinion": "артык ачы",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.2#7",
+        "aspect_span": [
+          16,
+          26
+        ],
+        "opinion_span": [
+          6,
+          15
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "23369:14_947",
+    "Text": "Шәраб бик кыйммәт булып чыкты,шуңа күрә сыра һәм шактый тәмле өй морсы белән эш итәргә туры килде.",
+    "line_index": 72,
+    "quads": [
+      {
+        "Aspect": "Шәраб",
+        "Opinion": "бик кыйммәт",
+        "Category": "DRINKS#PRICES",
+        "VA": "2.2#7.4",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          17
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "өй морсы белән",
+        "Opinion": "шактый тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.67#5.83",
+        "aspect_span": [
+          62,
+          76
+        ],
+        "opinion_span": [
+          49,
+          61
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:15_948",
+    "Text": "Ашамлыклар сайлау мөмкинлеге шактый киң,шуңа күрә икенче тапкыр без тагын берәр нәрсә татып карарбыз дип уйлыйм.",
+    "line_index": 73,
+    "quads": [
+      {
+        "Aspect": "Ашамлыклар",
+        "Opinion": "шактый киң",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "6.67#5.5",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          29,
+          39
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "27620:0_1100",
+    "Text": "Мин бу ресторан турында тискәре бәяләмәләр укыдым, тик миңа интерьер бик ошады, шуңа күрә аларны арттырылган дип таптым.",
+    "line_index": 74,
+    "quads": [
+      {
+        "Aspect": "интерьер",
+        "Opinion": "бик ошады",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.25#7.88",
+        "aspect_span": [
+          60,
+          68
+        ],
+        "opinion_span": [
+          69,
+          78
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "27620:1_1101",
+    "Text": "Мин сезгә әйтәм, хәзер инде үз тәҗрибәмдә, анда хезмәт күрсәтү юк.",
+    "line_index": 75,
+    "quads": [
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "юк",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.9#7.4",
+        "aspect_span": [
+          48,
+          62
+        ],
+        "opinion_span": [
+          63,
+          65
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "27620:4_1102",
+    "Text": "Бер сок китерделәр, ә менә әфлисун суы табылмады (!), официант кайсысын алыштырырга икәнен ачыклады һәм китте.",
+    "line_index": 76,
+    "quads": [
+      {
+        "Aspect": "официант",
+        "Opinion": "китте",
+        "Category": "SERVICE#GENERAL",
+        "VA": "3.25#6",
+        "aspect_span": [
+          54,
+          62
+        ],
+        "opinion_span": [
+          104,
+          109
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "27620:10_1103",
+    "Text": "Ашау ошамады.",
+    "line_index": 77,
+    "quads": [
+      {
+        "Aspect": "Ашау",
+        "Opinion": "ошамады",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.5#6.6",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          12
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "27620:13_1104",
+    "Text": "Каһвә генә ошады.",
+    "line_index": 78,
+    "quads": [
+      {
+        "Aspect": "Каһвә",
+        "Opinion": "ошады",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7.17#6.83",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          11,
+          16
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "27620:14_1105",
+    "Text": "Менюда күрсәтелгән пирожныйлар юк иде.",
+    "line_index": 79,
+    "quads": [
+      {
+        "Aspect": "пирожныйлар",
+        "Opinion": "юк иде",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "2.75#6.62",
+        "aspect_span": [
+          19,
+          30
+        ],
+        "opinion_span": [
+          31,
+          37
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "11793:0_387",
+    "Text": "Бу бинага елдан артык даими килүчеләр булып торабыз.",
+    "line_index": 80,
+    "quads": [
+      {
+        "Aspect": "бинага",
+        "Opinion": "даими килүчеләр",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          3,
+          9
+        ],
+        "opinion_span": [
+          22,
+          37
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:1_388",
+    "Text": "Иң мөһиме - аш-суның даими югары сыйфатлы булуы.",
+    "line_index": 81,
+    "quads": [
+      {
+        "Aspect": "аш-суның",
+        "Opinion": "даими югары сыйфатлы булуы",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#7.33",
+        "aspect_span": [
+          12,
+          20
+        ],
+        "opinion_span": [
+          21,
+          47
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:2_389",
+    "Text": "Бу барысын да берьюлы сынап карау теләген уятучы сирәк урыннарның берсе.",
+    "line_index": 82,
+    "quads": [
+      {
+        "Aspect": "урыннарның",
+        "Opinion": "барысын да берьюлы сынап карау теләген уятучы",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.17#8",
+        "aspect_span": [
+          55,
+          65
+        ],
+        "opinion_span": [
+          3,
+          48
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:3_390",
+    "Text": "Һичшиксез суши һәм роллларны татып карарга киңәш итәбез.",
+    "line_index": 83,
+    "quads": [
+      {
+        "Aspect": "суши",
+        "Opinion": "киңәш итәбез",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.33#8.33",
+        "aspect_span": [
+          10,
+          14
+        ],
+        "opinion_span": [
+          43,
+          55
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "роллларны",
+        "Opinion": "киңәш итәбез",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.33#8.33",
+        "aspect_span": [
+          19,
+          28
+        ],
+        "opinion_span": [
+          43,
+          55
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:5_391",
+    "Text": "Рестораннар челтәре өчен гаҗәп үзенчәлек-башка рестораннарда да (комендант, Петроград) хезмәт күрсәтү һәм аш-су дәрәҗәсе шул ук дәрәҗәдә кала.",
+    "line_index": 84,
+    "quads": [
+      {
+        "Aspect": "Рестораннар челтәре",
+        "Opinion": "шул ук дәрәҗәдә",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.8#7.6",
+        "aspect_span": [
+          0,
+          19
+        ],
+        "opinion_span": [
+          121,
+          136
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "шул ук дәрәҗәдә",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.75#7.5",
+        "aspect_span": [
+          87,
+          101
+        ],
+        "opinion_span": [
+          121,
+          136
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "аш-су",
+        "Opinion": "шул ук дәрәҗәдә",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.75#7.5",
+        "aspect_span": [
+          106,
+          111
+        ],
+        "opinion_span": [
+          121,
+          136
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:7_392",
+    "Text": "Тискәредән билгеләп үтәсе килгән бердәнбер әйбер-тәмәке тартмаучылар залында тышкы ишек ачылганда салкын була, ләкин бу вак-төяк.",
+    "line_index": 85,
+    "quads": [
+      {
+        "Aspect": "тәмәке тартмаучылар залында",
+        "Opinion": "салкын була",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.67#6.5",
+        "aspect_span": [
+          49,
+          76
+        ],
+        "opinion_span": [
+          98,
+          109
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "11793:8_393",
+    "Text": "Әгәр дә сез анда беренче тапкыр барасыз икән - һичшиксез клярдагы туңдырманы татып карагыз-шәһәрдә иң яхшысы.",
+    "line_index": 86,
+    "quads": [
+      {
+        "Aspect": "клярдагы туңдырманы",
+        "Opinion": "татып карагыз",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          57,
+          76
+        ],
+        "opinion_span": [
+          77,
+          90
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "клярдагы туңдырманы",
+        "Opinion": "иң яхшысы",
+        "Category": "FOOD#QUALITY",
+        "VA": "9#8.33",
+        "aspect_span": [
+          57,
+          76
+        ],
+        "opinion_span": [
+          99,
+          108
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:9_394",
+    "Text": "Ә менә кайнар ризык килгән саен төрле.",
+    "line_index": 87,
+    "quads": [
+      {
+        "Aspect": "кайнар ризык",
+        "Opinion": "килгән саен төрле",
+        "Category": "FOOD#QUALITY",
+        "VA": "4.6#4.6",
+        "aspect_span": [
+          7,
+          19
+        ],
+        "opinion_span": [
+          20,
+          37
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "11793:11_395",
+    "Text": "Хезмәт күрсәтү яхшы, әмма кайчакта барысы да берьюлы китерелә: суши да, аш та, десерт та.",
+    "line_index": 88,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "яхшы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.6#6.6",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          19
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:12_396",
+    "Text": "Хезмәт күрсәтү һәм аш-су сыйфаты шулай ук югары булыр дип өметләнәм, ни дисәң дә яраткан ресторан бит!",
+    "line_index": 89,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "югары",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.67#7.67",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          42,
+          47
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "аш-су",
+        "Opinion": "югары",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.67#7.67",
+        "aspect_span": [
+          19,
+          24
+        ],
+        "opinion_span": [
+          42,
+          47
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ресторан",
+        "Opinion": "яраткан",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.2#8.4",
+        "aspect_span": [
+          89,
+          97
+        ],
+        "opinion_span": [
+          81,
+          88
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:3_1186",
+    "Text": "Икенче кат ниндидер җәннәт кенә=)",
+    "line_index": 90,
+    "quads": [
+      {
+        "Aspect": "Икенче кат",
+        "Opinion": "ниндидер җәннәт кенә",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.31#8.1",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          11,
+          31
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:4_1187",
+    "Text": "Бик матур интерьер, шундый нәфис һәм уңайлы.",
+    "line_index": 91,
+    "quads": [
+      {
+        "Aspect": "интерьер",
+        "Opinion": "Бик матур",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.12#7.75",
+        "aspect_span": [
+          10,
+          18
+        ],
+        "opinion_span": [
+          0,
+          9
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "интерьер",
+        "Opinion": "нәфис",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.25",
+        "aspect_span": [
+          10,
+          18
+        ],
+        "opinion_span": [
+          27,
+          32
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "интерьер",
+        "Opinion": "уңайлы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.1#6.5",
+        "aspect_span": [
+          10,
+          18
+        ],
+        "opinion_span": [
+          37,
+          43
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:6_1188",
+    "Text": "Аннары нәрсә...меню күптөрле, теләсә нинди зәвыкка, ләкин җентекләп караганда нәтиҗәдә балыкка тукталдым, чөнки шәхсән миңа башка берни дә ошамады (пиццаны башка махсуслашкан урыннарда ашарга мөмкин, паста...мин аны өйдә дә ясыйм, аш..бәйрәм өчен түгел).",
+    "line_index": 92,
+    "quads": [
+      {
+        "Aspect": "меню",
+        "Opinion": "күптөрле",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7#6.3",
+        "aspect_span": [
+          15,
+          19
+        ],
+        "opinion_span": [
+          20,
+          28
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "меню",
+        "Opinion": "теләсә нинди зәвыкка",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7.33#7",
+        "aspect_span": [
+          15,
+          19
+        ],
+        "opinion_span": [
+          30,
+          50
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:7_1189",
+    "Text": "Шәрабка бәяләр котырган..хәер, мондый ресторан өчен бу нормаль дә булырга мөмкин, тик менә ризык белән чагыштырганда миңа кыйммәт тоелды!",
+    "line_index": 93,
+    "quads": [
+      {
+        "Aspect": "Шәрабка",
+        "Opinion": "кыйммәт",
+        "Category": "DRINKS#PRICES",
+        "VA": "2.17#7.67",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          122,
+          129
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "Шәрабка",
+        "Opinion": "котырган",
+        "Category": "DRINKS#PRICES",
+        "VA": "1.12#8.25",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          15,
+          23
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "29321:8_1190",
+    "Text": "Гомумән алганда, аш-су итальянныкына якын, тик менә ниндидер супер искиткеч әйбер күрмәдем, шуңа күрә 8 генә.",
+    "line_index": 94,
+    "quads": [
+      {
+        "Aspect": "аш-су",
+        "Opinion": "ниндидер супер искиткеч әйбер күрмәдем",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.75#6",
+        "aspect_span": [
+          17,
+          22
+        ],
+        "opinion_span": [
+          52,
+          90
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "аш-су",
+        "Opinion": "8 генә",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.33#5.33",
+        "aspect_span": [
+          17,
+          22
+        ],
+        "opinion_span": [
+          102,
+          108
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:9_1191",
+    "Text": "Хезмәт күрсәтүгә килгәндә...әле монда мин шуны әйтергә телим, укырга әллә ни дәгъвалар юк, тәлинкәләр вакытында җыештырыла иде, ләкин бездә кызларның кызыксынуы да юк иде.",
+    "line_index": 95,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтүгә",
+        "Opinion": "укырга әллә ни дәгъвалар юк",
+        "Category": "SERVICE#GENERAL",
+        "VA": "5#3.5",
+        "aspect_span": [
+          0,
+          16
+        ],
+        "opinion_span": [
+          62,
+          89
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "кызларның",
+        "Opinion": "кызыксынуы да юк",
+        "Category": "SERVICE#GENERAL",
+        "VA": "4.83#3.67",
+        "aspect_span": [
+          140,
+          149
+        ],
+        "opinion_span": [
+          150,
+          166
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "29321:11_1192",
+    "Text": "Без җидәү утырдык, биш мең калдырдык, ә менә хезмәт күрсәтүдән һәм кабул итүдән ниндидер канәгатьлек алмадык, гәрчә барысы да тәмле, матур итеп бирелгән һәм бизәлгән булса да.",
+    "line_index": 96,
+    "quads": [
+      {
+        "Aspect": "хезмәт күрсәтүдән",
+        "Opinion": "алмадык",
+        "Category": "SERVICE#GENERAL",
+        "VA": "4.5#4.25",
+        "aspect_span": [
+          45,
+          62
+        ],
+        "opinion_span": [
+          101,
+          108
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "кабул итүдән",
+        "Opinion": "алмадык",
+        "Category": "SERVICE#GENERAL",
+        "VA": "4.5#4.5",
+        "aspect_span": [
+          67,
+          79
+        ],
+        "opinion_span": [
+          101,
+          108
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "29321:12_1193",
+    "Text": "Хезмәт күрсәтү өчен 6 гына.",
+    "line_index": 97,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "6 гына",
+        "Category": "SERVICE#GENERAL",
+        "VA": "5.12#3.62",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          20,
+          26
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "12467:1_447",
+    "Text": "Бу ресторанны сайладык, чөнки якында гына яшибез...",
+    "line_index": 98,
+    "quads": [
+      {
+        "Aspect": "ресторанны",
+        "Opinion": "сайладык",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          3,
+          13
+        ],
+        "opinion_span": [
+          14,
+          22
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:4_448",
+    "Text": "Официанткалар барысы да матур формада, бик ачык йөзле.",
+    "line_index": 99,
+    "quads": [
+      {
+        "Aspect": "Официанткалар",
+        "Opinion": "бик ачык йөзле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.6#7.2",
+        "aspect_span": [
+          0,
+          13
+        ],
+        "opinion_span": [
+          39,
+          53
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Официанткалар",
+        "Opinion": "барысы да матур формада",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.8#6.4",
+        "aspect_span": [
+          0,
+          13
+        ],
+        "opinion_span": [
+          14,
+          37
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:7_449",
+    "Text": "Без хезмәт күрсәтүнең мондый тизлегенә шатландык))))",
+    "line_index": 100,
+    "quads": [
+      {
+        "Aspect": "хезмәт күрсәтүнең мондый тизлегенә",
+        "Opinion": "шатландык",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.25",
+        "aspect_span": [
+          4,
+          38
+        ],
+        "opinion_span": [
+          39,
+          48
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:8_450",
+    "Text": "Салатлар - телеңне йотарлык!!!",
+    "line_index": 101,
+    "quads": [
+      {
+        "Aspect": "Салатлар",
+        "Opinion": "телеңне йотарлык",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.6#8.4",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          11,
+          27
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:9_451",
+    "Text": "Мин каклаган еланбалык белән алдым-СУПЕР!!!",
+    "line_index": 102,
+    "quads": [
+      {
+        "Aspect": "каклаган еланбалык",
+        "Opinion": "СУПЕР",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.8#9",
+        "aspect_span": [
+          4,
+          22
+        ],
+        "opinion_span": [
+          35,
+          40
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:10_452",
+    "Text": "Өлешләр бик яхшы.",
+    "line_index": 103,
+    "quads": [
+      {
+        "Aspect": "Өлешләр",
+        "Opinion": "бик яхшы",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7.62#7.62",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          8,
+          16
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:11_453",
+    "Text": "Дустым Балык рулетикларына заказ биргән, ә аңа рулетиклар һәм +бер өем салат китергәннәр!!!",
+    "line_index": 104,
+    "quads": [
+      {
+        "Aspect": "салат",
+        "Opinion": "бер өем",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#8.5",
+        "aspect_span": [
+          71,
+          76
+        ],
+        "opinion_span": [
+          63,
+          70
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:12_454",
+    "Text": "Аннары сорбет бирделәр, шулай ук тәмле))))",
+    "line_index": 105,
+    "quads": [
+      {
+        "Aspect": "сорбет",
+        "Opinion": "тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.38#6.88",
+        "aspect_span": [
+          7,
+          13
+        ],
+        "opinion_span": [
+          33,
+          38
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:14_455",
+    "Text": "Ит авызда эри иде...",
+    "line_index": 106,
+    "quads": [
+      {
+        "Aspect": "Ит",
+        "Opinion": "авызда эри иде",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.33#8.5",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          17
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:17_456",
+    "Text": "Ресторанга барудан минем күптән андый ләззәт алганым юк иде!",
+    "line_index": 107,
+    "quads": [
+      {
+        "Aspect": "Ресторанга",
+        "Opinion": "күптән андый ләззәт алганым юк иде",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.3#8.4",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          25,
+          59
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:18_457",
+    "Text": "Барысы да ошады-мохит, хезмәт күрсәтү һәм югары дәрәҗәдәге аш-су!",
+    "line_index": 108,
+    "quads": [
+      {
+        "Aspect": "мохит",
+        "Opinion": "ошады",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          16,
+          21
+        ],
+        "opinion_span": [
+          10,
+          15
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "мохит",
+        "Opinion": "югары дәрәҗәдәге",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          16,
+          21
+        ],
+        "opinion_span": [
+          42,
+          58
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "ошады",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          23,
+          37
+        ],
+        "opinion_span": [
+          10,
+          15
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "югары дәрәҗәдәге",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.88#7.75",
+        "aspect_span": [
+          23,
+          37
+        ],
+        "opinion_span": [
+          42,
+          58
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "аш-су",
+        "Opinion": "югары дәрәҗәдәге",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.9#7.8",
+        "aspect_span": [
+          59,
+          64
+        ],
+        "opinion_span": [
+          42,
+          58
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:19_458",
+    "Text": "Әлбәттә, бу ресторан Минем яратканнарым рәтенә керәчәк)))",
+    "line_index": 109,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "яратканнарым",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.5#8.38",
+        "aspect_span": [
+          12,
+          20
+        ],
+        "opinion_span": [
+          27,
+          39
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:2_556",
+    "Text": "Әйтерсең кафега түгел, ә кунакка килгәнсең, һәм анда сине генә көткәннәр.",
+    "line_index": 110,
+    "quads": [
+      {
+        "Aspect": "кафега",
+        "Opinion": "ә кунакка",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.17#6.67",
+        "aspect_span": [
+          9,
+          15
+        ],
+        "opinion_span": [
+          23,
+          32
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:3_557",
+    "Text": "Өй интерьеры-әйе, мохит...",
+    "line_index": 111,
+    "quads": [
+      {
+        "Aspect": "интерьеры",
+        "Opinion": "Өй",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.2#7.2",
+        "aspect_span": [
+          3,
+          12
+        ],
+        "opinion_span": [
+          0,
+          2
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:4_558",
+    "Text": "мохит барыбер килүчеләр тарафыннан тудырыла, бераз артык шау-шу, тавышлар, йөзләр җитми иде...",
+    "line_index": 112,
+    "quads": [
+      {
+        "Aspect": "мохит",
+        "Opinion": "җитми иде",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "4.67#3.83",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          82,
+          91
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "14177:5_559",
+    "Text": "Тулаем алганда кафе бик күңелле тәэсир калдырды.",
+    "line_index": 113,
+    "quads": [
+      {
+        "Aspect": "кафе",
+        "Opinion": "күңелле",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.75#7.5",
+        "aspect_span": [
+          15,
+          19
+        ],
+        "opinion_span": [
+          24,
+          31
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:6_560",
+    "Text": "Кечкенә, уңайлы, үзләренең тәмле ипиеннән ясалган сохарилар ризык көтүне бизи.",
+    "line_index": 114,
+    "quads": [
+      {
+        "Aspect": "үзләренең тәмле ипиеннән ясалган сохарилар",
+        "Opinion": "бизи",
+        "Category": "FOOD#QUALITY",
+        "VA": "7#6.88",
+        "aspect_span": [
+          17,
+          59
+        ],
+        "opinion_span": [
+          73,
+          77
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:7_561",
+    "Text": "Сыра юк, ләкин мондый форматта шулай булырга тиеш кебек.",
+    "line_index": 115,
+    "quads": [
+      {
+        "Aspect": "Сыра",
+        "Opinion": "юк",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "5#3",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          7
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "Сыра",
+        "Opinion": "шулай булырга тиеш кебек",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "5#3.67",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          31,
+          55
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "14177:13_562",
+    "Text": "Ашау кәефне кырмады, ләкин аеруча соклану да тудырмады.",
+    "line_index": 116,
+    "quads": [
+      {
+        "Aspect": "Ашау",
+        "Opinion": "кәефне кырмады",
+        "Category": "FOOD#QUALITY",
+        "VA": "5.17#4",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          19
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "Ашау",
+        "Opinion": "аеруча соклану да тудырмады",
+        "Category": "FOOD#QUALITY",
+        "VA": "5#3.5",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          27,
+          54
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "14177:14_563",
+    "Text": "Порцияләр Яхшы.",
+    "line_index": 117,
+    "quads": [
+      {
+        "Aspect": "Порцияләр",
+        "Opinion": "Яхшы",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "6.5#6.1",
+        "aspect_span": [
+          0,
+          9
+        ],
+        "opinion_span": [
+          10,
+          14
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:0_577",
+    "Text": "Кафега әти-әниләре тәкъдиме буенча дустым белән кердек, алар күптән түгел монда булганнар һәм аларга бик ошаган!",
+    "line_index": 118,
+    "quads": [
+      {
+        "Aspect": "Кафега",
+        "Opinion": "бик ошаган",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.1#7.9",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          101,
+          111
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Кафега",
+        "Opinion": "тәкъдиме буенча",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.75",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          19,
+          34
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:2_578",
+    "Text": "Интерьер бик ошады, без беренче залда утырдык, пәрдәләр супер, һәм тагын бер-ике картина бар иде, аларны үз өебездә бик нык теләр идек)",
+    "line_index": 119,
+    "quads": [
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "бик ошады",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.9#7.9",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          18
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "пәрдәләр",
+        "Opinion": "супер",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.33#8.17",
+        "aspect_span": [
+          47,
+          55
+        ],
+        "opinion_span": [
+          56,
+          61
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "картина",
+        "Opinion": "бик нык теләр идек",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.5#8.4",
+        "aspect_span": [
+          81,
+          88
+        ],
+        "opinion_span": [
+          116,
+          134
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:3_579",
+    "Text": "Ашау буенча да бик ярыйсы, шактый тиз әзерлиләр, яшелчә һәм дөге белән судак алган идем, бик тәмле булды, Борджиа каһвәсе дә искиткеч, элек аны татып караганым юк иде!!",
+    "line_index": 120,
+    "quads": [
+      {
+        "Aspect": "Ашау",
+        "Opinion": "бик ярыйсы",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.8#6.4",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          15,
+          25
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "яшелчә һәм дөге белән судак",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.1#7.9",
+        "aspect_span": [
+          49,
+          76
+        ],
+        "opinion_span": [
+          89,
+          98
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Борджиа каһвәсе",
+        "Opinion": "искиткеч",
+        "Category": "DRINKS#QUALITY",
+        "VA": "8.6#8.3",
+        "aspect_span": [
+          106,
+          121
+        ],
+        "opinion_span": [
+          125,
+          133
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:4_580",
+    "Text": "Дустым Көнчыгыш салатларының берсен алды, кызганычка каршы, исемен төгәл әйтә алмыйм, ләкин шулай ук канәгать калдым!",
+    "line_index": 121,
+    "quads": [
+      {
+        "Aspect": "Көнчыгыш салатларының",
+        "Opinion": "канәгать",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          7,
+          28
+        ],
+        "opinion_span": [
+          101,
+          109
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:5_581",
+    "Text": "Американо да аның өметен өзмәде!",
+    "line_index": 122,
+    "quads": [
+      {
+        "Aspect": "Американо",
+        "Opinion": "өметен өзмәде",
+        "Category": "DRINKS#QUALITY",
+        "VA": "6.7#6.9",
+        "aspect_span": [
+          0,
+          9
+        ],
+        "opinion_span": [
+          18,
+          31
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:6_582",
+    "Text": "Бердәнбер әйбер без җомга көнне кич идек һәм хезмәт күрсәтү бераз тоткарланды, анда булган кыз һәм егет күбрәк үз эшләре белән мәшгуль иделәр!",
+    "line_index": 123,
+    "quads": [
+      {
+        "Aspect": "хезмәт күрсәтү",
+        "Opinion": "бераз тоткарланды",
+        "Category": "SERVICE#GENERAL",
+        "VA": "3.62#6.62",
+        "aspect_span": [
+          45,
+          59
+        ],
+        "opinion_span": [
+          60,
+          77
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "14568:8_583",
+    "Text": "Гомуми нәтиҗә: үзәктә уңайлы урын, бәяләре акыллы һәм шартлары бик уңайлы)",
+    "line_index": 124,
+    "quads": [
+      {
+        "Aspect": "урын",
+        "Opinion": "уңайлы",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.1#6.9",
+        "aspect_span": [
+          29,
+          33
+        ],
+        "opinion_span": [
+          22,
+          28
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "урын",
+        "Opinion": "бәяләре акыллы",
+        "Category": "RESTAURANT#PRICES",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          29,
+          33
+        ],
+        "opinion_span": [
+          35,
+          49
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "шартлары",
+        "Opinion": "бик уңайлы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.33#7",
+        "aspect_span": [
+          54,
+          62
+        ],
+        "opinion_span": [
+          63,
+          73
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "15567:5_612",
+    "Text": "Без аларның пастага һәм сушига тәкъдимнәреннән үз башыбызга файдаландык.",
+    "line_index": 125,
+    "quads": [
+      {
+        "Aspect": "пастага",
+        "Opinion": "үз башыбызга",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.88#7.75",
+        "aspect_span": [
+          12,
+          19
+        ],
+        "opinion_span": [
+          47,
+          59
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "сушига",
+        "Opinion": "үз башыбызга",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.88#7.75",
+        "aspect_span": [
+          24,
+          30
+        ],
+        "opinion_span": [
+          47,
+          59
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:6_613",
+    "Text": "Паста аңлаешсыз соуслы күбенгән макароннан, гыйбарәт иде, ә суши....суши тәмле иде, ләкин алар төгәл 1 сәгать 20 минут әзерләнде (бу, әйткәнемчә, буш ресторан вакытында иде).",
+    "line_index": 126,
+    "quads": [
+      {
+        "Aspect": "Паста",
+        "Opinion": "аңлаешсыз соуслы күбенгән макароннан",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.8#8.1",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          42
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "макароннан",
+        "Opinion": "күбенгән",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.8#8.1",
+        "aspect_span": [
+          32,
+          42
+        ],
+        "opinion_span": [
+          23,
+          31
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "соуслы",
+        "Opinion": "аңлаешсыз",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.9#8",
+        "aspect_span": [
+          16,
+          22
+        ],
+        "opinion_span": [
+          6,
+          15
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "суши",
+        "Opinion": "тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.25#7.25",
+        "aspect_span": [
+          60,
+          64
+        ],
+        "opinion_span": [
+          73,
+          78
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "15567:7_614",
+    "Text": "Официантка тоткарлыкны нәкъ менә заказларның зур күләме белән аңлатты, һәм кисәтүләрдән соң гомумән безгә якын килми башлады.",
+    "line_index": 127,
+    "quads": [
+      {
+        "Aspect": "Официантка",
+        "Opinion": "гомумән безгә якын килми башлады",
+        "Category": "SERVICE#GENERAL",
+        "VA": "2#7.8",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          92,
+          124
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:8_615",
+    "Text": "Берничә тапкыр сораган кайнар сөлгеләр китерелмәде.",
+    "line_index": 128,
+    "quads": [
+      {
+        "Aspect": "кайнар сөлгеләр",
+        "Opinion": "китерелмәде",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "2#7.33",
+        "aspect_span": [
+          23,
+          38
+        ],
+        "opinion_span": [
+          39,
+          50
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:10_616",
+    "Text": "Урын, интерьер, аш-су начар булмас иде, әмма эшнең оештырылуы коточкыч, моның белән кем шөгыльләнгәне аңлашылмый.",
+    "line_index": 129,
+    "quads": [
+      {
+        "Aspect": "интерьер",
+        "Opinion": "начар булмас",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.12#5.75",
+        "aspect_span": [
+          6,
+          14
+        ],
+        "opinion_span": [
+          22,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "аш-су",
+        "Opinion": "начар булмас",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.12#5.75",
+        "aspect_span": [
+          16,
+          21
+        ],
+        "opinion_span": [
+          22,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "эшнең оештырылуы",
+        "Opinion": "коточкыч",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.4#8.6",
+        "aspect_span": [
+          45,
+          61
+        ],
+        "opinion_span": [
+          62,
+          70
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:11_617",
+    "Text": "Әгәр сезнең бер пешекчегез булса һәм ул берьюлы 4 өстәлгә хезмәт күрсәтә алмаса, бернинди акцияләр оештырмагыз!",
+    "line_index": 130,
+    "quads": [
+      {
+        "Aspect": "пешекчегез",
+        "Opinion": "берьюлы 4 өстәлгә хезмәт күрсәтә алмаса",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.6#8.4",
+        "aspect_span": [
+          16,
+          26
+        ],
+        "opinion_span": [
+          40,
+          79
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:12_618",
+    "Text": "Ә официант кыз, балаларның безнең белән булуын күреп, ризыкларны көтүнең уртача вакыты 1-1,5 сәгать икәнен кисәтә алыр иде!!!!!!!",
+    "line_index": 131,
+    "quads": [
+      {
+        "Aspect": "официант кыз",
+        "Opinion": "кисәтә алыр иде",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.8#8.5",
+        "aspect_span": [
+          2,
+          14
+        ],
+        "opinion_span": [
+          107,
+          122
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "көтүнең уртача вакыты",
+        "Opinion": "1-1,5 сәгать",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.25#8.75",
+        "aspect_span": [
+          65,
+          86
+        ],
+        "opinion_span": [
+          87,
+          99
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:13_619",
+    "Text": "Мондый бина элгәрләренең язмышына дучар булыр дип уйлыйм.",
+    "line_index": 132,
+    "quads": [
+      {
+        "Aspect": "бина",
+        "Opinion": "элгәрләренең язмышына дучар булыр",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "2#8.25",
+        "aspect_span": [
+          7,
+          11
+        ],
+        "opinion_span": [
+          12,
+          45
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "29350:1_1194",
+    "Text": "Ресторанда бик тәмле ризык, аерым алганда-суши, ролллар, дуңгыз шашлыгы,җылы Мексика салаты(киңәш итәм)!!! 2.",
+    "line_index": 133,
+    "quads": [
+      {
+        "Aspect": "ризык",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          21,
+          26
+        ],
+        "opinion_span": [
+          11,
+          20
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "суши",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          42,
+          46
+        ],
+        "opinion_span": [
+          11,
+          20
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ролллар",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          48,
+          55
+        ],
+        "opinion_span": [
+          11,
+          20
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "дуңгыз шашлыгы",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          57,
+          71
+        ],
+        "opinion_span": [
+          11,
+          20
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "җылы Мексика салаты",
+        "Opinion": "бик тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.17#7.83",
+        "aspect_span": [
+          72,
+          91
+        ],
+        "opinion_span": [
+          11,
+          20
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "җылы Мексика салаты",
+        "Opinion": "киңәш итәм",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.4#7",
+        "aspect_span": [
+          72,
+          91
+        ],
+        "opinion_span": [
+          92,
+          102
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29350:2_1195",
+    "Text": "Бераз уңайлы түгел, зур киңлектән һәм бераз салкын (кышын), әмма җәй көне - бу тәрәзәдән супер күренешләр!!! 3.",
+    "line_index": 134,
+    "quads": [
+      {
+        "Aspect": "зур киңлектән",
+        "Opinion": "Бераз уңайлы түгел",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.33#5.33",
+        "aspect_span": [
+          20,
+          33
+        ],
+        "opinion_span": [
+          0,
+          18
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "зур киңлектән",
+        "Opinion": "бераз салкын",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.33#6.67",
+        "aspect_span": [
+          20,
+          33
+        ],
+        "opinion_span": [
+          38,
+          50
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "күренешләр",
+        "Opinion": "супер",
+        "Category": "LOCATION#GENERAL",
+        "VA": "8.1#7.8",
+        "aspect_span": [
+          95,
+          105
+        ],
+        "opinion_span": [
+          89,
+          94
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29350:3_1196",
+    "Text": "Хезмәт күрсәтү, минем карашка, бик яхшы, кунакны каршы алудан алып озатуга кадәр.",
+    "line_index": 135,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "бик яхшы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#6.88",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          31,
+          39
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кунакны каршы алудан",
+        "Opinion": "бик яхшы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#6.88",
+        "aspect_span": [
+          41,
+          61
+        ],
+        "opinion_span": [
+          31,
+          39
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "озатуга",
+        "Opinion": "бик яхшы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#6.88",
+        "aspect_span": [
+          67,
+          74
+        ],
+        "opinion_span": [
+          31,
+          39
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29350:4_1197",
+    "Text": "Персонал бик әдәпле (бигрәк тә официантка Анастасия),ачык йөзле һәм ризыкларның составын яхшы белә, бу бик мөһим.",
+    "line_index": 136,
+    "quads": [
+      {
+        "Aspect": "Персонал",
+        "Opinion": "бик әдәпле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.7#6.9",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          19
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Персонал",
+        "Opinion": "ачык йөзле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.88#6.5",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          53,
+          63
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Персонал",
+        "Opinion": "ризыкларның составын яхшы белә",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          68,
+          98
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "официантка",
+        "Opinion": "бик әдәпле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.62#7",
+        "aspect_span": [
+          31,
+          41
+        ],
+        "opinion_span": [
+          9,
+          19
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:2_243",
+    "Text": "Хезмәт күрсәтү турында бернинди тискәре әйбер дә әйтеп булмый-тиз киләләр, барысы да елмаялар, килеп, барысы да ошыймы, дип сорыйлар.",
+    "line_index": 137,
+    "quads": [
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "бернинди тискәре әйбер дә",
+        "Category": "SERVICE#GENERAL",
+        "VA": "5.83#4.67",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          23,
+          48
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "тиз киләләр",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.88#6.38",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          62,
+          73
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Хезмәт күрсәтү",
+        "Opinion": "барысы да елмаялар",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.75#6.25",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          75,
+          93
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:4_244",
+    "Text": "Интерьер исең китәрлек түгел, ләкин сөйкемле һәм уңайлы.",
+    "line_index": 138,
+    "quads": [
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "исең китәрлек түгел",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "5.25#5",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          28
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "сөйкемле",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.6#6",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          36,
+          44
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Интерьер",
+        "Opinion": "уңайлы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.7#6.3",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          49,
+          55
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:5_245",
+    "Text": "Ашау яхшы.",
+    "line_index": 139,
+    "quads": [
+      {
+        "Aspect": "Ашау",
+        "Opinion": "яхшы",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.6#6",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          9
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:10_246",
+    "Text": "Шәхсән мин мондый мангал ресторанында ит ашамлыклары күбрәк булыр, дип көткән идем.",
+    "line_index": 140,
+    "quads": [
+      {
+        "Aspect": "ит ашамлыклары",
+        "Opinion": "күбрәк булыр, дип көткән идем",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "3.75#6",
+        "aspect_span": [
+          38,
+          52
+        ],
+        "opinion_span": [
+          53,
+          82
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "10645:11_247",
+    "Text": "Икенче яктан, итнең һәр төреннән берәр шашлык бар, гомумән алганда җитәрлек, әмма ниндидер гадәти булмаган әйбер күрәсе килә..",
+    "line_index": 141,
+    "quads": [
+      {
+        "Aspect": "шашлык",
+        "Opinion": "гомумән алганда җитәрлек",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "5#3.8",
+        "aspect_span": [
+          39,
+          45
+        ],
+        "opinion_span": [
+          51,
+          75
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "шашлык",
+        "Opinion": "ниндидер гадәти булмаган әйбер",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "5#4.33",
+        "aspect_span": [
+          39,
+          45
+        ],
+        "opinion_span": [
+          82,
+          112
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "1200:0_37",
+    "Text": "Туган көнне бәйрәм иттек, барысы да ошады,үзендә уңайлы интерьер (беренче зал), тәмле ризык,күңелле персонал һәм бииик демократик бәяләр ( туган көн хөрмәтенә 33% ташлама) берләштерерлек урын таба алдык,әмма шулай да берничә бик сәер момент булды.1.",
+    "line_index": 142,
+    "quads": [
+      {
+        "Aspect": "урын",
+        "Opinion": "бииик демократик бәяләр",
+        "Category": "RESTAURANT#PRICES",
+        "VA": "8.5#8.5",
+        "aspect_span": [
+          187,
+          191
+        ],
+        "opinion_span": [
+          113,
+          136
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "урын",
+        "Opinion": "ошады",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          187,
+          191
+        ],
+        "opinion_span": [
+          36,
+          41
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "интерьер",
+        "Opinion": "уңайлы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.2#6.9",
+        "aspect_span": [
+          56,
+          64
+        ],
+        "opinion_span": [
+          49,
+          55
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "беренче зал",
+        "Opinion": "уңайлы",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.2#6.9",
+        "aspect_span": [
+          66,
+          77
+        ],
+        "opinion_span": [
+          49,
+          55
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ризык",
+        "Opinion": "тәмле",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.2#7",
+        "aspect_span": [
+          86,
+          91
+        ],
+        "opinion_span": [
+          80,
+          85
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "персонал",
+        "Opinion": "күңелле",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.8",
+        "aspect_span": [
+          100,
+          108
+        ],
+        "opinion_span": [
+          92,
+          99
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1200:1_38",
+    "Text": "Ресторан 12 нче яртыда ябыла, шуңа күрә бер мизгелдә официант безгә моны әдәпле генә хәбәр итте,бу безне әллә ни борчымады,без алга таба биергә киттек, ләкин шулай да..шәһәрдә теләсә нинди оешма соңгы клиентка кадәр эшли, бераз сәер .2.",
+    "line_index": 143,
+    "quads": [
+      {
+        "Aspect": "Ресторан",
+        "Opinion": "бераз сәер",
+        "Category": "RESTAURANT#MISCELLANEOUS",
+        "VA": "4.75#4.25",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          222,
+          232
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "официант",
+        "Opinion": "әдәпле генә",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.5#6",
+        "aspect_span": [
+          53,
+          61
+        ],
+        "opinion_span": [
+          73,
+          84
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1200:2_39",
+    "Text": "Ак Сицилия шәрабын алдык,ошады, тагын шундыйны сораган идек,ул инде юк булып чыкты, икенчесен алдык,ул да бер экземплярда иде, өченчесен алдык....3.",
+    "line_index": 144,
+    "quads": [
+      {
+        "Aspect": "шәрабын",
+        "Opinion": "ошады",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7#6.8",
+        "aspect_span": [
+          11,
+          18
+        ],
+        "opinion_span": [
+          25,
+          30
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "26284:1_1055",
+    "Text": "Без Мәскәүдән,ял көннәрендә Питерга һәм сезнең искиткеч ресторанга бардык!",
+    "line_index": 145,
+    "quads": [
+      {
+        "Aspect": "ресторанга",
+        "Opinion": "искиткеч",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.8#7.4",
+        "aspect_span": [
+          56,
+          66
+        ],
+        "opinion_span": [
+          47,
+          55
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "26284:2_1056",
+    "Text": "Барысы да ошады:гадәти булмаган интерьер да,официантканың ашамлыклар тәкъдим итеп яхшы хезмәт күрсәтүе дә,тәрәзәдән бик матур күренеш тә,иң мөһиме бик яхшы аш-су да!!!",
+    "line_index": 146,
+    "quads": [
+      {
+        "Aspect": "интерьер",
+        "Opinion": "гадәти булмаган",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.38",
+        "aspect_span": [
+          32,
+          40
+        ],
+        "opinion_span": [
+          16,
+          31
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "хезмәт күрсәтүе",
+        "Opinion": "яхшы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.8#6.2",
+        "aspect_span": [
+          87,
+          102
+        ],
+        "opinion_span": [
+          82,
+          86
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "официантканың",
+        "Opinion": "яхшы",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6",
+        "aspect_span": [
+          44,
+          57
+        ],
+        "opinion_span": [
+          82,
+          86
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "күренеш",
+        "Opinion": "бик матур",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.9#7.2",
+        "aspect_span": [
+          126,
+          133
+        ],
+        "opinion_span": [
+          116,
+          125
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "аш-су",
+        "Opinion": "бик яхшы",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.6#7.1",
+        "aspect_span": [
+          156,
+          161
+        ],
+        "opinion_span": [
+          147,
+          155
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "26284:3_1057",
+    "Text": "Бәя тулысынча сыйфатка туры килә,барысы да бик тәмле,минемчә, чыннан да яхшы рестораннар аз булган Питер өчен сирәк күренеш.\"BELLINI\" шуларның берсе!",
+    "line_index": 147,
+    "quads": [
+      {
+        "Aspect": "\"BELLINI\"",
+        "Opinion": "чыннан да яхшы",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8#8.17",
+        "aspect_span": [
+          124,
+          133
+        ],
+        "opinion_span": [
+          62,
+          76
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  }
+]
