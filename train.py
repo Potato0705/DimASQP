@@ -7,6 +7,7 @@
 """
 import json
 import os
+import time
 
 import torch
 from loguru import logger
@@ -94,18 +95,27 @@ def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
     return loss, loss_mat, loss_cls_dim
 
 
+def _progress_bar(current, total, width=25):
+    """Render a simple ASCII progress bar string."""
+    filled = int(width * current / total)
+    bar = '#' * filled + '.' * (width - filled)
+    return f'[{bar}] {current}/{total}'
+
+
 def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn, optimizer, scaler,
           adversial_model=None, **kwargs):
     model.train()
     total_loss = 0
     total_loss_mat = 0
     total_loss_cls_dim = 0
-    total_loss_dim_seq = 0
-    total_loss_sen_seq = 0
+    total_loss_va = 0
     total_step = len(dataloader)
     accum_steps = getattr(args, 'gradient_accumulation_steps', 1)
-    loop = tqdm(enumerate(dataloader), total=total_step, ncols=150)
-    for step, data in loop:
+    # Print at 25%, 50%, 75%, 100%
+    print_steps = set(int(total_step * p) - 1 for p in [0.25, 0.5, 0.75, 1.0])
+    t_start = time.time()
+
+    for step, data in enumerate(dataloader):
         for key in data:
             data[key] = data[key].to(device)
 
@@ -136,6 +146,10 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         total_loss += loss.item() * accum_steps
         total_loss_mat += loss_mat.item()
         total_loss_cls_dim += loss_cls_dim.item()
+        if args.label_pattern == 'category' and args.weight4 > 0:
+            with torch.no_grad():
+                va_loss_val = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"]).item()
+            total_loss_va += va_loss_val
 
         # Gradient accumulation: only step every accum_steps
         if (step + 1) % accum_steps == 0 or (step + 1) == total_step:
@@ -143,12 +157,24 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
             scaler.update()
             optimizer.zero_grad()
 
-        loop.set_description(f'Train step [{step}/{total_step}]')
-        postfix_dic = {'loss': total_loss / (step + 1),
-                       'loss_mat': total_loss_mat / (step + 1),
-                       'loss_cls_dim': total_loss_cls_dim / (step + 1)}
+        if step in print_steps:
+            n = step + 1
+            elapsed = time.time() - t_start
+            speed = n / elapsed
+            parts = [f"mat={total_loss_mat/n:.4f}", f"dim={total_loss_cls_dim/n:.4f}"]
+            if args.label_pattern == 'category' and args.weight4 > 0:
+                parts.append(f"va={total_loss_va/n:.4f}")
+            print(f"  Train {_progress_bar(n, total_step)} {speed:.1f}it/s | L={total_loss/n:.4f} {' '.join(parts)}")
 
-        loop.set_postfix(postfix_dic)
+    # Return epoch-level average losses
+    avg_losses = {
+        'loss': total_loss / total_step,
+        'loss_mat': total_loss_mat / total_step,
+        'loss_cls_dim': total_loss_cls_dim / total_step,
+    }
+    if args.label_pattern == 'category' and args.weight4 > 0:
+        avg_losses['loss_va'] = total_loss_va / total_step
+    return avg_losses
 
 
 def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn, metrics_mat, metrics_dim_seq,
@@ -157,25 +183,21 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
     metrics_mat.reset()
     metrics_dim_seq.reset()
     metrics_sen_seq.reset()
-    # pbar = ProgressBar(n_total=len(dataloader), desc='testing')
     total_loss = 0
     total_loss_mat = 0
     total_loss_cls_dim = 0
-    total_loss_dim_seq = 0
-    total_loss_sen_seq = 0
+    total_loss_va = 0
     total_step = len(dataloader)
-    loop = tqdm(enumerate(dataloader), total=total_step, ncols=150)
+    t_start = time.time()
+
     with torch.no_grad():
-        for step, data in loop:
+        for step, data in enumerate(dataloader):
             for key in data:
                 data[key] = data[key].to(device)
 
-            # Compute prediction error
             pred = model(input_ids=data["input_ids"],
                          token_type_ids=data["token_type_ids"],
                          attention_mask=data["attention_mask"])
-            loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
-            loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
 
             loss, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
             loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
@@ -192,15 +214,24 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
             total_loss += loss.item()
             total_loss_mat += loss_mat.item()
             total_loss_cls_dim += loss_cls_dim.item()
+            if args.label_pattern == 'category' and args.weight4 > 0:
+                va_loss_val = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"]).item()
+                total_loss_va += va_loss_val
 
-            loop.set_description(f'Valid step [{step}/{total_step}]')
-            postfix_dic = {'loss': total_loss / (step + 1),
-                           'loss_mat': total_loss_mat / (step + 1),
-                           'loss_cls_dim': total_loss_cls_dim / (step + 1)}
+    elapsed = time.time() - t_start
+    parts = [f"mat={total_loss_mat/total_step:.4f}", f"dim={total_loss_cls_dim/total_step:.4f}"]
+    if args.label_pattern == 'category' and args.weight4 > 0:
+        parts.append(f"va={total_loss_va/total_step:.4f}")
+    print(f"  Valid {_progress_bar(total_step, total_step)} {elapsed:.0f}s    | L={total_loss/total_step:.4f} {' '.join(parts)}")
 
-            loop.set_postfix(postfix_dic)
-
-    return metrics_mat.result(), metrics_dim_seq.result(), metrics_sen_seq.result()
+    avg_losses = {
+        'loss': total_loss / total_step,
+        'loss_mat': total_loss_mat / total_step,
+        'loss_cls_dim': total_loss_cls_dim / total_step,
+    }
+    if args.label_pattern == 'category' and args.weight4 > 0:
+        avg_losses['loss_va'] = total_loss_va / total_step
+    return metrics_mat.result(), metrics_dim_seq.result(), metrics_sen_seq.result(), avg_losses
 
 
 def main(args):
@@ -299,13 +330,25 @@ def main(args):
         fgm = FGM(model, epsilon=1, emb_name='word_embeddings.weight')
     else:
         fgm = None
-    best_score, early_stop = 0, 0
+    best_score, early_stop_count = 0, 0
     output_model_path = os.path.join(args.output_dir, "model.pt")
     best_model_path = os.path.join(args.output_dir, "best_model.pt")
     train_history = []
+    training_start_time = time.time()
+    epoch_times = []
+
+    print(f"\n{'='*70}")
+    print(f"  Training: {args.task_domain} | {args.label_pattern} | mask={args.mask_rate}")
+    print(f"  Epochs: {args.epoch} | BS: {args.per_gpu_train_batch_size}x{getattr(args,'gradient_accumulation_steps',1)} | Early stop: {args.early_stop}")
+    print(f"  Weights: mat={args.weight1} dim={args.weight2} va={args.weight4}")
+    print(f"  Output: {args.output_dir}")
+    print(f"{'='*70}\n")
+
     for t in range(args.epoch):
-        print(f"Epoch {t + 1}\n-------------------------------")
-        train(args,
+        epoch_start = time.time()
+
+        # --- Train ---
+        train_losses = train(args,
               train_dataloader,
               model,
               loss_matrix_fn,
@@ -315,7 +358,9 @@ def main(args):
               scaler,
               adversial_model=fgm,
               tokenizer=tokenizer)
-        dic_mat_report, dic_dim_seq_report, dic_sen_seq_report = validate(args,
+
+        # --- Validate ---
+        dic_mat_report, dic_dim_seq_report, dic_sen_seq_report, val_losses = validate(args,
                                                                           valid_dataloader,
                                                                           model,
                                                                           loss_matrix_fn,
@@ -324,10 +369,19 @@ def main(args):
                                                                           metrics_mat,
                                                                           metrics_dim_seq,
                                                                           metrics_sen_seq)
+
+        epoch_time = time.time() - epoch_start
+        epoch_times.append(epoch_time)
+
         try:
             mat_f1_score = dic_mat_report['micro avg']['f1-score']
         except:
             mat_f1_score = 1
+        try:
+            mat_precision = dic_mat_report['micro avg']['precision']
+            mat_recall = dic_mat_report['micro avg']['recall']
+        except:
+            mat_precision, mat_recall = 0, 0
         try:
             dim_seq_f1_score = dic_dim_seq_report['micro avg']['f1-score']
         except:
@@ -344,39 +398,76 @@ def main(args):
         elif args.label_pattern == 'raw':
             score = (mat_f1_score + dim_seq_f1_score + sen_seq_f1_score) / 3
         elif args.label_pattern == 'category':
-            score = mat_f1_score  # category is encoded in matrix, so matrix F1 is the primary metric
+            score = mat_f1_score
 
         scheduler.step(score)
-        train_history.append({
+
+        # --- Epoch Summary ---
+        is_best = score >= best_score or score < 0.02
+        avg_epoch_time = sum(epoch_times) / len(epoch_times)
+        remaining_epochs = args.epoch - (t + 1)
+        eta_seconds = avg_epoch_time * remaining_epochs
+        eta_min = eta_seconds / 60
+
+        # Build loss string
+        loss_parts = [f"mat={val_losses['loss_mat']:.4f}", f"dim={val_losses['loss_cls_dim']:.4f}"]
+        if 'loss_va' in val_losses:
+            loss_parts.append(f"va={val_losses['loss_va']:.4f}")
+        loss_str = ' '.join(loss_parts)
+
+        status = "★ BEST" if is_best else f"  wait({early_stop_count+1}/{args.early_stop})"
+        lr_current = optimizer.param_groups[0]['lr']
+
+        print(f"\n┌─ Epoch {t+1:3d}/{args.epoch} ─────────────────────────────────────────")
+        print(f"│ Score: {score:.4f}  (P={mat_precision:.4f} R={mat_recall:.4f} F1={mat_f1_score:.4f})  {status}")
+        print(f"│ Loss:  {loss_str}  |  LR: {lr_current:.2e}")
+        print(f"│ Best:  {max(best_score, score) if is_best else best_score:.4f}  |  Time: {epoch_time:.0f}s  |  ETA: {eta_min:.0f}min")
+        print(f"└──────────────────────────────────────────────────────────")
+
+        history_entry = {
             "epoch": t + 1,
             "matrix_f1": mat_f1_score,
+            "matrix_precision": mat_precision,
+            "matrix_recall": mat_recall,
             "dimension_seq_f1": dim_seq_f1_score,
             "sentiment_seq_f1": sen_seq_f1_score,
             "score": score,
-        })
+            "train_loss": train_losses.get('loss', 0),
+            "val_loss": val_losses.get('loss', 0),
+            "epoch_time": epoch_time,
+        }
+        if 'loss_va' in val_losses:
+            history_entry['val_loss_va'] = val_losses['loss_va']
+        if 'loss_va' in train_losses:
+            history_entry['train_loss_va'] = train_losses['loss_va']
+        train_history.append(history_entry)
         with open(os.path.join(args.output_dir, "train_history.json"), "w", encoding="utf-8") as f:
             json.dump(train_history, f, indent=2, ensure_ascii=False)
         writer.add_scalars('Training vs. Validation Loss',
                            {'Training': torch.tensor(4), 'Validation': torch.tensor(4)},
-                           # dic_cls_report,
                            t)
 
-        if score >= best_score or score < 0.02:
+        if is_best:
             best_score = score
-            logger.info(f"Best score : {best_score}")
-            early_stop = 0
+            early_stop_count = 0
             torch.save(model, best_model_path)
             with open(os.path.join(args.output_dir, "best_score.json"), "w", encoding="utf-8") as f:
                 json.dump({"best_score": best_score, "best_epoch": t + 1}, f, indent=2, ensure_ascii=False)
         else:
-            early_stop += 1
-            if early_stop >= args.early_stop:
-                logger.info(f"Early stop: the best score is {best_score}")
+            early_stop_count += 1
+            if early_stop_count >= args.early_stop:
+                total_time = (time.time() - training_start_time) / 60
+                print(f"\n{'='*70}")
+                print(f"  EARLY STOP at epoch {t+1} | Best: {best_score:.4f} | Total: {total_time:.1f}min")
+                print(f"{'='*70}")
                 torch.save(model, output_model_path)
-                logger.info(f"Saving model to {output_model_path}")
                 return
+
+    total_time = (time.time() - training_start_time) / 60
+    print(f"\n{'='*70}")
+    print(f"  TRAINING COMPLETE ({args.epoch} epochs) | Best: {best_score:.4f} | Total: {total_time:.1f}min")
+    print(f"{'='*70}")
     torch.save(model, output_model_path)
-    logger.info(f"Saving model to {output_model_path}")
     print("Done!")
 
 
