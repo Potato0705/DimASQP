@@ -39,6 +39,11 @@ def get_argparse():
     parser.add_argument("--task_learning_rate", default=5e-5, type=float)
     parser.add_argument("--weight_decay", default=0.01, type=float)
     parser.add_argument("--adam_epsilon", default=1e-8, type=float)
+    parser.add_argument("--max_grad_norm", default=1.0, type=float,
+                        help="Max gradient norm for clipping (0 to disable)")
+    parser.add_argument("--va_mode", default="span_pair", type=str,
+                        choices=["position", "span_pair"],
+                        help="VA prediction: position (per-token) or span_pair (conditioned on aspect-opinion pair)")
     parser.add_argument("--seed", type=int, default=66)
 
     # output / model path

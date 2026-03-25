@@ -55,6 +55,11 @@ def predict(args):
     sen_seq_preds = []
     dim_seq_trues = []
     va_preds = []
+    hidden_states_list = []
+    # Check if model has span-pair VA head
+    has_span_va = hasattr(model, 'span_pair_va_head')
+    va_mode = training_args_dic.get('va_mode', 'position')
+
     with torch.no_grad():
         for step, data in loop:
             for key in data:
@@ -78,6 +83,10 @@ def predict(args):
                 dim_seq_trues.append(np.argwhere(true_dimension_sequences > 0).tolist())
             for va_ in pred_va:
                 va_preds.append(va_)
+            # Store hidden states for span-pair VA inference
+            if has_span_va and va_mode == 'span_pair' and "hidden_states" in pred:
+                for hs in pred["hidden_states"].cpu():
+                    hidden_states_list.append(hs)  # [L, H]
 
     df_test = test_dataset.df
     df_test["pred_matrix"] = mat_preds
@@ -95,10 +104,21 @@ def predict(args):
 
     # Extract VA predictions for each predicted quad
     if label_pattern == 'category' and 'pred_va' in df_test.columns:
-        df_test['pred_answer_with_va'] = df_test.apply(
-            lambda row: attach_va_to_pred_answer(row['pred_answer'], row['pred_va'],
-                                                  row['Token_Index_Map_Char_Index']),
-            axis=1)
+        if has_span_va and va_mode == 'span_pair' and hidden_states_list:
+            # Span-Pair Conditioned VA: predict VA from (aspect, opinion) span pair
+            df_test['pred_hidden'] = hidden_states_list[:len(df_test)]
+            df_test['pred_answer_with_va'] = df_test.apply(
+                lambda row: attach_span_pair_va(row['pred_answer'], row['pred_hidden'],
+                                                row['Token_Index_Map_Char_Index'],
+                                                model.span_pair_va_head, device),
+                axis=1)
+            df_test.drop(columns=['pred_hidden'], inplace=True)
+        else:
+            # Per-position VA fallback
+            df_test['pred_answer_with_va'] = df_test.apply(
+                lambda row: attach_va_to_pred_answer(row['pred_answer'], row['pred_va'],
+                                                      row['Token_Index_Map_Char_Index']),
+                axis=1)
     else:
         df_test['pred_answer_with_va'] = df_test['pred_answer']
 
@@ -197,6 +217,75 @@ def attach_va_to_pred_answer(pred_answer, pred_va, token_index_map_char_index):
         a = max(1.0, min(9.0, a))
         va_str = f"{v:.2f}#{a:.2f}"
         results.append([category, aspect_idx, opinion_idx, va_str])
+    return results
+
+
+def _char_to_token_idx(char_idx, token_index_map_char_index):
+    """Find the token index containing a given character index."""
+    for tok_idx, char_indices in token_index_map_char_index.items():
+        char_list = list(map(int, str(char_indices).split(','))) if isinstance(char_indices, str) else char_indices
+        if char_idx in char_list:
+            return tok_idx
+    return None
+
+
+def attach_span_pair_va(pred_answer, hidden_states_tensor, token_index_map_char_index,
+                        span_pair_va_head, device):
+    """Attach VA predictions using Span-Pair Conditioned VA head.
+
+    For each predicted quad, extract aspect & opinion span token indices,
+    run through SpanPairVAHead to get (V, A) conditioned on the span pair.
+    """
+    if not pred_answer:
+        return pred_answer
+
+    # Build span indices from predicted quads
+    spans = []
+    for quad in pred_answer:
+        if len(quad) < 4:
+            spans.append((-1, -1, -1, -1))
+            continue
+        asp_start_char, asp_end_char = map(int, quad[1].split(","))
+        opi_start_char, opi_end_char = map(int, quad[2].split(","))
+
+        # Aspect: char -> token index (+2 for [CLS]+[SEP])
+        if asp_start_char >= 0:
+            asp_tok_s = _char_to_token_idx(asp_start_char, token_index_map_char_index)
+            asp_tok_e = _char_to_token_idx(max(asp_end_char - 1, asp_start_char), token_index_map_char_index)
+            asp_s = (asp_tok_s + 2) if asp_tok_s is not None else 1
+            asp_e = (asp_tok_e + 2) if asp_tok_e is not None else asp_s
+        else:
+            asp_s, asp_e = 1, 1  # implicit -> [SEP]
+
+        # Opinion: char -> token index (+2)
+        if opi_start_char >= 0:
+            opi_tok_s = _char_to_token_idx(opi_start_char, token_index_map_char_index)
+            opi_tok_e = _char_to_token_idx(max(opi_end_char - 1, opi_start_char), token_index_map_char_index)
+            opi_s = (opi_tok_s + 2) if opi_tok_s is not None else 1
+            opi_e = (opi_tok_e + 2) if opi_tok_e is not None else opi_s
+        else:
+            opi_s, opi_e = 1, 1  # implicit -> [SEP]
+
+        spans.append((asp_s, asp_e, opi_s, opi_e))
+
+    Q = len(spans)
+    quad_spans_t = torch.tensor(spans, dtype=torch.long).unsqueeze(0).to(device)   # [1, Q, 4]
+    quad_mask_t = torch.ones(1, Q, dtype=torch.float32).to(device)                  # [1, Q]
+    hs = hidden_states_tensor.unsqueeze(0).to(device)                                # [1, L, H]
+
+    with torch.no_grad():
+        va_pred = span_pair_va_head(hs, quad_spans_t, quad_mask_t)  # [1, Q, 2]
+    va_pred = va_pred[0].cpu().numpy()  # [Q, 2]
+
+    results = []
+    for i, quad in enumerate(pred_answer):
+        if len(quad) < 4:
+            results.append(quad)
+            continue
+        v = float(np.clip(va_pred[i, 0], 1.0, 9.0))
+        a = float(np.clip(va_pred[i, 1], 1.0, 9.0))
+        va_str = f"{v:.2f}#{a:.2f}"
+        results.append([quad[0], quad[1], quad[2], va_str])
     return results
 
 

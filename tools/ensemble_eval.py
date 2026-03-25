@@ -1,11 +1,13 @@
 """
-Threshold sweep on matrix predictions without retraining.
+Multi-seed ensemble evaluation.
 
-Saves raw matrix logits from model, then evaluates cF1 at different thresholds.
+Averages raw logit matrices from multiple models, then uses a reference model's
+span-pair VA head for VA prediction. Models are loaded one at a time to save GPU memory.
 
 Usage:
-    python tools/threshold_sweep.py \
-        --model_path output/eng_restaurant_category_... \
+    python tools/ensemble_eval.py \
+        --model_paths output/model_seed42 output/model_seed66 output/model_seed123 \
+        --va_model_path output/model_seed66 \
         --test_data data/eng/eng_restaurant_dev.txt \
         --sidecar data/eng/eng_restaurant_dev_sidecar.json \
         --gold data/eng/eng_restaurant_dev.jsonl
@@ -13,7 +15,7 @@ Usage:
 import json
 import os
 import sys
-import math
+import gc
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
@@ -24,15 +26,17 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from dataset.dataset import AcqpDataset, collate_fn
 from utils.utils import load_train_model, load_train_args
-from predict import create_pred_answer, attach_va_to_pred_answer
+from predict import create_pred_answer, attach_va_to_pred_answer, attach_span_pair_va
 from tools.evaluate_local import read_jsonl_file, evaluate_predictions
 from tools.generate_submission import load_sidecar, SENTIMENT_VA_MAP
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-def extract_raw_logits(model_path, test_data_path, batch_size=16):
-    """Extract raw matrix logits, VA predictions, and hidden states from model."""
+def extract_logits_single(model_path, test_data_path, batch_size=16,
+                          keep_hidden=False):
+    """Extract raw logits from one model. Optionally keep hidden states for VA."""
+    print(f"\n  Loading: {os.path.basename(model_path)}")
     model = load_train_model(model_path)
     model = model.to(device)
     model.eval()
@@ -50,13 +54,10 @@ def extract_raw_logits(model_path, test_data_path, batch_size=16):
                             num_workers=0, pin_memory=True, collate_fn=collate_fn)
 
     raw_matrices = []
-    va_preds = []
     hidden_states_list = []
-    has_span_va = hasattr(model, 'span_pair_va_head')
-    va_mode = training_args.get('va_mode', 'position')
 
     with torch.no_grad():
-        for data in tqdm(dataloader, desc="Extracting logits"):
+        for data in tqdm(dataloader, desc="  Extracting"):
             for key in data:
                 data[key] = data[key].to(device)
             pred = model(input_ids=data["input_ids"],
@@ -64,57 +65,72 @@ def extract_raw_logits(model_path, test_data_path, batch_size=16):
                          attention_mask=data["attention_mask"])
             for mat in pred["matrix"].cpu().numpy():
                 raw_matrices.append(mat)
-            for va in pred["va"].cpu().numpy():
-                va_preds.append(va)
-            # Store hidden states for span-pair VA
-            if has_span_va and va_mode == 'span_pair' and "hidden_states" in pred:
+            if keep_hidden and "hidden_states" in pred:
                 for hs in pred["hidden_states"].cpu():
                     hidden_states_list.append(hs)
 
-    return dataset, raw_matrices, va_preds, hidden_states_list, training_args, model
+    va_head = None
+    if keep_hidden and hasattr(model, 'span_pair_va_head'):
+        # Keep VA head on GPU for inference
+        va_head = model.span_pair_va_head.to(device)
+
+    if not keep_hidden:
+        del model
+        torch.cuda.empty_cache()
+        gc.collect()
+        print(f"  Done: {len(raw_matrices)} samples, GPU freed")
+    else:
+        del model
+        torch.cuda.empty_cache()
+        gc.collect()
+        print(f"  Done: {len(raw_matrices)} samples + {len(hidden_states_list)} hidden states, GPU freed")
+
+    return dataset, raw_matrices, hidden_states_list, va_head, training_args
 
 
-def decode_at_threshold(dataset, raw_matrices, va_preds, hidden_states_list,
-                        threshold, training_args, model=None):
-    """Decode predictions at a given threshold and return submission entries."""
-    from predict import attach_span_pair_va
-    label_pattern = training_args['label_pattern']
+def ensemble_average(all_matrices_list):
+    """Average logit matrices across models."""
+    n_models = len(all_matrices_list)
+    n_samples = len(all_matrices_list[0])
+
+    avg_matrices = []
+    for i in range(n_samples):
+        mat_stack = np.stack([all_matrices_list[m][i] for m in range(n_models)])
+        avg_matrices.append(mat_stack.mean(axis=0))
+
+    return avg_matrices
+
+
+def decode_at_threshold_with_span_va(dataset, raw_matrices, hidden_states_list,
+                                      va_head, threshold, training_args):
+    """Decode with ensemble logits + span-pair VA from reference model."""
     label_types = dataset.label_types
     dimension_types = dataset.dimension_types
     sentiment2id = dataset.sentiment2id
-    va_mode = training_args.get('va_mode', 'position')
-    has_span_va = model is not None and hasattr(model, 'span_pair_va_head')
-
+    label_pattern = training_args['label_pattern']
     df = dataset.df
     all_preds = []
 
     for i in range(len(df)):
         mat = raw_matrices[i]
-        va = va_preds[i]
-
-        # Apply threshold
         mat_pred = np.argwhere(mat > threshold).tolist()
-
-        # Dummy dim_seq and sen_seq (not used in category mode)
-        dim_seq_pred = []
-        sen_seq_pred = []
-
         token_map = df.iloc[i]['Token_Index_Map_Char_Index']
         text = df.iloc[i]['text']
 
         pred_answer = create_pred_answer(
-            mat_pred, dim_seq_pred, sen_seq_pred,
-            token_map, label_pattern, label_types,
-            dimension_types, sentiment2id
+            mat_pred, [], [], token_map, label_pattern,
+            label_types, dimension_types, sentiment2id
         )
 
-        # Attach VA: use span-pair VA if available, else per-position
-        if has_span_va and va_mode == 'span_pair' and hidden_states_list:
+        # Use span-pair VA from reference model
+        if va_head is not None and hidden_states_list:
             pred_with_va = attach_span_pair_va(
                 pred_answer, hidden_states_list[i], token_map,
-                model.span_pair_va_head, device)
+                va_head, device)
         else:
-            pred_with_va = attach_va_to_pred_answer(pred_answer, va, token_map)
+            # Fallback: no VA (shouldn't happen)
+            pred_with_va = [[q[0], q[1], q[2], "5.00#5.00"] for q in pred_answer if len(q) >= 3]
+
         all_preds.append({
             "text": text,
             "pred_answer_with_va": pred_with_va,
@@ -164,38 +180,78 @@ def preds_to_submission(all_preds, sidecar_data):
 def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model_path", required=True)
+    parser.add_argument("--model_paths", nargs="+", required=True,
+                        help="Paths to model directories for logit averaging")
+    parser.add_argument("--va_model_path", type=str, default=None,
+                        help="Model to use for span-pair VA (default: first model)")
     parser.add_argument("--test_data", required=True)
     parser.add_argument("--sidecar", required=True)
     parser.add_argument("--gold", required=True)
     parser.add_argument("--thresholds", type=str,
-                        default="-2.0,-1.5,-1.0,-0.5,-0.3,-0.1,0.0,0.3,0.5,1.0")
+                        default="-3.0,-2.0,-1.5,-1.0,-0.5,-0.3,-0.1,0.0,0.3,0.5,1.0")
     args = parser.parse_args()
 
     thresholds = [float(t) for t in args.thresholds.split(",")]
+    n_models = len(args.model_paths)
+    va_model = args.va_model_path or args.model_paths[0]
 
-    print("Extracting raw logits...")
-    dataset, raw_matrices, va_preds, hidden_states_list, training_args, model = extract_raw_logits(
-        args.model_path, args.test_data)
+    print(f"{'=' * 70}")
+    print(f"  ENSEMBLE: {n_models} models (logit avg)")
+    print(f"  VA model: {os.path.basename(va_model)}")
+    print(f"{'=' * 70}")
+
+    # Step 1: Extract logits from each model
+    all_matrices_list = []
+    hidden_states_list = []
+    va_head = None
+    dataset = None
+    training_args = None
+
+    for model_path in args.model_paths:
+        is_va_model = (os.path.abspath(model_path) == os.path.abspath(va_model))
+        ds, matrices, hs_list, vah, t_args = extract_logits_single(
+            model_path, args.test_data, keep_hidden=is_va_model)
+        all_matrices_list.append(matrices)
+        if is_va_model:
+            hidden_states_list = hs_list
+            va_head = vah
+            print(f"  >> Using this model for span-pair VA")
+        if dataset is None:
+            dataset = ds
+            training_args = t_args
+
+    # If va_model is not in model_paths, load it separately
+    if not hidden_states_list:
+        print(f"\n  Loading VA model separately: {os.path.basename(va_model)}")
+        _, _, hidden_states_list, va_head, _ = extract_logits_single(
+            va_model, args.test_data, keep_hidden=True)
+
+    # Step 2: Average logit matrices
+    print(f"\nAveraging {n_models} models' logits...")
+    avg_matrices = ensemble_average(all_matrices_list)
+    print(f"  Ensemble logits ready: {len(avg_matrices)} samples")
+
+    del all_matrices_list
+    gc.collect()
+
+    # Step 3: Threshold sweep
     sidecar_data = load_sidecar(args.sidecar)
     gold_data = read_jsonl_file(args.gold, task=3, data_type='gold')
 
-    va_mode = training_args.get('va_mode', 'position')
-    print(f"  VA mode: {va_mode}")
-
-    print(f"\n{'='*70}")
-    print(f"{'Threshold':>10} {'cF1':>8} {'cPrec':>8} {'cRecall':>8} {'TP':>6} {'FP':>6} {'FN':>6} {'#Pred':>7} {'VA%':>6}")
-    print(f"{'='*70}")
+    print(f"\n{'=' * 70}")
+    print(f"{'Threshold':>10} {'cF1':>8} {'cPrec':>8} {'cRecall':>8} "
+          f"{'TP':>6} {'FP':>6} {'FN':>6} {'#Pred':>7} {'VA%':>6}")
+    print(f"{'=' * 70}")
 
     results = []
     for threshold in thresholds:
-        all_preds = decode_at_threshold(dataset, raw_matrices, va_preds, hidden_states_list,
-                                        threshold, training_args, model)
+        all_preds = decode_at_threshold_with_span_va(
+            dataset, avg_matrices, hidden_states_list,
+            va_head, threshold, training_args)
         submissions = preds_to_submission(all_preds, sidecar_data)
         total_preds = sum(len(s["Quadruplet"]) for s in submissions)
 
-        # Write temp file
-        tmp_path = f"submission/_tmp_thresh_{threshold:.1f}.jsonl"
+        tmp_path = "submission/_tmp_ensemble.jsonl"
         os.makedirs("submission", exist_ok=True)
         with open(tmp_path, "w", encoding="utf-8") as f:
             for entry in submissions:
@@ -211,14 +267,13 @@ def main():
               f"{metrics['FN']:>6} {total_preds:>7} {va_pct:>5.1f}%")
 
         results.append({"threshold": threshold, **metrics, "total_preds": total_preds})
-
         os.remove(tmp_path)
 
-    # Find best
     best = max(results, key=lambda x: x['cF1'])
-    print(f"\n{'='*70}")
-    print(f"Best threshold: {best['threshold']:.1f} -> cF1={best['cF1']:.4f}")
+    print(f"\n{'=' * 70}")
+    print(f"  ENSEMBLE BEST: threshold={best['threshold']:.1f} -> cF1={best['cF1']:.4f}")
     print(f"  cPrecision={best['cPrecision']:.4f}, cRecall={best['cRecall']:.4f}")
+    print(f"{'=' * 70}")
 
 
 if __name__ == "__main__":

@@ -73,9 +73,10 @@ def compute_va_loss(pred_va, va_targets, va_mask):
 
 
 def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn):
-    """Compute total loss based on label_pattern."""
+    """Compute total loss based on label_pattern. Returns (loss, loss_mat, loss_cls_dim, loss_va)."""
     loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
     loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
+    loss_va = torch.tensor(0.0, device=loss_mat.device)
     if args.label_pattern == 'sentiment_dim':
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
     elif args.label_pattern == 'sentiment':
@@ -89,10 +90,22 @@ def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
                                        mask_rate=args.mask_rate)
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq + args.weight4 * loss_sen_seq
     elif args.label_pattern == 'category':
-        # category mode: matrix encodes category directly, VA regression replaces sentiment
-        loss_va = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"])
-        loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight4 * loss_va
-    return loss, loss_mat, loss_cls_dim
+        loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
+        if args.weight4 > 0:
+            va_mode = getattr(args, 'va_mode', 'position')
+            if va_mode == 'span_pair' and "span_va" in pred:
+                # Span-Pair Conditioned VA loss (masked MSE over gold quadruplets)
+                span_va_pred = pred["span_va"]                    # [B, Q, 2]
+                span_va_gold = data["quad_va"].to(span_va_pred.device)   # [B, Q, 2]
+                mask = data["quad_mask"].to(span_va_pred.device).unsqueeze(-1)  # [B, Q, 1]
+                diff = (span_va_pred - span_va_gold) * mask
+                n_valid = mask.sum().clamp(min=1.0)
+                loss_va = (diff ** 2).sum() / n_valid
+            else:
+                # Per-position VA loss (original)
+                loss_va = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"])
+            loss = loss + args.weight4 * loss_va
+    return loss, loss_mat, loss_cls_dim, loss_va
 
 
 def _progress_bar(current, total, width=25):
@@ -111,20 +124,27 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
     total_loss_va = 0
     total_step = len(dataloader)
     accum_steps = getattr(args, 'gradient_accumulation_steps', 1)
-    # Print at 25%, 50%, 75%, 100%
-    print_steps = set(int(total_step * p) - 1 for p in [0.25, 0.5, 0.75, 1.0])
+    # Print at every 10%
+    print_steps = set(max(0, int(total_step * p) - 1) for p in [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0])
     t_start = time.time()
 
     for step, data in enumerate(dataloader):
         for key in data:
             data[key] = data[key].to(device)
 
+        # Build forward kwargs (pass span info when using span_pair VA)
+        fwd_kwargs = dict(input_ids=data["input_ids"],
+                          token_type_ids=data["token_type_ids"],
+                          attention_mask=data["attention_mask"])
+        va_mode = getattr(args, 'va_mode', 'position')
+        if va_mode == 'span_pair' and args.label_pattern == 'category' and args.weight4 > 0:
+            fwd_kwargs["quad_spans"] = data["quad_spans"]
+            fwd_kwargs["quad_mask"] = data["quad_mask"]
+
         # Compute prediction error
         with torch.autocast(device_type='cuda', dtype=torch.float16, enabled=args.use_amp):
-            pred = model(input_ids=data["input_ids"],
-                         token_type_ids=data["token_type_ids"],
-                         attention_mask=data["attention_mask"])
-            loss, loss_mat, loss_cls_dim = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+            pred = model(**fwd_kwargs)
+            loss, loss_mat, loss_cls_dim, loss_va = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
             loss = loss / accum_steps
 
         # Backpropagation
@@ -134,10 +154,8 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         if adversial_model is not None:
             adversial_model.attack()
             with torch.autocast(device_type='cuda', dtype=torch.float16):
-                pred = model(input_ids=data["input_ids"],
-                             token_type_ids=data["token_type_ids"],
-                             attention_mask=data["attention_mask"])
-                loss_adv, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+                pred = model(**fwd_kwargs)
+                loss_adv, _, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
                 loss_adv = loss_adv / accum_steps
 
             scaler.scale(loss_adv).backward()
@@ -147,12 +165,15 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         total_loss_mat += loss_mat.item()
         total_loss_cls_dim += loss_cls_dim.item()
         if args.label_pattern == 'category' and args.weight4 > 0:
-            with torch.no_grad():
-                va_loss_val = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"]).item()
-            total_loss_va += va_loss_val
+            total_loss_va += loss_va.item()
 
         # Gradient accumulation: only step every accum_steps
         if (step + 1) % accum_steps == 0 or (step + 1) == total_step:
+            if args.use_amp:
+                scaler.unscale_(optimizer)
+            max_grad_norm = getattr(args, 'max_grad_norm', 1.0)
+            if max_grad_norm > 0:
+                torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
             scaler.step(optimizer)
             scaler.update()
             optimizer.zero_grad()
@@ -195,11 +216,18 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
             for key in data:
                 data[key] = data[key].to(device)
 
-            pred = model(input_ids=data["input_ids"],
-                         token_type_ids=data["token_type_ids"],
-                         attention_mask=data["attention_mask"])
+            # Build forward kwargs
+            fwd_kwargs = dict(input_ids=data["input_ids"],
+                              token_type_ids=data["token_type_ids"],
+                              attention_mask=data["attention_mask"])
+            va_mode = getattr(args, 'va_mode', 'position')
+            if va_mode == 'span_pair' and args.label_pattern == 'category' and args.weight4 > 0:
+                fwd_kwargs["quad_spans"] = data["quad_spans"]
+                fwd_kwargs["quad_mask"] = data["quad_mask"]
 
-            loss, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+            pred = model(**fwd_kwargs)
+
+            loss, _, _, loss_va = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
             loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
             loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
 
@@ -215,8 +243,7 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
             total_loss_mat += loss_mat.item()
             total_loss_cls_dim += loss_cls_dim.item()
             if args.label_pattern == 'category' and args.weight4 > 0:
-                va_loss_val = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"]).item()
-                total_loss_va += va_loss_val
+                total_loss_va += loss_va.item()
 
     elapsed = time.time() - t_start
     parts = [f"mat={total_loss_mat/total_step:.4f}", f"dim={total_loss_cls_dim/total_step:.4f}"]
@@ -337,10 +364,12 @@ def main(args):
     training_start_time = time.time()
     epoch_times = []
 
+    va_mode = getattr(args, 'va_mode', 'position')
     print(f"\n{'='*70}")
-    print(f"  Training: {args.task_domain} | {args.label_pattern} | mask={args.mask_rate}")
+    print(f"  Training: {args.task_domain} | {args.label_pattern} | seed={args.seed}")
     print(f"  Epochs: {args.epoch} | BS: {args.per_gpu_train_batch_size}x{getattr(args,'gradient_accumulation_steps',1)} | Early stop: {args.early_stop}")
-    print(f"  Weights: mat={args.weight1} dim={args.weight2} va={args.weight4}")
+    print(f"  Weights: mat={args.weight1} dim={args.weight2} va={args.weight4} | VA: {va_mode}")
+    print(f"  Grad clip: {getattr(args, 'max_grad_norm', 0)} | mask={args.mask_rate}")
     print(f"  Output: {args.output_dir}")
     print(f"{'='*70}\n")
 
@@ -415,14 +444,14 @@ def main(args):
             loss_parts.append(f"va={val_losses['loss_va']:.4f}")
         loss_str = ' '.join(loss_parts)
 
-        status = "★ BEST" if is_best else f"  wait({early_stop_count+1}/{args.early_stop})"
+        status = "** BEST **" if is_best else f"wait({early_stop_count+1}/{args.early_stop})"
         lr_current = optimizer.param_groups[0]['lr']
 
-        print(f"\n┌─ Epoch {t+1:3d}/{args.epoch} ─────────────────────────────────────────")
-        print(f"│ Score: {score:.4f}  (P={mat_precision:.4f} R={mat_recall:.4f} F1={mat_f1_score:.4f})  {status}")
-        print(f"│ Loss:  {loss_str}  |  LR: {lr_current:.2e}")
-        print(f"│ Best:  {max(best_score, score) if is_best else best_score:.4f}  |  Time: {epoch_time:.0f}s  |  ETA: {eta_min:.0f}min")
-        print(f"└──────────────────────────────────────────────────────────")
+        print(f"\n== Epoch {t+1:3d}/{args.epoch} {'='*50}")
+        print(f"   Score: {score:.4f}  (P={mat_precision:.4f} R={mat_recall:.4f} F1={mat_f1_score:.4f})  {status}")
+        print(f"   Loss:  {loss_str}  |  LR: {lr_current:.2e}")
+        print(f"   Best:  {max(best_score, score) if is_best else best_score:.4f}  |  Time: {epoch_time:.0f}s  |  ETA: {eta_min:.0f}min")
+        print(f"{'='*65}")
 
         history_entry = {
             "epoch": t + 1,

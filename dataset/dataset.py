@@ -593,6 +593,13 @@ class AcqpDataset(Dataset):
         va_targets = torch.zeros([self.max_seq_len, 2], dtype=torch.float32)
         va_mask = torch.zeros([self.max_seq_len], dtype=torch.float32)
 
+        # Span-Pair Conditioned VA: per-quadruplet span info + VA targets
+        MAX_QUADS = 20
+        quad_spans = torch.full([MAX_QUADS, 4], -1, dtype=torch.long)   # (asp_s, asp_e, opi_s, opi_e) inclusive
+        quad_va = torch.zeros([MAX_QUADS, 2], dtype=torch.float32)      # (V, A) gold
+        quad_mask = torch.zeros([MAX_QUADS], dtype=torch.float32)       # 1=valid
+
+        q_idx = 0
         for category, aspcet, opinion, sentiment_id in answers:
 
             BA, EA = aspcet.split(',')
@@ -621,6 +628,27 @@ class AcqpDataset(Dataset):
                 sid_int = int(sentiment_id)
                 va_v = [2.5, 5.0, 7.5][sid_int] if 0 <= sid_int <= 2 else 5.0
                 va_a = 5.5
+
+            # Populate quad_spans for Span-Pair Conditioned VA
+            if q_idx < MAX_QUADS:
+                # Aspect span (inclusive token indices in model space, +2 for [CLS]+[SEP])
+                if BA != -1 and EA != -1:
+                    quad_spans[q_idx, 0] = BA + 2           # asp_start
+                    quad_spans[q_idx, 1] = EA + 2 - 1       # asp_end (inclusive)
+                else:
+                    quad_spans[q_idx, 0] = 1                # [SEP] for implicit aspect
+                    quad_spans[q_idx, 1] = 1
+                # Opinion span
+                if BO != -1 and EO != -1:
+                    quad_spans[q_idx, 2] = BO + 2           # opi_start
+                    quad_spans[q_idx, 3] = EO + 2 - 1       # opi_end (inclusive)
+                else:
+                    quad_spans[q_idx, 2] = 1                # [SEP] for implicit opinion
+                    quad_spans[q_idx, 3] = 1
+                quad_va[q_idx, 0] = va_v
+                quad_va[q_idx, 1] = va_a
+                quad_mask[q_idx] = 1.0
+                q_idx += 1
 
             # EA & EO
             if BA != -1 and EA != -1 and BO != -1 and EO != -1:
@@ -670,7 +698,10 @@ class AcqpDataset(Dataset):
                 "dimension_sequences": dimension_sequences,
                 "sentiment_sequences": sentiment_sequences,
                 "va_targets": va_targets,
-                "va_mask": va_mask}
+                "va_mask": va_mask,
+                "quad_spans": quad_spans,
+                "quad_va": quad_va,
+                "quad_mask": quad_mask}
 
     @staticmethod
     def token_index_map_char_index(token_level_label_index: List[str]):
@@ -827,6 +858,9 @@ def collate_fn(batch):
     sentiment_sequences = torch.stack([x["sentiment_sequences"] for x in batch])
     va_targets = torch.stack([x["va_targets"] for x in batch])
     va_mask = torch.stack([x["va_mask"] for x in batch])
+    quad_spans = torch.stack([x["quad_spans"] for x in batch])
+    quad_va = torch.stack([x["quad_va"] for x in batch])
+    quad_mask = torch.stack([x["quad_mask"] for x in batch])
 
     return {
         "input_ids": input_ids,
@@ -838,6 +872,9 @@ def collate_fn(batch):
         "sentiment_sequences": sentiment_sequences,
         "va_targets": va_targets,
         "va_mask": va_mask,
+        "quad_spans": quad_spans,
+        "quad_va": quad_va,
+        "quad_mask": quad_mask,
     }
 
 

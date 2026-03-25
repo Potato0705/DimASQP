@@ -15,6 +15,62 @@ from dataset.dataset import AcqpDataset, collate_fn
 from models.layers import EfficientGlobalPointer, GlobalPointer
 
 
+class SpanPairVAHead(Module):
+    """Predict VA conditioned on (aspect, opinion) span pair representations.
+
+    Input:  encoder hidden states + span pair token indices
+    Output: per-pair (V, A) prediction in [1, 9]
+    """
+
+    def __init__(self, hidden_size, va_hidden=256, dropout=0.1):
+        super().__init__()
+        # Input: [h_asp; h_opi; h_asp * h_opi] = 3 * hidden_size
+        self.mlp = torch.nn.Sequential(
+            torch.nn.Linear(hidden_size * 3, va_hidden),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden, va_hidden // 2),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden // 2, 2),
+        )
+
+    def forward(self, hidden_states, quad_spans, quad_mask):
+        """
+        hidden_states: [B, L, H]
+        quad_spans:    [B, Q, 4]  (asp_s, asp_e, opi_s, opi_e) inclusive token indices
+        quad_mask:     [B, Q]     1=valid, 0=padding
+        Returns:       [B, Q, 2]  (V, A) in [1, 9]
+        """
+        B, Q = quad_spans.shape[:2]
+        device = hidden_states.device
+        va_preds = torch.zeros(B, Q, 2, device=device)
+
+        for b in range(B):
+            for q in range(Q):
+                if quad_mask[b, q] < 0.5:
+                    continue
+                asp_s, asp_e, opi_s, opi_e = quad_spans[b, q].tolist()
+
+                # Aspect span mean-pooling (NULL -> position 1 = [SEP])
+                if asp_s >= 2 and asp_e >= asp_s:
+                    h_asp = hidden_states[b, asp_s:asp_e + 1].mean(dim=0)
+                else:
+                    h_asp = hidden_states[b, 1]  # [SEP] for implicit aspect
+
+                # Opinion span mean-pooling (NULL -> position 1 = [SEP])
+                if opi_s >= 2 and opi_e >= opi_s:
+                    h_opi = hidden_states[b, opi_s:opi_e + 1].mean(dim=0)
+                else:
+                    h_opi = hidden_states[b, 1]  # [SEP] for implicit opinion
+
+                # Three-way concatenation: semantic + interaction
+                h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)
+                va_preds[b, q] = torch.sigmoid(self.mlp(h_pair)) * 8.0 + 1.0
+
+        return va_preds
+
+
 class QuadrupleModel(Module):
     """
     新版三元组模型(四元组)
@@ -106,12 +162,20 @@ class QuadrupleModel(Module):
         self.sentiment_sequence_output = torch.nn.Linear(in_features=sentiment_sequence_hidden_size,
                                                          out_features=self.num_sentiment_types)
 
-        # VA回归头: 每个token位置预测 [V, A], 通过 sigmoid*8+1 映射到 [1, 9]
+        # VA回归头 (per-position): 每个token位置预测 [V, A], 通过 sigmoid*8+1 映射到 [1, 9]
         va_hidden_size = 256
         self.va_linear = torch.nn.Linear(in_features=self.encoder_hidden_size, out_features=va_hidden_size)
         self.va_output = torch.nn.Linear(in_features=va_hidden_size, out_features=2)
 
-    def forward(self, input_ids=None, token_type_ids=None, attention_mask=None):
+        # Span-Pair Conditioned VA head: VA由(aspect, opinion)对共同决定
+        self.span_pair_va_head = SpanPairVAHead(
+            hidden_size=self.encoder_hidden_size,
+            va_hidden=va_hidden_size,
+            dropout=dropout_rate,
+        )
+
+    def forward(self, input_ids=None, token_type_ids=None, attention_mask=None,
+                quad_spans=None, quad_mask=None):
 
         outputs = self.encoder(input_ids=input_ids,
                                attention_mask=attention_mask,
@@ -176,11 +240,18 @@ class QuadrupleModel(Module):
         va_output = self.va_output(va_output)
         va_output = torch.sigmoid(va_output) * 8.0 + 1.0  # map to [1, 9]
 
-        return {"matrix": matrix_output,
-                "dimension": cls_dim_output,
-                "dimension_sequence": dim_seq_output,
-                "sentiment_sequence": sen_seq_output,
-                "va": va_output}
+        result = {"matrix": matrix_output,
+                  "dimension": cls_dim_output,
+                  "dimension_sequence": dim_seq_output,
+                  "sentiment_sequence": sen_seq_output,
+                  "va": va_output,
+                  "hidden_states": sequence_output}
+
+        # Span-Pair Conditioned VA: only compute when span info is provided
+        if quad_spans is not None and quad_mask is not None:
+            result["span_va"] = self.span_pair_va_head(sequence_output, quad_spans, quad_mask)
+
+        return result
 
 
 if __name__ == '__main__':
