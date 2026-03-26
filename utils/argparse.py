@@ -46,6 +46,10 @@ def get_argparse():
                         help="VA prediction: position (per-token), span_pair (conditioned on pair), opinion_guided (prior + residual)")
     parser.add_argument("--weight_va_prior", default=0.3, type=float,
                         help="Weight for opinion VA prior auxiliary loss (only used with opinion_guided)")
+    parser.add_argument("--use_va_contrastive", action="store_true", default=False,
+                        help="Enable VA-aware contrastive learning on span-pair representations")
+    parser.add_argument("--weight_va_cl", default=0.1, type=float,
+                        help="Weight for VA-aware contrastive loss (only used with --use_va_contrastive)")
     parser.add_argument("--seed", type=int, default=66)
 
     # output / model path

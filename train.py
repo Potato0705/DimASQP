@@ -72,6 +72,43 @@ def compute_va_loss(pred_va, va_targets, va_mask):
     return mse
 
 
+def compute_va_contrastive_loss(va_cl_embeds, quad_va, quad_mask):
+    """VA-aware contrastive loss: enforce representation distance ∝ VA distance.
+
+    For all valid quad pairs (i, j) across the batch:
+      sim_pred(i,j) = cosine(embed_i, embed_j)       -- in [-1, 1]
+      sim_gold(i,j) = 1 - ||VA_i - VA_j|| / sqrt(128) -- in [0, 1]
+    Loss = MSE(sim_pred, sim_gold)
+
+    This encourages quads with similar VA to cluster together and quads with
+    different VA to separate in the projected representation space.
+    """
+    B, Q = quad_mask.shape
+    device = va_cl_embeds.device
+
+    # Vectorized flatten: boolean indexing replaces nested Python for-loop
+    valid = quad_mask.bool()  # [B, Q]
+    n = valid.sum().item()
+    if n < 2:
+        return torch.tensor(0.0, device=device)
+
+    embeds = va_cl_embeds[valid]  # [N, proj_dim]
+    va_vals = quad_va[valid]      # [N, 2]
+
+    # Pairwise cosine similarity (embeds are already L2-normalized), scaled to [0, 1]
+    sim_pred = (torch.mm(embeds, embeds.t()) + 1.0) / 2.0  # [N, N], in [0, 1]
+
+    # Pairwise gold VA similarity
+    va_diff = va_vals.unsqueeze(0) - va_vals.unsqueeze(1)  # [N, N, 2]
+    va_dist = va_diff.norm(dim=-1)  # [N, N], Euclidean distance
+    sqrt_128 = 11.3137  # sqrt(128), max possible distance in VA space
+    sim_gold = 1.0 - va_dist / sqrt_128  # [N, N], in [0, 1]
+
+    # MSE between predicted and gold similarity matrices
+    loss = torch.nn.functional.mse_loss(sim_pred, sim_gold)
+    return loss
+
+
 def _safe_loss(loss_tensor, name="loss", max_val=1e4):
     """Clamp a loss value and replace NaN/Inf with a safe fallback. Returns (loss, was_anomalous)."""
     if torch.isnan(loss_tensor) or torch.isinf(loss_tensor):
@@ -84,12 +121,13 @@ def _safe_loss(loss_tensor, name="loss", max_val=1e4):
 
 
 def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn):
-    """Compute total loss based on label_pattern. Returns (loss, loss_mat, loss_cls_dim, loss_va)."""
+    """Compute total loss based on label_pattern. Returns (loss, loss_mat, loss_cls_dim, loss_va, loss_cl)."""
     loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
     loss_mat, _ = _safe_loss(loss_mat, "loss_mat")
     loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
     loss_cls_dim, _ = _safe_loss(loss_cls_dim, "loss_cls_dim")
     loss_va = torch.tensor(0.0, device=loss_mat.device)
+    loss_cl = torch.tensor(0.0, device=loss_mat.device)
     if args.label_pattern == 'sentiment_dim':
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
     elif args.label_pattern == 'sentiment':
@@ -131,9 +169,21 @@ def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
             loss_va, _ = _safe_loss(loss_va, "loss_va")
             loss = loss + args.weight4 * loss_va
 
+        # VA-Aware Contrastive loss (optional, training only)
+        use_va_cl = getattr(args, 'use_va_contrastive', False)
+        if use_va_cl and "va_cl_embeds" in pred:
+            loss_cl = compute_va_contrastive_loss(
+                pred["va_cl_embeds"],
+                data["quad_va"].to(pred["va_cl_embeds"].device),
+                data["quad_mask"].to(pred["va_cl_embeds"].device),
+            )
+            loss_cl, _ = _safe_loss(loss_cl, "loss_va_cl")
+            weight_cl = getattr(args, 'weight_va_cl', 0.1)
+            loss = loss + weight_cl * loss_cl
+
     # Final total loss safety check
     loss, _ = _safe_loss(loss, "total_loss")
-    return loss, loss_mat, loss_cls_dim, loss_va
+    return loss, loss_mat, loss_cls_dim, loss_va, loss_cl
 
 
 def _progress_bar(current, total, width=25):
@@ -150,6 +200,7 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
     total_loss_mat = 0
     total_loss_cls_dim = 0
     total_loss_va = 0
+    total_loss_cl = 0
     total_step = len(dataloader)
     accum_steps = getattr(args, 'gradient_accumulation_steps', 1)
     # Print at every 10%
@@ -173,7 +224,7 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         # Compute prediction error
         with torch.autocast(device_type='cuda', dtype=torch.float16, enabled=args.use_amp):
             pred = model(**fwd_kwargs)
-            loss, loss_mat, loss_cls_dim, loss_va = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+            loss, loss_mat, loss_cls_dim, loss_va, loss_cl = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
             loss = loss / accum_steps
 
         # Backpropagation
@@ -184,7 +235,7 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
             adversial_model.attack()
             with torch.autocast(device_type='cuda', dtype=torch.float16):
                 pred = model(**fwd_kwargs)
-                loss_adv, _, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+                loss_adv, _, _, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
                 loss_adv = loss_adv / accum_steps
 
             scaler.scale(loss_adv).backward()
@@ -195,6 +246,8 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         total_loss_cls_dim += loss_cls_dim.item()
         if args.label_pattern == 'category' and args.weight4 > 0:
             total_loss_va += loss_va.item()
+        if getattr(args, 'use_va_contrastive', False):
+            total_loss_cl += loss_cl.item()
 
         # Gradient accumulation: only step every accum_steps
         if (step + 1) % accum_steps == 0 or (step + 1) == total_step:
@@ -227,6 +280,8 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
             parts = [f"mat={total_loss_mat/n:.4f}", f"dim={total_loss_cls_dim/n:.4f}"]
             if args.label_pattern == 'category' and args.weight4 > 0:
                 parts.append(f"va={total_loss_va/n:.4f}")
+            if getattr(args, 'use_va_contrastive', False):
+                parts.append(f"cl={total_loss_cl/n:.4f}")
             print(f"  Train {_progress_bar(n, total_step)} {speed:.1f}it/s | L={total_loss/n:.4f} {' '.join(parts)}")
 
     # Return epoch-level average losses
@@ -237,6 +292,8 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
     }
     if args.label_pattern == 'category' and args.weight4 > 0:
         avg_losses['loss_va'] = total_loss_va / total_step
+    if getattr(args, 'use_va_contrastive', False):
+        avg_losses['loss_cl'] = total_loss_cl / total_step
     return avg_losses
 
 
@@ -270,7 +327,7 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
 
             pred = model(**fwd_kwargs)
 
-            loss, _, _, loss_va = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+            loss, _, _, loss_va, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
             loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
             loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
 
@@ -411,7 +468,8 @@ def main(args):
     print(f"\n{'='*70}")
     print(f"  Training: {args.task_domain} | {args.label_pattern} | seed={args.seed}")
     print(f"  Epochs: {args.epoch} | BS: {args.per_gpu_train_batch_size}x{getattr(args,'gradient_accumulation_steps',1)} | Early stop: {args.early_stop}")
-    print(f"  Weights: mat={args.weight1} dim={args.weight2} va={args.weight4} | VA: {va_mode}")
+    va_cl_str = f" | CL: w={getattr(args, 'weight_va_cl', 0.1)}" if getattr(args, 'use_va_contrastive', False) else ""
+    print(f"  Weights: mat={args.weight1} dim={args.weight2} va={args.weight4} | VA: {va_mode}{va_cl_str}")
     print(f"  Grad clip: {getattr(args, 'max_grad_norm', 0)} | mask={args.mask_rate}")
     print(f"  Output: {args.output_dir}")
     print(f"{'='*70}\n")
@@ -512,6 +570,8 @@ def main(args):
             history_entry['val_loss_va'] = val_losses['loss_va']
         if 'loss_va' in train_losses:
             history_entry['train_loss_va'] = train_losses['loss_va']
+        if 'loss_cl' in train_losses:
+            history_entry['train_loss_cl'] = train_losses['loss_cl']
         train_history.append(history_entry)
         with open(os.path.join(args.output_dir, "train_history.json"), "w", encoding="utf-8") as f:
             json.dump(train_history, f, indent=2, ensure_ascii=False)

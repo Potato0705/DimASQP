@@ -23,6 +23,62 @@ def _pool_span(hidden_states, b, start, end):
         return hidden_states[b, 1]  # [SEP] for implicit/NULL span
 
 
+def _batch_pool_spans(hidden_states, quad_spans, quad_mask):
+    """Vectorized span pooling — replaces nested Python for-loops.
+
+    For each valid quad, mean-pool aspect and opinion spans from hidden_states.
+    NULL/implicit spans (start < 2) fall back to [SEP] token (position 1).
+
+    Args:
+        hidden_states: [B, L, H]
+        quad_spans:    [B, Q, 4]  (asp_s, asp_e, opi_s, opi_e) inclusive indices
+        quad_mask:     [B, Q]     1=valid, 0=padding
+
+    Returns:
+        h_asp: [B, Q, H]  aspect span representations (zero for masked quads)
+        h_opi: [B, Q, H]  opinion span representations (zero for masked quads)
+    """
+    B, L, H = hidden_states.shape
+    Q = quad_spans.shape[1]
+    device = hidden_states.device
+
+    # Position indices for mask construction
+    pos = torch.arange(L, device=device).view(1, 1, L)  # [1, 1, L]
+
+    asp_s = quad_spans[:, :, 0].unsqueeze(-1)  # [B, Q, 1]
+    asp_e = quad_spans[:, :, 1].unsqueeze(-1)
+    opi_s = quad_spans[:, :, 2].unsqueeze(-1)
+    opi_e = quad_spans[:, :, 3].unsqueeze(-1)
+
+    # Build span masks via pure broadcasting (no in-place boolean indexing)
+    asp_valid = (asp_s >= 2)  # [B, Q, 1]  True if real span
+    opi_valid = (opi_s >= 2)
+
+    # Normal spans: token positions within [start, end]
+    asp_span_mask = (pos >= asp_s) & (pos <= asp_e) & asp_valid     # [B, Q, L]
+    opi_span_mask = (pos >= opi_s) & (pos <= opi_e) & opi_valid
+
+    # NULL/implicit spans: fall back to [SEP] at position 1
+    sep_mask = (pos == 1)  # [1, 1, L] broadcast-ready
+    asp_span_mask = asp_span_mask | (~asp_valid & sep_mask)
+    opi_span_mask = opi_span_mask | (~opi_valid & sep_mask)
+
+    # Zero out padding quads
+    qm = quad_mask.bool().unsqueeze(-1)  # [B, Q, 1]
+    asp_span_mask = asp_span_mask & qm
+    opi_span_mask = opi_span_mask & qm
+
+    # Float masks for mean pooling
+    asp_f = asp_span_mask.float()  # [B, Q, L]
+    opi_f = opi_span_mask.float()
+
+    # Batched mean-pool: [B, Q, L] @ [B, L, H] -> [B, Q, H]
+    h_asp = torch.bmm(asp_f, hidden_states) / asp_f.sum(dim=-1, keepdim=True).clamp(min=1.0)
+    h_opi = torch.bmm(opi_f, hidden_states) / opi_f.sum(dim=-1, keepdim=True).clamp(min=1.0)
+
+    return h_asp, h_opi
+
+
 class SpanPairVAHead(Module):
     """Predict VA conditioned on (aspect, opinion) span pair representations.
 
@@ -50,20 +106,11 @@ class SpanPairVAHead(Module):
         quad_mask:     [B, Q]     1=valid, 0=padding
         Returns:       [B, Q, 2]  (V, A) in [1, 9]
         """
-        B, Q = quad_spans.shape[:2]
-        device = hidden_states.device
-        va_preds = torch.zeros(B, Q, 2, device=device)
-
-        for b in range(B):
-            for q in range(Q):
-                if quad_mask[b, q] < 0.5:
-                    continue
-                asp_s, asp_e, opi_s, opi_e = quad_spans[b, q].tolist()
-                h_asp = _pool_span(hidden_states, b, asp_s, asp_e)
-                h_opi = _pool_span(hidden_states, b, opi_s, opi_e)
-                h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)
-                va_preds[b, q] = torch.sigmoid(self.mlp(h_pair)) * 8.0 + 1.0
-
+        h_asp, h_opi = _batch_pool_spans(hidden_states, quad_spans, quad_mask)
+        h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)  # [B, Q, 3H]
+        va_preds = torch.sigmoid(self.mlp(h_pair)) * 8.0 + 1.0     # [B, Q, 2]
+        # Zero out padding quads
+        va_preds = va_preds * quad_mask.unsqueeze(-1)
         return va_preds
 
 
@@ -109,33 +156,59 @@ class OpinionGuidedVAHead(Module):
           'va_final':  [B, Q, 2]  calibrated VA in [1, 9]
           'va_prior':  [B, Q, 2]  opinion-only VA prior in [1, 9]
         """
-        B, Q = quad_spans.shape[:2]
-        device = hidden_states.device
-        va_final = torch.zeros(B, Q, 2, device=device)
-        va_prior = torch.zeros(B, Q, 2, device=device)
+        h_asp, h_opi = _batch_pool_spans(hidden_states, quad_spans, quad_mask)
+        mask = quad_mask.unsqueeze(-1)  # [B, Q, 1]
+        gate = torch.sigmoid(self.gate)  # [2]
 
-        gate = torch.sigmoid(self.gate)  # bounded [0, 1]
+        # Stage 1: Opinion prior
+        va_prior = torch.sigmoid(self.prior_mlp(h_opi)) * 8.0 + 1.0  # [B, Q, 2]
 
-        for b in range(B):
-            for q in range(Q):
-                if quad_mask[b, q] < 0.5:
-                    continue
-                asp_s, asp_e, opi_s, opi_e = quad_spans[b, q].tolist()
-                h_asp = _pool_span(hidden_states, b, asp_s, asp_e)
-                h_opi = _pool_span(hidden_states, b, opi_s, opi_e)
+        # Stage 2: Span-pair residual
+        h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)  # [B, Q, 3H]
+        delta = torch.tanh(self.residual_mlp(h_pair)) * 4.0  # [B, Q, 2]
 
-                # Stage 1: Opinion prior
-                prior = torch.sigmoid(self.prior_mlp(h_opi)) * 8.0 + 1.0  # [1, 9]
-                va_prior[b, q] = prior
+        # Stage 3: Calibrated output
+        va_final = torch.clamp(va_prior + gate * delta, 1.0, 9.0)
 
-                # Stage 2: Span-pair residual
-                h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)
-                delta = torch.tanh(self.residual_mlp(h_pair)) * 4.0  # [-4, 4]
-
-                # Stage 3: Calibrated output
-                va_final[b, q] = torch.clamp(prior + gate * delta, 1.0, 9.0)
+        # Zero out padding quads
+        va_final = va_final * mask
+        va_prior = va_prior * mask
 
         return {'va_final': va_final, 'va_prior': va_prior}
+
+
+class VAContrastiveProjection(Module):
+    """Project span-pair representations to a low-dim space for contrastive learning.
+
+    Used only during training to enforce VA-aware structure in the representation
+    space. Not needed at inference time.
+
+    Input:  h_pair = [h_asp; h_opi; h_asp*h_opi]  (hidden_size * 3)
+    Output: L2-normalized embedding in R^proj_dim
+    """
+
+    def __init__(self, hidden_size, proj_dim=64, dropout=0.1):
+        super().__init__()
+        self.proj = torch.nn.Sequential(
+            torch.nn.Linear(hidden_size * 3, 128),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(128, proj_dim),
+        )
+
+    def forward(self, hidden_states, quad_spans, quad_mask):
+        """Return L2-normalized embeddings [B, Q, proj_dim]."""
+        h_asp, h_opi = _batch_pool_spans(hidden_states, quad_spans, quad_mask)
+        h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)  # [B, Q, 3H]
+        embeds = self.proj(h_pair)  # [B, Q, proj_dim]
+
+        # Zero out padding quads before normalization
+        embeds = embeds * quad_mask.unsqueeze(-1)
+
+        # L2 normalize (avoid division by zero for masked positions)
+        norms = embeds.norm(dim=-1, keepdim=True).clamp(min=1e-8)
+        embeds = embeds / norms
+        return embeds
 
 
 class QuadrupleModel(Module):
@@ -248,6 +321,13 @@ class QuadrupleModel(Module):
             dropout=dropout_rate,
         )
 
+        # VA-Aware Contrastive Projection (training-only, not used at inference)
+        self.va_cl_projection = VAContrastiveProjection(
+            hidden_size=self.encoder_hidden_size,
+            proj_dim=64,
+            dropout=dropout_rate,
+        )
+
     def forward(self, input_ids=None, token_type_ids=None, attention_mask=None,
                 quad_spans=None, quad_mask=None, va_mode='span_pair'):
 
@@ -329,6 +409,11 @@ class QuadrupleModel(Module):
                 result["va_prior"] = og_out['va_prior']       # opinion-only prior (for aux loss)
             else:
                 result["span_va"] = self.span_pair_va_head(sequence_output, quad_spans, quad_mask)
+
+            # VA-Aware Contrastive embeddings (training only)
+            if self.training:
+                result["va_cl_embeds"] = self.va_cl_projection(
+                    sequence_output, quad_spans, quad_mask)  # [B, Q, 64]
 
         return result
 

@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Codex (Codex.ai/code) when working with code in this repository.
 
 ---
 
@@ -26,8 +26,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **已授权修复记录**：
 - `train.py:213`（2026-03-25）：NaN 梯度跳过时补加 `scaler.update()`，修复 GradScaler 状态未重置导致的 `unscale_()` 崩溃
-- `models/model.py`（2026-03-26）：VA heads 向量化加速 — 用 `_batch_pool_spans()`（bmm 批量池化）替代 4 处 Python 嵌套 for 循环，epoch 耗时从 ~15min 降至 ~100s
-- `train.py:compute_va_contrastive_loss()`（2026-03-26）：用布尔索引 `tensor[mask]` 替代嵌套 for + list.append 的 flatten 逻辑
 
 ---
 
@@ -43,16 +41,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## 当前实验计划
 
-**实验组**: Opinion-Guided VA + VA-Aware Contrastive Learning（创新点 2 + 3）
-**任务**: `eng_restaurant`，`opinion_guided` VA 模式 + 对比学习，`category` 标签模式
+**实验组**: Opinion-Guided VA（创新点 2）
+**任务**: `eng_restaurant`，`opinion_guided` VA 模式，`category` 标签模式
 **Seeds**: 42 → 66 → 123，共 3 个 run，顺序执行，除 seed 外所有参数固定
 
 ### 训练命令（仅替换 `--seed`）
 
-⚠️ **参数必须与 Span-Pair VA 基线完全一致**（来自 seed66 args.json），仅改 `--va_mode`、新增 `--weight_va_prior`、`--use_va_contrastive`、`--weight_va_cl`，确保消融实验可比性。
+⚠️ **参数必须与 Span-Pair VA 基线完全一致**（来自 seed66 args.json），仅改 `--va_mode` 和新增 `--weight_va_prior`，确保消融实验可比性。
 
 ```powershell
-python train.py --task_domain eng_restaurant --train_data data/eng/eng_restaurant_train.txt --valid_data data/eng/eng_restaurant_dev.txt --label_pattern category --use_efficient_global_pointer --model_name_or_path microsoft/deberta-v3-base --max_seq_len 128 --head_size 256 --mode mul --dropout_rate 0.1 --mask_rate 0.0 --epoch 200 --early_stop 20 --per_gpu_train_batch_size 4 --gradient_accumulation_steps 8 --use_amp --with_adversarial_training --encoder_learning_rate 1e-5 --task_learning_rate 3e-5 --max_grad_norm 1.0 --weight1 1.0 --weight2 0.5 --weight3 0.5 --weight4 0.5 --va_mode opinion_guided --weight_va_prior 0.3 --use_va_contrastive --weight_va_cl 0.1 --seed 42
+python train.py --task_domain eng_restaurant --train_data data/eng/eng_restaurant_train.txt --valid_data data/eng/eng_restaurant_dev.txt --label_pattern category --use_efficient_global_pointer --model_name_or_path microsoft/deberta-v3-base --max_seq_len 128 --head_size 256 --mode mul --dropout_rate 0.1 --mask_rate 0.0 --epoch 200 --early_stop 20 --per_gpu_train_batch_size 4 --gradient_accumulation_steps 8 --use_amp --with_adversarial_training --encoder_learning_rate 1e-5 --task_learning_rate 3e-5 --max_grad_norm 1.0 --weight1 1.0 --weight2 0.5 --weight3 0.5 --weight4 0.5 --va_mode opinion_guided --weight_va_prior 0.3 --seed 42
 ```
 
 > 更换 seed 时只改最后的 `--seed` 值（42 → 66 → 123）。
@@ -101,7 +99,7 @@ python train.py --task_domain eng_restaurant --train_data data/eng/eng_restauran
 3. 用以下格式汇报：
 
 ```
-【Run 汇报 - Opinion-Guided VA + CL】
+【Run 汇报 - Opinion-Guided VA】
 - Seed: {seed}
 - 状态: 正常完成 / 异常终止
 - Best cF1（dev）: 0.XXXX（第 N epoch）
@@ -139,7 +137,7 @@ python tools/ensemble_eval.py --model_paths {DIR42} {DIR66} {DIR123} --va_model_
 
 ```
 ======================================================
-【Opinion-Guided VA + CL 实验组完整总结】
+【Opinion-Guided VA 实验组完整总结】
 ======================================================
 
 ## 各 Seed 结果
@@ -156,14 +154,12 @@ python tools/ensemble_eval.py --model_paths {DIR42} {DIR66} {DIR123} --va_model_
 ## Ensemble
 - cF1: X.XXXX (threshold = X.X)
 
-## 与历史版本对比
-| 版本                          | Avg cF1 | Best Single | Ensemble |
-|-------------------------------|---------|-------------|----------|
-| Span-Pair VA（基线）            | 0.5180  | 0.5267      | 0.5370   |
-| Opinion-Guided VA（创新点 2）   | 0.5245  | 0.5294      | 0.5356   |
-| OG + CL（创新点 2+3）          | ...     | ...         | ...      |
-| Δ (vs Span-Pair)              | ...     | ...         | ...      |
-| Δ (vs OG only)                | ...     | ...         | ...      |
+## 与 Span-Pair VA 对比
+| 版本                | Avg cF1 | Best Single | Ensemble |
+|---------------------|---------|-------------|----------|
+| Span-Pair VA（基线）  | 0.5180  | 0.5267      | 0.5370   |
+| Opinion-Guided VA   | ...     | ...         | ...      |
+| Δ                   | ...     | ...         | ...      |
 
 ## 初步结论
 ...
@@ -185,15 +181,6 @@ python tools/ensemble_eval.py --model_paths {DIR42} {DIR66} {DIR123} --va_model_
 | Span-Pair VA seed66 | 0.5267 | 0.6255 | 0.4549 | 94.3% |
 | Span-Pair VA seed123 | 0.5214 | 0.6363 | 0.4417 | 94.3% |
 | Span-Pair VA 3-Seed Ensemble | **0.5370** | 0.6185 | 0.4745 | 94.4% |
-| Opinion-Guided VA seed42 | 0.5198 | 0.6226 | 0.4459 | 94.3% |
-| Opinion-Guided VA seed66 | 0.5294 | 0.6321 | 0.4549 | 94.5% |
-| Opinion-Guided VA seed123 | 0.5243 | 0.6311 | 0.4473 | 94.3% |
-| Opinion-Guided VA 3-Seed Ensemble | 0.5356 | 0.6176 | 0.4730 | 94.4% |
-
-Opinion-Guided VA 模型路径：
-- seed42: `output/eng_restaurant_category_mul_microsoft-deberta-v3-base_seed42_mask0.0_2026-03-25-16-04-00/`
-- seed66: `output/eng_restaurant_category_mul_microsoft-deberta-v3-base_seed66_mask0.0_2026-03-25-23-25-59/`
-- seed123: `output/eng_restaurant_category_mul_microsoft-deberta-v3-base_seed123_mask0.0_2026-03-26-05-03-17/`
 
 Span-Pair VA 模型路径（如需加载对比）：
 - seed42: `output/eng_restaurant_category_mul_microsoft-deberta-v3-base_seed42_mask0.0_2026-03-24-20-36-10/`
@@ -224,9 +211,8 @@ Span-Pair VA 模型路径（如需加载对比）：
 **评测指标**: cF1 = Euclidean 距离加权 F1，归一化因子 `sqrt(128)`
 
 **当前 VA 创新点**:
-1. **Span-Pair VA**（已完成，基线）: `[h_asp; h_opi; h_asp⊙h_opi] → MLP → VA`
-2. **Opinion-Guided VA**（已完成）: `VA_prior(h_opi) + gate × Δ(h_asp, h_opi) → VA`，附加 prior 辅助损失
-3. **VA-Aware Contrastive Learning**（本次实验）: 将 span-pair 投影到低维空间，用 VA 距离监督对比损失，强化表征结构
+1. **Span-Pair VA**（已完成）: `[h_asp; h_opi; h_asp⊙h_opi] → MLP → VA`
+2. **Opinion-Guided VA**（本次实验）: `VA_prior(h_opi) + gate × Δ(h_asp, h_opi) → VA`，附加 prior 辅助损失
 
 **输出目录结构**:
 ```
