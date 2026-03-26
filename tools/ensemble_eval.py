@@ -1,16 +1,22 @@
 """
 Multi-seed ensemble evaluation.
 
-Averages raw logit matrices from multiple models, then uses a reference model's
-span-pair VA head for VA prediction. Models are loaded one at a time to save GPU memory.
+Averages raw logit matrices from multiple models for quad extraction.
+VA prediction supports two modes:
+  --va_ensemble: average VA predictions from ALL models (each uses its own
+                 hidden states + VA head). Better VA quality.
+  default:       use a single reference model's VA head (--va_model_path).
+
+Models are loaded one at a time to save GPU memory; hidden states and VA heads
+are kept on CPU and moved to GPU only during VA inference.
 
 Usage:
     python tools/ensemble_eval.py \
-        --model_paths output/model_seed42 output/model_seed66 output/model_seed123 \
-        --va_model_path output/model_seed66 \
+        --model_paths output/seed42 output/seed66 output/seed123 \
         --test_data data/eng/eng_restaurant_dev.txt \
         --sidecar data/eng/eng_restaurant_dev_sidecar.json \
-        --gold data/eng/eng_restaurant_dev.jsonl
+        --gold data/eng/eng_restaurant_dev.jsonl \
+        --va_ensemble
 """
 import json
 import os
@@ -71,23 +77,20 @@ def extract_logits_single(model_path, test_data_path, batch_size=16,
 
     va_head = None
     if keep_hidden:
-        # Select VA head based on va_mode
+        # Select VA head based on va_mode, keep on CPU to save GPU memory
         va_mode = training_args.get('va_mode', 'position')
         if va_mode == 'opinion_guided' and hasattr(model, 'opinion_guided_va_head'):
-            va_head = model.opinion_guided_va_head.to(device)
+            va_head = model.opinion_guided_va_head.cpu()
         elif hasattr(model, 'span_pair_va_head'):
-            va_head = model.span_pair_va_head.to(device)
+            va_head = model.span_pair_va_head.cpu()
 
-    if not keep_hidden:
-        del model
-        torch.cuda.empty_cache()
-        gc.collect()
-        print(f"  Done: {len(raw_matrices)} samples, GPU freed")
+    del model
+    torch.cuda.empty_cache()
+    gc.collect()
+    if keep_hidden:
+        print(f"  Done: {len(raw_matrices)} samples + hidden states kept")
     else:
-        del model
-        torch.cuda.empty_cache()
-        gc.collect()
-        print(f"  Done: {len(raw_matrices)} samples + {len(hidden_states_list)} hidden states, GPU freed")
+        print(f"  Done: {len(raw_matrices)} samples, GPU freed")
 
     return dataset, raw_matrices, hidden_states_list, va_head, training_args
 
@@ -105,15 +108,23 @@ def ensemble_average(all_matrices_list):
     return avg_matrices
 
 
-def decode_at_threshold_with_span_va(dataset, raw_matrices, hidden_states_list,
-                                      va_head, threshold, training_args):
-    """Decode with ensemble logits + span-pair VA from reference model."""
+def _run_va_head_single(va_head, hidden_states_tensor, pred_answer, token_map):
+    """Run one VA head on one sample, return list of [category, asp, opi, va_str]."""
+    result = attach_span_pair_va(pred_answer, hidden_states_tensor, token_map,
+                                 va_head, device)
+    return result
+
+
+def decode_with_va_ensemble(dataset, raw_matrices, all_hidden_states, all_va_heads,
+                            threshold, training_args):
+    """Decode with ensemble logits + VA averaged from ALL models."""
     label_types = dataset.label_types
     dimension_types = dataset.dimension_types
     sentiment2id = dataset.sentiment2id
     label_pattern = training_args['label_pattern']
     df = dataset.df
     all_preds = []
+    n_models = len(all_va_heads)
 
     for i in range(len(df)):
         mat = raw_matrices[i]
@@ -126,13 +137,92 @@ def decode_at_threshold_with_span_va(dataset, raw_matrices, hidden_states_list,
             label_types, dimension_types, sentiment2id
         )
 
-        # Use span-pair VA from reference model
+        if not pred_answer:
+            all_preds.append({
+                "text": text,
+                "pred_answer_with_va": [],
+                "line_index": i,
+            })
+            continue
+
+        # Collect VA predictions from each model
+        va_per_model = []  # list of list-of-quads, each quad has va_str
+        for m in range(n_models):
+            va_head_m = all_va_heads[m].to(device)
+            hs_m = all_hidden_states[m][i]
+            result_m = attach_span_pair_va(pred_answer, hs_m, token_map,
+                                           va_head_m, device)
+            va_per_model.append(result_m)
+            va_head_m.cpu()  # free GPU immediately
+
+        # Average VA across models
+        n_quads = len(pred_answer)
+        averaged_quads = []
+        for q in range(n_quads):
+            if len(pred_answer[q]) < 4:
+                averaged_quads.append(pred_answer[q])
+                continue
+
+            v_sum, a_sum, count = 0.0, 0.0, 0
+            for m in range(n_models):
+                if q < len(va_per_model[m]) and len(va_per_model[m][q]) >= 4:
+                    va_str = va_per_model[m][q][3]
+                    if '#' in str(va_str):
+                        v, a = va_str.split('#')
+                        v_sum += float(v)
+                        a_sum += float(a)
+                        count += 1
+
+            if count > 0:
+                v_avg = np.clip(v_sum / count, 1.0, 9.0)
+                a_avg = np.clip(a_sum / count, 1.0, 9.0)
+                va_str_avg = f"{v_avg:.2f}#{a_avg:.2f}"
+            else:
+                va_str_avg = "5.00#5.00"
+
+            averaged_quads.append([pred_answer[q][0], pred_answer[q][1],
+                                   pred_answer[q][2], va_str_avg])
+
+        all_preds.append({
+            "text": text,
+            "pred_answer_with_va": averaged_quads,
+            "line_index": i,
+        })
+
+    return all_preds
+
+
+def decode_at_threshold_with_span_va(dataset, raw_matrices, hidden_states_list,
+                                      va_head, threshold, training_args):
+    """Decode with ensemble logits + VA from single reference model."""
+    label_types = dataset.label_types
+    dimension_types = dataset.dimension_types
+    sentiment2id = dataset.sentiment2id
+    label_pattern = training_args['label_pattern']
+    df = dataset.df
+    all_preds = []
+
+    # Move VA head to GPU for inference
+    if va_head is not None:
+        va_head = va_head.to(device)
+
+    for i in range(len(df)):
+        mat = raw_matrices[i]
+        mat_pred = np.argwhere(mat > threshold).tolist()
+        token_map = df.iloc[i]['Token_Index_Map_Char_Index']
+        text = df.iloc[i]['text']
+
+        pred_answer = create_pred_answer(
+            mat_pred, [], [], token_map, label_pattern,
+            label_types, dimension_types, sentiment2id
+        )
+
+        # Use VA from reference model
         if va_head is not None and hidden_states_list:
             pred_with_va = attach_span_pair_va(
                 pred_answer, hidden_states_list[i], token_map,
                 va_head, device)
         else:
-            # Fallback: no VA (shouldn't happen)
             pred_with_va = [[q[0], q[1], q[2], "5.00#5.00"] for q in pred_answer if len(q) >= 3]
 
         all_preds.append({
@@ -140,6 +230,10 @@ def decode_at_threshold_with_span_va(dataset, raw_matrices, hidden_states_list,
             "pred_answer_with_va": pred_with_va,
             "line_index": i,
         })
+
+    # Move VA head back to CPU
+    if va_head is not None:
+        va_head.cpu()
 
     return all_preds
 
@@ -187,7 +281,9 @@ def main():
     parser.add_argument("--model_paths", nargs="+", required=True,
                         help="Paths to model directories for logit averaging")
     parser.add_argument("--va_model_path", type=str, default=None,
-                        help="Model to use for span-pair VA (default: first model)")
+                        help="Model to use for VA (default: first model). Ignored with --va_ensemble")
+    parser.add_argument("--va_ensemble", action="store_true",
+                        help="Average VA predictions from ALL models instead of using a single reference")
     parser.add_argument("--test_data", required=True)
     parser.add_argument("--sidecar", required=True)
     parser.add_argument("--gold", required=True)
@@ -201,32 +297,48 @@ def main():
 
     print(f"{'=' * 70}")
     print(f"  ENSEMBLE: {n_models} models (logit avg)")
-    print(f"  VA model: {os.path.basename(va_model)}")
+    if args.va_ensemble:
+        print(f"  VA mode: ensemble (average VA from ALL {n_models} models)")
+    else:
+        print(f"  VA mode: single model ({os.path.basename(va_model)})")
     print(f"{'=' * 70}")
 
     # Step 1: Extract logits from each model
     all_matrices_list = []
-    hidden_states_list = []
+    all_hidden_states = []   # list of lists (one per model) for VA ensemble
+    all_va_heads = []        # list of VA heads for VA ensemble
+    hidden_states_list = []  # single model hidden states (non-ensemble mode)
     va_head = None
     dataset = None
     training_args = None
 
     for model_path in args.model_paths:
-        is_va_model = (os.path.abspath(model_path) == os.path.abspath(va_model))
-        ds, matrices, hs_list, vah, t_args = extract_logits_single(
-            model_path, args.test_data, keep_hidden=is_va_model)
-        all_matrices_list.append(matrices)
-        if is_va_model:
-            hidden_states_list = hs_list
-            va_head = vah
+        if args.va_ensemble:
+            # VA ensemble: keep hidden states from ALL models
+            ds, matrices, hs_list, vah, t_args = extract_logits_single(
+                model_path, args.test_data, keep_hidden=True)
+            all_hidden_states.append(hs_list)
+            all_va_heads.append(vah)
             va_mode = t_args.get('va_mode', 'span_pair')
-            print(f"  >> Using this model for VA ({va_mode})")
+            print(f"  >> Kept VA head ({va_mode}) for ensemble")
+        else:
+            # Single VA model: only keep hidden states from reference model
+            is_va_model = (os.path.abspath(model_path) == os.path.abspath(va_model))
+            ds, matrices, hs_list, vah, t_args = extract_logits_single(
+                model_path, args.test_data, keep_hidden=is_va_model)
+            if is_va_model:
+                hidden_states_list = hs_list
+                va_head = vah
+                va_mode = t_args.get('va_mode', 'span_pair')
+                print(f"  >> Using this model for VA ({va_mode})")
+
+        all_matrices_list.append(matrices)
         if dataset is None:
             dataset = ds
             training_args = t_args
 
-    # If va_model is not in model_paths, load it separately
-    if not hidden_states_list:
+    # If single-VA mode and va_model not in model_paths, load separately
+    if not args.va_ensemble and not hidden_states_list:
         print(f"\n  Loading VA model separately: {os.path.basename(va_model)}")
         _, _, hidden_states_list, va_head, _ = extract_logits_single(
             va_model, args.test_data, keep_hidden=True)
@@ -250,9 +362,15 @@ def main():
 
     results = []
     for threshold in thresholds:
-        all_preds = decode_at_threshold_with_span_va(
-            dataset, avg_matrices, hidden_states_list,
-            va_head, threshold, training_args)
+        if args.va_ensemble:
+            all_preds = decode_with_va_ensemble(
+                dataset, avg_matrices, all_hidden_states, all_va_heads,
+                threshold, training_args)
+        else:
+            all_preds = decode_at_threshold_with_span_va(
+                dataset, avg_matrices, hidden_states_list,
+                va_head, threshold, training_args)
+
         submissions = preds_to_submission(all_preds, sidecar_data)
         total_preds = sum(len(s["Quadruplet"]) for s in submissions)
 
@@ -275,8 +393,9 @@ def main():
         os.remove(tmp_path)
 
     best = max(results, key=lambda x: x['cF1'])
+    va_mode_str = "VA-ensemble" if args.va_ensemble else "single-VA"
     print(f"\n{'=' * 70}")
-    print(f"  ENSEMBLE BEST: threshold={best['threshold']:.1f} -> cF1={best['cF1']:.4f}")
+    print(f"  ENSEMBLE BEST ({va_mode_str}): threshold={best['threshold']:.1f} -> cF1={best['cF1']:.4f}")
     print(f"  cPrecision={best['cPrecision']:.4f}, cRecall={best['cRecall']:.4f}")
     print(f"{'=' * 70}")
 
