@@ -52,8 +52,8 @@ def extract_raw_logits(model_path, test_data_path, batch_size=16):
     raw_matrices = []
     va_preds = []
     hidden_states_list = []
-    has_span_va = hasattr(model, 'span_pair_va_head')
     va_mode = training_args.get('va_mode', 'position')
+    has_span_va = va_mode in ('span_pair', 'opinion_guided')
 
     with torch.no_grad():
         for data in tqdm(dataloader, desc="Extracting logits"):
@@ -66,8 +66,8 @@ def extract_raw_logits(model_path, test_data_path, batch_size=16):
                 raw_matrices.append(mat)
             for va in pred["va"].cpu().numpy():
                 va_preds.append(va)
-            # Store hidden states for span-pair VA
-            if has_span_va and va_mode == 'span_pair' and "hidden_states" in pred:
+            # Store hidden states for span-pair / opinion-guided VA
+            if has_span_va and "hidden_states" in pred:
                 for hs in pred["hidden_states"].cpu():
                     hidden_states_list.append(hs)
 
@@ -83,7 +83,16 @@ def decode_at_threshold(dataset, raw_matrices, va_preds, hidden_states_list,
     dimension_types = dataset.dimension_types
     sentiment2id = dataset.sentiment2id
     va_mode = training_args.get('va_mode', 'position')
-    has_span_va = model is not None and hasattr(model, 'span_pair_va_head')
+    # Determine which VA head to use for inference
+    if va_mode == 'opinion_guided' and model is not None and hasattr(model, 'opinion_guided_va_head'):
+        va_head_obj = model.opinion_guided_va_head
+        has_span_va = True
+    elif va_mode == 'span_pair' and model is not None and hasattr(model, 'span_pair_va_head'):
+        va_head_obj = model.span_pair_va_head
+        has_span_va = True
+    else:
+        va_head_obj = None
+        has_span_va = False
 
     df = dataset.df
     all_preds = []
@@ -108,11 +117,11 @@ def decode_at_threshold(dataset, raw_matrices, va_preds, hidden_states_list,
             dimension_types, sentiment2id
         )
 
-        # Attach VA: use span-pair VA if available, else per-position
-        if has_span_va and va_mode == 'span_pair' and hidden_states_list:
+        # Attach VA: use span-pair/opinion-guided VA if available, else per-position
+        if has_span_va and hidden_states_list and va_head_obj is not None:
             pred_with_va = attach_span_pair_va(
                 pred_answer, hidden_states_list[i], token_map,
-                model.span_pair_va_head, device)
+                va_head_obj, device)
         else:
             pred_with_va = attach_va_to_pred_answer(pred_answer, va, token_map)
         all_preds.append({

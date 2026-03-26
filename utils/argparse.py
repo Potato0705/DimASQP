@@ -42,8 +42,10 @@ def get_argparse():
     parser.add_argument("--max_grad_norm", default=1.0, type=float,
                         help="Max gradient norm for clipping (0 to disable)")
     parser.add_argument("--va_mode", default="span_pair", type=str,
-                        choices=["position", "span_pair"],
-                        help="VA prediction: position (per-token) or span_pair (conditioned on aspect-opinion pair)")
+                        choices=["position", "span_pair", "opinion_guided"],
+                        help="VA prediction: position (per-token), span_pair (conditioned on pair), opinion_guided (prior + residual)")
+    parser.add_argument("--weight_va_prior", default=0.3, type=float,
+                        help="Weight for opinion VA prior auxiliary loss (only used with opinion_guided)")
     parser.add_argument("--seed", type=int, default=66)
 
     # output / model path

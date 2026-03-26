@@ -70,9 +70,13 @@ def extract_logits_single(model_path, test_data_path, batch_size=16,
                     hidden_states_list.append(hs)
 
     va_head = None
-    if keep_hidden and hasattr(model, 'span_pair_va_head'):
-        # Keep VA head on GPU for inference
-        va_head = model.span_pair_va_head.to(device)
+    if keep_hidden:
+        # Select VA head based on va_mode
+        va_mode = training_args.get('va_mode', 'position')
+        if va_mode == 'opinion_guided' and hasattr(model, 'opinion_guided_va_head'):
+            va_head = model.opinion_guided_va_head.to(device)
+        elif hasattr(model, 'span_pair_va_head'):
+            va_head = model.span_pair_va_head.to(device)
 
     if not keep_hidden:
         del model
@@ -215,7 +219,8 @@ def main():
         if is_va_model:
             hidden_states_list = hs_list
             va_head = vah
-            print(f"  >> Using this model for span-pair VA")
+            va_mode = t_args.get('va_mode', 'span_pair')
+            print(f"  >> Using this model for VA ({va_mode})")
         if dataset is None:
             dataset = ds
             training_args = t_args

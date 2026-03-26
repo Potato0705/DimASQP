@@ -15,6 +15,14 @@ from dataset.dataset import AcqpDataset, collate_fn
 from models.layers import EfficientGlobalPointer, GlobalPointer
 
 
+def _pool_span(hidden_states, b, start, end):
+    """Mean-pool a span from hidden states. Falls back to [SEP] (pos 1) for NULL spans."""
+    if start >= 2 and end >= start:
+        return hidden_states[b, start:end + 1].mean(dim=0)
+    else:
+        return hidden_states[b, 1]  # [SEP] for implicit/NULL span
+
+
 class SpanPairVAHead(Module):
     """Predict VA conditioned on (aspect, opinion) span pair representations.
 
@@ -51,24 +59,83 @@ class SpanPairVAHead(Module):
                 if quad_mask[b, q] < 0.5:
                     continue
                 asp_s, asp_e, opi_s, opi_e = quad_spans[b, q].tolist()
-
-                # Aspect span mean-pooling (NULL -> position 1 = [SEP])
-                if asp_s >= 2 and asp_e >= asp_s:
-                    h_asp = hidden_states[b, asp_s:asp_e + 1].mean(dim=0)
-                else:
-                    h_asp = hidden_states[b, 1]  # [SEP] for implicit aspect
-
-                # Opinion span mean-pooling (NULL -> position 1 = [SEP])
-                if opi_s >= 2 and opi_e >= opi_s:
-                    h_opi = hidden_states[b, opi_s:opi_e + 1].mean(dim=0)
-                else:
-                    h_opi = hidden_states[b, 1]  # [SEP] for implicit opinion
-
-                # Three-way concatenation: semantic + interaction
+                h_asp = _pool_span(hidden_states, b, asp_s, asp_e)
+                h_opi = _pool_span(hidden_states, b, opi_s, opi_e)
                 h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)
                 va_preds[b, q] = torch.sigmoid(self.mlp(h_pair)) * 8.0 + 1.0
 
         return va_preds
+
+
+class OpinionGuidedVAHead(Module):
+    """Opinion-Guided VA Calibration: VA = prior(opinion) + gate * residual(asp, opi).
+
+    Stage 1 - Opinion Prior:  h_opi -> MLP -> VA_prior in [1, 9]
+    Stage 2 - Span-Pair Residual: [h_asp; h_opi; h_asp*h_opi] -> MLP -> delta_VA in [-4, 4]
+    Stage 3 - Calibration: VA_final = clamp(VA_prior + gate * delta_VA, 1, 9)
+
+    The opinion prior provides a stable anchor based on opinion semantics alone,
+    while the residual adjusts for aspect-specific context.
+    """
+
+    def __init__(self, hidden_size, va_hidden=256, dropout=0.1):
+        super().__init__()
+
+        # Opinion Prior: opinion span -> VA anchor
+        self.prior_mlp = torch.nn.Sequential(
+            torch.nn.Linear(hidden_size, va_hidden),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden, 2),
+        )
+
+        # Span-Pair Residual: (asp, opi) pair -> VA adjustment
+        self.residual_mlp = torch.nn.Sequential(
+            torch.nn.Linear(hidden_size * 3, va_hidden),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden, va_hidden // 2),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden // 2, 2),
+        )
+
+        # Learnable gate per VA dimension: controls residual influence
+        self.gate = torch.nn.Parameter(torch.tensor([0.5, 0.5]))
+
+    def forward(self, hidden_states, quad_spans, quad_mask):
+        """
+        Returns: dict with:
+          'va_final':  [B, Q, 2]  calibrated VA in [1, 9]
+          'va_prior':  [B, Q, 2]  opinion-only VA prior in [1, 9]
+        """
+        B, Q = quad_spans.shape[:2]
+        device = hidden_states.device
+        va_final = torch.zeros(B, Q, 2, device=device)
+        va_prior = torch.zeros(B, Q, 2, device=device)
+
+        gate = torch.sigmoid(self.gate)  # bounded [0, 1]
+
+        for b in range(B):
+            for q in range(Q):
+                if quad_mask[b, q] < 0.5:
+                    continue
+                asp_s, asp_e, opi_s, opi_e = quad_spans[b, q].tolist()
+                h_asp = _pool_span(hidden_states, b, asp_s, asp_e)
+                h_opi = _pool_span(hidden_states, b, opi_s, opi_e)
+
+                # Stage 1: Opinion prior
+                prior = torch.sigmoid(self.prior_mlp(h_opi)) * 8.0 + 1.0  # [1, 9]
+                va_prior[b, q] = prior
+
+                # Stage 2: Span-pair residual
+                h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)
+                delta = torch.tanh(self.residual_mlp(h_pair)) * 4.0  # [-4, 4]
+
+                # Stage 3: Calibrated output
+                va_final[b, q] = torch.clamp(prior + gate * delta, 1.0, 9.0)
+
+        return {'va_final': va_final, 'va_prior': va_prior}
 
 
 class QuadrupleModel(Module):
@@ -174,8 +241,15 @@ class QuadrupleModel(Module):
             dropout=dropout_rate,
         )
 
+        # Opinion-Guided VA Calibration head: prior(opinion) + residual(asp, opi)
+        self.opinion_guided_va_head = OpinionGuidedVAHead(
+            hidden_size=self.encoder_hidden_size,
+            va_hidden=va_hidden_size,
+            dropout=dropout_rate,
+        )
+
     def forward(self, input_ids=None, token_type_ids=None, attention_mask=None,
-                quad_spans=None, quad_mask=None):
+                quad_spans=None, quad_mask=None, va_mode='span_pair'):
 
         outputs = self.encoder(input_ids=input_ids,
                                attention_mask=attention_mask,
@@ -247,9 +321,14 @@ class QuadrupleModel(Module):
                   "va": va_output,
                   "hidden_states": sequence_output}
 
-        # Span-Pair Conditioned VA: only compute when span info is provided
+        # Span-Pair VA: only compute when span info is provided
         if quad_spans is not None and quad_mask is not None:
-            result["span_va"] = self.span_pair_va_head(sequence_output, quad_spans, quad_mask)
+            if va_mode == 'opinion_guided':
+                og_out = self.opinion_guided_va_head(sequence_output, quad_spans, quad_mask)
+                result["span_va"] = og_out['va_final']       # calibrated VA
+                result["va_prior"] = og_out['va_prior']       # opinion-only prior (for aux loss)
+            else:
+                result["span_va"] = self.span_pair_va_head(sequence_output, quad_spans, quad_mask)
 
         return result
 

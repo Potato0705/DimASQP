@@ -56,9 +56,17 @@ def predict(args):
     dim_seq_trues = []
     va_preds = []
     hidden_states_list = []
-    # Check if model has span-pair VA head
-    has_span_va = hasattr(model, 'span_pair_va_head')
+    # Check which VA head to use based on va_mode
     va_mode = training_args_dic.get('va_mode', 'position')
+    if va_mode == 'opinion_guided' and hasattr(model, 'opinion_guided_va_head'):
+        va_head_obj = model.opinion_guided_va_head
+        has_span_va = True
+    elif va_mode == 'span_pair' and hasattr(model, 'span_pair_va_head'):
+        va_head_obj = model.span_pair_va_head
+        has_span_va = True
+    else:
+        va_head_obj = None
+        has_span_va = False
 
     with torch.no_grad():
         for step, data in loop:
@@ -83,8 +91,8 @@ def predict(args):
                 dim_seq_trues.append(np.argwhere(true_dimension_sequences > 0).tolist())
             for va_ in pred_va:
                 va_preds.append(va_)
-            # Store hidden states for span-pair VA inference
-            if has_span_va and va_mode == 'span_pair' and "hidden_states" in pred:
+            # Store hidden states for span-pair / opinion-guided VA inference
+            if has_span_va and va_mode in ('span_pair', 'opinion_guided') and "hidden_states" in pred:
                 for hs in pred["hidden_states"].cpu():
                     hidden_states_list.append(hs)  # [L, H]
 
@@ -104,13 +112,13 @@ def predict(args):
 
     # Extract VA predictions for each predicted quad
     if label_pattern == 'category' and 'pred_va' in df_test.columns:
-        if has_span_va and va_mode == 'span_pair' and hidden_states_list:
-            # Span-Pair Conditioned VA: predict VA from (aspect, opinion) span pair
+        if has_span_va and va_mode in ('span_pair', 'opinion_guided') and hidden_states_list:
+            # Span-Pair / Opinion-Guided VA: predict VA from (aspect, opinion) span pair
             df_test['pred_hidden'] = hidden_states_list[:len(df_test)]
             df_test['pred_answer_with_va'] = df_test.apply(
                 lambda row: attach_span_pair_va(row['pred_answer'], row['pred_hidden'],
                                                 row['Token_Index_Map_Char_Index'],
-                                                model.span_pair_va_head, device),
+                                                va_head_obj, device),
                 axis=1)
             df_test.drop(columns=['pred_hidden'], inplace=True)
         else:
@@ -274,7 +282,12 @@ def attach_span_pair_va(pred_answer, hidden_states_tensor, token_index_map_char_
     hs = hidden_states_tensor.unsqueeze(0).to(device)                                # [1, L, H]
 
     with torch.no_grad():
-        va_pred = span_pair_va_head(hs, quad_spans_t, quad_mask_t)  # [1, Q, 2]
+        raw_out = span_pair_va_head(hs, quad_spans_t, quad_mask_t)
+        # OpinionGuidedVAHead returns dict, SpanPairVAHead returns tensor
+        if isinstance(raw_out, dict):
+            va_pred = raw_out['va_final']  # [1, Q, 2]
+        else:
+            va_pred = raw_out               # [1, Q, 2]
     va_pred = va_pred[0].cpu().numpy()  # [Q, 2]
 
     results = []

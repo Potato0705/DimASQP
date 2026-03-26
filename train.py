@@ -72,39 +72,67 @@ def compute_va_loss(pred_va, va_targets, va_mask):
     return mse
 
 
+def _safe_loss(loss_tensor, name="loss", max_val=1e4):
+    """Clamp a loss value and replace NaN/Inf with a safe fallback. Returns (loss, was_anomalous)."""
+    if torch.isnan(loss_tensor) or torch.isinf(loss_tensor):
+        logger.warning(f"[LossSafety] {name} is NaN/Inf — replaced with 0")
+        return torch.tensor(0.0, device=loss_tensor.device, dtype=loss_tensor.dtype), True
+    if loss_tensor.item() > max_val:
+        logger.warning(f"[LossSafety] {name}={loss_tensor.item():.2f} exceeds {max_val} — clamped")
+        return loss_tensor.clamp(max=max_val), True
+    return loss_tensor, False
+
+
 def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn):
     """Compute total loss based on label_pattern. Returns (loss, loss_mat, loss_cls_dim, loss_va)."""
     loss_mat = loss_matrix_fn(y_true=data["matrix_ids"], y_pred=pred["matrix"], mask_rate=args.mask_rate)
+    loss_mat, _ = _safe_loss(loss_mat, "loss_mat")
     loss_cls_dim = loss_cls_dim_fn(target=data['dimension_ids'], input=pred['dimension'])
+    loss_cls_dim, _ = _safe_loss(loss_cls_dim, "loss_cls_dim")
     loss_va = torch.tensor(0.0, device=loss_mat.device)
     if args.label_pattern == 'sentiment_dim':
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
     elif args.label_pattern == 'sentiment':
         loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
                                        mask_rate=args.mask_rate)
+        loss_dim_seq, _ = _safe_loss(loss_dim_seq, "loss_dim_seq")
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq
     elif args.label_pattern == 'raw':
         loss_dim_seq = loss_dim_seq_fn(y_true=data["dimension_sequences"], y_pred=pred["dimension_sequence"],
                                        mask_rate=args.mask_rate)
+        loss_dim_seq, _ = _safe_loss(loss_dim_seq, "loss_dim_seq")
         loss_sen_seq = loss_dim_seq_fn(y_true=data["sentiment_sequences"], y_pred=pred["sentiment_sequence"],
                                        mask_rate=args.mask_rate)
+        loss_sen_seq, _ = _safe_loss(loss_sen_seq, "loss_sen_seq")
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim + args.weight3 * loss_dim_seq + args.weight4 * loss_sen_seq
     elif args.label_pattern == 'category':
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
         if args.weight4 > 0:
             va_mode = getattr(args, 'va_mode', 'position')
-            if va_mode == 'span_pair' and "span_va" in pred:
-                # Span-Pair Conditioned VA loss (masked MSE over gold quadruplets)
+            if va_mode in ('span_pair', 'opinion_guided') and "span_va" in pred:
+                # Span-Pair / Opinion-Guided VA loss (masked MSE over gold quadruplets)
                 span_va_pred = pred["span_va"]                    # [B, Q, 2]
                 span_va_gold = data["quad_va"].to(span_va_pred.device)   # [B, Q, 2]
                 mask = data["quad_mask"].to(span_va_pred.device).unsqueeze(-1)  # [B, Q, 1]
                 diff = (span_va_pred - span_va_gold) * mask
                 n_valid = mask.sum().clamp(min=1.0)
                 loss_va = (diff ** 2).sum() / n_valid
+
+                # Opinion prior auxiliary loss (only for opinion_guided mode)
+                if va_mode == 'opinion_guided' and "va_prior" in pred:
+                    va_prior_pred = pred["va_prior"]              # [B, Q, 2]
+                    diff_prior = (va_prior_pred - span_va_gold) * mask
+                    loss_va_prior = (diff_prior ** 2).sum() / n_valid
+                    weight_prior = getattr(args, 'weight_va_prior', 0.3)
+                    loss_va = loss_va + weight_prior * loss_va_prior
             else:
                 # Per-position VA loss (original)
                 loss_va = compute_va_loss(pred["va"], data["va_targets"], data["va_mask"])
+            loss_va, _ = _safe_loss(loss_va, "loss_va")
             loss = loss + args.weight4 * loss_va
+
+    # Final total loss safety check
+    loss, _ = _safe_loss(loss, "total_loss")
     return loss, loss_mat, loss_cls_dim, loss_va
 
 
@@ -132,14 +160,15 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         for key in data:
             data[key] = data[key].to(device)
 
-        # Build forward kwargs (pass span info when using span_pair VA)
+        # Build forward kwargs (pass span info when using span_pair/opinion_guided VA)
         fwd_kwargs = dict(input_ids=data["input_ids"],
                           token_type_ids=data["token_type_ids"],
                           attention_mask=data["attention_mask"])
         va_mode = getattr(args, 'va_mode', 'position')
-        if va_mode == 'span_pair' and args.label_pattern == 'category' and args.weight4 > 0:
+        if va_mode in ('span_pair', 'opinion_guided') and args.label_pattern == 'category' and args.weight4 > 0:
             fwd_kwargs["quad_spans"] = data["quad_spans"]
             fwd_kwargs["quad_mask"] = data["quad_mask"]
+            fwd_kwargs["va_mode"] = va_mode
 
         # Compute prediction error
         with torch.autocast(device_type='cuda', dtype=torch.float16, enabled=args.use_amp):
@@ -171,12 +200,25 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         if (step + 1) % accum_steps == 0 or (step + 1) == total_step:
             if args.use_amp:
                 scaler.unscale_(optimizer)
-            max_grad_norm = getattr(args, 'max_grad_norm', 1.0)
-            if max_grad_norm > 0:
-                torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
-            scaler.step(optimizer)
-            scaler.update()
-            optimizer.zero_grad()
+
+            # Check for NaN/Inf gradients before clipping
+            grad_ok = True
+            for p in model.parameters():
+                if p.grad is not None and (torch.isnan(p.grad).any() or torch.isinf(p.grad).any()):
+                    grad_ok = False
+                    break
+
+            if not grad_ok:
+                logger.warning(f"[GradSafety] NaN/Inf gradients at step {step+1} — skipping optimizer step")
+                scaler.update()
+                optimizer.zero_grad()
+            else:
+                max_grad_norm = getattr(args, 'max_grad_norm', 1.0)
+                if max_grad_norm > 0:
+                    torch.nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm)
+                scaler.step(optimizer)
+                scaler.update()
+                optimizer.zero_grad()
 
         if step in print_steps:
             n = step + 1
@@ -221,9 +263,10 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
                               token_type_ids=data["token_type_ids"],
                               attention_mask=data["attention_mask"])
             va_mode = getattr(args, 'va_mode', 'position')
-            if va_mode == 'span_pair' and args.label_pattern == 'category' and args.weight4 > 0:
+            if va_mode in ('span_pair', 'opinion_guided') and args.label_pattern == 'category' and args.weight4 > 0:
                 fwd_kwargs["quad_spans"] = data["quad_spans"]
                 fwd_kwargs["quad_mask"] = data["quad_mask"]
+                fwd_kwargs["va_mode"] = va_mode
 
             pred = model(**fwd_kwargs)
 
