@@ -7,8 +7,10 @@
 """
 import json
 import os
+import random
 import time
 
+import numpy as np
 import torch
 from loguru import logger
 from torch import nn
@@ -31,6 +33,44 @@ from torch.utils.tensorboard import SummaryWriter
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 logger.info(f"Use {device} device")
+
+RESUME_STATE_NAME = "resume_checkpoint.pt"
+RESUME_ARG_KEYS = (
+    "task_domain",
+    "train_data",
+    "valid_data",
+    "nrows",
+    "max_seq_len",
+    "split_word",
+    "label_pattern",
+    "use_efficient_global_pointer",
+    "model_name_or_path",
+    "head_size",
+    "dropout_rate",
+    "mode",
+    "mask_rate",
+    "epoch",
+    "weight1",
+    "weight2",
+    "weight3",
+    "weight4",
+    "early_stop",
+    "per_gpu_train_batch_size",
+    "gradient_accumulation_steps",
+    "use_amp",
+    "with_adversarial_training",
+    "encoder_learning_rate",
+    "task_learning_rate",
+    "weight_decay",
+    "adam_epsilon",
+    "max_grad_norm",
+    "va_mode",
+    "use_va_prior_aux",
+    "weight_va_prior",
+    "use_va_contrastive",
+    "weight_va_cl",
+    "seed",
+)
 
 
 def set_optimer(args, model):
@@ -156,8 +196,11 @@ def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
                 n_valid = mask.sum().clamp(min=1.0)
                 loss_va = (diff ** 2).sum() / n_valid
 
-                # Opinion prior auxiliary loss (only for opinion_guided mode)
-                if va_mode == 'opinion_guided' and "va_prior" in pred:
+                # Opinion prior auxiliary loss:
+                # - always enabled for opinion_guided
+                # - explicitly enabled for span_pair via --use_va_prior_aux
+                use_prior_aux = va_mode == 'opinion_guided' or getattr(args, 'use_va_prior_aux', False)
+                if use_prior_aux and getattr(args, 'weight_va_prior', 0.0) > 0 and "va_prior" in pred:
                     va_prior_pred = pred["va_prior"]              # [B, Q, 2]
                     diff_prior = (va_prior_pred - span_va_gold) * mask
                     loss_va_prior = (diff_prior ** 2).sum() / n_valid
@@ -191,6 +234,185 @@ def _progress_bar(current, total, width=25):
     filled = int(width * current / total)
     bar = '#' * filled + '.' * (width - filled)
     return f'[{bar}] {current}/{total}'
+
+
+def _is_resume_requested(args):
+    model_path = str(getattr(args, "model_path", 0)).strip()
+    return model_path not in ("", "0", "None", "none")
+
+
+def _normalize_resume_value(value):
+    if isinstance(value, float):
+        return round(value, 12)
+    return value
+
+
+def _load_json_file(path):
+    with open(path, "r", encoding="utf-8-sig") as f:
+        return json.load(f)
+
+
+def _assert_resume_args_compatible(args, saved_args):
+    mismatches = []
+    for key in RESUME_ARG_KEYS:
+        current_value = _normalize_resume_value(getattr(args, key, None))
+        saved_value = _normalize_resume_value(saved_args.get(key))
+        if current_value != saved_value:
+            mismatches.append(f"{key}: saved={saved_value} current={current_value}")
+
+    if mismatches:
+        mismatch_text = "\n".join(mismatches[:20])
+        if len(mismatches) > 20:
+            mismatch_text += f"\n... and {len(mismatches) - 20} more"
+        raise ValueError(
+            "Resume 参数与原训练不一致，已拒绝恢复。请保持训练参数完全一致。\n"
+            + mismatch_text
+        )
+
+
+def _capture_rng_state():
+    state = {
+        "python": random.getstate(),
+        "numpy": np.random.get_state(),
+        "torch": torch.get_rng_state(),
+    }
+    if torch.cuda.is_available():
+        state["cuda"] = torch.cuda.get_rng_state_all()
+    return state
+
+
+def _restore_rng_state(state):
+    if not state:
+        return
+    if state.get("python") is not None:
+        random.setstate(state["python"])
+    if state.get("numpy") is not None:
+        np.random.set_state(state["numpy"])
+    if state.get("torch") is not None:
+        torch.set_rng_state(state["torch"])
+    if torch.cuda.is_available() and state.get("cuda") is not None:
+        torch.cuda.set_rng_state_all(state["cuda"])
+
+
+def _move_optimizer_state_to_device(optimizer, target_device):
+    for state in optimizer.state.values():
+        for key, value in state.items():
+            if torch.is_tensor(value):
+                state[key] = value.to(target_device)
+
+
+def _save_resume_checkpoint(
+        checkpoint_path,
+        model,
+        optimizer,
+        scheduler,
+        scaler,
+        completed_epochs,
+        best_score,
+        best_epoch,
+        early_stop_count,
+        train_history,
+        epoch_times,
+        elapsed_training_seconds):
+    checkpoint = {
+        "completed_epochs": completed_epochs,
+        "best_score": best_score,
+        "best_epoch": best_epoch,
+        "early_stop_count": early_stop_count,
+        "train_history": train_history,
+        "epoch_times": epoch_times,
+        "elapsed_training_seconds": elapsed_training_seconds,
+        "model_state_dict": model.state_dict(),
+        "optimizer_state_dict": optimizer.state_dict(),
+        "scheduler_state_dict": scheduler.state_dict(),
+        "scaler_state_dict": scaler.state_dict() if scaler is not None else None,
+        "rng_state": _capture_rng_state(),
+    }
+    tmp_path = checkpoint_path + ".tmp"
+    torch.save(checkpoint, tmp_path)
+    os.replace(tmp_path, checkpoint_path)
+
+
+def _load_resume_checkpoint(checkpoint_path, model, optimizer, scheduler, scaler):
+    checkpoint = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    model.load_state_dict(checkpoint["model_state_dict"])
+    optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
+    _move_optimizer_state_to_device(optimizer, device)
+    scheduler.load_state_dict(checkpoint["scheduler_state_dict"])
+    if scaler is not None and checkpoint.get("scaler_state_dict"):
+        scaler.load_state_dict(checkpoint["scaler_state_dict"])
+    _restore_rng_state(checkpoint.get("rng_state"))
+    return checkpoint
+
+
+def _load_model_weights_into_model(model, model_path):
+    loaded = torch.load(model_path, map_location="cpu", weights_only=False)
+    if isinstance(loaded, nn.Module):
+        model.load_state_dict(loaded.state_dict())
+    elif isinstance(loaded, dict):
+        if "state_dict" in loaded and isinstance(loaded["state_dict"], dict):
+            model.load_state_dict(loaded["state_dict"])
+        else:
+            model.load_state_dict(loaded)
+    else:
+        raise TypeError(f"Unsupported model file format: {type(loaded)}")
+
+
+def _load_legacy_resume_state(model_dir, model):
+    model_pt_path = os.path.join(model_dir, "model.pt")
+    best_model_path = os.path.join(model_dir, "best_model.pt")
+    best_score_path = os.path.join(model_dir, "best_score.json")
+    history_path = os.path.join(model_dir, "train_history.json")
+
+    if not os.path.exists(history_path) or not os.path.exists(best_score_path):
+        raise FileNotFoundError(
+            f"Legacy resume 失败：目录缺少 train_history.json 或 best_score.json: {model_dir}"
+        )
+
+    train_history = _load_json_file(history_path)
+    best_info = _load_json_file(best_score_path)
+    best_score = float(best_info.get("best_score", 0.0))
+    best_epoch = int(best_info.get("best_epoch", 0))
+    history_count = len(train_history)
+    epoch_times = [float(x.get("epoch_time", 0.0)) for x in train_history if isinstance(x, dict)]
+
+    if os.path.exists(model_pt_path):
+        _load_model_weights_into_model(model, model_pt_path)
+        completed_epochs = history_count
+        early_stop_count = max(0, history_count - best_epoch)
+        resume_history = list(train_history)
+        resume_epoch_times = list(epoch_times)
+        source = model_pt_path
+        logger.warning(
+            f"Resume checkpoint 缺失，使用 legacy model.pt 恢复：{model_pt_path}"
+        )
+    elif os.path.exists(best_model_path):
+        _load_model_weights_into_model(model, best_model_path)
+        completed_epochs = best_epoch
+        early_stop_count = 0
+        resume_history = list(train_history[:best_epoch])
+        resume_epoch_times = list(epoch_times[:best_epoch])
+        source = best_model_path
+        logger.warning(
+            "Resume checkpoint 与 model.pt 都缺失，退回到 best_model.pt 恢复；"
+            "将从 best_epoch 之后继续训练。"
+        )
+    else:
+        raise FileNotFoundError(
+            f"Legacy resume 失败：目录既没有 model.pt 也没有 best_model.pt: {model_dir}"
+        )
+
+    return {
+        "completed_epochs": completed_epochs,
+        "best_score": best_score,
+        "best_epoch": best_epoch,
+        "early_stop_count": early_stop_count,
+        "train_history": resume_history,
+        "epoch_times": resume_epoch_times,
+        "elapsed_training_seconds": sum(resume_epoch_times),
+        "source": source,
+        "is_legacy_resume": True,
+    }
 
 
 def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn, optimizer, scaler,
@@ -365,9 +587,22 @@ def main(args):
     set_seeds(args.seed)
     logger.info(f"parameters: {json.dumps(vars(args), indent=4)}")
 
-    # output
-    args.output_dir = make_output_dir(args)
-    dump_args(args.output_dir, args)
+    resume_requested = _is_resume_requested(args)
+    resume_checkpoint_path = None
+    if resume_requested:
+        args.model_path = os.path.abspath(os.path.normpath(str(args.model_path)))
+        if not os.path.isdir(args.model_path):
+            raise FileNotFoundError(f"Resume 目录不存在: {args.model_path}")
+        saved_args_path = os.path.join(args.model_path, "args.json")
+        if not os.path.exists(saved_args_path):
+            raise FileNotFoundError(f"Resume 目录缺少 args.json: {saved_args_path}")
+        saved_args = _load_json_file(saved_args_path)
+        _assert_resume_args_compatible(args, saved_args)
+        args.output_dir = args.model_path
+        resume_checkpoint_path = os.path.join(args.output_dir, RESUME_STATE_NAME)
+    else:
+        args.output_dir = make_output_dir(args)
+        dump_args(args.output_dir, args)
 
 
     # dataloader
@@ -457,12 +692,47 @@ def main(args):
         fgm = FGM(model, epsilon=1, emb_name='word_embeddings.weight')
     else:
         fgm = None
-    best_score, early_stop_count = 0, 0
+    best_score, best_epoch, early_stop_count = 0, 0, 0
     output_model_path = os.path.join(args.output_dir, "model.pt")
     best_model_path = os.path.join(args.output_dir, "best_model.pt")
     train_history = []
     training_start_time = time.time()
     epoch_times = []
+    start_epoch = 0
+
+    if resume_requested:
+        if os.path.exists(resume_checkpoint_path):
+            resume_state = _load_resume_checkpoint(resume_checkpoint_path, model, optimizer, scheduler, scaler)
+        else:
+            resume_state = _load_legacy_resume_state(args.output_dir, model)
+        start_epoch = int(resume_state.get("completed_epochs", 0))
+        best_score = float(resume_state.get("best_score", 0))
+        best_epoch = int(resume_state.get("best_epoch", 0))
+        early_stop_count = int(resume_state.get("early_stop_count", 0))
+        train_history = list(resume_state.get("train_history", []))
+        epoch_times = list(resume_state.get("epoch_times", []))
+        elapsed_training_seconds = float(resume_state.get("elapsed_training_seconds", 0.0))
+        training_start_time = time.time() - elapsed_training_seconds
+        logger.info(
+            f"Resumed from {resume_checkpoint_path}: completed_epochs={start_epoch}, "
+            f"best_score={best_score:.4f}, best_epoch={best_epoch}, early_stop_count={early_stop_count}"
+        )
+        print(f"  Resume: {resume_state.get('source', resume_checkpoint_path)}")
+        print(f"  Resume State: completed_epochs={start_epoch}, best={best_score:.4f} (epoch {best_epoch})")
+        _save_resume_checkpoint(
+            checkpoint_path=resume_checkpoint_path,
+            model=model,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            scaler=scaler,
+            completed_epochs=start_epoch,
+            best_score=best_score,
+            best_epoch=best_epoch,
+            early_stop_count=early_stop_count,
+            train_history=train_history,
+            epoch_times=epoch_times,
+            elapsed_training_seconds=elapsed_training_seconds,
+        )
 
     va_mode = getattr(args, 'va_mode', 'position')
     print(f"\n{'='*70}")
@@ -474,7 +744,17 @@ def main(args):
     print(f"  Output: {args.output_dir}")
     print(f"{'='*70}\n")
 
-    for t in range(args.epoch):
+    if start_epoch >= args.epoch:
+        print(f"  Resume checkpoint 已完成全部 {args.epoch} 个 epoch，无需继续训练。")
+        writer.close()
+        return
+
+    if early_stop_count >= args.early_stop:
+        print(f"  Resume checkpoint 已达到 early-stop 条件（wait={early_stop_count}/{args.early_stop}），无需继续训练。")
+        writer.close()
+        return
+
+    for t in range(start_epoch, args.epoch):
         epoch_start = time.time()
 
         # --- Train ---
@@ -581,25 +861,46 @@ def main(args):
 
         if is_best:
             best_score = score
+            best_epoch = t + 1
             early_stop_count = 0
             torch.save(model, best_model_path)
             with open(os.path.join(args.output_dir, "best_score.json"), "w", encoding="utf-8") as f:
-                json.dump({"best_score": best_score, "best_epoch": t + 1}, f, indent=2, ensure_ascii=False)
+                json.dump({"best_score": best_score, "best_epoch": best_epoch}, f, indent=2, ensure_ascii=False)
         else:
             early_stop_count += 1
-            if early_stop_count >= args.early_stop:
-                total_time = (time.time() - training_start_time) / 60
-                print(f"\n{'='*70}")
-                print(f"  EARLY STOP at epoch {t+1} | Best: {best_score:.4f} | Total: {total_time:.1f}min")
-                print(f"{'='*70}")
-                torch.save(model, output_model_path)
-                return
+
+        if resume_checkpoint_path is None:
+            resume_checkpoint_path = os.path.join(args.output_dir, RESUME_STATE_NAME)
+        _save_resume_checkpoint(
+            checkpoint_path=resume_checkpoint_path,
+            model=model,
+            optimizer=optimizer,
+            scheduler=scheduler,
+            scaler=scaler,
+            completed_epochs=t + 1,
+            best_score=best_score,
+            best_epoch=best_epoch,
+            early_stop_count=early_stop_count,
+            train_history=train_history,
+            epoch_times=epoch_times,
+            elapsed_training_seconds=time.time() - training_start_time,
+        )
+
+        if early_stop_count >= args.early_stop:
+            total_time = (time.time() - training_start_time) / 60
+            print(f"\n{'='*70}")
+            print(f"  EARLY STOP at epoch {t+1} | Best: {best_score:.4f} | Total: {total_time:.1f}min")
+            print(f"{'='*70}")
+            torch.save(model, output_model_path)
+            writer.close()
+            return
 
     total_time = (time.time() - training_start_time) / 60
     print(f"\n{'='*70}")
     print(f"  TRAINING COMPLETE ({args.epoch} epochs) | Best: {best_score:.4f} | Total: {total_time:.1f}min")
     print(f"{'='*70}")
     torch.save(model, output_model_path)
+    writer.close()
     print("Done!")
 
 

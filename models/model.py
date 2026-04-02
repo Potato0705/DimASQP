@@ -150,6 +150,13 @@ class OpinionGuidedVAHead(Module):
         # Learnable gate per VA dimension: controls residual influence
         self.gate = torch.nn.Parameter(torch.tensor([0.5, 0.5]))
 
+    def forward_prior(self, hidden_states, quad_spans, quad_mask):
+        """Opinion-only VA prior in [1, 9], exposed for auxiliary loss."""
+        _, h_opi = _batch_pool_spans(hidden_states, quad_spans, quad_mask)
+        mask = quad_mask.unsqueeze(-1)
+        va_prior = torch.sigmoid(self.prior_mlp(h_opi)) * 8.0 + 1.0
+        return va_prior * mask
+
     def forward(self, hidden_states, quad_spans, quad_mask):
         """
         Returns: dict with:
@@ -409,6 +416,10 @@ class QuadrupleModel(Module):
                 result["va_prior"] = og_out['va_prior']       # opinion-only prior (for aux loss)
             else:
                 result["span_va"] = self.span_pair_va_head(sequence_output, quad_spans, quad_mask)
+                if va_mode == 'span_pair':
+                    result["va_prior"] = self.opinion_guided_va_head.forward_prior(
+                        sequence_output, quad_spans, quad_mask
+                    )
 
             # VA-Aware Contrastive embeddings (training only)
             if self.training:

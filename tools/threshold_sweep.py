@@ -23,7 +23,7 @@ from transformers import AutoTokenizer
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from dataset.dataset import AcqpDataset, collate_fn
-from utils.utils import load_train_model, load_train_args
+from utils.utils import load_train_args
 from predict import create_pred_answer, attach_va_to_pred_answer
 from tools.evaluate_local import read_jsonl_file, evaluate_predictions
 from tools.generate_submission import load_sidecar, SENTIMENT_VA_MAP
@@ -31,9 +31,18 @@ from tools.generate_submission import load_sidecar, SENTIMENT_VA_MAP
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
+def load_model_for_eval(model_path):
+    """Load a saved training model onto the current eval device."""
+    best_model_path = os.path.join(model_path, "best_model.pt")
+    fallback_model_path = os.path.join(model_path, "model.pt")
+    load_path = best_model_path if os.path.exists(best_model_path) else fallback_model_path
+    map_location = None if device == "cuda" else torch.device("cpu")
+    return torch.load(load_path, weights_only=False, map_location=map_location)
+
+
 def extract_raw_logits(model_path, test_data_path, batch_size=16):
     """Extract raw matrix logits, VA predictions, and hidden states from model."""
-    model = load_train_model(model_path)
+    model = load_model_for_eval(model_path)
     model = model.to(device)
     model.eval()
 

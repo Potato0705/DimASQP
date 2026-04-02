@@ -1,159 +1,154 @@
 % Architecture diagram for Opinion-Guided VA Prediction
-% All colors pre-defined in main.tex to avoid xcolor inline mixing issues
+% Professional conference figure style: minimal colors, clean hierarchy
+% Colors defined in main.tex
 
 \begin{tikzpicture}[
     >=Stealth,
-    node distance=0.5cm,
-    % === Style definitions ===
-    baseblock/.style={
-        rectangle, rounded corners=3pt, line width=0.7pt,
-        minimum height=0.7cm, font=\small, align=center
+    node distance=0.6cm,
+    % Core styles
+    block/.style={
+        rectangle, rounded corners=2pt, line width=0.6pt, draw=darkgray,
+        minimum height=0.65cm, font=\footnotesize, align=center, fill=white
     },
-    input/.style={baseblock, draw=inputborder, fill=inputfill, minimum width=10cm},
-    encoder/.style={baseblock, draw=encoderblue, fill=encoderbluefill,
-        minimum width=10cm, font=\small\bfseries},
-    arr/.style={->, color=arrowgray, line width=0.6pt},
-    darr/.style={->, dashed, color=dashgray, line width=0.6pt},
-    lblstyle/.style={font=\scriptsize, color=darkgray},
-    mathstyle/.style={font=\scriptsize, color=arrowgray},
-    output/.style={baseblock, draw=dashgray, fill=white, minimum width=10cm},
+    mainblock/.style={block, minimum width=4.0cm, font=\footnotesize\bfseries},
+    smallblock/.style={block, minimum width=1.8cm, minimum height=0.55cm,
+        font=\scriptsize},
+    opnode/.style={circle, draw=darkgray, line width=0.6pt, inner sep=1.5pt,
+        font=\scriptsize\bfseries, fill=white},
+    flow/.style={->, darkgray, line width=0.5pt},
+    dflow/.style={->, dashed, medgray, line width=0.5pt},
+    lbl/.style={font=\scriptsize, darkgray},
 ]
 
-% =====================================================
-% Layer 1: Input
-% =====================================================
-\node[input] (input) {\textit{``The spicy tuna roll was unusually good''}};
+% ============================================================
+% LAYER 1: Input
+% ============================================================
+\node[block, minimum width=9.6cm, fill=concatfill] (input)
+    {\textit{``The spicy tuna roll was unusually good''}};
 
-% =====================================================
-% Layer 2: Encoder
-% =====================================================
-\node[encoder, above=0.55cm of input] (enc) {DeBERTa-v3-base Encoder};
-\draw[arr] (input) -- (enc);
-\node[mathstyle, above=0.12cm of enc] (hrepr)
-    {$\mathbf{H} = (\mathbf{h}_1, \ldots, \mathbf{h}_n) \in \mathbb{R}^{n \times d}$};
+% ============================================================
+% LAYER 2: Encoder
+% ============================================================
+\node[mainblock, minimum width=9.6cm, fill=encoderbluefill,
+    draw=encoderblue, above=0.5cm of input] (enc)
+    {DeBERTa-v3-base};
+\draw[flow] (input) -- (enc);
+\node[lbl, right=0.15cm of enc]
+    {$\mathbf{H} \!\in\! \mathbb{R}^{n \times d}$};
 
-% =====================================================
-% Layer 3: Two branches
-% =====================================================
-% --- Left: Matrix Head ---
-\node[baseblock, draw=matrixgreen, fill=matrixgreenfill,
-    minimum width=4.2cm, font=\small\bfseries,
-    above=0.85cm of enc, xshift=-2.7cm] (mathead) {Matrix Head};
-\node[lblstyle, below=0.01cm of mathead] {EGP + RoPE};
+% ============================================================
+% LAYER 3: Two branches
+% ============================================================
+% Left: Matrix Head
+\node[mainblock, fill=matrixgreenfill, draw=matrixgreen,
+    above=0.7cm of enc, xshift=-2.55cm] (mathead)
+    {Matrix Head (EGP)};
+\draw[flow] ([xshift=-2.55cm]enc.north) -- (mathead.south);
 
-% --- Right: VA Head ---
-\node[baseblock, draw=vahead, fill=vaheadfill,
-    minimum width=4.2cm, font=\small\bfseries,
-    above=0.85cm of enc, xshift=2.7cm] (vaheadbox) {Opinion-Guided VA Head};
+% Right: VA Head entry point
+\node[mainblock, fill=vaheadfill, draw=vahead,
+    above=0.7cm of enc, xshift=2.55cm] (vaentry)
+    {Opinion-Guided VA Head};
+\draw[flow] ([xshift=2.55cm]enc.north) -- (vaentry.south);
 
-% Arrows from encoder
-\draw[arr] ([xshift=-2.7cm]enc.north) -- (mathead.south);
-\draw[arr] ([xshift=2.7cm]enc.north) -- (vaheadbox.south);
+% ============================================================
+% LAYER 4a: Matrix Head output
+% ============================================================
+\node[smallblock, draw=matrixgreen, fill=matrixgreenfill,
+    above=0.4cm of mathead, minimum width=2.8cm] (extract)
+    {$(a,\, c,\, o)$ Extraction};
+\draw[flow] (mathead) -- (extract);
 
-% =====================================================
-% Layer 4a: Matrix Head outputs
-% =====================================================
-\node[baseblock, draw=matrixgreen, fill=matrixgreenfill,
-    minimum width=2.4cm, minimum height=0.6cm, font=\footnotesize,
-    above=0.45cm of mathead] (quads) {$(a,\, c,\, o)$ Quad Extraction};
-\draw[arr] (mathead) -- (quads);
+% ============================================================
+% LAYER 4b: VA Head internals — clean two-path layout
+% ============================================================
 
-% =====================================================
-% Layer 4b: VA Head internals (the core contribution)
-% =====================================================
+% Span pooling row
+\node[smallblock, fill=ebluefill, draw=encoderblue,
+    above=0.45cm of vaentry, xshift=-1.2cm] (ha)
+    {$\mathbf{h}_a$};
+\node[lbl, below=0.01cm of ha] {Aspect};
+\node[smallblock, fill=ppfill, draw=priorpurple,
+    above=0.45cm of vaentry, xshift=1.2cm] (ho)
+    {$\mathbf{h}_o$};
+\node[lbl, below=0.01cm of ho] {Opinion};
+\draw[flow] ([xshift=-0.6cm]vaentry.north) -- (ha.south);
+\draw[flow] ([xshift=0.6cm]vaentry.north) -- (ho.south);
 
-% --- Span pooling ---
-\node[rectangle, rounded corners=2pt, draw=encoderblue, fill=ebluefill,
-    minimum width=1.6cm, minimum height=0.5cm, font=\scriptsize, line width=0.6pt,
-    above=0.5cm of vaheadbox, xshift=-1.3cm] (ha) {$\mathbf{h}_a$\; Aspect};
-\node[rectangle, rounded corners=2pt, draw=priorpurple, fill=ppfill,
-    minimum width=1.6cm, minimum height=0.5cm, font=\scriptsize, line width=0.6pt,
-    above=0.5cm of vaheadbox, xshift=1.3cm] (ho) {$\mathbf{h}_o$\; Opinion};
-\draw[arr] (vaheadbox) -- (ha);
-\draw[arr] (vaheadbox) -- (ho);
+% --- RIGHT PATH: Opinion Prior ---
+\node[smallblock, fill=priorpurplefill, draw=priorpurple,
+    above=0.7cm of ho, minimum width=2.0cm] (priormlp)
+    {$\text{MLP}_{\text{prior}}$};
+\draw[flow] (ho) -- (priormlp);
+\node[lbl, right=0.1cm of priormlp] {$\hat{\mathbf{y}}_{\text{prior}}$};
 
-% --- Path A: Opinion Prior (right path) ---
-\node[baseblock, draw=priorpurple, fill=priorpurplefill,
-    minimum width=2.0cm, minimum height=0.6cm, font=\footnotesize,
-    above=0.55cm of ho] (prior) {$\text{MLP}_{\text{prior}}$};
-\draw[arr] (ho) -- (prior);
+% Prior loss annotation
+\node[font=\tiny, color=priorpurple, above right=-0.05cm and 0.1cm of priormlp]
+    (ploss) {$\mathcal{L}_{\text{prior}}$};
 
-\node[mathstyle, right=0.15cm of prior] (priorlbl)
-    {$\hat{\mathbf{y}}_{\text{prior}}$};
+% --- LEFT PATH: Context Residual ---
+\node[smallblock, fill=concatfill, draw=medgray,
+    above=0.7cm of ha, xshift=0.3cm, minimum width=2.0cm] (concat)
+    {Concat};
+\node[lbl, below=0.01cm of concat] {$[\mathbf{h}_a;\,\mathbf{h}_o;\,\mathbf{h}_a\!\odot\!\mathbf{h}_o]$};
+\draw[flow] (ha) -- ([xshift=-0.3cm]concat.south);
+\draw[flow] (ho.north) -- ++(0,0.15) -| ([xshift=0.3cm]concat.south);
 
-% Prior auxiliary loss
-\node[font=\scriptsize, color=priorpurple, right=0.12cm of priorlbl] (ploss)
-    {$\xrightarrow{\;\mathcal{L}_{\text{prior}}\;}$};
+\node[smallblock, fill=resfill, draw=resborder,
+    above=0.55cm of concat, minimum width=2.0cm] (resmlp)
+    {$\text{MLP}_{\text{res}}$};
+\draw[flow] (concat) -- (resmlp);
+\node[lbl, left=0.1cm of resmlp] {$\Delta\mathbf{y}$};
 
-% --- Path B: Context Residual (left path) ---
-% Concatenation
-\node[rectangle, rounded corners=2pt, draw=medgray, fill=concatfill,
-    minimum width=2.8cm, minimum height=0.5cm, font=\scriptsize, line width=0.6pt,
-    above=0.55cm of ha, xshift=0.3cm] (concat)
-    {$[\mathbf{h}_a;\;\mathbf{h}_o;\;\mathbf{h}_a \!\odot\! \mathbf{h}_o]$};
-\draw[arr] (ha) -- ([xshift=-0.3cm]concat.south);
-\draw[arr] (ho) -- ([xshift=0.3cm]concat.south east);
+% --- GATE + COMBINE ---
+\node[opnode, fill=gateofill, draw=gateorange,
+    above=0.55cm of resmlp, xshift=1.2cm] (gate)
+    {$\sigma(\mathbf{g})$};
+\draw[flow] (resmlp) -- ++(0,0.2) -| (gate);
 
-\node[baseblock, draw=resborder, fill=resfill,
-    minimum width=2.0cm, minimum height=0.6cm, font=\footnotesize,
-    above=0.45cm of concat] (resmlp) {$\text{MLP}_{\text{res}}$};
-\draw[arr] (concat) -- (resmlp);
-\node[mathstyle, left=0.15cm of resmlp] (reslbl) {$\Delta\mathbf{y}$};
+\node[opnode, above=0.35cm of gate] (plus) {$+$};
+\draw[flow] (gate) -- node[lbl, right, xshift=1pt] {$\odot$} (plus);
+\draw[flow] (priormlp.north) -- ++(0,0.55) -| (plus);
 
-% --- Gate + Combine ---
-\node[circle, draw=gateorange, fill=gateofill, inner sep=2pt,
-    font=\scriptsize\bfseries, line width=0.7pt,
-    above=0.7cm of prior, xshift=-1.0cm] (gate) {$\sigma(\mathbf{g})\!\odot$};
+% --- VA Output ---
+\node[smallblock, fill=vaheadfill, draw=vahead,
+    above=0.35cm of plus, minimum width=2.2cm,
+    font=\footnotesize\bfseries] (vaout)
+    {$\hat{\mathbf{y}}_{\text{VA}} \!\in\! [1,9]^2$};
+\draw[flow] (plus) -- (vaout);
 
-% Residual -> Gate
-\draw[arr] (resmlp.north) -- ++(0, 0.3) -| (gate);
-% Prior -> addition point
-\node[circle, draw=darkgray, fill=concatfill, inner sep=2pt,
-    font=\scriptsize\bfseries, line width=0.7pt,
-    above=0.3cm of gate] (plus) {$+$};
-\draw[arr] (gate) -- (plus);
-\draw[arr] (prior.north) -- ++(0, 0.7) -| (plus);
-
-% --- VA output ---
-\node[baseblock, draw=vahead, fill=vaheadfill,
-    minimum width=2.4cm, minimum height=0.6cm, font=\small\bfseries,
-    above=0.35cm of plus] (vaout) {$\hat{\mathbf{y}}_{\text{VA}} \!\in\! [1,9]^2$};
-\draw[arr] (plus) -- (vaout);
-
-% =====================================================
+% ============================================================
 % Dashed box around VA internals
-% =====================================================
+% ============================================================
 \begin{scope}[on background layer]
-    \node[draw=vaheadborder, dashed, rounded corners=6pt, line width=0.7pt,
-        fill=vaheadlightfill,
-        fit=(ha)(ho)(prior)(priorlbl)(ploss)(concat)(resmlp)(reslbl)(gate)(plus)(vaout),
-        inner xsep=6pt, inner ysep=5pt] (vabox) {};
+    \node[draw=vaheadborder, dashed, rounded corners=4pt,
+        line width=0.6pt, fill=vaheadlightfill,
+        fit=(ha)(ho)(priormlp)(ploss)(concat)(resmlp)(gate)(plus)(vaout),
+        inner xsep=8pt, inner ysep=6pt] (vabox) {};
 \end{scope}
 
-% =====================================================
-% Layer 5: Final output
-% =====================================================
-\node[output, above=0.4cm of vaout, xshift=-2.7cm] (finalout)
-    {Output:\; $(a,\; c,\; o,\; \langle V, A \rangle)$\; Quadruplets};
-\draw[arr] (quads.north) |- (finalout.south west);
-\draw[arr] (vaout) |- ([xshift=1cm]finalout.south);
+% ============================================================
+% LAYER 5: Final output
+% ============================================================
+\node[block, minimum width=9.6cm, fill=concatfill,
+    above=0.45cm of vaout, xshift=-2.55cm] (finalout)
+    {Output: $(a,\; c,\; o,\; \langle V, A \rangle)$ Quadruplets};
+\draw[flow] (extract.north) |- (finalout.south west);
+\draw[flow] (vaout) |- ([xshift=1cm]finalout.south);
 
-% =====================================================
-% Span indices feedback
-% =====================================================
-\draw[darr] ([yshift=0.15cm]quads.east) -- ++(0.5, 0)
-    |- node[lblstyle, pos=0.25, right, yshift=0.1cm] {\textit{span indices}} (vaheadbox.north west);
+% ============================================================
+% Span indices feedback arrow
+% ============================================================
+\draw[dflow] ([yshift=0.1cm]extract.east) -- ++(0.4, 0)
+    node[lbl, above, midway, yshift=2pt] {\textit{spans}}
+    |- (vaentry.north west);
 
-% =====================================================
-% Annotations (right margin)
-% =====================================================
-\node[lblstyle, rotate=90, anchor=south] at ([xshift=0.6cm]resmlp.east)
-    {\textcolor{darkgray}{Context Path}};
-\node[lblstyle, rotate=90, anchor=south] at ([xshift=1.1cm]prior.east)
-    {\textcolor{priorpurple}{Prior Path}};
-
-% "Proposed" label
-\node[font=\scriptsize\bfseries, color=vahead, fill=white, inner sep=1pt,
-    anchor=north east] at (vabox.north east) {Proposed};
+% ============================================================
+% Path labels (outside the box, unobtrusive)
+% ============================================================
+\node[font=\tiny, darkgray, rotate=90, anchor=south]
+    at ([xshift=-0.55cm]resmlp.west) {Context path};
+\node[font=\tiny, priorpurple, rotate=90, anchor=south]
+    at ([xshift=0.55cm]priormlp.east) {Prior path};
 
 \end{tikzpicture}

@@ -39,11 +39,20 @@ from tools.generate_submission import load_sidecar, SENTIMENT_VA_MAP
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
+def load_model_for_eval(model_path):
+    """Load a saved training model onto the current eval device."""
+    best_model_path = os.path.join(model_path, "best_model.pt")
+    fallback_model_path = os.path.join(model_path, "model.pt")
+    load_path = best_model_path if os.path.exists(best_model_path) else fallback_model_path
+    map_location = None if device == "cuda" else torch.device("cpu")
+    return torch.load(load_path, weights_only=False, map_location=map_location)
+
+
 def extract_logits_single(model_path, test_data_path, batch_size=16,
                           keep_hidden=False):
     """Extract raw logits from one model. Optionally keep hidden states for VA."""
     print(f"\n  Loading: {os.path.basename(model_path)}")
-    model = load_train_model(model_path)
+    model = load_model_for_eval(model_path)
     model = model.to(device)
     model.eval()
 
@@ -60,6 +69,7 @@ def extract_logits_single(model_path, test_data_path, batch_size=16,
                             num_workers=0, pin_memory=True, collate_fn=collate_fn)
 
     raw_matrices = []
+    va_preds = []
     hidden_states_list = []
 
     with torch.no_grad():
@@ -71,6 +81,8 @@ def extract_logits_single(model_path, test_data_path, batch_size=16,
                          attention_mask=data["attention_mask"])
             for mat in pred["matrix"].cpu().numpy():
                 raw_matrices.append(mat)
+            for va in pred["va"].cpu().numpy():
+                va_preds.append(va)
             if keep_hidden and "hidden_states" in pred:
                 for hs in pred["hidden_states"].cpu():
                     hidden_states_list.append(hs)
@@ -92,7 +104,7 @@ def extract_logits_single(model_path, test_data_path, batch_size=16,
     else:
         print(f"  Done: {len(raw_matrices)} samples, GPU freed")
 
-    return dataset, raw_matrices, hidden_states_list, va_head, training_args
+    return dataset, raw_matrices, va_preds, hidden_states_list, va_head, training_args
 
 
 def ensemble_average(all_matrices_list):
@@ -102,8 +114,10 @@ def ensemble_average(all_matrices_list):
 
     avg_matrices = []
     for i in range(n_samples):
-        mat_stack = np.stack([all_matrices_list[m][i] for m in range(n_models)])
-        avg_matrices.append(mat_stack.mean(axis=0))
+        running_sum = np.zeros_like(all_matrices_list[0][i], dtype=np.float32)
+        for m in range(n_models):
+            running_sum += all_matrices_list[m][i].astype(np.float32, copy=False)
+        avg_matrices.append(running_sum / n_models)
 
     return avg_matrices
 
@@ -238,6 +252,38 @@ def decode_at_threshold_with_span_va(dataset, raw_matrices, hidden_states_list,
     return all_preds
 
 
+def decode_at_threshold_with_position_va(dataset, raw_matrices, va_preds_list,
+                                         threshold, training_args):
+    """Decode with ensemble logits + per-position VA from one or more models."""
+    label_types = dataset.label_types
+    dimension_types = dataset.dimension_types
+    sentiment2id = dataset.sentiment2id
+    label_pattern = training_args['label_pattern']
+    df = dataset.df
+    all_preds = []
+
+    for i in range(len(df)):
+        mat = raw_matrices[i]
+        va = va_preds_list[i]
+        mat_pred = np.argwhere(mat > threshold).tolist()
+        token_map = df.iloc[i]['Token_Index_Map_Char_Index']
+        text = df.iloc[i]['text']
+
+        pred_answer = create_pred_answer(
+            mat_pred, [], [], token_map, label_pattern,
+            label_types, dimension_types, sentiment2id
+        )
+        pred_with_va = attach_va_to_pred_answer(pred_answer, va, token_map)
+
+        all_preds.append({
+            "text": text,
+            "pred_answer_with_va": pred_with_va,
+            "line_index": i,
+        })
+
+    return all_preds
+
+
 def preds_to_submission(all_preds, sidecar_data):
     """Convert predictions to submission format."""
     idx_to_sidecar = {entry["line_index"]: entry for entry in sidecar_data}
@@ -305,32 +351,45 @@ def main():
 
     # Step 1: Extract logits from each model
     all_matrices_list = []
+    all_va_preds_list = []  # list of position-VA tensors (one per model)
     all_hidden_states = []   # list of lists (one per model) for VA ensemble
     all_va_heads = []        # list of VA heads for VA ensemble
+    va_preds_list = []       # single model position VA (non-ensemble mode)
     hidden_states_list = []  # single model hidden states (non-ensemble mode)
     va_head = None
     dataset = None
     training_args = None
+    va_mode = None
 
     for model_path in args.model_paths:
+        current_va_mode = load_train_args(model_path).get('va_mode', 'position')
+        is_va_model = (os.path.abspath(model_path) == os.path.abspath(va_model))
+        keep_hidden = (current_va_mode != 'position') and (args.va_ensemble or is_va_model)
+        ds, matrices, va_preds, hs_list, vah, t_args = extract_logits_single(
+            model_path, args.test_data, keep_hidden=keep_hidden)
+        current_va_mode = t_args.get('va_mode', 'position')
+        if va_mode is None:
+            va_mode = current_va_mode
+        elif current_va_mode != va_mode:
+            raise ValueError(f"Inconsistent va_mode across models: {va_mode} vs {current_va_mode}")
+
         if args.va_ensemble:
-            # VA ensemble: keep hidden states from ALL models
-            ds, matrices, hs_list, vah, t_args = extract_logits_single(
-                model_path, args.test_data, keep_hidden=True)
-            all_hidden_states.append(hs_list)
-            all_va_heads.append(vah)
-            va_mode = t_args.get('va_mode', 'span_pair')
-            print(f"  >> Kept VA head ({va_mode}) for ensemble")
+            if va_mode == 'position':
+                all_va_preds_list.append(va_preds)
+                print("  >> Kept position VA predictions for ensemble")
+            else:
+                all_hidden_states.append(hs_list)
+                all_va_heads.append(vah)
+                print(f"  >> Kept VA head ({va_mode}) for ensemble")
         else:
-            # Single VA model: only keep hidden states from reference model
-            is_va_model = (os.path.abspath(model_path) == os.path.abspath(va_model))
-            ds, matrices, hs_list, vah, t_args = extract_logits_single(
-                model_path, args.test_data, keep_hidden=is_va_model)
             if is_va_model:
-                hidden_states_list = hs_list
-                va_head = vah
-                va_mode = t_args.get('va_mode', 'span_pair')
-                print(f"  >> Using this model for VA ({va_mode})")
+                if va_mode == 'position':
+                    va_preds_list = va_preds
+                    print("  >> Using this model for position VA")
+                else:
+                    hidden_states_list = hs_list
+                    va_head = vah
+                    print(f"  >> Using this model for VA ({va_mode})")
 
         all_matrices_list.append(matrices)
         if dataset is None:
@@ -338,15 +397,23 @@ def main():
             training_args = t_args
 
     # If single-VA mode and va_model not in model_paths, load separately
-    if not args.va_ensemble and not hidden_states_list:
+    if not args.va_ensemble and va_mode == 'position' and not va_preds_list:
         print(f"\n  Loading VA model separately: {os.path.basename(va_model)}")
-        _, _, hidden_states_list, va_head, _ = extract_logits_single(
+        _, _, va_preds_list, _, _, _ = extract_logits_single(
+            va_model, args.test_data, keep_hidden=False)
+    elif not args.va_ensemble and va_mode != 'position' and not hidden_states_list:
+        print(f"\n  Loading VA model separately: {os.path.basename(va_model)}")
+        _, _, _, hidden_states_list, va_head, _ = extract_logits_single(
             va_model, args.test_data, keep_hidden=True)
 
     # Step 2: Average logit matrices
     print(f"\nAveraging {n_models} models' logits...")
     avg_matrices = ensemble_average(all_matrices_list)
     print(f"  Ensemble logits ready: {len(avg_matrices)} samples")
+    avg_va_preds = None
+    if args.va_ensemble and va_mode == 'position':
+        avg_va_preds = ensemble_average(all_va_preds_list)
+        print(f"  Position VA ensemble ready: {len(avg_va_preds)} samples")
 
     del all_matrices_list
     gc.collect()
@@ -362,7 +429,14 @@ def main():
 
     results = []
     for threshold in thresholds:
-        if args.va_ensemble:
+        if va_mode == 'position':
+            if args.va_ensemble:
+                all_preds = decode_at_threshold_with_position_va(
+                    dataset, avg_matrices, avg_va_preds, threshold, training_args)
+            else:
+                all_preds = decode_at_threshold_with_position_va(
+                    dataset, avg_matrices, va_preds_list, threshold, training_args)
+        elif args.va_ensemble:
             all_preds = decode_with_va_ensemble(
                 dataset, avg_matrices, all_hidden_states, all_va_heads,
                 threshold, training_args)

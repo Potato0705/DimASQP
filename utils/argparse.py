@@ -44,8 +44,10 @@ def get_argparse():
     parser.add_argument("--va_mode", default="span_pair", type=str,
                         choices=["position", "span_pair", "opinion_guided"],
                         help="VA prediction: position (per-token), span_pair (conditioned on pair), opinion_guided (prior + residual)")
+    parser.add_argument("--use_va_prior_aux", action="store_true", default=False,
+                        help="Enable opinion VA prior auxiliary loss for span_pair mode")
     parser.add_argument("--weight_va_prior", default=0.3, type=float,
-                        help="Weight for opinion VA prior auxiliary loss (only used with opinion_guided)")
+                        help="Weight for opinion VA prior auxiliary loss (used with opinion_guided, or span_pair when --use_va_prior_aux is set)")
     parser.add_argument("--use_va_contrastive", action="store_true", default=False,
                         help="Enable VA-aware contrastive learning on span-pair representations")
     parser.add_argument("--weight_va_cl", default=0.1, type=float,
