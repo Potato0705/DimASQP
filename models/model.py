@@ -253,7 +253,12 @@ class QuadrupleModel(Module):
         self.mode = mode
         self.max_seq_len = max_seq_len
         self.pretrain_model_path = pretrain_model_path
-        self.encoder = AutoModel.from_pretrained(self.pretrain_model_path)
+        # Force float32: some servers default to float16 loading.
+        # float16 max ≈ 65504 — INF masking constants (originally 1e12, now 1e4)
+        # still risk overflow if the model itself computes in float16.
+        # Explicitly loading in float32 guarantees stable numerics on all servers.
+        self.encoder = AutoModel.from_pretrained(self.pretrain_model_path,
+                                                 torch_dtype=torch.float32)
         self.encoder_hidden_size = self.encoder.config.hidden_size
         self.with_adversarial_training = with_adversarial_training
         self.use_efficient_global_pointer = use_efficient_global_pointer  # True
@@ -342,6 +347,9 @@ class QuadrupleModel(Module):
                                attention_mask=attention_mask,
                                token_type_ids=token_type_ids)
         sequence_output = outputs.last_hidden_state
+        head_dtype = self.dimension_linear.weight.dtype
+        if sequence_output.dtype != head_dtype:
+            sequence_output = sequence_output.to(head_dtype)
 
         cls_output = sequence_output[:, 0, :]
         # cls_output = F.relu(cls_output)

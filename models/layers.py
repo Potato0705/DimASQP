@@ -10,7 +10,9 @@ import numpy as np
 import torch.nn as nn
 from sklearn.metrics import classification_report
 
-INF = 1e12
+# Safe masking constant: 1e12 overflows float16 (max ~65504). Use 1e4 which is
+# large enough to dominate any real logit but safe under mixed-precision training.
+INF = 1e4
 
 
 class MetricsCalculator(object):

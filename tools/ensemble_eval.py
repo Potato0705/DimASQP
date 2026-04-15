@@ -22,11 +22,15 @@ import json
 import os
 import sys
 import gc
+import tempfile
 import numpy as np
 import torch
 from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import AutoTokenizer
+import torch.nn as _nn
+import types as _types
+import transformers.models.deberta_v2.modeling_deberta_v2 as _dv2
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -38,6 +42,45 @@ from tools.generate_submission import load_sidecar, SENTIMENT_VA_MAP
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+# Patch: transformers.core_model_loading.WeightRenaming missing in some installs
+if 'transformers.core_model_loading' not in sys.modules:
+    _fake_cml = _types.ModuleType('transformers.core_model_loading')
+    class _WeightRenaming: pass
+    _fake_cml.WeightRenaming = _WeightRenaming
+    sys.modules['transformers.core_model_loading'] = _fake_cml
+
+if not hasattr(_dv2, "StableDropout"):
+    class _StableDropout(_nn.Module):
+        def __init__(self, drop_prob=0.0):
+            super().__init__()
+            self.drop_prob = drop_prob
+
+        def forward(self, x):
+            import torch.nn.functional as F
+            if self.training and self.drop_prob > 0:
+                return F.dropout(x, p=self.drop_prob)
+            return x
+
+    _dv2.StableDropout = _StableDropout
+
+
+def _patch_model_configs(model):
+    """Repair old DeBERTa checkpoints for newer transformers versions."""
+    for m in model.modules():
+        cfg = getattr(m, "config", None)
+        if cfg is not None:
+            if not hasattr(cfg, "_output_attentions"):
+                cfg.__dict__["_output_attentions"] = cfg.__dict__.pop(
+                    "output_attentions", False
+                )
+            if not hasattr(cfg, "torchscript"):
+                cfg.__dict__["torchscript"] = False
+        if type(m).__name__ == "DebertaV2Embeddings":
+            for attr in ("token_type_embeddings", "embed_proj", "position_embeddings"):
+                if not hasattr(m, attr):
+                    object.__setattr__(m, attr, None)
+    return model
+
 
 def load_model_for_eval(model_path):
     """Load a saved training model onto the current eval device."""
@@ -45,7 +88,8 @@ def load_model_for_eval(model_path):
     fallback_model_path = os.path.join(model_path, "model.pt")
     load_path = best_model_path if os.path.exists(best_model_path) else fallback_model_path
     map_location = None if device == "cuda" else torch.device("cpu")
-    return torch.load(load_path, weights_only=False, map_location=map_location)
+    model = torch.load(load_path, weights_only=False, map_location=map_location)
+    return _patch_model_configs(model)
 
 
 def extract_logits_single(model_path, test_data_path, batch_size=16,
@@ -105,6 +149,123 @@ def extract_logits_single(model_path, test_data_path, batch_size=16,
         print(f"  Done: {len(raw_matrices)} samples, GPU freed")
 
     return dataset, raw_matrices, va_preds, hidden_states_list, va_head, training_args
+
+
+def stream_average_matrices(model_paths, test_data_path, batch_size=16,
+                            va_model_path=None, keep_hidden=False,
+                            temp_dir=None):
+    """Average matrices with a disk-backed memmap to avoid RAM blow-up."""
+    n_models = len(model_paths)
+    if n_models == 0:
+        raise ValueError("model_paths must not be empty")
+
+    va_model_abs = os.path.abspath(va_model_path or model_paths[0])
+    mmap_path = None
+    mmap_shape = None
+    mmap_array = None
+    dataset = None
+    training_args = None
+    va_mode = None
+    va_preds_list = []
+    hidden_states_list = []
+    va_head = None
+
+    for model_path in model_paths:
+        print(f"\n  Loading: {os.path.basename(model_path)}")
+        model = load_model_for_eval(model_path)
+        model = model.to(device)
+        model.eval()
+
+        current_args = load_train_args(model_path)
+        tokenizer = AutoTokenizer.from_pretrained(current_args['model_name_or_path'])
+        current_dataset = AcqpDataset(
+            task_domain=current_args['task_domain'],
+            tokenizer=tokenizer,
+            data_path=test_data_path,
+            max_seq_len=current_args['max_seq_len'],
+            label_pattern=current_args['label_pattern'],
+        )
+        dataloader = DataLoader(
+            current_dataset,
+            batch_size=batch_size,
+            shuffle=False,
+            num_workers=0,
+            pin_memory=True,
+            collate_fn=collate_fn,
+        )
+
+        current_va_mode = current_args.get('va_mode', 'position')
+        if va_mode is None:
+            va_mode = current_va_mode
+        elif current_va_mode != va_mode:
+            raise ValueError(f"Inconsistent va_mode across models: {va_mode} vs {current_va_mode}")
+
+        if dataset is None:
+            dataset = current_dataset
+            training_args = current_args
+        elif len(current_dataset) != len(dataset):
+            raise ValueError("Dataset length mismatch across ensemble models")
+
+        is_va_model = os.path.abspath(model_path) == va_model_abs
+        offset = 0
+
+        with torch.no_grad():
+            for data in tqdm(dataloader, desc="  Extracting"):
+                for key in data:
+                    data[key] = data[key].to(device)
+                pred = model(
+                    input_ids=data["input_ids"],
+                    token_type_ids=data["token_type_ids"],
+                    attention_mask=data["attention_mask"],
+                )
+
+                matrices = pred["matrix"].detach().cpu().numpy().astype(np.float32, copy=False)
+                if mmap_array is None:
+                    sample_shape = matrices.shape[1:]
+                    mmap_shape = (len(current_dataset),) + sample_shape
+                    fd, mmap_path = tempfile.mkstemp(
+                        prefix="ensemble_avg_",
+                        suffix=".mmap",
+                        dir=temp_dir,
+                    )
+                    os.close(fd)
+                    mmap_array = np.memmap(mmap_path, mode="w+", dtype=np.float32, shape=mmap_shape)
+                    mmap_array[:] = 0.0
+
+                batch_size_now = matrices.shape[0]
+                mmap_array[offset:offset + batch_size_now] += matrices / n_models
+
+                if is_va_model:
+                    if current_va_mode == 'position':
+                        va_preds_list.extend(pred["va"].detach().cpu().numpy())
+                    elif keep_hidden and "hidden_states" in pred:
+                        for hs in pred["hidden_states"].detach().cpu():
+                            hidden_states_list.append(hs)
+
+                offset += batch_size_now
+                del pred, matrices
+
+        if is_va_model and keep_hidden:
+            if current_va_mode == 'opinion_guided' and hasattr(model, 'opinion_guided_va_head'):
+                va_head = model.opinion_guided_va_head.cpu()
+            elif hasattr(model, 'span_pair_va_head'):
+                va_head = model.span_pair_va_head.cpu()
+
+        if mmap_array is not None:
+            mmap_array.flush()
+        del model
+        torch.cuda.empty_cache()
+        gc.collect()
+        if keep_hidden and is_va_model and current_va_mode != 'position':
+            print(f"  Done: {len(current_dataset)} samples + hidden states kept (stream avg)")
+        else:
+            print(f"  Done: {len(current_dataset)} samples, memmap updated")
+
+    if mmap_array is not None:
+        mmap_array.flush()
+        del mmap_array
+
+    return dataset, mmap_path, mmap_shape, va_preds_list, hidden_states_list, va_head, training_args, va_mode
 
 
 def ensemble_average(all_matrices_list):
@@ -361,61 +522,46 @@ def main():
     training_args = None
     va_mode = None
 
-    for model_path in args.model_paths:
-        current_va_mode = load_train_args(model_path).get('va_mode', 'position')
-        is_va_model = (os.path.abspath(model_path) == os.path.abspath(va_model))
-        keep_hidden = (current_va_mode != 'position') and (args.va_ensemble or is_va_model)
-        ds, matrices, va_preds, hs_list, vah, t_args = extract_logits_single(
-            model_path, args.test_data, keep_hidden=keep_hidden)
-        current_va_mode = t_args.get('va_mode', 'position')
-        if va_mode is None:
-            va_mode = current_va_mode
-        elif current_va_mode != va_mode:
-            raise ValueError(f"Inconsistent va_mode across models: {va_mode} vs {current_va_mode}")
+    # Step 1: Stream-average matrix logits onto disk (memmap) to avoid RAM blow-up.
+    # For large datasets (e.g. laptop test with 1000 samples × 134 labels × 128×128)
+    # loading all matrices into RAM simultaneously causes OOM / segfault.
+    print(f"\nStream-averaging {n_models} models' logits to disk...")
+    (dataset, mmap_path, mmap_shape,
+     va_preds_list_stream, hidden_states_list_stream,
+     va_head_stream, training_args, va_mode) = stream_average_matrices(
+        args.model_paths, args.test_data,
+        va_model_path=va_model,
+        keep_hidden=(not args.va_ensemble),
+    )
 
-        if args.va_ensemble:
+    # Load mmap into a read-only numpy array for threshold sweep
+    avg_mmap = np.memmap(mmap_path, mode="r", dtype=np.float32, shape=mmap_shape)
+    avg_matrices = list(avg_mmap)   # list of per-sample ndarrays (view, no copy)
+
+    # Merge VA outputs from stream pass
+    if not args.va_ensemble:
+        va_preds_list = va_preds_list_stream
+        hidden_states_list = hidden_states_list_stream
+        va_head = va_head_stream
+
+    # VA ensemble: still need per-model VA — load each model a second time (small tensors)
+    avg_va_preds = None
+    if args.va_ensemble:
+        print(f"\nCollecting per-model VA for ensemble...")
+        for model_path in args.model_paths:
+            current_va_mode = load_train_args(model_path).get('va_mode', 'position')
+            _, _, va_preds, hs_list, vah, _ = extract_logits_single(
+                model_path, args.test_data,
+                keep_hidden=(current_va_mode != 'position'))
             if va_mode == 'position':
                 all_va_preds_list.append(va_preds)
-                print("  >> Kept position VA predictions for ensemble")
             else:
                 all_hidden_states.append(hs_list)
                 all_va_heads.append(vah)
-                print(f"  >> Kept VA head ({va_mode}) for ensemble")
-        else:
-            if is_va_model:
-                if va_mode == 'position':
-                    va_preds_list = va_preds
-                    print("  >> Using this model for position VA")
-                else:
-                    hidden_states_list = hs_list
-                    va_head = vah
-                    print(f"  >> Using this model for VA ({va_mode})")
+        if va_mode == 'position':
+            avg_va_preds = ensemble_average(all_va_preds_list)
 
-        all_matrices_list.append(matrices)
-        if dataset is None:
-            dataset = ds
-            training_args = t_args
-
-    # If single-VA mode and va_model not in model_paths, load separately
-    if not args.va_ensemble and va_mode == 'position' and not va_preds_list:
-        print(f"\n  Loading VA model separately: {os.path.basename(va_model)}")
-        _, _, va_preds_list, _, _, _ = extract_logits_single(
-            va_model, args.test_data, keep_hidden=False)
-    elif not args.va_ensemble and va_mode != 'position' and not hidden_states_list:
-        print(f"\n  Loading VA model separately: {os.path.basename(va_model)}")
-        _, _, _, hidden_states_list, va_head, _ = extract_logits_single(
-            va_model, args.test_data, keep_hidden=True)
-
-    # Step 2: Average logit matrices
-    print(f"\nAveraging {n_models} models' logits...")
-    avg_matrices = ensemble_average(all_matrices_list)
     print(f"  Ensemble logits ready: {len(avg_matrices)} samples")
-    avg_va_preds = None
-    if args.va_ensemble and va_mode == 'position':
-        avg_va_preds = ensemble_average(all_va_preds_list)
-        print(f"  Position VA ensemble ready: {len(avg_va_preds)} samples")
-
-    del all_matrices_list
     gc.collect()
 
     # Step 3: Threshold sweep
@@ -472,6 +618,14 @@ def main():
     print(f"  ENSEMBLE BEST ({va_mode_str}): threshold={best['threshold']:.1f} -> cF1={best['cF1']:.4f}")
     print(f"  cPrecision={best['cPrecision']:.4f}, cRecall={best['cRecall']:.4f}")
     print(f"{'=' * 70}")
+
+    # Clean up disk-backed memmap temp file
+    if mmap_path and os.path.exists(mmap_path):
+        try:
+            del avg_mmap, avg_matrices
+            os.remove(mmap_path)
+        except Exception:
+            pass
 
 
 if __name__ == "__main__":

@@ -30,6 +30,73 @@ from tools.generate_submission import load_sidecar, SENTIMENT_VA_MAP
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+# ── Compatibility patch ───────────────────────────────────────────────────────
+# 1. transformers.core_model_loading.WeightRenaming: added in very recent
+#    transformers; absent in some local installs. Register a stub so torch.load
+#    can unpickle models saved on servers with a newer transformers version.
+import types as _types
+if 'transformers.core_model_loading' not in sys.modules:
+    _fake_cml = _types.ModuleType('transformers.core_model_loading')
+    class _WeightRenaming: pass
+    _fake_cml.WeightRenaming = _WeightRenaming
+    sys.modules['transformers.core_model_loading'] = _fake_cml
+
+# 2. Older DeBERTa checkpoints were pickled with StableDropout from transformers
+# < 4.35. Newer releases removed the class; register a stub so torch.load can
+# unpickle the model without AttributeError.
+import torch.nn as _nn
+import transformers.models.deberta_v2.modeling_deberta_v2 as _dv2
+if not hasattr(_dv2, "StableDropout"):
+    class _StableDropout(_nn.Module):
+        def __init__(self, drop_prob=0.0):
+            super().__init__()
+            self.drop_prob = drop_prob
+        def forward(self, x):
+            import torch.nn.functional as F
+            if self.training and self.drop_prob > 0:
+                return F.dropout(x, p=self.drop_prob)
+            return x
+    _dv2.StableDropout = _StableDropout
+# ─────────────────────────────────────────────────────────────────────────────
+
+
+def _patch_model_configs(model):
+    """Fix multiple transformers version incompatibilities in old DeBERTa checkpoints.
+
+    1. _output_attentions: newer transformers uses a property backed by
+       _output_attentions; old checkpoints stored it directly in __dict__.
+    2. token_type_embeddings: old DeBERTa v2 forward checked
+       `config.type_vocab_size > 0`; new forward checks
+       `self.token_type_embeddings is not None`, raising AttributeError when
+       the attribute was never registered (type_vocab_size == 0).
+    3. torchscript: newer transformers accesses config.torchscript in use_return_dict;
+       old checkpoints never serialized this field.
+    """
+    import torch.nn as nn
+    for m in model.modules():
+        # Fix 1: _output_attentions
+        cfg = getattr(m, "config", None)
+        if cfg is not None:
+            if not hasattr(cfg, "_output_attentions"):
+                cfg.__dict__["_output_attentions"] = cfg.__dict__.pop(
+                    "output_attentions", False
+                )
+            # Fix 3: torchscript missing from old configs
+            if not hasattr(cfg, "torchscript"):
+                cfg.__dict__["torchscript"] = False
+        # Fix 2: DebertaV2Embeddings missing optional attributes.
+        # Old transformers only created token_type_embeddings / embed_proj /
+        # position_embeddings when actually needed (type_vocab_size > 0,
+        # embedding_size != hidden_size, position_biased_input=True). New
+        # forward code unconditionally accesses them via `if self.X is not None`.
+        # Setting them to None satisfies the check without changing behaviour.
+        cls_name = type(m).__name__
+        if cls_name == "DebertaV2Embeddings":
+            for _attr in ("token_type_embeddings", "embed_proj", "position_embeddings"):
+                if not hasattr(m, _attr):
+                    object.__setattr__(m, _attr, None)
+    return model
+
 
 def load_model_for_eval(model_path):
     """Load a saved training model onto the current eval device."""
@@ -37,7 +104,8 @@ def load_model_for_eval(model_path):
     fallback_model_path = os.path.join(model_path, "model.pt")
     load_path = best_model_path if os.path.exists(best_model_path) else fallback_model_path
     map_location = None if device == "cuda" else torch.device("cpu")
-    return torch.load(load_path, weights_only=False, map_location=map_location)
+    model = torch.load(load_path, weights_only=False, map_location=map_location)
+    return _patch_model_configs(model)
 
 
 def extract_raw_logits(model_path, test_data_path, batch_size=16):
@@ -188,13 +256,15 @@ def main():
     parser.add_argument("--gold", required=True)
     parser.add_argument("--thresholds", type=str,
                         default="-2.0,-1.5,-1.0,-0.5,-0.3,-0.1,0.0,0.3,0.5,1.0")
+    parser.add_argument("--batch_size", type=int, default=16,
+                        help="Eval batch size (reduce to 4-8 for large-category domains like laptop)")
     args = parser.parse_args()
 
     thresholds = [float(t) for t in args.thresholds.split(",")]
 
     print("Extracting raw logits...")
     dataset, raw_matrices, va_preds, hidden_states_list, training_args, model = extract_raw_logits(
-        args.model_path, args.test_data)
+        args.model_path, args.test_data, batch_size=args.batch_size)
     sidecar_data = load_sidecar(args.sidecar)
     gold_data = read_jsonl_file(args.gold, task=3, data_type='gold')
 

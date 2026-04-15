@@ -599,8 +599,18 @@ class AcqpDataset(Dataset):
         quad_va = torch.zeros([MAX_QUADS, 2], dtype=torch.float32)      # (V, A) gold
         quad_mask = torch.zeros([MAX_QUADS], dtype=torch.float32)       # 1=valid
 
+        # Known typo in eng_v2 data: normalize before lookup
+        _CAT_NORM = {"RESTUARANT#STYLE_OPTIONS": "RESTAURANT#STYLE_OPTIONS"}
+
         q_idx = 0
         for category, aspcet, opinion, sentiment_id in answers:
+
+            # Normalize known typos
+            category = _CAT_NORM.get(category, category)
+
+            # Skip quads whose category is unknown to this dataset split
+            if category not in self.dimension2id:
+                continue
 
             BA, EA = aspcet.split(',')
             BA, EA = int(BA), int(EA)
@@ -614,6 +624,10 @@ class AcqpDataset(Dataset):
                 query = f'BA-EO-{category}-{self.id2sentiment[int(sentiment_id)]}'
             elif self.label_pattern == "category":
                 query = f'BA-EO-{category}'
+
+            # Safety guard: skip if label type not in this model's vocabulary
+            if query not in self.label_types:
+                continue
 
             # Parse VA values from sentiment_id field (which stores "V#A" or discrete id)
             va_v, va_a = 5.0, 5.0  # default

@@ -258,7 +258,7 @@ def compute_discrete_f1(pred_data, gold_data):
 # ---------------------------------------------------------------------------
 
 def eval_single_model(model_path, test_data, sidecar_path, gold_path,
-                      thresholds=None, verbose=True):
+                      thresholds=None, verbose=True, batch_size=16):
     """
     Run threshold sweep, find best threshold, compute all extended metrics.
     Returns dict with all metrics.
@@ -267,12 +267,41 @@ def eval_single_model(model_path, test_data, sidecar_path, gold_path,
         thresholds = [-2.0, -1.5, -1.0, -0.5, -0.3, -0.1, 0.0, 0.3, 0.5, 1.0]
 
     import json as _json
+    import gc
+    import torch
 
     if verbose:
         print(f"\n[eval] {os.path.basename(model_path)}")
 
     dataset, raw_matrices, va_preds, hs_list, training_args, model = \
-        extract_raw_logits(model_path, test_data)
+        extract_raw_logits(model_path, test_data, batch_size=batch_size)
+
+    # Move model to CPU to free GPU VRAM after logit extraction.
+    # For span_pair / opinion_guided, the va_head is kept on the eval device
+    # so decode_at_threshold can use it; for position it is unused.
+    va_mode_now = training_args.get("va_mode", "position")
+    needs_va_head = va_mode_now in ("span_pair", "opinion_guided")
+    try:
+        if needs_va_head:
+            # Keep va head on GPU; move everything else to CPU
+            import torch as _torch
+            _eval_device = _torch.device("cuda" if _torch.cuda.is_available() else "cpu")
+            # Move encoder and non-va parameters to CPU, keep va heads on device
+            for name, module in model.named_children():
+                if name not in ("span_pair_va_head", "opinion_guided_va_head"):
+                    module.cpu()
+            # Ensure the active va head is on the eval device
+            if hasattr(model, "span_pair_va_head"):
+                model.span_pair_va_head.to(_eval_device)
+            if hasattr(model, "opinion_guided_va_head"):
+                model.opinion_guided_va_head.to(_eval_device)
+        else:
+            model.cpu()
+    except Exception:
+        pass
+    torch.cuda.empty_cache()
+    gc.collect()
+
     sidecar_data = load_sidecar(sidecar_path)
     gold_data = read_jsonl_file(gold_path, task=3, data_type="gold")
 
@@ -439,19 +468,32 @@ def main():
     parser.add_argument("--output", default=None,
                         help="Output CSV path (optional, batch mode)")
     parser.add_argument("--thresholds", default="-2.0,-1.5,-1.0,-0.5,-0.3,-0.1,0.0,0.3,0.5,1.0")
+    parser.add_argument("--batch_size", type=int, default=16)
     args = parser.parse_args()
 
     thresholds = [float(t) for t in args.thresholds.split(",")]
 
     model_paths = [args.model_path] if args.model_path else args.model_paths
 
+    import gc
+    import torch
+
     results = []
     for mp in model_paths:
         r = eval_single_model(mp, args.test_data, args.sidecar, args.gold,
-                              thresholds=thresholds, verbose=True)
+                              thresholds=thresholds, verbose=True,
+                              batch_size=args.batch_size)
         results.append(r)
+        # Incrementally save CSV after each model so partial results are preserved
+        # even if a later model fails.
+        if args.output:
+            summarize_results(results, output_csv=args.output)
+        # Free any lingering GPU memory between models
+        gc.collect()
+        torch.cuda.empty_cache()
 
-    summarize_results(results, output_csv=args.output)
+    # Final summary (CSV already written incrementally above)
+    summarize_results(results, output_csv=None)
 
 
 if __name__ == "__main__":

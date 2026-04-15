@@ -1,7 +1,7 @@
-"""
+﻿"""
 @Time : 2022/12/1717:11
 @Auth : zhoujx
-@File ：main.py
+@File 锛歮ain.py
 @DESCRIPTION:
 
 """
@@ -76,9 +76,9 @@ RESUME_ARG_KEYS = (
 def set_optimer(args, model):
     no_decay = ["bias", "LayerNorm.weight"]
     encoder_param_optimizer = list(model.encoder.named_parameters())
-    logger.info(f"encoder参数: {[name for name, _ in encoder_param_optimizer]}")
+    logger.info(f"encoder鍙傛暟: {[name for name, _ in encoder_param_optimizer]}")
     task_param_optimizer = [x for x in list(model.named_parameters()) if 'encoder' not in x[0]]
-    logger.info(f"任务层参数: {[name for name, _ in task_param_optimizer]}")
+    logger.info(f"浠诲姟灞傚弬鏁? {[name for name, _ in task_param_optimizer]}")
 
     optimizer_grouped_parameters = [
         {'params': [p for n, p in encoder_param_optimizer if not any(nd in n for nd in no_decay)],
@@ -113,7 +113,7 @@ def compute_va_loss(pred_va, va_targets, va_mask):
 
 
 def compute_va_contrastive_loss(va_cl_embeds, quad_va, quad_mask):
-    """VA-aware contrastive loss: enforce representation distance ∝ VA distance.
+    """VA-aware contrastive loss: enforce representation distance 鈭?VA distance.
 
     For all valid quad pairs (i, j) across the batch:
       sim_pred(i,j) = cosine(embed_i, embed_j)       -- in [-1, 1]
@@ -150,10 +150,16 @@ def compute_va_contrastive_loss(va_cl_embeds, quad_va, quad_mask):
 
 
 def _safe_loss(loss_tensor, name="loss", max_val=1e4):
-    """Clamp a loss value and replace NaN/Inf with a safe fallback. Returns (loss, was_anomalous)."""
+    """Clamp a loss value and replace NaN/Inf with a safe fallback. Returns (loss, was_anomalous).
+
+    IMPORTANT: when loss is NaN/Inf we return a fully *detached* zero tensor (not torch.where).
+    torch.where(False, nan, zero) looks like 0 in the forward pass, but PyTorch autograd still
+    propagates gradients into the NaN branch (0 * NaN = NaN per IEEE 754), corrupting weights.
+    A detached zero has no connection to the computation graph, so the backward is truly clean.
+    """
     if torch.isnan(loss_tensor) or torch.isinf(loss_tensor):
         logger.warning(f"[LossSafety] {name} is NaN/Inf — replaced with 0")
-        return torch.tensor(0.0, device=loss_tensor.device, dtype=loss_tensor.dtype), True
+        return torch.zeros((), device=loss_tensor.device), True
     if loss_tensor.item() > max_val:
         logger.warning(f"[LossSafety] {name}={loss_tensor.item():.2f} exceeds {max_val} — clamped")
         return loss_tensor.clamp(max=max_val), True
@@ -265,7 +271,7 @@ def _assert_resume_args_compatible(args, saved_args):
         if len(mismatches) > 20:
             mismatch_text += f"\n... and {len(mismatches) - 20} more"
         raise ValueError(
-            "Resume 参数与原训练不一致，已拒绝恢复。请保持训练参数完全一致。\n"
+            "Resume 鍙傛暟涓庡師璁粌涓嶄竴鑷达紝宸叉嫆缁濇仮澶嶃€傝淇濇寔璁粌鍙傛暟瀹屽叏涓€鑷淬€俓n"
             + mismatch_text
         )
 
@@ -366,7 +372,7 @@ def _load_legacy_resume_state(model_dir, model):
 
     if not os.path.exists(history_path) or not os.path.exists(best_score_path):
         raise FileNotFoundError(
-            f"Legacy resume 失败：目录缺少 train_history.json 或 best_score.json: {model_dir}"
+            f"Legacy resume 澶辫触锛氱洰褰曠己灏?train_history.json 鎴?best_score.json: {model_dir}"
         )
 
     train_history = _load_json_file(history_path)
@@ -384,7 +390,7 @@ def _load_legacy_resume_state(model_dir, model):
         resume_epoch_times = list(epoch_times)
         source = model_pt_path
         logger.warning(
-            f"Resume checkpoint 缺失，使用 legacy model.pt 恢复：{model_pt_path}"
+            f"Resume checkpoint missing; recovered from legacy model.pt: {model_pt_path}"
         )
     elif os.path.exists(best_model_path):
         _load_model_weights_into_model(model, best_model_path)
@@ -394,12 +400,12 @@ def _load_legacy_resume_state(model_dir, model):
         resume_epoch_times = list(epoch_times[:best_epoch])
         source = best_model_path
         logger.warning(
-            "Resume checkpoint 与 model.pt 都缺失，退回到 best_model.pt 恢复；"
-            "将从 best_epoch 之后继续训练。"
+            "Resume checkpoint and model.pt missing; fell back to best_model.pt. "
+            "Training will continue from best_epoch."
         )
     else:
         raise FileNotFoundError(
-            f"Legacy resume 失败：目录既没有 model.pt 也没有 best_model.pt: {model_dir}"
+            f"Legacy resume failed: neither model.pt nor best_model.pt found in {model_dir}"
         )
 
     return {
@@ -449,19 +455,23 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
             loss, loss_mat, loss_cls_dim, loss_va, loss_cl = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
             loss = loss / accum_steps
 
-        # Backpropagation
-        scaler.scale(loss).backward()
+        # Backpropagation — skip if loss is fully detached (all individual losses were NaN/Inf)
+        if loss.grad_fn is not None:
+            scaler.scale(loss).backward()
 
-        # adversial_training
-        if adversial_model is not None:
-            adversial_model.attack()
-            with torch.autocast(device_type='cuda', dtype=torch.float16):
-                pred = model(**fwd_kwargs)
-                loss_adv, _, _, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
-                loss_adv = loss_adv / accum_steps
+            # adversial_training
+            if adversial_model is not None:
+                adversial_model.attack()
+                with torch.autocast(device_type='cuda', dtype=torch.float16, enabled=args.use_amp):
+                    pred = model(**fwd_kwargs)
+                    loss_adv, _, _, _, _ = compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq_fn)
+                    loss_adv = loss_adv / accum_steps
 
-            scaler.scale(loss_adv).backward()
-            adversial_model.restore()
+                if loss_adv.grad_fn is not None:
+                    scaler.scale(loss_adv).backward()
+                adversial_model.restore()
+        else:
+            logger.warning(f"[BatchSkip] step {step+1}: all losses were NaN/Inf — skipping backward and adversarial step")
 
         total_loss += loss.item() * accum_steps
         total_loss_mat += loss_mat.item()
@@ -484,7 +494,7 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
                     break
 
             if not grad_ok:
-                logger.warning(f"[GradSafety] NaN/Inf gradients at step {step+1} — skipping optimizer step")
+                logger.warning(f"[GradSafety] NaN/Inf gradients at step {step+1} 鈥?skipping optimizer step")
                 scaler.update()
                 optimizer.zero_grad()
             else:
@@ -592,10 +602,10 @@ def main(args):
     if resume_requested:
         args.model_path = os.path.abspath(os.path.normpath(str(args.model_path)))
         if not os.path.isdir(args.model_path):
-            raise FileNotFoundError(f"Resume 目录不存在: {args.model_path}")
+            raise FileNotFoundError(f"Resume 鐩綍涓嶅瓨鍦? {args.model_path}")
         saved_args_path = os.path.join(args.model_path, "args.json")
         if not os.path.exists(saved_args_path):
-            raise FileNotFoundError(f"Resume 目录缺少 args.json: {saved_args_path}")
+            raise FileNotFoundError(f"Resume 鐩綍缂哄皯 args.json: {saved_args_path}")
         saved_args = _load_json_file(saved_args_path)
         _assert_resume_args_compatible(args, saved_args)
         args.output_dir = args.model_path
@@ -634,9 +644,9 @@ def main(args):
                                   collate_fn=collate_fn)
     logger.info(f'train_dataset : {len(train_dataset)}, valid_dataset : {len(valid_dataset)}')
 
-    logger.info(f'num_label_types: {train_dataset.num_label_types}, label_types：{train_dataset.label_types}')
+    logger.info(f'num_label_types: {train_dataset.num_label_types}, label_types: {train_dataset.label_types}')
     logger.info(
-        f'num_dimension_types: {train_dataset.num_dimension_types}, dimension_types：{list(train_dataset.dimension2id.keys())}')
+        f'num_dimension_types: {train_dataset.num_dimension_types}, dimension_types: {list(train_dataset.dimension2id.keys())}')
 
     # model
     model = QuadrupleModel(num_label_types=train_dataset.num_label_types,
@@ -745,12 +755,12 @@ def main(args):
     print(f"{'='*70}\n")
 
     if start_epoch >= args.epoch:
-        print(f"  Resume checkpoint 已完成全部 {args.epoch} 个 epoch，无需继续训练。")
+        print(f"  Resume checkpoint already completed all {args.epoch} epochs; no further training needed.")
         writer.close()
         return
 
     if early_stop_count >= args.early_stop:
-        print(f"  Resume checkpoint 已达到 early-stop 条件（wait={early_stop_count}/{args.early_stop}），无需继续训练。")
+        print(f"  Resume checkpoint already met early-stop condition (wait={early_stop_count}/{args.early_stop}); no further training needed.")
         writer.close()
         return
 
