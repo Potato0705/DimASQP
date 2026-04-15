@@ -1,0 +1,3 @@
+domain,va_mode,seed,best_thresh,cF1,cPrec,cRec,VA_pct,n_matched,V_MAE,A_MAE,Joint_L2,V_PCC,A_PCC,V_Quad_F1,A_Quad_F1,VA_Quad_F1
+eng_restaurant,opinion_guided,66,-0.3,0.5294,0.6148,0.4649,94.5,579,0.3855,0.4445,0.6219,0.9531,0.7779,0.3543,0.3535,0.2807
+eng_restaurant,opinion_guided,123,-0.1,0.5183,0.6073,0.452,94.33,564,0.4034,0.4512,0.6412,0.9415,0.7755,0.3392,0.3314,0.268

@@ -1,0 +1,870 @@
+{"ID": "R0222:S009", "Text": "韓式炸雞的年糕炸得不錯。", "Quadruplet": [{"Aspect": "年糕", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.17"}]}
+{"ID": "R0222:S011", "Text": "以整體呈現來看價格還是偏高。", "Quadruplet": [{"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "偏高", "VA": "4.62#5.38"}]}
+{"ID": "R0878:S015", "Text": "檸檬醬也不會太油，塔皮對我而言稍軟。", "Quadruplet": [{"Aspect": "檸檬醬", "Category": "FOOD#QUALITY", "Opinion": "不會太油", "VA": "5.67#5.50"}, {"Aspect": "塔皮", "Category": "FOOD#QUALITY", "Opinion": "稍軟", "VA": "4.83#5.00"}]}
+{"ID": "R0878:S018", "Text": "焦糖榛果生巧克力塔180元，這款滋味主體在生巧克力的微苦和濃郁。", "Quadruplet": [{"Aspect": "生巧克力", "Category": "FOOD#QUALITY", "Opinion": "微苦", "VA": "5.00#5.17"}, {"Aspect": "生巧克力", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "5.67#5.33"}]}
+{"ID": "R0878:S030", "Text": "三款吃下來對生巧克力塔印象最好。", "Quadruplet": [{"Aspect": "生巧克力塔", "Category": "FOOD#QUALITY", "Opinion": "印象最好", "VA": "6.17#6.67"}]}
+{"ID": "R0189:S005", "Text": "餐點種類非常多選擇。", "Quadruplet": [{"Aspect": "餐點種類", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "非常多", "VA": "6.75#6.50"}]}
+{"ID": "R0189:S006", "Text": "生春捲吃起來的口感非常豐富。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "非常豐富", "VA": "6.50#6.50"}]}
+{"ID": "R0189:S008", "Text": "生春捲大口咬下真的是好好吃。", "Quadruplet": [{"Aspect": "生春捲", "Category": "FOOD#QUALITY", "Opinion": "真的是好好吃", "VA": "6.50#6.38"}]}
+{"ID": "R0189:S010", "Text": "河粉吃起來相當軟嫩湯頭很鮮甜。", "Quadruplet": [{"Aspect": "河粉", "Category": "FOOD#QUALITY", "Opinion": "相當軟嫩", "VA": "6.50#6.33"}, {"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "很鮮甜", "VA": "6.50#6.17"}]}
+{"ID": "R0189:S011", "Text": "重點的豬肉片也很新鮮好吃。", "Quadruplet": [{"Aspect": "豬肉片", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.00#5.00"}, {"Aspect": "豬肉片", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.25#5.25"}]}
+{"ID": "R0189:S012", "Text": "月香小館的法國麵包口味有很多選擇。", "Quadruplet": [{"Aspect": "法國麵包口味", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "有很多", "VA": "5.83#6.33"}]}
+{"ID": "R0189:S016", "Text": "雞腿肉真的很軟嫩又入味裡頭有滿滿的醃蘿蔔絲。", "Quadruplet": [{"Aspect": "雞腿肉", "Category": "FOOD#QUALITY", "Opinion": "真的很軟嫩", "VA": "6.50#6.75"}, {"Aspect": "雞腿肉", "Category": "FOOD#QUALITY", "Opinion": "入味", "VA": "6.50#5.75"}, {"Aspect": "醃蘿蔔絲", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "滿滿", "VA": "6.50#6.00"}]}
+{"ID": "R0189:S020", "Text": "雖然價格不算便宜。", "Quadruplet": [{"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "不算便宜", "VA": "4.50#5.00"}]}
+{"ID": "R0189:S025", "Text": "喜歡喝咖啡的朋友真的推薦可以試試非常道地的越南點滴咖啡。", "Quadruplet": [{"Aspect": "越南點滴咖啡", "Category": "DRINKS#QUALITY", "Opinion": "真的推薦", "VA": "7.00#7.00"}, {"Aspect": "越南點滴咖啡", "Category": "DRINKS#QUALITY", "Opinion": "非常道地", "VA": "6.83#6.67"}]}
+{"ID": "R0189:S032", "Text": "越南點滴咖啡一杯才50元真的超值。", "Quadruplet": [{"Aspect": "越南點滴咖啡", "Category": "DRINKS#PRICES", "Opinion": "真的超值", "VA": "6.67#6.83"}]}
+{"ID": "R0189:S033", "Text": "越南點滴咖啡味道又香又濃又好喝。", "Quadruplet": [{"Aspect": "越南點滴咖啡味道", "Category": "DRINKS#QUALITY", "Opinion": "香", "VA": "5.75#5.25"}, {"Aspect": "越南點滴咖啡味道", "Category": "DRINKS#QUALITY", "Opinion": "濃", "VA": "5.75#5.25"}, {"Aspect": "越南點滴咖啡味道", "Category": "DRINKS#QUALITY", "Opinion": "好喝", "VA": "6.00#5.62"}]}
+{"ID": "R2572:S009", "Text": "三杯龍膽石斑一點點辣不錯吃也開胃。", "Quadruplet": [{"Aspect": "三杯龍膽石斑", "Category": "FOOD#QUALITY", "Opinion": "不錯吃", "VA": "6.17#5.67"}, {"Aspect": "三杯龍膽石斑", "Category": "FOOD#QUALITY", "Opinion": "開胃", "VA": "6.00#5.83"}]}
+{"ID": "R2924:S005", "Text": "小管吃的出彈牙跟脆口，但相對滷肉飯的部分較普通。", "Quadruplet": [{"Aspect": "小管", "Category": "FOOD#QUALITY", "Opinion": "彈牙", "VA": "5.83#5.67"}, {"Aspect": "小管", "Category": "FOOD#QUALITY", "Opinion": "脆口", "VA": "5.83#5.67"}, {"Aspect": "滷肉飯", "Category": "FOOD#QUALITY", "Opinion": "較普通", "VA": "5.00#5.17"}]}
+{"ID": "R0253:S008", "Text": "店內座位數不多。", "Quadruplet": [{"Aspect": "座位數", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不多", "VA": "4.33#5.50"}]}
+{"ID": "R0025:S005", "Text": "因為客人很多，位子其實都蠻擁擠的。", "Quadruplet": [{"Aspect": "位子", "Category": "AMBIENCE#GENERAL", "Opinion": "蠻擁擠", "VA": "4.25#4.62"}]}
+{"ID": "R0025:S009", "Text": "上座後還等了很久的一下，真的很慢。", "Quadruplet": [{"Aspect": "NULL", "Category": "SERVICE#GENERAL", "Opinion": "真的很慢", "VA": "3.50#6.33"}]}
+{"ID": "R0025:S014", "Text": "不過店員都很客氣。", "Quadruplet": [{"Aspect": "店員", "Category": "SERVICE#GENERAL", "Opinion": "很客氣", "VA": "6.50#6.25"}]}
+{"ID": "R0025:S017", "Text": "排骨覺得不差拉。", "Quadruplet": [{"Aspect": "排骨", "Category": "FOOD#QUALITY", "Opinion": "不差", "VA": "5.50#5.00"}]}
+{"ID": "R0025:S018", "Text": "菜飯的部分其實不錯。", "Quadruplet": [{"Aspect": "菜飯", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.12#6.25"}]}
+{"ID": "R0025:S019", "Text": "炸豆腐不賴。", "Quadruplet": [{"Aspect": "炸豆腐", "Category": "FOOD#QUALITY", "Opinion": "不賴", "VA": "5.67#5.83"}]}
+{"ID": "R0025:S022", "Text": "滷肉也不錯吃。", "Quadruplet": [{"Aspect": "滷肉", "Category": "FOOD#QUALITY", "Opinion": "不錯吃", "VA": "6.38#5.88"}]}
+{"ID": "R0025:S023", "Text": "很有誠意的菜飯。", "Quadruplet": [{"Aspect": "菜飯", "Category": "FOOD#QUALITY", "Opinion": "很有誠意", "VA": "6.67#6.17"}]}
+{"ID": "R0025:S024", "Text": "炸豆腐不錯吃。", "Quadruplet": [{"Aspect": "炸豆腐", "Category": "FOOD#QUALITY", "Opinion": "不錯吃", "VA": "6.25#6.38"}]}
+{"ID": "R0025:S025", "Text": "炸豆腐好好吃。", "Quadruplet": [{"Aspect": "炸豆腐", "Category": "FOOD#QUALITY", "Opinion": "好好吃", "VA": "6.75#6.00"}]}
+{"ID": "R3290:S002", "Text": "蝦蚵和蛤蜊很甜但肉類就真的還好。", "Quadruplet": [{"Aspect": "蝦蚵", "Category": "FOOD#QUALITY", "Opinion": "很甜", "VA": "6.50#6.00"}, {"Aspect": "蛤蜊", "Category": "FOOD#QUALITY", "Opinion": "很甜", "VA": "6.50#6.00"}, {"Aspect": "肉類", "Category": "FOOD#QUALITY", "Opinion": "真的還好", "VA": "6.00#5.50"}]}
+{"ID": "R2237:S020", "Text": "最最重要的是餐點都很好吃，可以說是餐點物超所值。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.75#6.25"}, {"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "物超所值", "VA": "6.50#6.25"}]}
+{"ID": "R0885:S008", "Text": "麻油乾麵線的麵線帶咬感，但麻油香和調味都有些不足。", "Quadruplet": [{"Aspect": "麵線", "Category": "FOOD#QUALITY", "Opinion": "帶咬感", "VA": "5.75#5.00"}, {"Aspect": "麻油香", "Category": "FOOD#QUALITY", "Opinion": "有些不足", "VA": "4.00#4.75"}, {"Aspect": "調味", "Category": "FOOD#QUALITY", "Opinion": "有些不足", "VA": "4.00#4.75"}]}
+{"ID": "R2134:S001", "Text": "餐點經濟好吃，服務也好回訪N次了。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.17#5.50"}, {"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "好", "VA": "6.00#5.50"}]}
+{"ID": "R2134:S004", "Text": "推黃金椒麻豆腐，蒜頭雞火鍋和唐揚雞。", "Quadruplet": [{"Aspect": "黃金椒麻豆腐", "Category": "FOOD#QUALITY", "Opinion": "推", "VA": "6.00#5.88"}, {"Aspect": "蒜頭雞火鍋", "Category": "FOOD#QUALITY", "Opinion": "推", "VA": "6.00#5.88"}, {"Aspect": "唐揚雞", "Category": "FOOD#QUALITY", "Opinion": "推", "VA": "6.00#5.88"}]}
+{"ID": "R2236:S009", "Text": "奶醬是海鮮高湯的底磨的乳酪份量十足，醬汁濃稠。", "Quadruplet": [{"Aspect": "乳酪份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "十足", "VA": "6.25#6.00"}, {"Aspect": "醬汁", "Category": "FOOD#QUALITY", "Opinion": "濃稠", "VA": "6.25#6.00"}]}
+{"ID": "R0069:S007", "Text": "不過店內沒有廁所是小小缺點。", "Quadruplet": [{"Aspect": "店", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "沒有廁所", "VA": "4.25#5.25"}]}
+{"ID": "R0069:S015", "Text": "必須說賣相比許多健康餐都要好太多啊，看起來就蠻美味的。", "Quadruplet": [{"Aspect": "健康餐", "Category": "FOOD#QUALITY", "Opinion": "蠻美味", "VA": "6.33#6.33"}]}
+{"ID": "R0069:S016", "Text": "這盤蛋白質是胡椒腿肉，蠻好吃的，雖然我覺得份量有一點少。", "Quadruplet": [{"Aspect": "胡椒腿肉", "Category": "FOOD#QUALITY", "Opinion": "蠻好吃", "VA": "6.25#6.00"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "有一點少", "VA": "4.50#5.00"}]}
+{"ID": "R1480:S002", "Text": "餐廳店員服務也不錯。", "Quadruplet": [{"Aspect": "店員服務", "Category": "SERVICE#GENERAL", "Opinion": "不錯", "VA": "5.75#5.62"}]}
+{"ID": "R1480:S005", "Text": "雙蛋潑辣嫩雞飯很好吃。", "Quadruplet": [{"Aspect": "雙蛋潑辣嫩雞飯", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.75#6.62"}]}
+{"ID": "R1480:S006", "Text": "米心硬度恰到好處。", "Quadruplet": [{"Aspect": "米心硬度", "Category": "FOOD#QUALITY", "Opinion": "恰到好處", "VA": "6.25#5.50"}]}
+{"ID": "R1480:S007", "Text": "米心整體來說不會過濕。", "Quadruplet": [{"Aspect": "米心", "Category": "FOOD#QUALITY", "Opinion": "不會過濕", "VA": "5.25#5.00"}]}
+{"ID": "R1480:S008", "Text": "墨西哥餅皮非常讚。", "Quadruplet": [{"Aspect": "墨西哥餅皮", "Category": "FOOD#QUALITY", "Opinion": "非常讚", "VA": "7.12#7.62"}]}
+{"ID": "R1480:S011", "Text": "雞肉不錯。", "Quadruplet": [{"Aspect": "雞肉", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.62#5.50"}]}
+{"ID": "R1480:S012", "Text": "但鮮蝦不夠Q彈。", "Quadruplet": [{"Aspect": "鮮蝦", "Category": "FOOD#QUALITY", "Opinion": "不夠Q彈", "VA": "3.67#4.33"}]}
+{"ID": "R1480:S013", "Text": "餐點品質好。", "Quadruplet": [{"Aspect": "餐點品質", "Category": "FOOD#QUALITY", "Opinion": "好", "VA": "5.83#5.00"}]}
+{"ID": "R0203:S011", "Text": "是杯吃完會意猶未盡的甜點。", "Quadruplet": [{"Aspect": "甜點", "Category": "FOOD#QUALITY", "Opinion": "意猶未盡", "VA": "6.62#6.88"}]}
+{"ID": "R0203:S016", "Text": "一旁的紫蘇葡萄鑽石冰更是令人激賞。", "Quadruplet": [{"Aspect": "紫蘇葡萄鑽石冰", "Category": "FOOD#QUALITY", "Opinion": "更是令人激賞", "VA": "7.12#6.62"}]}
+{"ID": "R0203:S031", "Text": "紫蘇葡萄鑽石冰口感豐富。", "Quadruplet": [{"Aspect": "紫蘇葡萄鑽石冰口感", "Category": "FOOD#QUALITY", "Opinion": "豐富", "VA": "5.75#5.25"}]}
+{"ID": "R0203:S037", "Text": "店家態度親切。", "Quadruplet": [{"Aspect": "店家態度", "Category": "SERVICE#GENERAL", "Opinion": "親切", "VA": "6.00#5.17"}]}
+{"ID": "R0861:S043", "Text": "巧克力是帶著點苦味的濃郁口味，甜度很低，吃起來不容易膩。", "Quadruplet": [{"Aspect": "巧克力", "Category": "FOOD#QUALITY", "Opinion": "濃郁口味", "VA": "6.00#5.50"}, {"Aspect": "甜度", "Category": "FOOD#QUALITY", "Opinion": "很低", "VA": "5.00#5.00"}, {"Aspect": "巧克力", "Category": "FOOD#QUALITY", "Opinion": "不容易膩", "VA": "5.50#5.50"}]}
+{"ID": "R0861:S058", "Text": "開心果的味道偏淡。", "Quadruplet": [{"Aspect": "開心果的味道", "Category": "FOOD#QUALITY", "Opinion": "偏淡", "VA": "4.75#5.25"}]}
+{"ID": "R0948:S007", "Text": "麵條為黃油麵留有咬感不軟爛。", "Quadruplet": [{"Aspect": "麵條", "Category": "FOOD#QUALITY", "Opinion": "留有咬感", "VA": "6.00#5.17"}, {"Aspect": "麵條", "Category": "FOOD#QUALITY", "Opinion": "不軟爛", "VA": "5.83#5.17"}]}
+{"ID": "R0948:S026", "Text": "蝦肉紮實鮮甜，外抹的鹽巴又讓甜度更增。", "Quadruplet": [{"Aspect": "蝦肉", "Category": "FOOD#QUALITY", "Opinion": "紮實鮮甜", "VA": "6.20#5.70"}]}
+{"ID": "R0948:S028", "Text": "烤透抽肉質彈實有嚼勁，直接吃便有烘烤後的海鮮香氣。", "Quadruplet": [{"Aspect": "烤透抽肉質", "Category": "FOOD#QUALITY", "Opinion": "彈實", "VA": "6.00#5.00"}, {"Aspect": "烤透抽肉質", "Category": "FOOD#QUALITY", "Opinion": "有嚼勁", "VA": "5.83#5.00"}]}
+{"ID": "R0420:S016", "Text": "奶油份量給得超級多。", "Quadruplet": [{"Aspect": "奶油份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "超級多", "VA": "6.50#7.00"}]}
+{"ID": "R1781:S001", "Text": "生魚片很新鮮有一流水準。", "Quadruplet": [{"Aspect": "生魚片", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.17#5.67"}, {"Aspect": "生魚片", "Category": "FOOD#QUALITY", "Opinion": "有一流水準", "VA": "6.83#6.33"}]}
+{"ID": "R1781:S003", "Text": "但上菜的速度有待加強。", "Quadruplet": [{"Aspect": "上菜的速度", "Category": "SERVICE#GENERAL", "Opinion": "有待加強", "VA": "4.00#5.50"}]}
+{"ID": "R1997:S000", "Text": "今日體驗商業午餐花枝菲力個人不是很推薦。", "Quadruplet": [{"Aspect": "花枝菲力", "Category": "FOOD#QUALITY", "Opinion": "不是很推薦", "VA": "4.12#5.75"}]}
+{"ID": "R1749:S003", "Text": "內用的話也有附上甘甜養生的紅棗茶。", "Quadruplet": [{"Aspect": "紅棗茶", "Category": "DRINKS#QUALITY", "Opinion": "甘甜養生", "VA": "6.25#5.62"}]}
+{"ID": "R1562:S000", "Text": "餐廳位在東岸停車場的三樓非常好找。", "Quadruplet": [{"Aspect": "餐廳", "Category": "LOCATION#GENERAL", "Opinion": "非常好找", "VA": "6.38#6.62"}]}
+{"ID": "R1562:S004", "Text": "餐廳裝潢還不錯。", "Quadruplet": [{"Aspect": "餐廳裝潢", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "還不錯", "VA": "6.00#5.25"}]}
+{"ID": "R1562:S005", "Text": "餐點很多元。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多元", "VA": "6.00#5.88"}]}
+{"ID": "R1562:S006", "Text": "餐點做得蠻可口的。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "蠻可口的", "VA": "6.50#5.88"}]}
+{"ID": "R1562:S008", "Text": "牛排口感超乎想像的好吃。", "Quadruplet": [{"Aspect": "牛排口感", "Category": "FOOD#QUALITY", "Opinion": "超乎想像的好吃", "VA": "6.88#7.12"}]}
+{"ID": "R1562:S009", "Text": "牛排口感軟韌新鮮。", "Quadruplet": [{"Aspect": "牛排口感", "Category": "FOOD#QUALITY", "Opinion": "軟韌新鮮", "VA": "6.25#5.62"}]}
+{"ID": "R1562:S010", "Text": "飲料也算大杯。", "Quadruplet": [{"Aspect": "飲料", "Category": "DRINKS#STYLE_OPTIONS", "Opinion": "算大杯", "VA": "5.70#5.30"}]}
+{"ID": "R1562:S020", "Text": "披薩和義大利麵也很可口。", "Quadruplet": [{"Aspect": "披薩", "Category": "FOOD#QUALITY", "Opinion": "很可口", "VA": "6.25#5.50"}, {"Aspect": "義大利麵", "Category": "FOOD#QUALITY", "Opinion": "很可口", "VA": "6.25#5.50"}]}
+{"ID": "R3296:S004", "Text": "這裡的東西很新鮮很好吃，以清蒸方式保留了食材最原始的味道。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.67#6.00"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "7.00#6.50"}]}
+{"ID": "R2831:S000", "Text": "很值得推薦的美式餐廳，首推是花生乳酪牛肉堡，花生醬很好吃。", "Quadruplet": [{"Aspect": "美式餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "很值得推薦", "VA": "6.75#6.25"}, {"Aspect": "花生乳酪牛肉堡", "Category": "FOOD#QUALITY", "Opinion": "推", "VA": "6.50#6.00"}, {"Aspect": "花生醬", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.75#6.25"}]}
+{"ID": "R2831:S001", "Text": "漢堡的麵包皮香且脆。", "Quadruplet": [{"Aspect": "麵包皮", "Category": "FOOD#QUALITY", "Opinion": "香", "VA": "5.75#5.38"}, {"Aspect": "麵包皮", "Category": "FOOD#QUALITY", "Opinion": "脆", "VA": "5.75#5.38"}]}
+{"ID": "R2831:S002", "Text": "牛肉漢堡排也是既香口感也好。", "Quadruplet": [{"Aspect": "牛肉漢堡排", "Category": "FOOD#QUALITY", "Opinion": "香", "VA": "5.88#5.38"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "好", "VA": "5.88#5.38"}]}
+{"ID": "R2831:S003", "Text": "一口咬下去是真的非常好吃。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "真的非常好吃", "VA": "7.33#7.00"}]}
+{"ID": "R2831:S006", "Text": "花生醬脆雞堡就稍沒那麼推了點。", "Quadruplet": [{"Aspect": "花生醬脆雞堡", "Category": "FOOD#QUALITY", "Opinion": "稍沒那麼推了點", "VA": "4.62#5.12"}]}
+{"ID": "R2831:S007", "Text": "雖然炸雞跟花生醬分開吃都不錯。", "Quadruplet": [{"Aspect": "炸雞", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.75#5.50"}, {"Aspect": "花生醬", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.75#5.50"}]}
+{"ID": "R2831:S012", "Text": "英式早餐裡面有焗豆鳳梨炒菇培根香腸吐司蛋兩顆跟薯塊，很豐盛。", "Quadruplet": [{"Aspect": "英式早餐", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很豐盛", "VA": "6.50#6.00"}]}
+{"ID": "R2831:S018", "Text": "整體來說食物的部分都很好吃，內用環境也很舒適，座位數不算太多。", "Quadruplet": [{"Aspect": "食物", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.75#6.25"}, {"Aspect": "內用環境", "Category": "AMBIENCE#GENERAL", "Opinion": "很舒適", "VA": "6.50#6.00"}, {"Aspect": "座位數", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不算太多", "VA": "5.25#5.00"}]}
+{"ID": "R3138:S007", "Text": "肉丸和魚丸也好吃。", "Quadruplet": [{"Aspect": "肉丸", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.33#5.50"}, {"Aspect": "魚丸", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.33#5.50"}]}
+{"ID": "R1408:S012", "Text": "煙燻培根義大利麵吃起來簡直是天衣無縫。", "Quadruplet": [{"Aspect": "煙燻培根義大利麵", "Category": "FOOD#QUALITY", "Opinion": "簡直是天衣無縫", "VA": "7.20#7.10"}]}
+{"ID": "R1408:S025", "Text": "這裡的青醬真的是色澤飽滿，味道鮮美，讓人回味無窮。", "Quadruplet": [{"Aspect": "青醬", "Category": "FOOD#QUALITY", "Opinion": "真的是色澤飽滿", "VA": "6.33#6.17"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "鮮美", "VA": "6.17#5.83"}, {"Aspect": "青醬", "Category": "FOOD#QUALITY", "Opinion": "回味無窮", "VA": "7.00#7.00"}]}
+{"ID": "R2938:S007", "Text": "煎餅確實是脆香又大片。", "Quadruplet": [{"Aspect": "煎餅", "Category": "FOOD#QUALITY", "Opinion": "脆香", "VA": "6.33#6.00"}, {"Aspect": "煎餅", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大片", "VA": "5.67#5.33"}]}
+{"ID": "R0780:S030", "Text": "肉質相當軟嫩好吃，口感完全不輸外縣市那些連鎖的知名日式豬排。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "相當軟嫩好吃", "VA": "7.00#6.50"}]}
+{"ID": "R0780:S033", "Text": "而木樂的唐揚雞也相當有誠意，一次就是6-7塊堆疊上桌。", "Quadruplet": [{"Aspect": "唐揚雞", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "相當有誠意", "VA": "6.50#6.25"}]}
+{"ID": "R0780:S037", "Text": "唐揚雞肉質軟嫩，雞汁也都完整鎖在雞肉裡吃起來很juicy。", "Quadruplet": [{"Aspect": "唐揚雞肉質", "Category": "FOOD#QUALITY", "Opinion": "軟嫩", "VA": "6.00#5.67"}, {"Aspect": "雞汁", "Category": "FOOD#QUALITY", "Opinion": "很juicy", "VA": "6.00#6.33"}]}
+{"ID": "R2874:S008", "Text": "個人覺得瘦肉不乾很嫩，但醬汁有點偏鹹。", "Quadruplet": [{"Aspect": "瘦肉", "Category": "FOOD#QUALITY", "Opinion": "不乾", "VA": "5.50#4.75"}, {"Aspect": "瘦肉", "Category": "FOOD#QUALITY", "Opinion": "很嫩", "VA": "6.75#6.25"}, {"Aspect": "醬汁", "Category": "FOOD#QUALITY", "Opinion": "有點偏鹹", "VA": "4.25#5.75"}]}
+{"ID": "R3252:S007", "Text": "牛肉水餃好吃牛雜湯不錯喝。", "Quadruplet": [{"Aspect": "牛肉水餃", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "5.88#5.62"}, {"Aspect": "牛雜湯", "Category": "FOOD#QUALITY", "Opinion": "不錯喝", "VA": "5.75#5.50"}]}
+{"ID": "R3059:S001", "Text": "據說是西嶼必吃，實在是非常難吃價格極高。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "非常難吃", "VA": "3.00#6.67"}, {"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "極高", "VA": "3.50#5.83"}]}
+{"ID": "R3059:S004", "Text": "入店後環境亂七八糟。", "Quadruplet": [{"Aspect": "環境", "Category": "AMBIENCE#GENERAL", "Opinion": "亂七八糟", "VA": "3.88#6.00"}]}
+{"ID": "R3059:S017", "Text": "鹽燒魚肉柴到不行，小管麵線完全沒有味道，最好吃的是魚肉旁的酸菜。", "Quadruplet": [{"Aspect": "鹽燒魚肉", "Category": "FOOD#QUALITY", "Opinion": "柴到不行", "VA": "3.50#5.50"}, {"Aspect": "小管麵線", "Category": "FOOD#QUALITY", "Opinion": "完全沒有味道", "VA": "3.50#5.00"}, {"Aspect": "酸菜", "Category": "FOOD#QUALITY", "Opinion": "最好吃", "VA": "7.00#6.50"}]}
+{"ID": "R0817:S002", "Text": "這種蛋糕吃起來濕潤清爽。", "Quadruplet": [{"Aspect": "蛋糕", "Category": "FOOD#QUALITY", "Opinion": "濕潤清爽", "VA": "6.12#5.50"}]}
+{"ID": "R0817:S010", "Text": "蛋糕還是算平價啦。", "Quadruplet": [{"Aspect": "蛋糕", "Category": "FOOD#PRICES", "Opinion": "平價", "VA": "5.62#5.00"}]}
+{"ID": "R0817:S017", "Text": "吃起來蛋糕體很濕潤。", "Quadruplet": [{"Aspect": "蛋糕體", "Category": "FOOD#QUALITY", "Opinion": "很濕潤", "VA": "5.33#6.17"}]}
+{"ID": "R1700:S001", "Text": "扣肉滷的相當的透。", "Quadruplet": [{"Aspect": "扣肉", "Category": "FOOD#QUALITY", "Opinion": "相當的透", "VA": "6.50#6.12"}]}
+{"ID": "R1700:S002", "Text": "扣肉味道很入味。", "Quadruplet": [{"Aspect": "扣肉味道", "Category": "FOOD#QUALITY", "Opinion": "很入味", "VA": "6.38#6.25"}]}
+{"ID": "R1700:S003", "Text": "肥肉吃起來滑順。", "Quadruplet": [{"Aspect": "肥肉", "Category": "FOOD#QUALITY", "Opinion": "滑順", "VA": "6.12#5.62"}]}
+{"ID": "R1700:S013", "Text": "調味相當的好。", "Quadruplet": [{"Aspect": "調味", "Category": "FOOD#QUALITY", "Opinion": "相當的好", "VA": "6.50#6.33"}]}
+{"ID": "R1700:S022", "Text": "豬肉的口感也相當的棒。", "Quadruplet": [{"Aspect": "豬肉的口感", "Category": "FOOD#QUALITY", "Opinion": "相當的棒", "VA": "6.83#6.33"}]}
+{"ID": "R1700:S024", "Text": "炒高麗菜調味還不錯。", "Quadruplet": [{"Aspect": "炒高麗菜調味", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "6.00#5.50"}]}
+{"ID": "R1700:S025", "Text": "白飯有粒粒分明。", "Quadruplet": [{"Aspect": "白飯", "Category": "FOOD#QUALITY", "Opinion": "粒粒分明", "VA": "5.75#5.38"}]}
+{"ID": "R2363:S005", "Text": "唯獨龍蝦三明治讓我有點失望，口感超乾。", "Quadruplet": [{"Aspect": "龍蝦三明治", "Category": "FOOD#QUALITY", "Opinion": "有點失望", "VA": "4.25#5.50"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "超乾", "VA": "4.12#5.62"}]}
+{"ID": "R2031:S013", "Text": "價位點起來也不低，服務還做的這麼爛。", "Quadruplet": [{"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "爛", "VA": "3.50#5.50"}]}
+{"ID": "R3158:S003", "Text": "豆腐很好吃，味增湯的味道濃郁料滿滿。", "Quadruplet": [{"Aspect": "豆腐", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.50#6.75"}, {"Aspect": "味增湯的味道", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "6.00#5.75"}, {"Aspect": "料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "滿滿", "VA": "6.25#5.75"}]}
+{"ID": "R3158:S005", "Text": "重點鰹魚超好吃有一個很特別的稻焦香味。", "Quadruplet": [{"Aspect": "鰹魚", "Category": "FOOD#QUALITY", "Opinion": "超好吃", "VA": "7.00#6.50"}]}
+{"ID": "R0649:S004", "Text": "這個無敵星星飯還滿可愛的，飯是做成無敵星星形狀。", "Quadruplet": [{"Aspect": "無敵星星飯", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "滿可愛的", "VA": "6.75#6.50"}]}
+{"ID": "R2085:S000", "Text": "今天點了牛雜蘿蔔煲微辣超夠味很好吃，份量蠻多的。", "Quadruplet": [{"Aspect": "牛雜蘿蔔煲", "Category": "FOOD#QUALITY", "Opinion": "超夠味", "VA": "6.83#6.67"}, {"Aspect": "牛雜蘿蔔煲", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "7.00#6.50"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "蠻多", "VA": "6.33#6.00"}]}
+{"ID": "R1861:S007", "Text": "南瓜湯很雷。", "Quadruplet": [{"Aspect": "南瓜湯", "Category": "FOOD#QUALITY", "Opinion": "很雷", "VA": "3.67#6.50"}]}
+{"ID": "R1861:S008", "Text": "炸魚不太新鮮。", "Quadruplet": [{"Aspect": "炸魚", "Category": "FOOD#QUALITY", "Opinion": "不太新鮮", "VA": "4.00#5.25"}]}
+{"ID": "R1861:S010", "Text": "牛肉義大利麵肉很嫩。", "Quadruplet": [{"Aspect": "牛肉義大利麵肉", "Category": "FOOD#QUALITY", "Opinion": "很嫩", "VA": "6.62#6.25"}]}
+{"ID": "R2710:S005", "Text": "肉燥飯真的好吃必點!", "Quadruplet": [{"Aspect": "肉燥飯", "Category": "FOOD#QUALITY", "Opinion": "真的好吃", "VA": "6.75#6.50"}, {"Aspect": "肉燥飯", "Category": "FOOD#QUALITY", "Opinion": "必點", "VA": "7.00#6.75"}]}
+{"ID": "R0443:S005", "Text": "桂竹筍鹹蛋杏鮑菇好吃。", "Quadruplet": [{"Aspect": "桂竹筍鹹蛋杏鮑菇", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.67"}]}
+{"ID": "R0437:S005", "Text": "黑麻糬的店面蠻好找。", "Quadruplet": [{"Aspect": "黑麻糬的店面", "Category": "LOCATION#GENERAL", "Opinion": "蠻好找", "VA": "5.50#5.25"}]}
+{"ID": "R0437:S014", "Text": "這裡的麻糬種類很多。", "Quadruplet": [{"Aspect": "麻糬種類", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "6.38#6.50"}]}
+{"ID": "R2045:S000", "Text": "第一次到訪，肉品溫體台灣牛新鮮，但真的太厚有點像吃肉排。", "Quadruplet": [{"Aspect": "溫體台灣牛", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "5.88#5.50"}, {"Aspect": "溫體台灣牛", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的太厚", "VA": "4.50#5.25"}]}
+{"ID": "R2045:S005", "Text": "湯頭牛奶鍋一般般，沒有特別濃郁如果再混些鮮奶油應該不錯。", "Quadruplet": [{"Aspect": "牛奶鍋", "Category": "FOOD#QUALITY", "Opinion": "一般般", "VA": "5.00#5.00"}]}
+{"ID": "R2045:S033", "Text": "是真的期待服務能再加強，都是不難的細節啊。", "Quadruplet": [{"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "能再加強", "VA": "4.75#5.50"}]}
+{"ID": "R0236:S016", "Text": "口口讓人感覺無限驚喜。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "無限驚喜", "VA": "6.62#5.88"}]}
+{"ID": "R1909:S002", "Text": "今天表現最棒的是腸粉。", "Quadruplet": [{"Aspect": "腸粉", "Category": "FOOD#QUALITY", "Opinion": "最棒", "VA": "6.83#6.83"}]}
+{"ID": "R1909:S005", "Text": "腐皮蝦腸粉非常好吃。", "Quadruplet": [{"Aspect": "腐皮蝦腸粉", "Category": "FOOD#QUALITY", "Opinion": "非常好吃", "VA": "6.62#6.75"}]}
+{"ID": "R2993:S017", "Text": "味道、態度現在變的很不行。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "很不行", "VA": "3.75#5.88"}, {"Aspect": "態度", "Category": "SERVICE#GENERAL", "Opinion": "很不行", "VA": "3.75#5.88"}]}
+{"ID": "R0303:S003", "Text": "麵食中我更喜歡陽春麵拉麵等熱食料理。", "Quadruplet": [{"Aspect": "陽春麵", "Category": "FOOD#QUALITY", "Opinion": "喜歡", "VA": "5.75#5.00"}, {"Aspect": "拉麵", "Category": "FOOD#QUALITY", "Opinion": "喜歡", "VA": "5.75#5.00"}]}
+{"ID": "R0303:S010", "Text": "交通相當便利。", "Quadruplet": [{"Aspect": "交通", "Category": "LOCATION#GENERAL", "Opinion": "相當便利", "VA": "6.33#6.17"}]}
+{"ID": "R0303:S016", "Text": "但由於空間通風良好。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "通風良好", "VA": "5.67#5.00"}]}
+{"ID": "R0303:S029", "Text": "散發著微微的香氣。", "Quadruplet": [{"Aspect": "香氣", "Category": "FOOD#QUALITY", "Opinion": "微微的", "VA": "5.83#5.00"}]}
+{"ID": "R0303:S032", "Text": "讓口味更有層次。", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "有層次", "VA": "6.25#6.00"}]}
+{"ID": "R0303:S034", "Text": "麵條的軟硬度掌握得宜。", "Quadruplet": [{"Aspect": "麵條的軟硬度", "Category": "FOOD#QUALITY", "Opinion": "掌握得宜", "VA": "6.00#6.00"}]}
+{"ID": "R0303:S035", "Text": "麵條附有彈性。", "Quadruplet": [{"Aspect": "麵條", "Category": "FOOD#QUALITY", "Opinion": "有彈性", "VA": "5.67#5.33"}]}
+{"ID": "R0303:S038", "Text": "小黃瓜清脆爽口。", "Quadruplet": [{"Aspect": "小黃瓜", "Category": "FOOD#QUALITY", "Opinion": "清脆爽口", "VA": "6.17#6.00"}]}
+{"ID": "R0303:S040", "Text": "相當對味。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "相當對味", "VA": "6.38#5.75"}]}
+{"ID": "R0303:S043", "Text": "榨菜肉絲的滋味不錯。", "Quadruplet": [{"Aspect": "榨菜肉絲的滋味", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.38#6.25"}]}
+{"ID": "R0303:S044", "Text": "鹹度也恰到好處。", "Quadruplet": [{"Aspect": "鹹度", "Category": "FOOD#QUALITY", "Opinion": "恰到好處", "VA": "6.38#6.25"}]}
+{"ID": "R0303:S046", "Text": "口味略顯清淡。", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "略顯清淡", "VA": "4.50#4.83"}]}
+{"ID": "R0303:S049", "Text": "蛋花口感滑嫩。", "Quadruplet": [{"Aspect": "蛋花口感", "Category": "FOOD#QUALITY", "Opinion": "滑嫩", "VA": "6.12#5.62"}]}
+{"ID": "R0303:S050", "Text": "紫菜則帶有一絲鮮甜。", "Quadruplet": [{"Aspect": "紫菜", "Category": "FOOD#QUALITY", "Opinion": "鮮甜", "VA": "6.50#6.10"}]}
+{"ID": "R0303:S052", "Text": "滋味不錯。", "Quadruplet": [{"Aspect": "滋味", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.83#5.17"}]}
+{"ID": "R0303:S053", "Text": "特製的貢丸口感軟嫩。", "Quadruplet": [{"Aspect": "貢丸口感", "Category": "FOOD#QUALITY", "Opinion": "軟嫩", "VA": "6.38#5.38"}]}
+{"ID": "R0303:S054", "Text": "鮮味十足。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "鮮味十足", "VA": "6.50#6.20"}]}
+{"ID": "R0303:S055", "Text": "口感扎實。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "扎實", "VA": "6.12#5.25"}]}
+{"ID": "R0303:S060", "Text": "清甜卻不膩口。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "清甜", "VA": "6.17#5.50"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "不膩口", "VA": "6.00#5.50"}]}
+{"ID": "R0303:S067", "Text": "永吉涼麵好吃。", "Quadruplet": [{"Aspect": "永吉涼麵", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.20#5.80"}]}
+{"ID": "R0303:S071", "Text": "但便利的交通位置卻也讓這裡成為了一處平日用餐的好選擇。", "Quadruplet": [{"Aspect": "交通位置", "Category": "LOCATION#GENERAL", "Opinion": "便利", "VA": "5.67#5.17"}]}
+{"ID": "R3247:S006", "Text": "冷盤紹興雞肉非常入味，雞肉很嫩。", "Quadruplet": [{"Aspect": "紹興雞肉", "Category": "FOOD#QUALITY", "Opinion": "非常入味", "VA": "6.50#6.00"}, {"Aspect": "雞肉", "Category": "FOOD#QUALITY", "Opinion": "很嫩", "VA": "6.50#6.00"}]}
+{"ID": "R3173:S003", "Text": "超級推薦菜色石鮔干滷肉。", "Quadruplet": [{"Aspect": "石鮔干滷肉", "Category": "FOOD#QUALITY", "Opinion": "超級推薦", "VA": "6.67#6.67"}]}
+{"ID": "R3173:S006", "Text": "炒花菜干很特別，滷秋刀魚也很美味。", "Quadruplet": [{"Aspect": "炒花菜干", "Category": "FOOD#QUALITY", "Opinion": "很特別", "VA": "6.50#6.00"}, {"Aspect": "滷秋刀魚", "Category": "FOOD#QUALITY", "Opinion": "很美味", "VA": "6.83#6.50"}]}
+{"ID": "R0921:S022", "Text": "這裡的蛋餅雖然很油，但吃起來真的很香很嫩而雙蛋會讓整份蛋餅吃起來更加厚實。", "Quadruplet": [{"Aspect": "蛋餅", "Category": "FOOD#QUALITY", "Opinion": "很油", "VA": "4.17#5.00"}, {"Aspect": "蛋餅", "Category": "FOOD#QUALITY", "Opinion": "真的很香很嫩", "VA": "6.50#6.33"}]}
+{"ID": "R0187:S004", "Text": "商業午餐的價格還是挺不便宜的。", "Quadruplet": [{"Aspect": "商業午餐的價格", "Category": "FOOD#PRICES", "Opinion": "挺不便宜", "VA": "4.00#4.62"}]}
+{"ID": "R0187:S010", "Text": "辣炒魷魚很夠味。", "Quadruplet": [{"Aspect": "辣炒魷魚", "Category": "FOOD#QUALITY", "Opinion": "很夠味", "VA": "6.62#6.38"}]}
+{"ID": "R0187:S043", "Text": "餐點相對來說價高但也比較精緻一點。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#PRICES", "Opinion": "價高", "VA": "4.75#5.00"}, {"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "比較精緻一點", "VA": "6.25#5.00"}]}
+{"ID": "R0917:S022", "Text": "奶油香烤雞腿義大利麵259元，雞腿排好大塊，麵的份量也是蠻多。", "Quadruplet": [{"Aspect": "雞腿排", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "好大塊", "VA": "6.25#5.50"}, {"Aspect": "麵的份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "蠻多", "VA": "6.50#6.25"}]}
+{"ID": "R0917:S037", "Text": "燉飯的青醬小膩一點。", "Quadruplet": [{"Aspect": "燉飯的青醬", "Category": "FOOD#QUALITY", "Opinion": "小膩一點", "VA": "4.67#4.67"}]}
+{"ID": "R1393:S027", "Text": "整體味道非常的剛好，如果你平常不喜甜食我非常推薦你點這道。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "非常的剛好", "VA": "6.88#6.62"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "非常推薦", "VA": "7.00#7.00"}]}
+{"ID": "R1540:S003", "Text": "餐點很美味。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "很美味", "VA": "6.88#6.38"}]}
+{"ID": "R1540:S004", "Text": "不僅食材新鮮。", "Quadruplet": [{"Aspect": "食材", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "5.88#5.38"}]}
+{"ID": "R0387:S001", "Text": "大碗白飯。", "Quadruplet": [{"Aspect": "白飯", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大碗", "VA": "6.00#5.00"}]}
+{"ID": "R0061:S018", "Text": "烤布蕾上方的焦糖不夠多不夠脆，但整體的口味是可以的。", "Quadruplet": [{"Aspect": "焦糖", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不夠多", "VA": "4.12#4.62"}, {"Aspect": "焦糖", "Category": "FOOD#QUALITY", "Opinion": "不夠脆", "VA": "4.12#4.62"}, {"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "可以", "VA": "5.12#4.88"}]}
+{"ID": "R0061:S024", "Text": "魚肉很新鮮，但份量真的超少。", "Quadruplet": [{"Aspect": "魚肉", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.50#5.50"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的超少", "VA": "3.00#6.50"}]}
+{"ID": "R0061:S029", "Text": "飯的份量不多。", "Quadruplet": [{"Aspect": "飯的份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不多", "VA": "4.33#5.00"}]}
+{"ID": "R0061:S040", "Text": "它的唐揚炸雞炸到有點偏乾。", "Quadruplet": [{"Aspect": "唐揚炸雞", "Category": "FOOD#QUALITY", "Opinion": "有點偏乾", "VA": "4.12#4.75"}]}
+{"ID": "R1915:S002", "Text": "螃蟹肉吃起來超級Q彈的。", "Quadruplet": [{"Aspect": "螃蟹肉", "Category": "FOOD#QUALITY", "Opinion": "超級Q彈", "VA": "6.12#6.00"}]}
+{"ID": "R1915:S008", "Text": "炸蝦捲很酥。", "Quadruplet": [{"Aspect": "炸蝦捲", "Category": "FOOD#QUALITY", "Opinion": "很酥", "VA": "6.50#5.83"}]}
+{"ID": "R1444:S009", "Text": "餐點口味好吃。", "Quadruplet": [{"Aspect": "餐點口味", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.80"}]}
+{"ID": "R1444:S019", "Text": "九孔鮑很好吃。", "Quadruplet": [{"Aspect": "九孔鮑", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.33#6.17"}]}
+{"ID": "R1444:S022", "Text": "還能品嚐到九孔鮑的鮮甜。", "Quadruplet": [{"Aspect": "九孔鮑", "Category": "FOOD#QUALITY", "Opinion": "鮮甜", "VA": "6.17#5.33"}]}
+{"ID": "R2304:S016", "Text": "小米粥值得品嚐，內加有麥片，口感也是一流。", "Quadruplet": [{"Aspect": "小米粥", "Category": "FOOD#QUALITY", "Opinion": "值得品嚐", "VA": "6.50#6.00"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "一流", "VA": "6.75#6.50"}]}
+{"ID": "R2304:S019", "Text": "主食類反而有點差強人意，倒是有點可惜。", "Quadruplet": [{"Aspect": "主食類", "Category": "FOOD#QUALITY", "Opinion": "有點差強人意", "VA": "4.67#4.83"}, {"Aspect": "主食類", "Category": "FOOD#QUALITY", "Opinion": "有點可惜", "VA": "4.83#5.00"}]}
+{"ID": "R0001:S008", "Text": "用餐環境非常高雅。", "Quadruplet": [{"Aspect": "用餐環境", "Category": "AMBIENCE#GENERAL", "Opinion": "非常高雅", "VA": "7.50#6.33"}]}
+{"ID": "R0001:S010", "Text": "雅閣XO醬沾什麼都好吃。", "Quadruplet": [{"Aspect": "雅閣XO醬", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#6.25"}]}
+{"ID": "R0001:S012", "Text": "吃完再跟服務生拿，他還很大器拿了2盤來。", "Quadruplet": [{"Aspect": "服務生", "Category": "SERVICE#GENERAL", "Opinion": "很大器", "VA": "6.00#6.12"}]}
+{"ID": "R0001:S016", "Text": "乳豬已處理完全沒有肥肥油脂。", "Quadruplet": [{"Aspect": "乳豬", "Category": "FOOD#QUALITY", "Opinion": "完全沒有肥肥油脂", "VA": "6.50#6.25"}]}
+{"ID": "R0001:S017", "Text": "皮超級脆。", "Quadruplet": [{"Aspect": "皮", "Category": "FOOD#QUALITY", "Opinion": "超級脆", "VA": "6.88#6.75"}]}
+{"ID": "R0001:S020", "Text": "雞肉超級嫩，皮也很脆。", "Quadruplet": [{"Aspect": "雞肉", "Category": "FOOD#QUALITY", "Opinion": "超級嫩", "VA": "6.88#6.88"}, {"Aspect": "皮", "Category": "FOOD#QUALITY", "Opinion": "很脆", "VA": "6.38#6.00"}]}
+{"ID": "R0001:S023", "Text": "大家吃完都對這脆皮雞讚不絕口。", "Quadruplet": [{"Aspect": "脆皮雞", "Category": "FOOD#QUALITY", "Opinion": "讚不絕口", "VA": "7.50#7.38"}]}
+{"ID": "R0001:S025", "Text": "黑松露蟹肉蘿蔔絲酥是好吃的", "Quadruplet": [{"Aspect": "黑松露蟹肉蘿蔔絲酥", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#6.12"}]}
+{"ID": "R0001:S030", "Text": "這炒飯味道比較淡。", "Quadruplet": [{"Aspect": "炒飯味道", "Category": "FOOD#QUALITY", "Opinion": "比較淡", "VA": "4.80#5.20"}]}
+{"ID": "R0001:S032", "Text": "雅閣推薦必點脆皮雞燒味拼盤", "Quadruplet": [{"Aspect": "脆皮雞燒味拼盤", "Category": "FOOD#QUALITY", "Opinion": "推薦", "VA": "6.75#6.62"}]}
+{"ID": "R0001:S033", "Text": "脆皮海皇腸粉XO醬實在太好吃，帶一瓶回家。", "Quadruplet": [{"Aspect": "脆皮海皇腸粉XO醬", "Category": "FOOD#QUALITY", "Opinion": "實在太好吃", "VA": "7.40#7.50"}]}
+{"ID": "R2040:S012", "Text": "菜盤的東西偏少菜量也不多。", "Quadruplet": [{"Aspect": "菜盤", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "偏少", "VA": "4.75#5.25"}, {"Aspect": "菜量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不多", "VA": "4.75#5.25"}]}
+{"ID": "R2062:S013", "Text": "炒麵好吃沒得說。", "Quadruplet": [{"Aspect": "炒麵", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.62"}]}
+{"ID": "R2062:S015", "Text": "蚵仔味美且又大顆。", "Quadruplet": [{"Aspect": "蚵仔", "Category": "FOOD#QUALITY", "Opinion": "味美", "VA": "6.50#5.83"}, {"Aspect": "蚵仔", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大顆", "VA": "5.83#5.33"}]}
+{"ID": "R2062:S019", "Text": "湯頭喝起來鮮甜帶點酸鹹真是好喝。", "Quadruplet": [{"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "真是好喝", "VA": "6.88#6.38"}]}
+{"ID": "R0622:S024", "Text": "PIzza口味有多種，鹹甜都有且價位不高。", "Quadruplet": [{"Aspect": "PIzza口味", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "多種", "VA": "5.83#5.00"}, {"Aspect": "價位", "Category": "FOOD#PRICES", "Opinion": "不高", "VA": "5.83#5.00"}]}
+{"ID": "R0622:S036", "Text": "餅皮相當香。", "Quadruplet": [{"Aspect": "餅皮", "Category": "FOOD#QUALITY", "Opinion": "相當香", "VA": "6.50#6.17"}]}
+{"ID": "R1563:S008", "Text": "義大利麵份量很大。", "Quadruplet": [{"Aspect": "義大利麵份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很大", "VA": "6.17#5.83"}]}
+{"ID": "R1563:S010", "Text": "義大利麵口味不錯。", "Quadruplet": [{"Aspect": "義大利麵口味", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.17"}]}
+{"ID": "R1563:S011", "Text": "副餐沙拉也很大份。", "Quadruplet": [{"Aspect": "副餐沙拉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很大份", "VA": "6.50#6.50"}]}
+{"ID": "R3115:S010", "Text": "非常推薦半肉半筋牛肉麵，湯頭味道帶點淡淡的中藥香。", "Quadruplet": [{"Aspect": "半肉半筋牛肉麵", "Category": "FOOD#QUALITY", "Opinion": "非常推薦", "VA": "7.12#7.50"}]}
+{"ID": "R3298:S000", "Text": "鮮食堂的食物很新鮮但份量偏少且不便宜。", "Quadruplet": [{"Aspect": "食物", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.25#6.00"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "偏少", "VA": "4.50#5.25"}, {"Aspect": "鮮食堂", "Category": "RESTAURANT#PRICES", "Opinion": "不便宜", "VA": "4.75#5.25"}]}
+{"ID": "R3209:S003", "Text": "上菜速度一如既往地快速。", "Quadruplet": [{"Aspect": "上菜速度", "Category": "SERVICE#GENERAL", "Opinion": "快速", "VA": "5.75#5.12"}]}
+{"ID": "R3209:S004", "Text": "怎麼生魚片與蓋飯上的生魚好多筋，根本咬不動。", "Quadruplet": [{"Aspect": "生魚片", "Category": "FOOD#QUALITY", "Opinion": "根本咬不動", "VA": "3.88#6.00"}, {"Aspect": "生魚", "Category": "FOOD#QUALITY", "Opinion": "根本咬不動", "VA": "3.88#6.00"}]}
+{"ID": "R3209:S006", "Text": "烤魚下巴又焦又苦，烤香魚也又焦又苦，炒時蔬也是超級苦。", "Quadruplet": [{"Aspect": "烤魚下巴", "Category": "FOOD#QUALITY", "Opinion": "又焦又苦", "VA": "3.50#5.17"}, {"Aspect": "烤香魚", "Category": "FOOD#QUALITY", "Opinion": "又焦又苦", "VA": "3.50#5.17"}, {"Aspect": "炒時蔬", "Category": "FOOD#QUALITY", "Opinion": "超級苦", "VA": "3.50#6.00"}]}
+{"ID": "R3073:S004", "Text": "當天二樓沒有坐滿所以上菜速度蠻快的。", "Quadruplet": [{"Aspect": "上菜速度", "Category": "SERVICE#GENERAL", "Opinion": "蠻快", "VA": "6.00#6.17"}]}
+{"ID": "R3073:S015", "Text": "但是魷魚給太少了。", "Quadruplet": [{"Aspect": "魷魚", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "太少", "VA": "4.00#5.25"}]}
+{"ID": "R3073:S016", "Text": "至於這次我最愛的一道是老菜脯雞湯。", "Quadruplet": [{"Aspect": "老菜脯雞湯", "Category": "FOOD#QUALITY", "Opinion": "最愛", "VA": "6.88#7.00"}]}
+{"ID": "R3073:S018", "Text": "覺得渡小月的老菜脯雞真的超級好吃。", "Quadruplet": [{"Aspect": "老菜脯雞", "Category": "FOOD#QUALITY", "Opinion": "真的超級好吃", "VA": "7.50#7.33"}]}
+{"ID": "R3073:S020", "Text": "雞肉燉的軟嫩，湯回甘好喝。", "Quadruplet": [{"Aspect": "雞肉", "Category": "FOOD#QUALITY", "Opinion": "軟嫩", "VA": "6.00#5.67"}, {"Aspect": "湯", "Category": "FOOD#QUALITY", "Opinion": "回甘好喝", "VA": "6.67#6.33"}]}
+{"ID": "R3073:S023", "Text": "前菜部分，龍蝦拼盤中規中矩。", "Quadruplet": [{"Aspect": "龍蝦拼盤", "Category": "FOOD#QUALITY", "Opinion": "中規中矩", "VA": "5.12#5.00"}]}
+{"ID": "R3073:S037", "Text": "這道的蝦子太小隻了。", "Quadruplet": [{"Aspect": "蝦子", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "太小", "VA": "3.62#5.50"}]}
+{"ID": "R3073:S044", "Text": "糕渣比起往年的調味簡直悲劇。", "Quadruplet": [{"Aspect": "糕渣", "Category": "FOOD#QUALITY", "Opinion": "悲劇", "VA": "3.88#5.62"}]}
+{"ID": "R2604:S005", "Text": "蝦仁飯價格頗高(沒辦法是蝦子呀)但口味不錯吃。", "Quadruplet": [{"Aspect": "蝦仁飯價格", "Category": "FOOD#PRICES", "Opinion": "頗高", "VA": "4.17#5.33"}, {"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "不錯吃", "VA": "5.67#5.50"}]}
+{"ID": "R1255:S002", "Text": "而且價格不是只有合理，是誇張便宜。", "Quadruplet": [{"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "合理", "VA": "5.50#5.25"}, {"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "誇張便宜", "VA": "6.75#7.00"}]}
+{"ID": "R1255:S014", "Text": "然後整鍋湯好好喝，服務很好。", "Quadruplet": [{"Aspect": "湯", "Category": "FOOD#QUALITY", "Opinion": "好好喝", "VA": "6.75#6.50"}, {"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "很好", "VA": "6.50#5.75"}]}
+{"ID": "R2550:S003", "Text": "單點櫻花蝦油飯沒味道，原本以為櫻花蝦是拌在一起烹煮的結果是撒一點在上面。", "Quadruplet": [{"Aspect": "櫻花蝦油飯", "Category": "FOOD#QUALITY", "Opinion": "沒味道", "VA": "4.38#4.50"}]}
+{"ID": "R0367:S008", "Text": "蝦膏海味濃郁。", "Quadruplet": [{"Aspect": "蝦膏海味", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "6.67#6.50"}]}
+{"ID": "R1970:S014", "Text": "鳳梨蝦球這道不油吃起來蠻不錯。", "Quadruplet": [{"Aspect": "鳳梨蝦球", "Category": "FOOD#QUALITY", "Opinion": "蠻不錯", "VA": "6.17#5.83"}, {"Aspect": "鳳梨蝦球", "Category": "FOOD#QUALITY", "Opinion": "不油", "VA": "5.50#4.83"}]}
+{"ID": "R1970:S016", "Text": "炒牛肉還有金針菇是好吃也不會過鹹。", "Quadruplet": [{"Aspect": "炒牛肉", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.67"}, {"Aspect": "金針菇", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.67"}, {"Aspect": "炒牛肉", "Category": "FOOD#QUALITY", "Opinion": "不會過鹹", "VA": "5.67#5.00"}, {"Aspect": "金針菇", "Category": "FOOD#QUALITY", "Opinion": "不會過鹹", "VA": "5.67#5.00"}]}
+{"ID": "R1970:S031", "Text": "豆腐雖然不錯，可是覺得點這道很不划算。", "Quadruplet": [{"Aspect": "豆腐", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.50#6.00"}, {"Aspect": "豆腐", "Category": "FOOD#PRICES", "Opinion": "很不划算", "VA": "4.00#5.75"}]}
+{"ID": "R1970:S037", "Text": "最後就是很不錯的餐廳，雖然價格偏高了點但味道上都還蠻不錯。", "Quadruplet": [{"Aspect": "餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "很不錯", "VA": "6.50#6.00"}, {"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "偏高", "VA": "4.50#4.00"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "蠻不錯", "VA": "6.00#5.50"}]}
+{"ID": "R0689:S021", "Text": "品項選擇算是相當豐富。", "Quadruplet": [{"Aspect": "品項選擇", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "相當豐富", "VA": "5.83#6.33"}]}
+{"ID": "R0689:S029", "Text": "再來上一口札實有咬勁的客家糍粑，順口又好吃。", "Quadruplet": [{"Aspect": "客家糍粑", "Category": "FOOD#QUALITY", "Opinion": "札實", "VA": "6.00#5.12"}, {"Aspect": "客家糍粑", "Category": "FOOD#QUALITY", "Opinion": "有咬勁的", "VA": "6.00#5.38"}, {"Aspect": "客家糍粑", "Category": "FOOD#QUALITY", "Opinion": "順口", "VA": "6.00#5.25"}, {"Aspect": "客家糍粑", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.25"}]}
+{"ID": "R0689:S032", "Text": "品嚐起來麻糬的口感是較為軟嫩黏口的那種。", "Quadruplet": [{"Aspect": "麻糬的口感", "Category": "FOOD#QUALITY", "Opinion": "較為軟嫩黏口", "VA": "5.83#6.17"}]}
+{"ID": "R0689:S033", "Text": "雖然撒上了大量芝麻粉和花生粉在上頭，但芝麻與花生的甜度適中。", "Quadruplet": [{"Aspect": "芝麻粉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大量", "VA": "5.83#5.17"}, {"Aspect": "花生粉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大量", "VA": "5.83#5.17"}, {"Aspect": "芝麻", "Category": "FOOD#QUALITY", "Opinion": "甜度適中", "VA": "6.33#5.50"}, {"Aspect": "花生的甜度", "Category": "FOOD#QUALITY", "Opinion": "適中", "VA": "6.33#5.50"}]}
+{"ID": "R0689:S036", "Text": "整體味道相當和諧。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "相當和諧", "VA": "6.25#6.25"}]}
+{"ID": "R3072:S001", "Text": "咖哩炒麵必點超好吃的，炒飯也不錯。", "Quadruplet": [{"Aspect": "咖哩炒麵", "Category": "FOOD#QUALITY", "Opinion": "必點", "VA": "6.50#6.62"}, {"Aspect": "咖哩炒麵", "Category": "FOOD#QUALITY", "Opinion": "超好吃", "VA": "6.50#6.62"}, {"Aspect": "炒飯", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.62"}]}
+{"ID": "R3072:S009", "Text": "西魯肉我覺得料很多但口味還好。", "Quadruplet": [{"Aspect": "料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "6.50#6.00"}, {"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "還好", "VA": "4.83#4.33"}]}
+{"ID": "R1955:S004", "Text": "炸雞皮很脆以為會很乾但超多汁的，而且肉很嫩很香。", "Quadruplet": [{"Aspect": "炸雞皮", "Category": "FOOD#QUALITY", "Opinion": "很脆", "VA": "6.33#5.83"}, {"Aspect": "炸雞皮", "Category": "FOOD#QUALITY", "Opinion": "超多汁", "VA": "6.67#6.17"}, {"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "很嫩", "VA": "6.50#6.00"}, {"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "很香", "VA": "6.33#6.17"}]}
+{"ID": "R1016:S037", "Text": "而咖哩就是大家像中香港街頭咖哩魚蛋的味道，有很濃郁的咖哩粉味。", "Quadruplet": [{"Aspect": "咖哩粉味", "Category": "FOOD#QUALITY", "Opinion": "很濃郁", "VA": "6.12#5.88"}]}
+{"ID": "R2960:S012", "Text": "豬勒排肉質軟嫩，味道很夠，但炸蔬菜有點弱。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "軟嫩", "VA": "6.25#5.75"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "很夠", "VA": "6.00#5.50"}, {"Aspect": "炸蔬菜", "Category": "FOOD#QUALITY", "Opinion": "有點弱", "VA": "4.50#5.00"}]}
+{"ID": "R2967:S010", "Text": "餐點好吃份量大是很推薦的古早味餐廳。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.25#5.25"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大", "VA": "5.50#5.00"}, {"Aspect": "古早味餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "很推薦", "VA": "7.00#6.75"}]}
+{"ID": "R2967:S015", "Text": "價格合理員工親切。", "Quadruplet": [{"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "合理", "VA": "5.25#5.00"}, {"Aspect": "員工", "Category": "SERVICE#GENERAL", "Opinion": "親切", "VA": "5.75#5.50"}]}
+{"ID": "R0013:S004", "Text": "裝潢簡單，內用座位不多。", "Quadruplet": [{"Aspect": "裝潢", "Category": "AMBIENCE#GENERAL", "Opinion": "簡單", "VA": "5.38#5.12"}, {"Aspect": "座位", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不多", "VA": "4.50#4.62"}]}
+{"ID": "R0013:S013", "Text": "雞腿肉不錯有入味。", "Quadruplet": [{"Aspect": "雞腿肉", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.12#5.38"}, {"Aspect": "雞腿肉", "Category": "FOOD#QUALITY", "Opinion": "入味", "VA": "6.12#5.50"}]}
+{"ID": "R0013:S015", "Text": "杏鮑菇感覺沒什麼味道。", "Quadruplet": [{"Aspect": "杏鮑菇", "Category": "FOOD#QUALITY", "Opinion": "沒什麼味道", "VA": "4.00#4.83"}]}
+{"ID": "R0013:S016", "Text": "炸豬排很有厚度。", "Quadruplet": [{"Aspect": "炸豬排", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很有厚度", "VA": "6.50#5.80"}]}
+{"ID": "R0013:S022", "Text": "咖哩與主食料理都不錯。", "Quadruplet": [{"Aspect": "咖哩", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.12#5.50"}, {"Aspect": "主食料理", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.12#5.50"}]}
+{"ID": "R0013:S023", "Text": "炸豬排美味。", "Quadruplet": [{"Aspect": "炸豬排", "Category": "FOOD#QUALITY", "Opinion": "美味", "VA": "6.50#5.50"}]}
+{"ID": "R1788:S005", "Text": "飽滿入味的叉燒餡。", "Quadruplet": [{"Aspect": "叉燒餡", "Category": "FOOD#QUALITY", "Opinion": "飽滿入味", "VA": "6.50#5.67"}]}
+{"ID": "R1788:S008", "Text": "腸粉皮很Q彈。", "Quadruplet": [{"Aspect": "腸粉皮", "Category": "FOOD#QUALITY", "Opinion": "很Q彈", "VA": "6.12#5.62"}]}
+{"ID": "R1788:S009", "Text": "蝦仁內餡十分美味。", "Quadruplet": [{"Aspect": "蝦仁內餡", "Category": "FOOD#QUALITY", "Opinion": "十分美味", "VA": "7.12#6.75"}]}
+{"ID": "R1788:S013", "Text": "豉汁鳳爪不是很好吃。", "Quadruplet": [{"Aspect": "豉汁鳳爪", "Category": "FOOD#QUALITY", "Opinion": "不是很好吃", "VA": "3.75#5.25"}]}
+{"ID": "R1788:S016", "Text": "叉燒炒麵味道還好。", "Quadruplet": [{"Aspect": "叉燒炒麵味道", "Category": "FOOD#QUALITY", "Opinion": "還好", "VA": "4.50#4.38"}]}
+{"ID": "R1788:S019", "Text": "芋頭西米露的西米露感覺少了點。", "Quadruplet": [{"Aspect": "西米露", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "少了點", "VA": "4.33#4.50"}]}
+{"ID": "R1788:S024", "Text": "提供的冷水感覺味道有點生。", "Quadruplet": [{"Aspect": "冷水", "Category": "FOOD#QUALITY", "Opinion": "有點生", "VA": "4.12#5.38"}]}
+{"ID": "R1788:S026", "Text": "上菜速度也很快。", "Quadruplet": [{"Aspect": "上菜速度", "Category": "SERVICE#GENERAL", "Opinion": "很快", "VA": "5.88#5.50"}]}
+{"ID": "R0613:S026", "Text": "店內空間非常寬敞。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "非常寬敞", "VA": "6.50#6.50"}]}
+{"ID": "R0613:S034", "Text": "咖哩飯系列都很受歡迎。", "Quadruplet": [{"Aspect": "咖哩飯", "Category": "FOOD#QUALITY", "Opinion": "很受歡迎", "VA": "6.38#5.75"}]}
+{"ID": "R0613:S037", "Text": "而私嚐的螺旋蛋是點咖哩必加的選擇，真的很滑嫩很好吃。", "Quadruplet": [{"Aspect": "螺旋蛋", "Category": "FOOD#QUALITY", "Opinion": "必加的選擇", "VA": "6.67#6.83"}, {"Aspect": "螺旋蛋", "Category": "FOOD#QUALITY", "Opinion": "真的很滑嫩", "VA": "6.50#6.50"}, {"Aspect": "螺旋蛋", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.83#6.67"}]}
+{"ID": "R0613:S042", "Text": "私嚐的唐揚雞非常軟嫩而且很大塊，吃起來很有飽足感。", "Quadruplet": [{"Aspect": "唐揚雞", "Category": "FOOD#QUALITY", "Opinion": "非常軟嫩", "VA": "6.67#6.00"}, {"Aspect": "唐揚雞", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很大塊", "VA": "6.33#5.67"}, {"Aspect": "唐揚雞", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很有飽足感", "VA": "6.33#5.83"}]}
+{"ID": "R0613:S048", "Text": "他們家的烏龍麵是我和兩個孩子的最愛，超Q彈。", "Quadruplet": [{"Aspect": "烏龍麵", "Category": "FOOD#QUALITY", "Opinion": "最愛", "VA": "7.12#7.12"}, {"Aspect": "烏龍麵", "Category": "FOOD#QUALITY", "Opinion": "超Q彈", "VA": "6.75#6.50"}]}
+{"ID": "R0613:S051", "Text": "廣島炸牡蠣非常酥脆多汁，咬起來外酥內軟。", "Quadruplet": [{"Aspect": "廣島炸牡蠣", "Category": "FOOD#QUALITY", "Opinion": "非常酥脆多汁", "VA": "6.62#6.75"}, {"Aspect": "廣島炸牡蠣", "Category": "FOOD#QUALITY", "Opinion": "外酥內軟", "VA": "6.50#5.75"}]}
+{"ID": "R0613:S056", "Text": "私嚐的熱飲都很不錯。", "Quadruplet": [{"Aspect": "熱飲", "Category": "DRINKS#QUALITY", "Opinion": "很不錯", "VA": "6.00#6.17"}]}
+{"ID": "R0613:S057", "Text": "柚子茶甜甜的但不會過甜。", "Quadruplet": [{"Aspect": "柚子茶", "Category": "DRINKS#QUALITY", "Opinion": "甜甜的", "VA": "6.25#6.00"}, {"Aspect": "柚子茶", "Category": "DRINKS#QUALITY", "Opinion": "不會過甜", "VA": "7.00#6.00"}]}
+{"ID": "R0613:S058", "Text": "鮮奶茶則是超香醇。", "Quadruplet": [{"Aspect": "鮮奶茶", "Category": "DRINKS#QUALITY", "Opinion": "超香醇", "VA": "6.83#6.67"}]}
+{"ID": "R0613:S060", "Text": "私嚐真的是我強力推薦的餐廳。", "Quadruplet": [{"Aspect": "私嚐", "Category": "RESTAURANT#GENERAL", "Opinion": "強力推薦", "VA": "7.75#7.75"}]}
+{"ID": "R0613:S065", "Text": "不僅空間超大又有提供寵物餐，真的是毛小孩和飼主的天堂。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "超大", "VA": "6.83#6.50"}]}
+{"ID": "R1738:S008", "Text": "嗶嗶飯則是最失望的一道。", "Quadruplet": [{"Aspect": "嗶嗶飯", "Category": "FOOD#QUALITY", "Opinion": "最失望", "VA": "3.00#5.80"}]}
+{"ID": "R1738:S016", "Text": "吃下來最喜歡的是番茄。", "Quadruplet": [{"Aspect": "番茄", "Category": "FOOD#QUALITY", "Opinion": "最喜歡", "VA": "7.00#7.00"}]}
+{"ID": "R1738:S017", "Text": "醃漬小黃瓜也還不錯。", "Quadruplet": [{"Aspect": "醃漬小黃瓜", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "6.33#6.17"}]}
+{"ID": "R1233:S019", "Text": "味噌豚骨拉麵份量算很有滿足感。", "Quadruplet": [{"Aspect": "味噌豚骨拉麵份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "算很有滿足感", "VA": "6.50#6.00"}]}
+{"ID": "R1233:S020", "Text": "肉是豬五花切塊並炙燒過，香味很讚。", "Quadruplet": [{"Aspect": "香味", "Category": "FOOD#QUALITY", "Opinion": "很讚", "VA": "6.50#6.25"}]}
+{"ID": "R1233:S022", "Text": "湯很順口。", "Quadruplet": [{"Aspect": "湯", "Category": "FOOD#QUALITY", "Opinion": "很順口", "VA": "5.83#5.50"}]}
+{"ID": "R1233:S023", "Text": "黑蒜肉多多端上來肉量真的是肉多多。", "Quadruplet": [{"Aspect": "肉量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的是肉多多", "VA": "6.38#6.12"}]}
+{"ID": "R1233:S033", "Text": "肉多多蔥多多又蛋多多。", "Quadruplet": [{"Aspect": "肉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "多多", "VA": "5.75#5.50"}, {"Aspect": "蔥", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "多多", "VA": "5.75#5.50"}, {"Aspect": "蛋", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "多多", "VA": "5.75#5.50"}]}
+{"ID": "R1233:S037", "Text": "湯喝起來沒有太多的負擔感。", "Quadruplet": [{"Aspect": "湯", "Category": "FOOD#QUALITY", "Opinion": "沒有太多的負擔感", "VA": "6.00#5.62"}]}
+{"ID": "R1233:S038", "Text": "蒜香豆腐賣相很好。", "Quadruplet": [{"Aspect": "蒜香豆腐賣相", "Category": "FOOD#QUALITY", "Opinion": "很好", "VA": "6.00#5.75"}]}
+{"ID": "R1233:S050", "Text": "細麵吃起來沒有麵粉味，精緻感很夠，只有好吃可以形容。", "Quadruplet": [{"Aspect": "細麵", "Category": "FOOD#QUALITY", "Opinion": "沒有麵粉味", "VA": "6.25#5.50"}, {"Aspect": "精緻感", "Category": "FOOD#QUALITY", "Opinion": "很夠", "VA": "6.25#6.00"}, {"Aspect": "細麵", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#6.00"}]}
+{"ID": "R3325:S005", "Text": "不過整間餐廳吃完後真的覺得只是還可以。", "Quadruplet": [{"Aspect": "餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "只是還可以", "VA": "5.62#5.25"}]}
+{"ID": "R3325:S006", "Text": "桂竹筍滷的不怎麼入味，但至少鵝肉算是可口。", "Quadruplet": [{"Aspect": "桂竹筍", "Category": "FOOD#QUALITY", "Opinion": "不怎麼入味", "VA": "4.00#5.50"}, {"Aspect": "鵝肉", "Category": "FOOD#QUALITY", "Opinion": "算是可口", "VA": "6.00#5.33"}]}
+{"ID": "R3276:S006", "Text": "這次吃的料理我個人很滿意。", "Quadruplet": [{"Aspect": "料理", "Category": "FOOD#QUALITY", "Opinion": "很滿意", "VA": "6.33#6.00"}]}
+{"ID": "R2612:S003", "Text": "燉鴨湯的味道濃郁，比薑絲鴨湯好喝。", "Quadruplet": [{"Aspect": "燉鴨湯的味道", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "6.25#5.88"}]}
+{"ID": "R3090:S002", "Text": "宜蘭蔥真的好吃這點毫無懸念。", "Quadruplet": [{"Aspect": "宜蘭蔥", "Category": "FOOD#QUALITY", "Opinion": "真的好吃", "VA": "6.88#7.00"}]}
+{"ID": "R3090:S005", "Text": "櫻桃鴨握壽司最好吃也最驚艷的。", "Quadruplet": [{"Aspect": "櫻桃鴨握壽司", "Category": "FOOD#QUALITY", "Opinion": "最好吃", "VA": "7.00#7.00"}, {"Aspect": "櫻桃鴨握壽司", "Category": "FOOD#QUALITY", "Opinion": "最驚艷", "VA": "7.12#7.50"}]}
+{"ID": "R3090:S008", "Text": "鴨蔥油拌水蓮、空心菜兩道有點食之無味。", "Quadruplet": [{"Aspect": "鴨蔥油拌水蓮", "Category": "FOOD#QUALITY", "Opinion": "有點食之無味", "VA": "4.12#5.25"}, {"Aspect": "空心菜", "Category": "FOOD#QUALITY", "Opinion": "有點食之無味", "VA": "4.12#5.25"}]}
+{"ID": "R3215:S000", "Text": "從小店時期就開始支持的，昨天吃了以後大失所望。", "Quadruplet": [{"Aspect": "NULL", "Category": "RESTAURANT#GENERAL", "Opinion": "大失所望", "VA": "3.75#5.75"}]}
+{"ID": "R3044:S000", "Text": "為了這個蛋餅排了50分鐘你問我值不值得當然不值得。", "Quadruplet": [{"Aspect": "蛋餅", "Category": "FOOD#QUALITY", "Opinion": "不值得", "VA": "3.50#5.38"}]}
+{"ID": "R2057:S000", "Text": "來到基隆廟口夜市必吃，個人認為是全台最強的咖哩炒麵。", "Quadruplet": [{"Aspect": "咖哩炒麵", "Category": "FOOD#QUALITY", "Opinion": "必吃", "VA": "7.00#6.83"}, {"Aspect": "咖哩炒麵", "Category": "FOOD#QUALITY", "Opinion": "全台最強", "VA": "7.83#7.83"}]}
+{"ID": "R2057:S006", "Text": "料非常實在湯頭也很清爽。", "Quadruplet": [{"Aspect": "料", "Category": "FOOD#QUALITY", "Opinion": "非常實在", "VA": "6.67#6.17"}, {"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "很清爽", "VA": "6.50#6.00"}]}
+{"ID": "R2854:S006", "Text": "黑糖粉圓很甜，超喜歡。", "Quadruplet": [{"Aspect": "黑糖粉圓", "Category": "FOOD#QUALITY", "Opinion": "超喜歡", "VA": "7.25#7.00"}, {"Aspect": "黑糖粉圓", "Category": "FOOD#QUALITY", "Opinion": "很甜", "VA": "6.75#6.00"}]}
+{"ID": "R2854:S007", "Text": "茶飲有註明微苦，但喝起來其實回甘好喝。", "Quadruplet": [{"Aspect": "茶飲", "Category": "DRINKS#QUALITY", "Opinion": "回甘", "VA": "6.17#5.67"}, {"Aspect": "茶飲", "Category": "DRINKS#QUALITY", "Opinion": "好喝", "VA": "6.50#6.17"}]}
+{"ID": "R0393:S014", "Text": "悶肉調味偏淡一些。", "Quadruplet": [{"Aspect": "悶肉調味", "Category": "FOOD#QUALITY", "Opinion": "偏淡", "VA": "4.62#4.88"}]}
+{"ID": "R0393:S027", "Text": "個人最愛的悶肉。", "Quadruplet": [{"Aspect": "悶肉", "Category": "FOOD#QUALITY", "Opinion": "最愛", "VA": "7.25#7.50"}]}
+{"ID": "R0393:S030", "Text": "悶肉口味帶點甜。", "Quadruplet": [{"Aspect": "悶肉口味", "Category": "FOOD#QUALITY", "Opinion": "帶點甜", "VA": "5.62#5.12"}]}
+{"ID": "R0393:S031", "Text": "悶肉完全不油膩。", "Quadruplet": [{"Aspect": "悶肉", "Category": "FOOD#QUALITY", "Opinion": "完全不油膩", "VA": "6.00#5.88"}]}
+{"ID": "R0393:S050", "Text": "金沙竹筍超美味。", "Quadruplet": [{"Aspect": "金沙竹筍", "Category": "FOOD#QUALITY", "Opinion": "超美味", "VA": "7.00#7.00"}]}
+{"ID": "R0393:S051", "Text": "鹹香的金沙。", "Quadruplet": [{"Aspect": "金沙", "Category": "FOOD#QUALITY", "Opinion": "鹹香", "VA": "6.62#5.75"}]}
+{"ID": "R0393:S055", "Text": "欖葉四季豆也是每次必點。", "Quadruplet": [{"Aspect": "欖葉四季豆", "Category": "FOOD#QUALITY", "Opinion": "每次必點", "VA": "7.33#7.33"}]}
+{"ID": "R0393:S064", "Text": "這款湯非常夠味。", "Quadruplet": [{"Aspect": "湯", "Category": "FOOD#QUALITY", "Opinion": "非常夠味", "VA": "6.67#6.67"}]}
+{"ID": "R0393:S067", "Text": "只有剝皮辣椒的鹹香。", "Quadruplet": [{"Aspect": "剝皮辣椒", "Category": "FOOD#QUALITY", "Opinion": "鹹香", "VA": "6.38#5.75"}]}
+{"ID": "R0393:S069", "Text": "湯頭超棒。", "Quadruplet": [{"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "超棒", "VA": "7.00#6.80"}]}
+{"ID": "R0393:S076", "Text": "蝦子很好入口。", "Quadruplet": [{"Aspect": "蝦子", "Category": "FOOD#QUALITY", "Opinion": "很好入口", "VA": "6.38#6.00"}]}
+{"ID": "R0393:S079", "Text": "海石老很細嫩。", "Quadruplet": [{"Aspect": "海石老", "Category": "FOOD#QUALITY", "Opinion": "很細嫩", "VA": "6.33#6.50"}]}
+{"ID": "R0393:S080", "Text": "海石老清蒸後好美味。", "Quadruplet": [{"Aspect": "海石老", "Category": "FOOD#QUALITY", "Opinion": "好美味", "VA": "6.50#6.50"}]}
+{"ID": "R0393:S085", "Text": "炒臭豆腐大概是我唯一比較不喜歡的菜了。", "Quadruplet": [{"Aspect": "炒臭豆腐", "Category": "FOOD#QUALITY", "Opinion": "不喜歡", "VA": "4.33#5.00"}]}
+{"ID": "R0393:S086", "Text": "因為臭豆腐又臭又偏乾。", "Quadruplet": [{"Aspect": "臭豆腐", "Category": "FOOD#QUALITY", "Opinion": "臭", "VA": "3.67#4.83"}, {"Aspect": "臭豆腐", "Category": "FOOD#QUALITY", "Opinion": "偏乾", "VA": "4.00#4.67"}]}
+{"ID": "R0393:S098", "Text": "因為金沙蝦真的好吃。", "Quadruplet": [{"Aspect": "金沙蝦", "Category": "FOOD#QUALITY", "Opinion": "真的好吃", "VA": "6.50#6.50"}]}
+{"ID": "R2964:S007", "Text": "唯獨蔥爆牛肉的牛肉真的像皮筋咬不斷。", "Quadruplet": [{"Aspect": "牛肉", "Category": "FOOD#QUALITY", "Opinion": "咬不斷", "VA": "4.67#4.83"}]}
+{"ID": "R2964:S010", "Text": "不過服務人員的服務很親切，是有在家吃飯的感覺。", "Quadruplet": [{"Aspect": "服務人員的服務", "Category": "SERVICE#GENERAL", "Opinion": "很親切", "VA": "6.50#5.83"}]}
+{"ID": "R3112:S000", "Text": "牛肉肉質偏硬，沒冷氣故環境較悶熱。", "Quadruplet": [{"Aspect": "牛肉肉質", "Category": "FOOD#QUALITY", "Opinion": "偏硬", "VA": "4.38#5.50"}, {"Aspect": "環境", "Category": "AMBIENCE#GENERAL", "Opinion": "較悶熱", "VA": "4.38#5.00"}]}
+{"ID": "R0038:S005", "Text": "店面的裝潢很輕鬆簡單。", "Quadruplet": [{"Aspect": "裝潢", "Category": "AMBIENCE#GENERAL", "Opinion": "很輕鬆簡單", "VA": "6.00#5.75"}]}
+{"ID": "R0038:S014", "Text": "吃到剝掉脆皮的金錢蝦餅手舞足蹈，非常喜歡。", "Quadruplet": [{"Aspect": "金錢蝦餅", "Category": "FOOD#QUALITY", "Opinion": "非常喜歡", "VA": "7.25#7.12"}]}
+{"ID": "R0038:S020", "Text": "另外楊桃豆沙拉也是我很喜歡的一道。", "Quadruplet": [{"Aspect": "楊桃豆沙拉", "Category": "FOOD#QUALITY", "Opinion": "很喜歡", "VA": "6.83#6.50"}]}
+{"ID": "R0038:S024", "Text": "金錢蝦餅的蝦肉豐美有彈性。", "Quadruplet": [{"Aspect": "蝦肉", "Category": "FOOD#QUALITY", "Opinion": "豐美", "VA": "6.38#5.88"}, {"Aspect": "蝦肉", "Category": "FOOD#QUALITY", "Opinion": "有彈性", "VA": "6.38#5.88"}]}
+{"ID": "R0038:S030", "Text": "河粉是比較濕黏且甜的口味，比較不合我胃口。", "Quadruplet": [{"Aspect": "河粉", "Category": "FOOD#QUALITY", "Opinion": "比較不合我胃口", "VA": "4.00#6.00"}]}
+{"ID": "R0038:S032", "Text": "咖哩豬肉毫無特色。", "Quadruplet": [{"Aspect": "咖哩豬肉", "Category": "FOOD#QUALITY", "Opinion": "毫無特色", "VA": "3.50#5.00"}]}
+{"ID": "R0038:S033", "Text": "芒果糯米與香蕉煎餅，我認為都是必吃的甜點。", "Quadruplet": [{"Aspect": "芒果糯米", "Category": "FOOD#QUALITY", "Opinion": "必吃", "VA": "6.90#6.80"}, {"Aspect": "香蕉煎餅", "Category": "FOOD#QUALITY", "Opinion": "必吃", "VA": "6.90#6.80"}]}
+{"ID": "R0038:S041", "Text": "我覺得脆皮炒芥蘭也讓人眼睛為之一亮。", "Quadruplet": [{"Aspect": "脆皮炒芥蘭", "Category": "FOOD#QUALITY", "Opinion": "眼睛為之一亮", "VA": "6.83#7.00"}]}
+{"ID": "R0038:S042", "Text": "而椰漿雞湯無論是炎熱的夏天或是像這樣的冬天來一碗都很對味。", "Quadruplet": [{"Aspect": "椰漿雞湯", "Category": "FOOD#QUALITY", "Opinion": "很對味", "VA": "6.50#6.50"}]}
+{"ID": "R0038:S043", "Text": "兩次的印象都讓我對Zaap非常好。", "Quadruplet": [{"Aspect": "Zaap", "Category": "RESTAURANT#GENERAL", "Opinion": "非常好", "VA": "7.00#7.17"}]}
+{"ID": "R2133:S000", "Text": "有附設停車場停車格並不多，不過停車還算方便。", "Quadruplet": [{"Aspect": "停車格", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不多", "VA": "4.67#5.17"}, {"Aspect": "停車", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "方便", "VA": "5.50#5.17"}]}
+{"ID": "R2133:S003", "Text": "我們是在尖峰時刻去上餐速度真的超快，但沒有因為速度而影響到食物的品質。", "Quadruplet": [{"Aspect": "上餐速度", "Category": "SERVICE#GENERAL", "Opinion": "真的超快", "VA": "6.50#6.38"}]}
+{"ID": "R2133:S004", "Text": "南瓜濃湯很濃還不錯喝。", "Quadruplet": [{"Aspect": "南瓜濃湯", "Category": "FOOD#QUALITY", "Opinion": "很濃", "VA": "6.17#5.83"}, {"Aspect": "南瓜濃湯", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "6.00#5.67"}]}
+{"ID": "R2133:S005", "Text": "青醬義大利麵的麵條軟硬度適中，不過醬汁偏水了一點。", "Quadruplet": [{"Aspect": "麵條軟硬度", "Category": "FOOD#QUALITY", "Opinion": "適中", "VA": "5.25#5.25"}, {"Aspect": "醬汁", "Category": "FOOD#QUALITY", "Opinion": "偏水了一點", "VA": "4.50#4.75"}]}
+{"ID": "R2133:S009", "Text": "點心加購的薯條以這個價錢來說份量有點少。", "Quadruplet": [{"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "有點少", "VA": "4.67#5.33"}]}
+{"ID": "R2133:S011", "Text": "鳳梨梅汁很濃很好喝。", "Quadruplet": [{"Aspect": "鳳梨梅汁", "Category": "DRINKS#QUALITY", "Opinion": "很濃", "VA": "6.50#6.33"}, {"Aspect": "鳳梨梅汁", "Category": "DRINKS#QUALITY", "Opinion": "很好喝", "VA": "6.83#6.33"}]}
+{"ID": "R2133:S012", "Text": "以複合式餐廳來說這間餐廳真的還滿不錯的。", "Quadruplet": [{"Aspect": "餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "真的還滿不錯的", "VA": "6.33#6.00"}]}
+{"ID": "R2133:S013", "Text": "從食物、用料到擺盤，店員的服務都可以看到用心。", "Quadruplet": [{"Aspect": "店員的服務", "Category": "SERVICE#GENERAL", "Opinion": "用心", "VA": "5.88#5.50"}]}
+{"ID": "R0958:S035", "Text": "榨菜肉絲乾麵超大一碗，榨菜很多肉絲也不少。", "Quadruplet": [{"Aspect": "榨菜肉絲乾麵", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "超大一碗", "VA": "7.00#6.50"}, {"Aspect": "榨菜", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "6.17#5.83"}, {"Aspect": "肉絲", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不少", "VA": "5.67#5.67"}]}
+{"ID": "R2037:S003", "Text": "這次用餐體驗感覺還不錯，肉真的很好吃對得起它的價位。", "Quadruplet": [{"Aspect": "用餐體驗", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "還不錯", "VA": "5.83#5.50"}, {"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "真的很好吃", "VA": "6.83#6.50"}]}
+{"ID": "R2037:S007", "Text": "海鮮的部分點了鮮蚵也非常美味。", "Quadruplet": [{"Aspect": "鮮蚵", "Category": "FOOD#QUALITY", "Opinion": "非常美味", "VA": "7.12#7.00"}]}
+{"ID": "R2037:S012", "Text": "服務人員很親切也會主動詢問加湯，環境氣氛也都很棒。", "Quadruplet": [{"Aspect": "服務人員", "Category": "SERVICE#GENERAL", "Opinion": "很親切", "VA": "6.25#5.75"}, {"Aspect": "環境", "Category": "AMBIENCE#GENERAL", "Opinion": "很棒", "VA": "6.25#5.75"}, {"Aspect": "氣氛", "Category": "AMBIENCE#GENERAL", "Opinion": "很棒", "VA": "6.25#5.75"}]}
+{"ID": "R1837:S007", "Text": "招牌炒飯粒粒分明。", "Quadruplet": [{"Aspect": "招牌炒飯", "Category": "FOOD#QUALITY", "Opinion": "粒粒分明", "VA": "6.00#5.17"}]}
+{"ID": "R2265:S015", "Text": "牛肉捲餅夾著大蔥及牛肉片，味道清爽又好吃。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "清爽又好吃", "VA": "6.75#6.38"}]}
+{"ID": "R1586:S000", "Text": "餐點不好吃。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "不好吃", "VA": "4.00#4.25"}]}
+{"ID": "R1586:S001", "Text": "餐點cp值差。", "Quadruplet": [{"Aspect": "餐點cp值", "Category": "FOOD#PRICES", "Opinion": "差", "VA": "3.17#5.00"}]}
+{"ID": "R1586:S002", "Text": "重點是服務人員態度非常差勁。", "Quadruplet": [{"Aspect": "服務人員態度", "Category": "SERVICE#GENERAL", "Opinion": "非常差勁", "VA": "2.62#6.25"}]}
+{"ID": "R1593:S002", "Text": "雞肉串肉質很硬。", "Quadruplet": [{"Aspect": "雞肉串肉質", "Category": "FOOD#QUALITY", "Opinion": "很硬", "VA": "3.83#6.50"}]}
+{"ID": "R1593:S004", "Text": "海鮮丼不太新鮮。", "Quadruplet": [{"Aspect": "海鮮丼", "Category": "FOOD#QUALITY", "Opinion": "不太新鮮", "VA": "3.20#5.10"}]}
+{"ID": "R0202:S006", "Text": "門口可以停車蠻方便。", "Quadruplet": [{"Aspect": "停車", "Category": "LOCATION#GENERAL", "Opinion": "蠻方便", "VA": "6.20#5.70"}]}
+{"ID": "R0202:S008", "Text": "裡面其實空間不大。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "不大", "VA": "4.50#4.83"}]}
+{"ID": "R0202:S010", "Text": "座位不多蠻容易客滿。", "Quadruplet": [{"Aspect": "座位", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不多", "VA": "4.50#4.83"}]}
+{"ID": "R0202:S038", "Text": "整隻雞腿也很軟嫩。", "Quadruplet": [{"Aspect": "雞腿", "Category": "FOOD#QUALITY", "Opinion": "很軟嫩", "VA": "6.50#6.25"}]}
+{"ID": "R0202:S044", "Text": "醬汁也蠻入味。", "Quadruplet": [{"Aspect": "醬汁", "Category": "FOOD#QUALITY", "Opinion": "蠻入味", "VA": "6.20#5.70"}]}
+{"ID": "R0202:S050", "Text": "這個椒麻雞是我最愛的一道。", "Quadruplet": [{"Aspect": "椒麻雞", "Category": "FOOD#QUALITY", "Opinion": "最愛", "VA": "7.12#6.75"}]}
+{"ID": "R0202:S059", "Text": "紅茶不苦澀喝起來很順口。", "Quadruplet": [{"Aspect": "紅茶", "Category": "DRINKS#QUALITY", "Opinion": "不苦澀", "VA": "5.75#5.25"}, {"Aspect": "紅茶", "Category": "DRINKS#QUALITY", "Opinion": "很順口", "VA": "6.25#6.00"}]}
+{"ID": "R0202:S061", "Text": "方度乳酪蛋糕我也很喜歡。", "Quadruplet": [{"Aspect": "方度乳酪蛋糕", "Category": "FOOD#QUALITY", "Opinion": "很喜歡", "VA": "6.50#6.33"}]}
+{"ID": "R0202:S062", "Text": "乳酪很濃郁好吃。", "Quadruplet": [{"Aspect": "乳酪", "Category": "FOOD#QUALITY", "Opinion": "很濃郁", "VA": "6.17#6.17"}, {"Aspect": "乳酪", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.33#5.50"}]}
+{"ID": "R2267:S000", "Text": "牛肉超硬超柴，根本冷凍很久的肉，還有一股很重的牛騷味。", "Quadruplet": [{"Aspect": "牛肉", "Category": "FOOD#QUALITY", "Opinion": "超硬", "VA": "4.33#5.00"}, {"Aspect": "牛肉", "Category": "FOOD#QUALITY", "Opinion": "超柴", "VA": "4.33#5.00"}, {"Aspect": "牛騷味", "Category": "FOOD#QUALITY", "Opinion": "很重", "VA": "4.33#5.33"}]}
+{"ID": "R2267:S002", "Text": "小菜海帶絲整盤都是油，高麗菜整盤也炒的很油。", "Quadruplet": [{"Aspect": "小菜海帶絲", "Category": "FOOD#QUALITY", "Opinion": "都是油", "VA": "4.00#5.88"}, {"Aspect": "高麗菜", "Category": "FOOD#QUALITY", "Opinion": "很油", "VA": "4.00#6.00"}]}
+{"ID": "R3308:S005", "Text": "就覺得是一間餐點好吃的店價格也不貴。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.67"}, {"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "不貴", "VA": "5.67#5.17"}]}
+{"ID": "R3308:S016", "Text": "店內裝潢像一般的台灣小吃店簡約普通。", "Quadruplet": [{"Aspect": "裝潢", "Category": "AMBIENCE#GENERAL", "Opinion": "簡約普通", "VA": "5.75#5.25"}]}
+{"ID": "R3308:S031", "Text": "糯米鵝血糕出乎意料的好吃，我不太吃血糕但卻連吃了好幾塊。", "Quadruplet": [{"Aspect": "糯米鵝血糕", "Category": "FOOD#QUALITY", "Opinion": "出乎意料的好吃", "VA": "7.00#6.50"}]}
+{"ID": "R2851:S003", "Text": "牛肉跟羊肉都好吃。", "Quadruplet": [{"Aspect": "牛肉", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.38"}, {"Aspect": "羊肉", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.38"}]}
+{"ID": "R2851:S005", "Text": "麵線跟拉麵都還好。", "Quadruplet": [{"Aspect": "麵線", "Category": "FOOD#QUALITY", "Opinion": "還好", "VA": "5.62#5.25"}, {"Aspect": "拉麵", "Category": "FOOD#QUALITY", "Opinion": "還好", "VA": "5.62#5.25"}]}
+{"ID": "R2851:S007", "Text": "地瓜葉超級好吃很嫩很嫩。", "Quadruplet": [{"Aspect": "地瓜葉", "Category": "FOOD#QUALITY", "Opinion": "超級好吃", "VA": "7.00#6.50"}, {"Aspect": "地瓜葉", "Category": "FOOD#QUALITY", "Opinion": "很嫩很嫩", "VA": "6.50#6.00"}]}
+{"ID": "R0618:S002", "Text": "他們有提供義式咖啡茶類手沖單品套餐以及下午茶系列，當天點的椪糖拿鐵以及抹茶歐蕾真的是不錯喝。", "Quadruplet": [{"Aspect": "椪糖拿鐵", "Category": "DRINKS#QUALITY", "Opinion": "真的是不錯喝", "VA": "6.67#6.67"}, {"Aspect": "抹茶歐蕾", "Category": "DRINKS#QUALITY", "Opinion": "真的是不錯喝", "VA": "6.67#6.67"}]}
+{"ID": "R0618:S003", "Text": "但最吸引我們的還是店裡超可愛的貓咪們。", "Quadruplet": [{"Aspect": "貓咪", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "超可愛", "VA": "7.80#7.70"}]}
+{"ID": "R0618:S020", "Text": "推薦必點椪糖拿鐵，好喝的拿鐵上頭會舖上酥脆的椪糖。", "Quadruplet": [{"Aspect": "椪糖拿鐵", "Category": "DRINKS#QUALITY", "Opinion": "推薦", "VA": "6.67#6.17"}, {"Aspect": "椪糖拿鐵", "Category": "DRINKS#QUALITY", "Opinion": "必點", "VA": "6.67#6.33"}, {"Aspect": "拿鐵", "Category": "DRINKS#QUALITY", "Opinion": "好喝的", "VA": "6.67#6.17"}, {"Aspect": "椪糖", "Category": "FOOD#QUALITY", "Opinion": "酥脆的", "VA": "6.67#5.83"}]}
+{"ID": "R0618:S021", "Text": "拿鐵喝起來順口好喝。", "Quadruplet": [{"Aspect": "拿鐵", "Category": "DRINKS#QUALITY", "Opinion": "順口", "VA": "7.00#6.67"}, {"Aspect": "拿鐵", "Category": "DRINKS#QUALITY", "Opinion": "好喝", "VA": "6.83#6.67"}]}
+{"ID": "R0618:S024", "Text": "重點是這裡的飲品價格都不貴。", "Quadruplet": [{"Aspect": "飲品價格", "Category": "DRINKS#PRICES", "Opinion": "不貴", "VA": "6.38#5.50"}]}
+{"ID": "R2556:S003", "Text": "這家餐廳雖然主打片鴨，但片鴨的肉比較柴，味道真的沒有很厲害。", "Quadruplet": [{"Aspect": "片鴨的肉", "Category": "FOOD#QUALITY", "Opinion": "比較柴", "VA": "4.00#5.67"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "真的沒有很厲害", "VA": "3.67#6.00"}]}
+{"ID": "R2556:S006", "Text": "烤鴨部分我真的覺得要加強。", "Quadruplet": [{"Aspect": "烤鴨", "Category": "FOOD#QUALITY", "Opinion": "要加強", "VA": "4.38#5.75"}]}
+{"ID": "R2556:S007", "Text": "個人蠻喜歡什錦炒飯，裡面的料很多有魷魚肉絲蝦仁等等，吃起來不油膩味道很好吃。", "Quadruplet": [{"Aspect": "什錦炒飯", "Category": "FOOD#QUALITY", "Opinion": "蠻喜歡", "VA": "7.00#6.00"}, {"Aspect": "料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "7.00#6.00"}, {"Aspect": "什錦炒飯", "Category": "FOOD#QUALITY", "Opinion": "不油膩", "VA": "6.50#6.00"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "7.00#6.50"}]}
+{"ID": "R0587:S022", "Text": "羊肉片無羊羶，軟而微帶咬感。", "Quadruplet": [{"Aspect": "羊肉片", "Category": "FOOD#QUALITY", "Opinion": "無羊羶", "VA": "6.67#5.83"}, {"Aspect": "羊肉片", "Category": "FOOD#QUALITY", "Opinion": "軟", "VA": "6.67#5.83"}, {"Aspect": "羊肉片", "Category": "FOOD#QUALITY", "Opinion": "微帶咬感", "VA": "6.67#6.33"}]}
+{"ID": "R0587:S028", "Text": "大陸妹新鮮不老，入鍋剛好可以吸附湯裡的油。", "Quadruplet": [{"Aspect": "大陸妹", "Category": "FOOD#QUALITY", "Opinion": "新鮮不老", "VA": "6.62#6.00"}]}
+{"ID": "R0587:S031", "Text": "羊肉丸彈實口感挺好。", "Quadruplet": [{"Aspect": "羊肉丸", "Category": "FOOD#QUALITY", "Opinion": "彈實", "VA": "6.25#5.38"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "挺好", "VA": "5.88#5.38"}]}
+{"ID": "R0379:S012", "Text": "肉質緊實又有彈性。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "緊實", "VA": "6.50#5.25"}, {"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "有彈性", "VA": "6.50#5.25"}]}
+{"ID": "R0156:S015", "Text": "空間很侷促。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "很侷促", "VA": "3.88#5.62"}]}
+{"ID": "R0156:S047", "Text": "看起來內容物超豐盛。", "Quadruplet": [{"Aspect": "內容物", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "超豐盛", "VA": "6.50#6.75"}]}
+{"ID": "R3056:S004", "Text": "每一道海鮮都是極鮮的美味。", "Quadruplet": [{"Aspect": "海鮮", "Category": "FOOD#QUALITY", "Opinion": "極鮮", "VA": "6.50#6.00"}, {"Aspect": "海鮮", "Category": "FOOD#QUALITY", "Opinion": "美味", "VA": "6.75#6.00"}]}
+{"ID": "R0318:S011", "Text": "交通相當便利。", "Quadruplet": [{"Aspect": "交通", "Category": "LOCATION#GENERAL", "Opinion": "相當便利", "VA": "6.75#6.25"}]}
+{"ID": "R0318:S045", "Text": "肉質不錯。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.30#6.00"}]}
+{"ID": "R0318:S050", "Text": "肉質超Q彈。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "超Q彈", "VA": "6.75#6.75"}]}
+{"ID": "R0318:S058", "Text": "甘口醬燒豬梅花也是相當有彈性。", "Quadruplet": [{"Aspect": "甘口醬燒豬梅花", "Category": "FOOD#QUALITY", "Opinion": "相當有彈性", "VA": "6.50#6.38"}]}
+{"ID": "R0318:S059", "Text": "口感也很有嚼勁。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "很有嚼勁", "VA": "6.30#6.00"}]}
+{"ID": "R0318:S064", "Text": "中辛山椒雞軟骨醃漬的蠻入味。", "Quadruplet": [{"Aspect": "中辛山椒雞軟骨", "Category": "FOOD#QUALITY", "Opinion": "蠻入味", "VA": "6.33#6.50"}]}
+{"ID": "R0318:S065", "Text": "口感很脆。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "很脆", "VA": "6.50#6.33"}]}
+{"ID": "R0318:S074", "Text": "月見牛肉拌飯吃起來很過癮。", "Quadruplet": [{"Aspect": "月見牛肉拌飯", "Category": "FOOD#QUALITY", "Opinion": "很過癮", "VA": "7.12#6.88"}]}
+{"ID": "R0318:S080", "Text": "布朗尼熱呼呼的超好吃。", "Quadruplet": [{"Aspect": "布朗尼", "Category": "FOOD#QUALITY", "Opinion": "超好吃", "VA": "7.75#7.62"}]}
+{"ID": "R1933:S003", "Text": "海蜇太清淡。", "Quadruplet": [{"Aspect": "海蜇", "Category": "FOOD#QUALITY", "Opinion": "太清淡", "VA": "4.12#5.38"}]}
+{"ID": "R1933:S005", "Text": "壽司種類很多。", "Quadruplet": [{"Aspect": "壽司種類", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "6.12#6.38"}]}
+{"ID": "R1933:S008", "Text": "百香茶鵝不錯。", "Quadruplet": [{"Aspect": "百香茶鵝", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.80#5.30"}]}
+{"ID": "R1933:S011", "Text": "其中黑糖稻荷滿驚艷的。", "Quadruplet": [{"Aspect": "黑糖稻荷", "Category": "FOOD#QUALITY", "Opinion": "滿驚艷的", "VA": "6.50#6.12"}]}
+{"ID": "R1933:S013", "Text": "蒸蛋超嫩。", "Quadruplet": [{"Aspect": "蒸蛋", "Category": "FOOD#QUALITY", "Opinion": "超嫩", "VA": "6.67#6.67"}]}
+{"ID": "R1975:S000", "Text": "以食材的美味程度與服務還有環境覺得這個價格略高。", "Quadruplet": [{"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "略高", "VA": "4.17#5.17"}]}
+{"ID": "R0472:S028", "Text": "有些像是菜單上的5貫組合要300左右其實是不便宜。", "Quadruplet": [{"Aspect": "5貫組合", "Category": "FOOD#PRICES", "Opinion": "不便宜", "VA": "4.00#5.12"}]}
+{"ID": "R0472:S037", "Text": "價格是最貴的188金盤魚肉，是幾乎看不到醋飯的超豪邁尺寸。", "Quadruplet": [{"Aspect": "金盤魚肉", "Category": "FOOD#PRICES", "Opinion": "最貴", "VA": "4.83#5.83"}, {"Aspect": "金盤魚肉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "超豪邁", "VA": "7.17#7.00"}]}
+{"ID": "R0472:S044", "Text": "魚皮烤得微脆。", "Quadruplet": [{"Aspect": "魚皮", "Category": "FOOD#QUALITY", "Opinion": "微脆", "VA": "6.25#5.50"}]}
+{"ID": "R0472:S045", "Text": "加上脆彈的魚肉口感很好。", "Quadruplet": [{"Aspect": "魚肉", "Category": "FOOD#QUALITY", "Opinion": "脆彈的", "VA": "6.88#6.50"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "很好", "VA": "6.75#6.50"}]}
+{"ID": "R0472:S049", "Text": "合點壽司就很不錯風味濃郁又滑嫩。", "Quadruplet": [{"Aspect": "合點壽司", "Category": "FOOD#QUALITY", "Opinion": "很不錯", "VA": "6.25#6.50"}, {"Aspect": "風味", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "6.25#5.00"}, {"Aspect": "風味", "Category": "FOOD#QUALITY", "Opinion": "滑嫩", "VA": "6.25#5.00"}]}
+{"ID": "R0472:S051", "Text": "青甘天婦羅花卷也蠻讓人驚豔。", "Quadruplet": [{"Aspect": "青甘天婦羅花卷", "Category": "FOOD#QUALITY", "Opinion": "讓人驚豔", "VA": "6.62#6.25"}]}
+{"ID": "R0472:S056", "Text": "安康魚肝軍艦口感還蠻粉嫩。", "Quadruplet": [{"Aspect": "安康魚肝軍艦口感", "Category": "FOOD#QUALITY", "Opinion": "蠻粉嫩", "VA": "6.17#5.67"}]}
+{"ID": "R0472:S057", "Text": "接下來也是讓人驚豔的甜蝦押壽司，一開始是吃到甜蝦淡甜糯的滋味。", "Quadruplet": [{"Aspect": "甜蝦押壽司", "Category": "FOOD#QUALITY", "Opinion": "驚豔", "VA": "7.00#6.50"}, {"Aspect": "甜蝦", "Category": "FOOD#QUALITY", "Opinion": "淡甜糯", "VA": "6.50#5.50"}]}
+{"ID": "R0472:S062", "Text": "蔥花鮪魚泥卷表現中規中矩。", "Quadruplet": [{"Aspect": "蔥花鮪魚泥卷", "Category": "FOOD#QUALITY", "Opinion": "中規中矩", "VA": "5.00#4.83"}]}
+{"ID": "R0472:S072", "Text": "整體來說這次的用餐體驗蠻好的。", "Quadruplet": [{"Aspect": "用餐體驗", "Category": "RESTAURANT#GENERAL", "Opinion": "蠻好的", "VA": "6.17#6.00"}]}
+{"ID": "R0472:S073", "Text": "又有表演可看，餐點品質也不錯。", "Quadruplet": [{"Aspect": "餐點品質", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.88#5.38"}]}
+{"ID": "R3195:S005", "Text": "人員服務親切值得加分。", "Quadruplet": [{"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "親切", "VA": "5.75#5.38"}]}
+{"ID": "R1537:S006", "Text": "龍蝦湯超級鹹。", "Quadruplet": [{"Aspect": "龍蝦湯", "Category": "FOOD#QUALITY", "Opinion": "超級鹹", "VA": "3.75#5.25"}]}
+{"ID": "R1634:S001", "Text": "餐點沒有特別驚艷的地方。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "沒有特別驚艷", "VA": "4.62#5.25"}]}
+{"ID": "R1634:S002", "Text": "義大利麵彈牙好吃。", "Quadruplet": [{"Aspect": "義大利麵", "Category": "FOOD#QUALITY", "Opinion": "彈牙好吃", "VA": "6.67#6.00"}]}
+{"ID": "R1634:S006", "Text": "但是餐廳的沙發感覺不是很乾淨。", "Quadruplet": [{"Aspect": "餐廳的沙發", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不是很乾淨", "VA": "4.38#5.12"}]}
+{"ID": "R2223:S002", "Text": "鹽水鴨冰糖鴨買回家配酒都好吃!", "Quadruplet": [{"Aspect": "鹽水鴨", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.62#5.88"}, {"Aspect": "冰糖鴨", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.62#5.88"}]}
+{"ID": "R1718:S000", "Text": "蝦子肉質好。", "Quadruplet": [{"Aspect": "蝦子肉質", "Category": "FOOD#QUALITY", "Opinion": "好", "VA": "5.83#5.50"}]}
+{"ID": "R1718:S001", "Text": "蝦頭濃郁多汁。", "Quadruplet": [{"Aspect": "蝦頭", "Category": "FOOD#QUALITY", "Opinion": "濃郁多汁", "VA": "6.25#6.00"}]}
+{"ID": "R1718:S003", "Text": "大推鹽烤蝦。", "Quadruplet": [{"Aspect": "鹽烤蝦", "Category": "FOOD#QUALITY", "Opinion": "大推", "VA": "6.75#6.75"}]}
+{"ID": "R1718:S004", "Text": "蝦餅口感炸起來很好。", "Quadruplet": [{"Aspect": "蝦餅口感", "Category": "FOOD#QUALITY", "Opinion": "很好", "VA": "5.83#5.83"}]}
+{"ID": "R1718:S005", "Text": "炸中卷肉嫩外脆。", "Quadruplet": [{"Aspect": "炸中卷", "Category": "FOOD#QUALITY", "Opinion": "肉嫩外脆", "VA": "6.33#6.00"}]}
+{"ID": "R1718:S010", "Text": "蝦肉相當緊實。", "Quadruplet": [{"Aspect": "蝦肉", "Category": "FOOD#QUALITY", "Opinion": "相當緊實", "VA": "6.50#6.00"}]}
+{"ID": "R1718:S011", "Text": "炒水蓮不錯。", "Quadruplet": [{"Aspect": "炒水蓮", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.67#5.50"}]}
+{"ID": "R1718:S012", "Text": "菜埔蛋不錯吃。", "Quadruplet": [{"Aspect": "菜埔蛋", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.88#5.50"}]}
+{"ID": "R1718:S013", "Text": "酸梅汁好喝。", "Quadruplet": [{"Aspect": "酸梅汁", "Category": "DRINKS#QUALITY", "Opinion": "好喝", "VA": "6.83#6.17"}]}
+{"ID": "R2227:S000", "Text": "麻醬乾麵榨菜青菜，味道不明顯。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "不明顯", "VA": "4.50#5.62"}]}
+{"ID": "R2227:S003", "Text": "雞肉麵青菜，麵沒什麼味道，湯頭還可以。", "Quadruplet": [{"Aspect": "麵", "Category": "FOOD#QUALITY", "Opinion": "沒什麼味道", "VA": "4.50#5.00"}, {"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "還可以", "VA": "5.50#5.33"}]}
+{"ID": "R2227:S010", "Text": "鹽水鴨沒什麼味道一般，價格偏貴。", "Quadruplet": [{"Aspect": "鹽水鴨", "Category": "FOOD#QUALITY", "Opinion": "沒什麼味道", "VA": "4.50#4.50"}, {"Aspect": "鹽水鴨", "Category": "FOOD#QUALITY", "Opinion": "一般", "VA": "5.00#5.00"}, {"Aspect": "價格", "Category": "FOOD#PRICES", "Opinion": "偏貴", "VA": "4.50#5.00"}]}
+{"ID": "R3034:S002", "Text": "出餐超快速點好餐五分鐘就來了。", "Quadruplet": [{"Aspect": "出餐", "Category": "SERVICE#GENERAL", "Opinion": "超快速", "VA": "6.12#6.12"}]}
+{"ID": "R3034:S003", "Text": "手工蛋餅好好吃外酥內嫩，雖然是炸的但卻不會有油膩感。", "Quadruplet": [{"Aspect": "手工蛋餅", "Category": "FOOD#QUALITY", "Opinion": "好好吃", "VA": "6.25#6.00"}, {"Aspect": "手工蛋餅", "Category": "FOOD#QUALITY", "Opinion": "外酥內嫩", "VA": "6.25#6.00"}, {"Aspect": "手工蛋餅", "Category": "FOOD#QUALITY", "Opinion": "不會有油膩感", "VA": "5.75#5.50"}]}
+{"ID": "R3034:S006", "Text": "爌肉飯覺得普通，醬汁有一種味道個人不是很合胃口而且肉真的很小塊。", "Quadruplet": [{"Aspect": "爌肉飯", "Category": "FOOD#QUALITY", "Opinion": "普通", "VA": "5.00#4.83"}, {"Aspect": "醬汁", "Category": "FOOD#QUALITY", "Opinion": "不是很合胃口", "VA": "4.00#5.33"}, {"Aspect": "肉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的很小塊", "VA": "3.83#5.50"}]}
+{"ID": "R1015:S004", "Text": "這裡的串燒碳烤種類相當多選擇。", "Quadruplet": [{"Aspect": "串燒碳烤種類", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "相當多", "VA": "6.33#6.50"}]}
+{"ID": "R2061:S003", "Text": "實在是神奇咖哩的香氣十分古早味，味道也很迷人。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "很迷人", "VA": "6.67#6.00"}]}
+{"ID": "R2061:S005", "Text": "可惜油麵條的Q彈度稍微差了一點。", "Quadruplet": [{"Aspect": "油麵條的Q彈度", "Category": "FOOD#QUALITY", "Opinion": "稍微差了一點", "VA": "4.50#5.00"}]}
+{"ID": "R2061:S009", "Text": "湯也很好喝。", "Quadruplet": [{"Aspect": "湯", "Category": "FOOD#QUALITY", "Opinion": "很好喝", "VA": "6.75#6.50"}]}
+{"ID": "R3299:S003", "Text": "以7~800元澎湖的基本消費來說食材並不多並不超值。", "Quadruplet": [{"Aspect": "食材", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不多", "VA": "4.75#4.75"}, {"Aspect": "食材", "Category": "RESTAURANT#PRICES", "Opinion": "不超值", "VA": "4.25#4.50"}]}
+{"ID": "R3028:S001", "Text": "爌肉飯不油膩米飯粒粒分明。", "Quadruplet": [{"Aspect": "爌肉飯", "Category": "FOOD#QUALITY", "Opinion": "不油膩", "VA": "5.62#5.12"}, {"Aspect": "米飯", "Category": "FOOD#QUALITY", "Opinion": "粒粒分明", "VA": "5.88#5.38"}]}
+{"ID": "R3028:S016", "Text": "這裡價格也很實在，是具人氣與實力的必訪餐廳。", "Quadruplet": [{"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "很實在", "VA": "6.50#6.00"}, {"Aspect": "餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "具人氣與實力", "VA": "6.50#6.00"}, {"Aspect": "餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "必訪", "VA": "6.50#6.00"}]}
+{"ID": "R0946:S002", "Text": "這次點的就是BBQ嫩煎牛培根飯，醬汁有點稍嫌不夠，牛培根烤的香而軟嫩，BBQ醬和辣醬的香氣混合的極佳。", "Quadruplet": [{"Aspect": "醬汁", "Category": "FOOD#QUALITY", "Opinion": "有點稍嫌不夠", "VA": "4.50#6.00"}, {"Aspect": "牛培根", "Category": "FOOD#QUALITY", "Opinion": "香而軟嫩", "VA": "6.25#5.50"}]}
+{"ID": "R0946:S003", "Text": "經典番茄燉牛醬飯，看了也讓人口水直流。", "Quadruplet": [{"Aspect": "經典番茄燉牛醬飯", "Category": "FOOD#QUALITY", "Opinion": "讓人口水直流", "VA": "6.75#6.50"}]}
+{"ID": "R0946:S004", "Text": "蒜香佐檸檬奶油蝦飯，新鮮的整尾蝦子配上香辣的醬汁和薑黃飯一起入口也是相當的令人享受。", "Quadruplet": [{"Aspect": "蝦子", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "5.50#5.00"}, {"Aspect": "蒜香佐檸檬奶油蝦飯", "Category": "FOOD#QUALITY", "Opinion": "相當的令人享受", "VA": "6.75#6.75"}]}
+{"ID": "R3317:S002", "Text": "鵝肉沒有一點腥味，真的好吃。", "Quadruplet": [{"Aspect": "鵝肉", "Category": "FOOD#QUALITY", "Opinion": "真的好吃", "VA": "7.00#6.50"}]}
+{"ID": "R3317:S006", "Text": "蚵仔湯很新鮮，米血糕則普普。", "Quadruplet": [{"Aspect": "蚵仔湯", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.75#6.25"}, {"Aspect": "米血糕", "Category": "FOOD#QUALITY", "Opinion": "普普", "VA": "5.00#5.00"}]}
+{"ID": "R3317:S008", "Text": "蔥油雞腿是冷盤，味道口感都還不賴。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "還不賴", "VA": "6.00#5.75"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "還不賴", "VA": "6.00#5.75"}]}
+{"ID": "R3317:S012", "Text": "唯獨鵝肝一上桌就滿滿腥味，實在吃不下去。", "Quadruplet": [{"Aspect": "鵝肝", "Category": "FOOD#QUALITY", "Opinion": "滿滿腥味", "VA": "3.00#5.88"}, {"Aspect": "鵝肝", "Category": "FOOD#QUALITY", "Opinion": "吃不下去", "VA": "2.88#5.50"}]}
+{"ID": "R1022:S026", "Text": "古早味高山蔬菜豬肉湯麵湯頭清甜，配料雖然不多。", "Quadruplet": [{"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "清甜", "VA": "6.00#5.38"}, {"Aspect": "配料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不多", "VA": "4.50#4.38"}]}
+{"ID": "R1022:S031", "Text": "苦茶油乾拌烏龍茶麵味道非常香，麵條Q彈。", "Quadruplet": [{"Aspect": "苦茶油乾拌烏龍茶麵味道", "Category": "FOOD#QUALITY", "Opinion": "非常香", "VA": "6.67#6.50"}, {"Aspect": "麵條", "Category": "FOOD#QUALITY", "Opinion": "Q彈", "VA": "6.00#5.50"}]}
+{"ID": "R1022:S035", "Text": "紅茶厚片是厚片吐司加入紅茶香，不得不說這吐司真的好吃。", "Quadruplet": [{"Aspect": "吐司", "Category": "FOOD#QUALITY", "Opinion": "真的好吃", "VA": "6.88#7.00"}]}
+{"ID": "R0489:S032", "Text": "生菜沙拉區樣式豐富，且品質新鮮。", "Quadruplet": [{"Aspect": "生菜沙拉區樣式", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "豐富", "VA": "6.25#5.50"}, {"Aspect": "品質", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.25#5.62"}]}
+{"ID": "R1802:S028", "Text": "醬汁我覺得有點鹹。", "Quadruplet": [{"Aspect": "醬汁", "Category": "FOOD#QUALITY", "Opinion": "有點鹹", "VA": "4.75#5.38"}]}
+{"ID": "R1802:S029", "Text": "但也算是好吃的腸粉。", "Quadruplet": [{"Aspect": "腸粉", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.20#5.70"}]}
+{"ID": "R1802:S035", "Text": "我覺得雞肉有點蒸煮過度。", "Quadruplet": [{"Aspect": "雞肉", "Category": "FOOD#QUALITY", "Opinion": "有點蒸煮過度", "VA": "4.00#4.50"}]}
+{"ID": "R2617:S005", "Text": "鴉肉切盤份量比想像中多，味道也不錯可惜皮太厚不好咬。", "Quadruplet": [{"Aspect": "鴉肉切盤份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "比想像中多", "VA": "6.00#5.25"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.25#5.25"}, {"Aspect": "皮", "Category": "FOOD#QUALITY", "Opinion": "太厚不好咬", "VA": "4.00#5.00"}]}
+{"ID": "R2617:S007", "Text": "鴨肉飯的鴨肉味道偏淡。", "Quadruplet": [{"Aspect": "鴨肉味道", "Category": "FOOD#QUALITY", "Opinion": "偏淡", "VA": "4.67#5.33"}]}
+{"ID": "R2617:S008", "Text": "鴨肉冬粉味道很清淡。", "Quadruplet": [{"Aspect": "鴨肉冬粉味道", "Category": "FOOD#QUALITY", "Opinion": "很清淡", "VA": "5.67#5.17"}]}
+{"ID": "R2617:S011", "Text": "一般的薑絲鴨湯偏油且普通，老湯可能有帶血所以鮮味有出來還不錯。", "Quadruplet": [{"Aspect": "薑絲鴨湯", "Category": "FOOD#QUALITY", "Opinion": "偏油", "VA": "4.17#5.33"}, {"Aspect": "薑絲鴨湯", "Category": "FOOD#QUALITY", "Opinion": "普通", "VA": "5.00#5.00"}, {"Aspect": "老湯", "Category": "FOOD#QUALITY", "Opinion": "鮮味有出來", "VA": "5.67#5.33"}, {"Aspect": "老湯", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "5.67#5.50"}]}
+{"ID": "R2617:S012", "Text": "比較令人驚艷的是地瓜葉應該有好好撕筋所以口感真的很嫩。", "Quadruplet": [{"Aspect": "地瓜葉", "Category": "FOOD#QUALITY", "Opinion": "比較令人驚艷", "VA": "6.75#6.25"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "真的很嫩", "VA": "6.50#6.00"}]}
+{"ID": "R1624:S008", "Text": "菜色表現都算不錯。", "Quadruplet": [{"Aspect": "菜色表現", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.67#5.50"}]}
+{"ID": "R1624:S009", "Text": "最令我印象深刻的是蓬萊閣蔥㸆豬肋排。", "Quadruplet": [{"Aspect": "蓬萊閣蔥㸆豬肋排", "Category": "FOOD#QUALITY", "Opinion": "印象深刻", "VA": "6.50#6.33"}]}
+{"ID": "R1624:S010", "Text": "豬肋排醬汁入味。", "Quadruplet": [{"Aspect": "豬肋排醬汁", "Category": "FOOD#QUALITY", "Opinion": "入味", "VA": "5.75#5.25"}]}
+{"ID": "R1624:S017", "Text": "佛跳牆湯底夠厚實但不混濁配料豐富。", "Quadruplet": [{"Aspect": "佛跳牆湯底", "Category": "FOOD#QUALITY", "Opinion": "厚實", "VA": "6.00#5.25"}, {"Aspect": "佛跳牆湯底", "Category": "FOOD#QUALITY", "Opinion": "不混濁", "VA": "5.50#5.00"}, {"Aspect": "配料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "豐富", "VA": "6.25#5.50"}]}
+{"ID": "R1951:S000", "Text": "炸雞皮薄酥脆。", "Quadruplet": [{"Aspect": "炸雞皮", "Category": "FOOD#QUALITY", "Opinion": "薄酥脆", "VA": "6.12#5.75"}]}
+{"ID": "R1951:S001", "Text": "薄皮比薩餡料豐富。", "Quadruplet": [{"Aspect": "薄皮比薩餡料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "豐富", "VA": "6.12#5.50"}]}
+{"ID": "R1951:S006", "Text": "食材非常新鮮忍不住允指且一口接一口。", "Quadruplet": [{"Aspect": "食材", "Category": "FOOD#QUALITY", "Opinion": "非常新鮮", "VA": "6.50#6.50"}]}
+{"ID": "R2687:S008", "Text": "黑蒜雞火鍋風味濃郁蒜味十足。", "Quadruplet": [{"Aspect": "黑蒜雞火鍋風味", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "5.88#5.62"}, {"Aspect": "蒜味", "Category": "FOOD#QUALITY", "Opinion": "十足", "VA": "6.00#5.75"}]}
+{"ID": "R0819:S029", "Text": "享受爽脆十足的脆梅。", "Quadruplet": [{"Aspect": "脆梅", "Category": "FOOD#QUALITY", "Opinion": "爽脆十足", "VA": "6.17#6.17"}]}
+{"ID": "R0819:S034", "Text": "紅甘蔗的香氣濃厚。", "Quadruplet": [{"Aspect": "紅甘蔗的香氣", "Category": "FOOD#QUALITY", "Opinion": "濃厚", "VA": "6.38#5.75"}]}
+{"ID": "R0819:S039", "Text": "蕎麥味道顯著。", "Quadruplet": [{"Aspect": "蕎麥味道", "Category": "FOOD#QUALITY", "Opinion": "顯著", "VA": "5.62#5.50"}]}
+{"ID": "R0819:S048", "Text": "鮮奶茶喝起來相當順口。", "Quadruplet": [{"Aspect": "鮮奶茶", "Category": "DRINKS#QUALITY", "Opinion": "相當順口", "VA": "6.25#5.88"}]}
+{"ID": "R0819:S049", "Text": "鮮奶茶奶味十足。", "Quadruplet": [{"Aspect": "鮮奶茶奶味", "Category": "FOOD#QUALITY", "Opinion": "十足", "VA": "6.00#5.38"}]}
+{"ID": "R0819:S055", "Text": "粉角嚼起來滑順。", "Quadruplet": [{"Aspect": "粉角", "Category": "FOOD#QUALITY", "Opinion": "滑順", "VA": "6.00#5.83"}]}
+{"ID": "R0819:S058", "Text": "粉角很受歡迎。", "Quadruplet": [{"Aspect": "粉角", "Category": "FOOD#QUALITY", "Opinion": "很受歡迎", "VA": "6.50#6.40"}]}
+{"ID": "R1414:S003", "Text": "店家裝潢很簡單，裡面座位也不多。", "Quadruplet": [{"Aspect": "裝潢", "Category": "AMBIENCE#GENERAL", "Opinion": "很簡單", "VA": "5.00#5.00"}, {"Aspect": "座位", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不多", "VA": "5.00#5.00"}]}
+{"ID": "R1414:S016", "Text": "整體就算一般般，就是一般般的麵店。", "Quadruplet": [{"Aspect": "整體", "Category": "RESTAURANT#GENERAL", "Opinion": "一般般", "VA": "4.75#4.50"}, {"Aspect": "麵店", "Category": "RESTAURANT#GENERAL", "Opinion": "一般般", "VA": "4.75#4.50"}]}
+{"ID": "R2955:S003", "Text": "停車位非常少，我們到的時候18:00已經被停滿。", "Quadruplet": [{"Aspect": "停車位", "Category": "LOCATION#GENERAL", "Opinion": "非常少", "VA": "4.25#4.88"}]}
+{"ID": "R2955:S006", "Text": "食物部分個人覺得普通。", "Quadruplet": [{"Aspect": "食物", "Category": "FOOD#QUALITY", "Opinion": "普通", "VA": "4.88#5.00"}]}
+{"ID": "R2171:S003", "Text": "高麗菜真的有夠爽口，清脆而不油膩。", "Quadruplet": [{"Aspect": "高麗菜", "Category": "FOOD#QUALITY", "Opinion": "真的有夠爽口", "VA": "6.50#6.00"}, {"Aspect": "高麗菜", "Category": "FOOD#QUALITY", "Opinion": "清脆", "VA": "5.88#5.50"}, {"Aspect": "高麗菜", "Category": "FOOD#QUALITY", "Opinion": "不油膩", "VA": "5.62#5.12"}]}
+{"ID": "R2171:S005", "Text": "蒜炒豬肉片的蒜實在是有夠好吃，平常我是不吃蒜的但肉片搭著蒜根本絕配。", "Quadruplet": [{"Aspect": "蒜炒豬肉片的蒜", "Category": "FOOD#QUALITY", "Opinion": "實在是有夠好吃", "VA": "7.50#7.00"}]}
+{"ID": "R2171:S011", "Text": "石斑魚只有半隻又很小而且調味中規中矩。", "Quadruplet": [{"Aspect": "石斑魚", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很小", "VA": "4.17#5.83"}, {"Aspect": "調味", "Category": "FOOD#QUALITY", "Opinion": "中規中矩", "VA": "5.00#5.00"}]}
+{"ID": "R2171:S012", "Text": "菜脯蛋我以為會很鹹很難吃，結果出乎意料之外。", "Quadruplet": [{"Aspect": "菜脯蛋", "Category": "FOOD#QUALITY", "Opinion": "出乎意料之外", "VA": "6.38#6.12"}]}
+{"ID": "R2171:S016", "Text": "飲品泰式奶茶大推。", "Quadruplet": [{"Aspect": "泰式奶茶", "Category": "DRINKS#QUALITY", "Opinion": "大推", "VA": "7.00#7.38"}]}
+{"ID": "R0816:S005", "Text": "滋味確實道地。", "Quadruplet": [{"Aspect": "滋味", "Category": "FOOD#QUALITY", "Opinion": "道地", "VA": "6.12#5.38"}]}
+{"ID": "R0816:S006", "Text": "白醬海鮮義大利麵好吃。", "Quadruplet": [{"Aspect": "白醬海鮮義大利麵", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.50"}]}
+{"ID": "R0816:S007", "Text": "蝦子義大利麵煮的入味。", "Quadruplet": [{"Aspect": "蝦子義大利麵", "Category": "FOOD#QUALITY", "Opinion": "入味", "VA": "6.12#5.00"}]}
+{"ID": "R0816:S008", "Text": "海鮮吃起來很新鮮。", "Quadruplet": [{"Aspect": "海鮮", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.50#6.50"}]}
+{"ID": "R0816:S010", "Text": "炸雞外皮酥脆。", "Quadruplet": [{"Aspect": "炸雞外皮", "Category": "FOOD#QUALITY", "Opinion": "酥脆", "VA": "6.38#5.50"}]}
+{"ID": "R0816:S019", "Text": "整體不便宜。", "Quadruplet": [{"Aspect": "整體", "Category": "FOOD#PRICES", "Opinion": "不便宜", "VA": "3.67#5.83"}]}
+{"ID": "R0214:S011", "Text": "鵝肉本身表現一般。", "Quadruplet": [{"Aspect": "鵝肉", "Category": "FOOD#QUALITY", "Opinion": "一般", "VA": "4.88#5.00"}]}
+{"ID": "R0214:S044", "Text": "幸好豆芽菜清脆爽口。", "Quadruplet": [{"Aspect": "豆芽菜", "Category": "FOOD#QUALITY", "Opinion": "清脆爽口", "VA": "5.75#5.50"}]}
+{"ID": "R1032:S037", "Text": "培根捲脆皮德式香腸有特地捲上脆皮，蠻特別的但它的口感我沒很愛。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "沒很愛", "VA": "4.17#4.33"}]}
+{"ID": "R1638:S003", "Text": "點了鴨胸義大利麵跟松阪豬燉飯感覺還不錯。", "Quadruplet": [{"Aspect": "鴨胸義大利麵", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "5.67#5.33"}, {"Aspect": "松阪豬燉飯", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "5.67#5.33"}]}
+{"ID": "R1638:S006", "Text": "讓我喜歡的是燉飯。", "Quadruplet": [{"Aspect": "燉飯", "Category": "FOOD#QUALITY", "Opinion": "喜歡", "VA": "6.00#5.62"}]}
+{"ID": "R1638:S007", "Text": "燉飯口味剛剛好。", "Quadruplet": [{"Aspect": "燉飯口味", "Category": "FOOD#QUALITY", "Opinion": "剛剛好", "VA": "5.50#5.12"}]}
+{"ID": "R1638:S008", "Text": "松阪豬好吃。", "Quadruplet": [{"Aspect": "松阪豬", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.25#5.50"}]}
+{"ID": "R1420:S039", "Text": "鴨血水嫩多汁。", "Quadruplet": [{"Aspect": "鴨血", "Category": "FOOD#QUALITY", "Opinion": "水嫩多汁", "VA": "6.00#5.38"}]}
+{"ID": "R1420:S040", "Text": "臭豆腐不夠臭，在臭一點會更加分。", "Quadruplet": [{"Aspect": "臭豆腐", "Category": "FOOD#QUALITY", "Opinion": "不夠臭", "VA": "4.25#5.50"}]}
+{"ID": "R3307:S009", "Text": "結果掀蓋發現蛤蜊有的沒開有的很不新鮮。", "Quadruplet": [{"Aspect": "蛤蜊", "Category": "FOOD#QUALITY", "Opinion": "很不新鮮", "VA": "3.12#6.12"}]}
+{"ID": "R0879:S027", "Text": "牛排肉非常的多汁柔軟，熱度也還算充足，配上旁邊撒的鹽就已經足夠好吃。", "Quadruplet": [{"Aspect": "牛排肉", "Category": "FOOD#QUALITY", "Opinion": "非常的多汁柔軟", "VA": "6.50#6.75"}, {"Aspect": "熱度", "Category": "FOOD#QUALITY", "Opinion": "還算充足", "VA": "6.25#5.75"}, {"Aspect": "牛排", "Category": "FOOD#QUALITY", "Opinion": "足夠好吃", "VA": "6.75#6.00"}]}
+{"ID": "R0879:S033", "Text": "且以我要求的全熟(Well-done)而言，肉煎得仍有些偏生。", "Quadruplet": [{"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "仍有些偏生", "VA": "3.67#4.33"}]}
+{"ID": "R0879:S045", "Text": "現做甜筒，不算特別的普通好吃這樣。", "Quadruplet": [{"Aspect": "甜筒", "Category": "FOOD#QUALITY", "Opinion": "不算特別", "VA": "4.75#5.00"}, {"Aspect": "甜筒", "Category": "FOOD#QUALITY", "Opinion": "普通好吃", "VA": "5.50#5.00"}]}
+{"ID": "R0879:S047", "Text": "Flat Iron的料理中規中矩，算是大家都能接受的口味。", "Quadruplet": [{"Aspect": "料理", "Category": "FOOD#QUALITY", "Opinion": "中規中矩", "VA": "5.00#4.83"}]}
+{"ID": "R0179:S012", "Text": "店內用餐環境很明亮乾淨。", "Quadruplet": [{"Aspect": "用餐環境", "Category": "AMBIENCE#GENERAL", "Opinion": "很明亮", "VA": "6.00#5.25"}, {"Aspect": "用餐環境", "Category": "AMBIENCE#GENERAL", "Opinion": "乾淨", "VA": "5.88#5.12"}]}
+{"ID": "R3106:S003", "Text": "雖然價位不便宜但份量十足。", "Quadruplet": [{"Aspect": "價位", "Category": "RESTAURANT#PRICES", "Opinion": "不便宜", "VA": "4.50#5.83"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "十足", "VA": "6.33#6.17"}]}
+{"ID": "R3089:S002", "Text": "烤鴨握壽司夭壽好吃。", "Quadruplet": [{"Aspect": "烤鴨握壽司", "Category": "FOOD#QUALITY", "Opinion": "夭壽好吃", "VA": "6.67#6.33"}]}
+{"ID": "R1445:S001", "Text": "龍蝦真的好吃。", "Quadruplet": [{"Aspect": "龍蝦", "Category": "FOOD#QUALITY", "Opinion": "真的好吃", "VA": "6.75#6.50"}]}
+{"ID": "R1445:S009", "Text": "餐點非常豐盛。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "非常豐盛", "VA": "6.62#6.62"}]}
+{"ID": "R1445:S014", "Text": "生魚片很新鮮。", "Quadruplet": [{"Aspect": "生魚片", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "5.88#5.88"}]}
+{"ID": "R1445:S015", "Text": "小蛋糕蠻好吃的。", "Quadruplet": [{"Aspect": "小蛋糕", "Category": "FOOD#QUALITY", "Opinion": "蠻好吃的", "VA": "6.30#6.20"}]}
+{"ID": "R1445:S019", "Text": "餐廳地點方便。", "Quadruplet": [{"Aspect": "餐廳地點", "Category": "LOCATION#GENERAL", "Opinion": "方便", "VA": "5.88#5.38"}]}
+{"ID": "R2860:S005", "Text": "羊肉吃起來非常香。", "Quadruplet": [{"Aspect": "羊肉", "Category": "FOOD#QUALITY", "Opinion": "非常香", "VA": "6.50#6.67"}]}
+{"ID": "R2860:S009", "Text": "小菜點的豆干也滷的十分夠味。", "Quadruplet": [{"Aspect": "豆干", "Category": "FOOD#QUALITY", "Opinion": "十分夠味", "VA": "6.38#5.88"}]}
+{"ID": "R0842:S016", "Text": "珠寶盒的份量真的很多。", "Quadruplet": [{"Aspect": "珠寶盒的份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的很多", "VA": "6.75#6.50"}]}
+{"ID": "R0842:S019", "Text": "魚都蠻新鮮的，但是章魚跟干貝唇都吃起來有點乾硬。", "Quadruplet": [{"Aspect": "魚", "Category": "FOOD#QUALITY", "Opinion": "蠻新鮮的", "VA": "6.25#6.00"}, {"Aspect": "章魚", "Category": "FOOD#QUALITY", "Opinion": "有點乾硬", "VA": "4.00#5.50"}, {"Aspect": "干貝唇", "Category": "FOOD#QUALITY", "Opinion": "有點乾硬", "VA": "4.00#5.50"}]}
+{"ID": "R0842:S021", "Text": "鮮度跟味道是沒問題的。", "Quadruplet": [{"Aspect": "鮮度", "Category": "FOOD#QUALITY", "Opinion": "沒問題", "VA": "5.88#5.38"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "沒問題", "VA": "5.88#5.38"}]}
+{"ID": "R0842:S023", "Text": "我跟朋友對生魚片只喜歡鮭魚，所以下次應該會點單純點的口味。", "Quadruplet": [{"Aspect": "鮭魚", "Category": "FOOD#QUALITY", "Opinion": "只喜歡", "VA": "5.00#4.83"}]}
+{"ID": "R0842:S027", "Text": "烏龍麵Q彈美味，加的料也很多。", "Quadruplet": [{"Aspect": "烏龍麵", "Category": "FOOD#QUALITY", "Opinion": "Q彈", "VA": "6.25#5.50"}, {"Aspect": "烏龍麵", "Category": "FOOD#QUALITY", "Opinion": "美味", "VA": "6.00#5.25"}, {"Aspect": "料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "6.00#5.25"}]}
+{"ID": "R0842:S032", "Text": "玉子燒口味偏甜，個人蠻喜歡的但吃多比較膩口一點。", "Quadruplet": [{"Aspect": "玉子燒口味", "Category": "FOOD#QUALITY", "Opinion": "偏甜", "VA": "4.67#4.17"}, {"Aspect": "玉子燒", "Category": "FOOD#QUALITY", "Opinion": "蠻喜歡的", "VA": "6.00#5.67"}, {"Aspect": "玉子燒", "Category": "FOOD#QUALITY", "Opinion": "比較膩口一點", "VA": "4.33#4.33"}]}
+{"ID": "R2143:S004", "Text": "美味的火鍋更顯得誘人，店內裝修精緻舒適，服務周到熱情。", "Quadruplet": [{"Aspect": "火鍋", "Category": "FOOD#QUALITY", "Opinion": "美味的", "VA": "6.00#5.50"}, {"Aspect": "裝修", "Category": "AMBIENCE#GENERAL", "Opinion": "精緻舒適", "VA": "6.00#5.50"}, {"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "熱情", "VA": "6.00#5.75"}]}
+{"ID": "R2143:S010", "Text": "店家用心挑選的食材新鮮可口，每一口都帶著滿滿的幸福感。", "Quadruplet": [{"Aspect": "食材", "Category": "FOOD#QUALITY", "Opinion": "新鮮可口", "VA": "6.50#6.00"}, {"Aspect": "食材", "Category": "FOOD#QUALITY", "Opinion": "滿滿的幸福感", "VA": "6.75#6.50"}]}
+{"ID": "R2871:S001", "Text": "蒜味肉羹的口味跟一般吃的差很多，是好吃的。", "Quadruplet": [{"Aspect": "蒜味肉羹的口味", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.62#6.12"}]}
+{"ID": "R2871:S005", "Text": "覺得肉羹的價位很便宜。", "Quadruplet": [{"Aspect": "肉羹的價位", "Category": "FOOD#PRICES", "Opinion": "很便宜", "VA": "6.75#6.25"}]}
+{"ID": "R2871:S006", "Text": "油豆腐也很讚，整個滷的很入味。", "Quadruplet": [{"Aspect": "油豆腐", "Category": "FOOD#QUALITY", "Opinion": "很讚", "VA": "7.00#7.33"}, {"Aspect": "油豆腐", "Category": "FOOD#QUALITY", "Opinion": "很入味", "VA": "6.83#7.00"}]}
+{"ID": "R2610:S001", "Text": "鴨肉有腥味，鴨肉很少大碗只是飯多。", "Quadruplet": [{"Aspect": "鴨肉", "Category": "FOOD#QUALITY", "Opinion": "有腥味", "VA": "4.00#5.50"}, {"Aspect": "鴨肉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很少", "VA": "4.33#5.17"}]}
+{"ID": "R1154:S008", "Text": "生煎包一樣的紮實多汁。", "Quadruplet": [{"Aspect": "生煎包", "Category": "FOOD#QUALITY", "Opinion": "紮實多汁", "VA": "6.12#5.62"}]}
+{"ID": "R1154:S011", "Text": "上海生煎包底皮很脆。", "Quadruplet": [{"Aspect": "上海生煎包底皮", "Category": "FOOD#QUALITY", "Opinion": "很脆", "VA": "6.33#5.83"}]}
+{"ID": "R1154:S012", "Text": "上海生煎包太小。", "Quadruplet": [{"Aspect": "上海生煎包", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "太小", "VA": "4.00#5.38"}]}
+{"ID": "R1154:S013", "Text": "上海生煎包太貴。", "Quadruplet": [{"Aspect": "上海生煎包", "Category": "FOOD#PRICES", "Opinion": "太貴", "VA": "3.62#5.62"}]}
+{"ID": "R1154:S014", "Text": "而且豬肉有騷味。", "Quadruplet": [{"Aspect": "豬肉", "Category": "FOOD#QUALITY", "Opinion": "有騷味", "VA": "3.88#5.00"}]}
+{"ID": "R1154:S018", "Text": "景美生煎包是不錯吃。", "Quadruplet": [{"Aspect": "景美生煎包", "Category": "FOOD#QUALITY", "Opinion": "不錯吃", "VA": "6.25#5.88"}]}
+{"ID": "R1154:S019", "Text": "肉不夠紮實。", "Quadruplet": [{"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "不夠紮實", "VA": "4.33#5.83"}]}
+{"ID": "R1154:S020", "Text": "表皮不夠厚。", "Quadruplet": [{"Aspect": "表皮", "Category": "FOOD#QUALITY", "Opinion": "不夠厚", "VA": "4.33#5.00"}]}
+{"ID": "R1154:S023", "Text": "肉紮實。", "Quadruplet": [{"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "紮實", "VA": "5.88#5.12"}]}
+{"ID": "R1154:S024", "Text": "底皮焦脆。", "Quadruplet": [{"Aspect": "底皮", "Category": "FOOD#QUALITY", "Opinion": "焦脆", "VA": "6.00#5.50"}]}
+{"ID": "R1576:S003", "Text": "只有佛跳牆個人不太喜歡。", "Quadruplet": [{"Aspect": "佛跳牆", "Category": "FOOD#QUALITY", "Opinion": "不太喜歡", "VA": "4.00#5.25"}]}
+{"ID": "R1576:S004", "Text": "炸蝦非常好吃。", "Quadruplet": [{"Aspect": "炸蝦", "Category": "FOOD#QUALITY", "Opinion": "非常好吃", "VA": "7.00#6.88"}]}
+{"ID": "R1576:S008", "Text": "且馬鈴薯沙拉很棒。", "Quadruplet": [{"Aspect": "馬鈴薯沙拉", "Category": "FOOD#QUALITY", "Opinion": "很棒", "VA": "6.50#6.50"}]}
+{"ID": "R1576:S010", "Text": "奶酪口感滑順。", "Quadruplet": [{"Aspect": "奶酪口感", "Category": "FOOD#QUALITY", "Opinion": "滑順", "VA": "6.17#5.83"}]}
+{"ID": "R1576:S011", "Text": "奶酪甜而不膩。", "Quadruplet": [{"Aspect": "奶酪", "Category": "FOOD#QUALITY", "Opinion": "甜而不膩", "VA": "6.38#6.00"}]}
+{"ID": "R1576:S012", "Text": "奶酪真的很好吃。", "Quadruplet": [{"Aspect": "奶酪", "Category": "FOOD#QUALITY", "Opinion": "真的很好吃", "VA": "6.88#6.25"}]}
+{"ID": "R1816:S000", "Text": "螃蟹新鮮。", "Quadruplet": [{"Aspect": "螃蟹", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.00#5.38"}]}
+{"ID": "R1816:S009", "Text": "小卷米粉不大行。", "Quadruplet": [{"Aspect": "小卷米粉", "Category": "FOOD#QUALITY", "Opinion": "不大行", "VA": "4.25#4.75"}]}
+{"ID": "R1816:S010", "Text": "小卷老老。", "Quadruplet": [{"Aspect": "小卷", "Category": "FOOD#QUALITY", "Opinion": "老老", "VA": "3.83#5.33"}]}
+{"ID": "R1816:S011", "Text": "但湯汁算濃郁。", "Quadruplet": [{"Aspect": "湯汁", "Category": "FOOD#QUALITY", "Opinion": "算濃郁", "VA": "5.75#5.50"}]}
+{"ID": "R1816:S013", "Text": "蚵仔鮮度不夠。", "Quadruplet": [{"Aspect": "蚵仔鮮度", "Category": "FOOD#QUALITY", "Opinion": "不夠", "VA": "3.83#5.83"}]}
+{"ID": "R0636:S010", "Text": "多樣且超級美味的蔬食料理。", "Quadruplet": [{"Aspect": "蔬食料理", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "多樣", "VA": "6.75#6.12"}, {"Aspect": "蔬食料理", "Category": "FOOD#QUALITY", "Opinion": "超級美味", "VA": "7.62#7.25"}]}
+{"ID": "R0636:S019", "Text": "舒肥雞不乾癟，炒蛋恰到好處的濕潤。", "Quadruplet": [{"Aspect": "舒肥雞", "Category": "FOOD#QUALITY", "Opinion": "不乾癟", "VA": "6.00#5.00"}, {"Aspect": "炒蛋", "Category": "FOOD#QUALITY", "Opinion": "恰到好處的濕潤", "VA": "6.17#5.50"}]}
+{"ID": "R0636:S020", "Text": "每一口都吃得到蛋的好品質。", "Quadruplet": [{"Aspect": "蛋", "Category": "FOOD#QUALITY", "Opinion": "好品質", "VA": "6.38#5.62"}]}
+{"ID": "R3320:S008", "Text": "米血不會太軟，搭上特製醬汁好吃，但份量真的太少了。", "Quadruplet": [{"Aspect": "米血", "Category": "FOOD#QUALITY", "Opinion": "不會太軟", "VA": "5.50#5.50"}, {"Aspect": "米血", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.00"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的太少", "VA": "3.00#7.00"}]}
+{"ID": "R2986:S006", "Text": "內餡也很有味道可以不用沾醬直接吃。", "Quadruplet": [{"Aspect": "內餡", "Category": "FOOD#QUALITY", "Opinion": "很有味道", "VA": "6.50#5.83"}]}
+{"ID": "R2986:S015", "Text": "缺點是豬腳剁的太小塊了。", "Quadruplet": [{"Aspect": "豬腳", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "太小", "VA": "4.38#4.88"}]}
+{"ID": "R2986:S019", "Text": "蛋煎的很香酥好吃。", "Quadruplet": [{"Aspect": "蛋", "Category": "FOOD#QUALITY", "Opinion": "很香酥", "VA": "6.50#6.00"}, {"Aspect": "蛋", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.25#5.25"}]}
+{"ID": "R2986:S023", "Text": "都點中份加上飲料共花費$1780真的很便宜。", "Quadruplet": [{"Aspect": "NULL", "Category": "RESTAURANT#PRICES", "Opinion": "真的很便宜", "VA": "6.25#5.75"}]}
+{"ID": "R2049:S000", "Text": "肉絲咖哩炒麵一上桌發現頗大一盤。", "Quadruplet": [{"Aspect": "肉絲咖哩炒麵", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "頗大一盤", "VA": "6.00#5.50"}]}
+{"ID": "R2049:S002", "Text": "油麵煮得很軟爛很好入口自己是蠻喜歡這種口感的。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "蠻喜歡", "VA": "6.00#5.75"}]}
+{"ID": "R2049:S003", "Text": "咖哩炒麵吃起來其實並無特別之處，就是想像的味道，不過麵很入味這是很大的優點。", "Quadruplet": [{"Aspect": "咖哩炒麵", "Category": "FOOD#QUALITY", "Opinion": "並無特別之處", "VA": "5.00#5.17"}, {"Aspect": "麵", "Category": "FOOD#QUALITY", "Opinion": "很入味", "VA": "6.33#6.33"}]}
+{"ID": "R0670:S016", "Text": "外皮煎得酥脆。", "Quadruplet": [{"Aspect": "外皮", "Category": "FOOD#QUALITY", "Opinion": "酥脆", "VA": "6.25#5.50"}]}
+{"ID": "R0670:S018", "Text": "蔥餡的鹹味很夠。", "Quadruplet": [{"Aspect": "蔥餡的鹹味", "Category": "FOOD#QUALITY", "Opinion": "很夠", "VA": "6.00#5.33"}]}
+{"ID": "R0670:S022", "Text": "因為到隔天味道就差蠻多的，會吃起來比較乾蔥香也消失很多。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "差蠻多的", "VA": "4.33#5.50"}, {"Aspect": "蔥香", "Category": "FOOD#QUALITY", "Opinion": "消失很多", "VA": "3.83#5.33"}]}
+{"ID": "R2591:S003", "Text": "蝦仁有特別調味過大隻又好吃。", "Quadruplet": [{"Aspect": "蝦仁", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大隻", "VA": "5.75#5.50"}, {"Aspect": "蝦仁", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.25#5.75"}]}
+{"ID": "R2591:S008", "Text": "松阪豚飯一樣有特別醃製過的松阪豚，鮮嫩好吃。", "Quadruplet": [{"Aspect": "松阪豚", "Category": "FOOD#QUALITY", "Opinion": "鮮嫩", "VA": "6.00#5.33"}, {"Aspect": "松阪豚", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.67"}]}
+{"ID": "R2385:S004", "Text": "然後他的飯真的是敗筆，軟不Q但是又不到碎米就是一種不到爛但是又不及格的飯。", "Quadruplet": [{"Aspect": "飯", "Category": "FOOD#QUALITY", "Opinion": "真的是敗筆", "VA": "4.00#4.75"}, {"Aspect": "飯", "Category": "FOOD#QUALITY", "Opinion": "不及格", "VA": "4.50#4.00"}, {"Aspect": "飯", "Category": "FOOD#QUALITY", "Opinion": "軟", "VA": "4.75#4.75"}, {"Aspect": "飯", "Category": "FOOD#QUALITY", "Opinion": "不Q", "VA": "4.75#4.25"}]}
+{"ID": "R0254:S008", "Text": "口感和味道都很讚，是想吃烤玉米時的好選擇。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "很讚", "VA": "6.17#5.67"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "很讚", "VA": "6.17#5.67"}, {"Aspect": "NULL", "Category": "RESTAURANT#GENERAL", "Opinion": "好選擇", "VA": "6.17#5.33"}]}
+{"ID": "R2647:S006", "Text": "碗粿部分過於軟爛，Q度不足。", "Quadruplet": [{"Aspect": "碗粿", "Category": "FOOD#QUALITY", "Opinion": "過於軟爛", "VA": "3.83#5.67"}, {"Aspect": "碗粿", "Category": "FOOD#QUALITY", "Opinion": "Q度不足", "VA": "4.17#5.50"}]}
+{"ID": "R2857:S005", "Text": "黑糖粉圓也稍甜但店家服務蠻細緻。", "Quadruplet": [{"Aspect": "黑糖粉圓", "Category": "FOOD#QUALITY", "Opinion": "稍甜", "VA": "5.00#5.67"}, {"Aspect": "店家服務", "Category": "SERVICE#GENERAL", "Opinion": "蠻細緻", "VA": "6.17#6.00"}]}
+{"ID": "R2910:S002", "Text": "鮮蚵滷肉飯美味新鮮好吃，但真心不便宜。", "Quadruplet": [{"Aspect": "鮮蚵滷肉飯", "Category": "FOOD#QUALITY", "Opinion": "美味", "VA": "6.50#6.25"}, {"Aspect": "鮮蚵滷肉飯", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.50#6.50"}, {"Aspect": "鮮蚵滷肉飯", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#6.25"}, {"Aspect": "鮮蚵滷肉飯", "Category": "FOOD#PRICES", "Opinion": "真心不便宜", "VA": "4.25#5.00"}]}
+{"ID": "R2910:S007", "Text": "小卷麵線及小卷米粉都不錯很鮮甜，不過有點鹹。", "Quadruplet": [{"Aspect": "小卷麵線", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.50#5.50"}, {"Aspect": "小卷米粉", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.50#5.50"}, {"Aspect": "小卷麵線", "Category": "FOOD#QUALITY", "Opinion": "很鮮甜", "VA": "6.50#6.25"}, {"Aspect": "小卷米粉", "Category": "FOOD#QUALITY", "Opinion": "很鮮甜", "VA": "6.50#6.25"}, {"Aspect": "小卷麵線", "Category": "FOOD#QUALITY", "Opinion": "有點鹹", "VA": "4.50#5.00"}, {"Aspect": "小卷米粉", "Category": "FOOD#QUALITY", "Opinion": "有點鹹", "VA": "4.50#5.00"}]}
+{"ID": "R2910:S021", "Text": "用餐環境來說算是尚可，不好也不壞。", "Quadruplet": [{"Aspect": "用餐環境", "Category": "AMBIENCE#GENERAL", "Opinion": "算是尚可", "VA": "5.25#5.12"}, {"Aspect": "用餐環境", "Category": "AMBIENCE#GENERAL", "Opinion": "不好也不壞", "VA": "5.00#5.00"}]}
+{"ID": "R2910:S024", "Text": "座位來說大約8桌四人座位左右，有點擁擠。", "Quadruplet": [{"Aspect": "座位", "Category": "AMBIENCE#GENERAL", "Opinion": "有點擁擠", "VA": "4.25#4.75"}]}
+{"ID": "R1029:S042", "Text": "雖然生菜沙拉種類不多但生菜有新鮮。", "Quadruplet": [{"Aspect": "生菜沙拉種類", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不多", "VA": "4.50#4.75"}, {"Aspect": "生菜", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "5.75#5.00"}]}
+{"ID": "R1029:S046", "Text": "白醬培根燉飯口味不錯但會辣。", "Quadruplet": [{"Aspect": "白醬培根燉飯口味", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.88#5.12"}]}
+{"ID": "R2828:S002", "Text": "牛肉堡真的是很厲害，牛肉非常的軟嫩。", "Quadruplet": [{"Aspect": "牛肉堡", "Category": "FOOD#QUALITY", "Opinion": "真的是很厲害", "VA": "6.67#6.50"}, {"Aspect": "牛肉", "Category": "FOOD#QUALITY", "Opinion": "非常的軟嫩", "VA": "6.67#6.67"}]}
+{"ID": "R2828:S006", "Text": "麵包也很厲害，非常的鬆軟。", "Quadruplet": [{"Aspect": "麵包", "Category": "FOOD#QUALITY", "Opinion": "很厲害", "VA": "7.00#6.83"}, {"Aspect": "麵包", "Category": "FOOD#QUALITY", "Opinion": "非常的鬆軟", "VA": "6.83#6.33"}]}
+{"ID": "R0812:S003", "Text": "剝皮辣椒雞鍋很讚。", "Quadruplet": [{"Aspect": "剝皮辣椒雞鍋", "Category": "FOOD#QUALITY", "Opinion": "很讚", "VA": "6.67#6.67"}]}
+{"ID": "R1518:S001", "Text": "店內氣氛寧靜閒適。", "Quadruplet": [{"Aspect": "店內氣氛", "Category": "AMBIENCE#GENERAL", "Opinion": "寧靜閒適", "VA": "6.12#5.50"}]}
+{"ID": "R1556:S001", "Text": "披薩意外的好吃。", "Quadruplet": [{"Aspect": "披薩", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.30#5.80"}]}
+{"ID": "R1556:S003", "Text": "披薩都很有水準。", "Quadruplet": [{"Aspect": "披薩", "Category": "FOOD#QUALITY", "Opinion": "很有水準", "VA": "6.50#6.25"}]}
+{"ID": "R1556:S005", "Text": "起司味道很香。", "Quadruplet": [{"Aspect": "起司味道", "Category": "FOOD#QUALITY", "Opinion": "很香", "VA": "6.33#5.83"}]}
+{"ID": "R1556:S006", "Text": "重點是餅皮是難得烤的香脆。", "Quadruplet": [{"Aspect": "餅皮", "Category": "FOOD#QUALITY", "Opinion": "香脆", "VA": "6.12#5.25"}]}
+{"ID": "R1556:S011", "Text": "披薩份量算有誠意。", "Quadruplet": [{"Aspect": "披薩份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "有誠意", "VA": "6.00#5.50"}]}
+{"ID": "R1556:S012", "Text": "非常推薦套餐。", "Quadruplet": [{"Aspect": "套餐", "Category": "FOOD#QUALITY", "Opinion": "非常推薦", "VA": "6.75#6.88"}]}
+{"ID": "R0630:S003", "Text": "大推鮪魚起司口味，讓人吃上一口就愛上的好味道。", "Quadruplet": [{"Aspect": "鮪魚起司口味", "Category": "FOOD#QUALITY", "Opinion": "大推", "VA": "7.33#7.33"}, {"Aspect": "鮪魚起司口味", "Category": "FOOD#QUALITY", "Opinion": "吃上一口就愛上", "VA": "7.67#7.33"}, {"Aspect": "鮪魚起司口味", "Category": "FOOD#QUALITY", "Opinion": "好味道", "VA": "6.67#6.50"}]}
+{"ID": "R0630:S022", "Text": "這裡的蔬菜蛋餅真的是好吃。", "Quadruplet": [{"Aspect": "蔬菜蛋餅", "Category": "FOOD#QUALITY", "Opinion": "真的是好吃", "VA": "6.67#6.83"}]}
+{"ID": "R0630:S023", "Text": "酥脆的蛋餅皮裡包了滿滿的高麗菜和蛋液。", "Quadruplet": [{"Aspect": "蛋餅皮", "Category": "FOOD#QUALITY", "Opinion": "酥脆的", "VA": "6.00#5.25"}, {"Aspect": "高麗菜", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "滿滿的", "VA": "6.00#5.25"}, {"Aspect": "蛋液", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "滿滿的", "VA": "6.00#5.25"}]}
+{"ID": "R1544:S002", "Text": "子套餐牛肉吃起來有點老。", "Quadruplet": [{"Aspect": "子套餐牛肉", "Category": "FOOD#QUALITY", "Opinion": "有點老", "VA": "4.25#4.75"}]}
+{"ID": "R1544:S005", "Text": "唯一覺得好吃的只有鮑魚。", "Quadruplet": [{"Aspect": "鮑魚", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.38#6.38"}]}
+{"ID": "R1544:S008", "Text": "只能說餐點需要加強。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "需要加強", "VA": "3.88#4.62"}]}
+{"ID": "R2592:S011", "Text": "飯很濕潤粘膩沒有炒飯該有的飯香或口感。", "Quadruplet": [{"Aspect": "飯", "Category": "FOOD#QUALITY", "Opinion": "很濕潤粘膩", "VA": "3.67#4.83"}]}
+{"ID": "R1786:S002", "Text": "料理美味。", "Quadruplet": [{"Aspect": "料理", "Category": "FOOD#QUALITY", "Opinion": "美味", "VA": "6.12#5.75"}]}
+{"ID": "R1786:S004", "Text": "海鮮類都很新鮮。", "Quadruplet": [{"Aspect": "海鮮類", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.12#5.88"}]}
+{"ID": "R1786:S005", "Text": "干貝真的大顆。", "Quadruplet": [{"Aspect": "干貝", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的大顆", "VA": "6.25#6.00"}]}
+{"ID": "R3274:S014", "Text": "海膽吃起來也是沒有鮮甜味可言。", "Quadruplet": [{"Aspect": "海膽", "Category": "FOOD#QUALITY", "Opinion": "沒有鮮甜味", "VA": "4.33#4.67"}]}
+{"ID": "R3274:S022", "Text": "龍蝦中規中矩，不過螃蟹上來整盤都冷的。", "Quadruplet": [{"Aspect": "龍蝦", "Category": "FOOD#QUALITY", "Opinion": "中規中矩", "VA": "5.00#5.00"}, {"Aspect": "螃蟹", "Category": "FOOD#QUALITY", "Opinion": "冷", "VA": "4.50#4.75"}]}
+{"ID": "R3274:S025", "Text": "三點蟹肉質普通沒有味道。", "Quadruplet": [{"Aspect": "三點蟹肉質", "Category": "FOOD#QUALITY", "Opinion": "普通", "VA": "5.00#5.00"}, {"Aspect": "三點蟹肉質", "Category": "FOOD#QUALITY", "Opinion": "沒有味道", "VA": "4.50#4.83"}]}
+{"ID": "R3265:S007", "Text": "店內的空間很大環境也很整潔。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "很大", "VA": "5.88#5.62"}, {"Aspect": "環境", "Category": "AMBIENCE#GENERAL", "Opinion": "很整潔", "VA": "6.00#5.88"}]}
+{"ID": "R3265:S009", "Text": "重點是每一份餐點的份量都不小可以吃很飽。", "Quadruplet": [{"Aspect": "餐點的份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不小", "VA": "5.88#5.38"}]}
+{"ID": "R3265:S011", "Text": "餐點的價位平價牛肉也新鮮。", "Quadruplet": [{"Aspect": "餐點的價位", "Category": "RESTAURANT#PRICES", "Opinion": "平價", "VA": "5.50#5.17"}, {"Aspect": "牛肉", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.00#5.67"}]}
+{"ID": "R3265:S013", "Text": "店裡的服務人員態度親切值得推薦。", "Quadruplet": [{"Aspect": "服務人員態度", "Category": "SERVICE#GENERAL", "Opinion": "親切", "VA": "6.00#5.83"}]}
+{"ID": "R0353:S024", "Text": "外皮煎的酥酥脆脆的。", "Quadruplet": [{"Aspect": "外皮", "Category": "FOOD#QUALITY", "Opinion": "酥酥脆脆", "VA": "6.17#6.33"}]}
+{"ID": "R0353:S027", "Text": "吃起來口感外酥內軟。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "外酥內軟", "VA": "6.25#5.88"}]}
+{"ID": "R3303:S016", "Text": "老闆就算客人多還是非常熱情的到每桌詢問餐點狀況。", "Quadruplet": [{"Aspect": "老闆", "Category": "SERVICE#GENERAL", "Opinion": "非常熱情", "VA": "6.50#6.50"}]}
+{"ID": "R3303:S026", "Text": "過了幾年再度二訪此餐廳完全沒有失望。", "Quadruplet": [{"Aspect": "餐廳", "Category": "RESTAURANT#GENERAL", "Opinion": "完全沒有失望", "VA": "6.88#6.25"}]}
+{"ID": "R3303:S027", "Text": "很高興店家能一直維持高品質的餐點及服務。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "高品質", "VA": "6.50#5.83"}, {"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "高品質", "VA": "6.50#5.83"}]}
+{"ID": "R0287:S007", "Text": "我更喜歡的是他的炸蘿蔔糕。", "Quadruplet": [{"Aspect": "炸蘿蔔糕", "Category": "FOOD#QUALITY", "Opinion": "喜歡", "VA": "6.50#6.50"}]}
+{"ID": "R0287:S008", "Text": "蘿蔔糕蠻大塊的又厚實。", "Quadruplet": [{"Aspect": "蘿蔔糕", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "蠻大塊", "VA": "6.62#6.25"}, {"Aspect": "蘿蔔糕", "Category": "FOOD#QUALITY", "Opinion": "厚實", "VA": "6.62#5.62"}]}
+{"ID": "R0287:S009", "Text": "外皮非常非常酥脆。", "Quadruplet": [{"Aspect": "外皮", "Category": "FOOD#QUALITY", "Opinion": "非常非常酥脆", "VA": "7.25#6.62"}]}
+{"ID": "R1220:S015", "Text": "原味飯糰好吃。", "Quadruplet": [{"Aspect": "原味飯糰", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.25"}]}
+{"ID": "R1220:S023", "Text": "米粒的口感很好。", "Quadruplet": [{"Aspect": "米粒的口感", "Category": "FOOD#QUALITY", "Opinion": "很好", "VA": "5.88#5.38"}]}
+{"ID": "R1220:S026", "Text": "香腸飯糰絕佳。", "Quadruplet": [{"Aspect": "香腸飯糰", "Category": "FOOD#QUALITY", "Opinion": "絕佳", "VA": "6.50#7.00"}]}
+{"ID": "R1220:S035", "Text": "我還是很喜歡他們家米粒的口感。", "Quadruplet": [{"Aspect": "米粒的口感", "Category": "FOOD#QUALITY", "Opinion": "很喜歡", "VA": "6.75#6.00"}]}
+{"ID": "R3100:S004", "Text": "湯品大概是整桌菜色的敗筆，油膩到喝一口就不想喝。", "Quadruplet": [{"Aspect": "湯品", "Category": "FOOD#QUALITY", "Opinion": "敗筆", "VA": "4.17#5.50"}, {"Aspect": "湯品", "Category": "FOOD#QUALITY", "Opinion": "油膩", "VA": "4.67#4.83"}]}
+{"ID": "R3100:S007", "Text": "特別要強調的是服務品質很差勁。", "Quadruplet": [{"Aspect": "服務品質", "Category": "SERVICE#GENERAL", "Opinion": "很差勁", "VA": "3.83#5.33"}]}
+{"ID": "R0873:S001", "Text": "炒飯大推，蛋花湯小推。", "Quadruplet": [{"Aspect": "炒飯", "Category": "FOOD#QUALITY", "Opinion": "大推", "VA": "6.75#6.50"}, {"Aspect": "蛋花湯", "Category": "FOOD#QUALITY", "Opinion": "小推", "VA": "5.75#5.25"}]}
+{"ID": "R0873:S018", "Text": "肉絲還蠻大塊至少不是短肉渣，飯粒分明。", "Quadruplet": [{"Aspect": "肉絲", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "蠻大塊", "VA": "6.50#6.17"}, {"Aspect": "飯粒", "Category": "FOOD#QUALITY", "Opinion": "分明", "VA": "6.67#6.17"}]}
+{"ID": "R0873:S034", "Text": "小結品嘗起來覺得炒飯算是我最喜歡的。", "Quadruplet": [{"Aspect": "炒飯", "Category": "FOOD#QUALITY", "Opinion": "最喜歡", "VA": "6.75#6.62"}]}
+{"ID": "R0873:S038", "Text": "蛋花湯會說小推是因為價格還是有一點高，畢竟+10%就是143元了。", "Quadruplet": [{"Aspect": "價格", "Category": "FOOD#PRICES", "Opinion": "有一點高", "VA": "4.50#5.17"}]}
+{"ID": "R2722:S017", "Text": "古早味蒸蛋蒸蛋本身很滑嫩，加上香濃入味的肉燥點綴。", "Quadruplet": [{"Aspect": "蒸蛋", "Category": "FOOD#QUALITY", "Opinion": "很滑嫩", "VA": "6.50#6.25"}, {"Aspect": "肉燥", "Category": "FOOD#QUALITY", "Opinion": "香濃入味", "VA": "6.50#6.25"}]}
+{"ID": "R0153:S016", "Text": "五花肉太小塊且味道頗淡。", "Quadruplet": [{"Aspect": "五花肉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "太小", "VA": "3.25#5.50"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "頗淡", "VA": "3.50#4.75"}]}
+{"ID": "R0153:S018", "Text": "當天的飯也煮得太濕黏，有點吃不了。", "Quadruplet": [{"Aspect": "飯", "Category": "FOOD#QUALITY", "Opinion": "太濕黏", "VA": "3.67#6.17"}]}
+{"ID": "R0153:S022", "Text": "很夠味的滷豆腐。", "Quadruplet": [{"Aspect": "滷豆腐", "Category": "FOOD#QUALITY", "Opinion": "很夠味", "VA": "6.25#6.00"}]}
+{"ID": "R0153:S025", "Text": "土魠魚個頭飽滿。", "Quadruplet": [{"Aspect": "土魠魚", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "飽滿", "VA": "6.00#5.33"}]}
+{"ID": "R0153:S034", "Text": "整體來說並沒有特別喜歡。", "Quadruplet": [{"Aspect": "NULL", "Category": "RESTAURANT#GENERAL", "Opinion": "沒有特別喜歡", "VA": "4.38#5.12"}]}
+{"ID": "R0241:S090", "Text": "雖然點錯點到口感偏酸的咖啡，但喝起來好順口。", "Quadruplet": [{"Aspect": "咖啡", "Category": "DRINKS#QUALITY", "Opinion": "偏酸", "VA": "5.33#5.33"}, {"Aspect": "咖啡", "Category": "DRINKS#QUALITY", "Opinion": "好順口", "VA": "6.33#5.50"}]}
+{"ID": "R0241:S094", "Text": "這次的蘑菇派很好吃。", "Quadruplet": [{"Aspect": "蘑菇派", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.88#6.62"}]}
+{"ID": "R0241:S095", "Text": "口味稍苦的布朗尼，吃起來很是紮實。", "Quadruplet": [{"Aspect": "布朗尼", "Category": "FOOD#QUALITY", "Opinion": "稍苦", "VA": "4.83#4.83"}, {"Aspect": "布朗尼", "Category": "FOOD#QUALITY", "Opinion": "很是紮實", "VA": "5.67#5.83"}]}
+{"ID": "R0241:S101", "Text": "這間咖啡店不只有特色。", "Quadruplet": [{"Aspect": "咖啡店", "Category": "RESTAURANT#GENERAL", "Opinion": "有特色", "VA": "6.00#5.75"}]}
+{"ID": "R2915:S001", "Text": "點了蚵仔滷肉飯跟絲瓜炒蛋，單價偏高。", "Quadruplet": [{"Aspect": "蚵仔滷肉飯", "Category": "FOOD#PRICES", "Opinion": "偏高", "VA": "4.67#5.00"}, {"Aspect": "絲瓜炒蛋", "Category": "FOOD#PRICES", "Opinion": "偏高", "VA": "4.67#5.00"}]}
+{"ID": "R2915:S003", "Text": "蚵仔有腥味，雖然醬料味道很重還是壓不過。", "Quadruplet": [{"Aspect": "蚵仔", "Category": "FOOD#QUALITY", "Opinion": "有腥味", "VA": "4.12#4.38"}]}
+{"ID": "R2915:S006", "Text": "絲瓜炒蛋很鹹。", "Quadruplet": [{"Aspect": "絲瓜炒蛋", "Category": "FOOD#QUALITY", "Opinion": "很鹹", "VA": "4.50#5.00"}]}
+{"ID": "R2915:S008", "Text": "蛋應該沒有一顆，份量少，口味普通。", "Quadruplet": [{"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "少", "VA": "4.38#5.12"}, {"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "普通", "VA": "5.12#5.00"}]}
+{"ID": "R0749:S001", "Text": "我認為最好吃和最有記憶點的是野生的午仔魚。", "Quadruplet": [{"Aspect": "午仔魚", "Category": "FOOD#QUALITY", "Opinion": "最好吃", "VA": "6.83#6.67"}, {"Aspect": "午仔魚", "Category": "FOOD#QUALITY", "Opinion": "最有記憶點", "VA": "6.67#6.83"}]}
+{"ID": "R2200:S012", "Text": "雞肉是濃郁辣味，菜豆的菜味完全被蓋過。", "Quadruplet": [{"Aspect": "雞肉", "Category": "FOOD#QUALITY", "Opinion": "濃郁辣味", "VA": "5.75#5.75"}]}
+{"ID": "R2200:S022", "Text": "涼拌海鮮吃起來都很新鮮是相當必推。", "Quadruplet": [{"Aspect": "涼拌海鮮", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.38#6.38"}, {"Aspect": "涼拌海鮮", "Category": "FOOD#QUALITY", "Opinion": "相當必推", "VA": "6.88#6.75"}]}
+{"ID": "R2200:S023", "Text": "而打拋豬非常的辣鹹十足，真的一碗白飯是不夠吃的好美味。", "Quadruplet": [{"Aspect": "打拋豬", "Category": "FOOD#QUALITY", "Opinion": "非常的辣鹹十足", "VA": "6.50#6.00"}, {"Aspect": "打拋豬", "Category": "FOOD#QUALITY", "Opinion": "好美味", "VA": "6.83#6.67"}]}
+{"ID": "R2200:S025", "Text": "黃金三層肉很香酥好吃。", "Quadruplet": [{"Aspect": "黃金三層肉", "Category": "FOOD#QUALITY", "Opinion": "很香酥", "VA": "6.50#6.00"}, {"Aspect": "黃金三層肉", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.67"}]}
+{"ID": "R2200:S027", "Text": "蝦醬空心菜份量不少且炒的好吃。", "Quadruplet": [{"Aspect": "蝦醬空心菜份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不少", "VA": "5.50#5.25"}, {"Aspect": "蝦醬空心菜", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.50"}]}
+{"ID": "R2200:S028", "Text": "附上的紅茶很大杯。", "Quadruplet": [{"Aspect": "紅茶", "Category": "DRINKS#STYLE_OPTIONS", "Opinion": "很大杯", "VA": "6.00#5.67"}]}
+{"ID": "R1535:S003", "Text": "整個餐廳環境讓人非常舒服。", "Quadruplet": [{"Aspect": "餐廳環境", "Category": "AMBIENCE#GENERAL", "Opinion": "非常舒服", "VA": "6.62#6.12"}]}
+{"ID": "R1535:S004", "Text": "餐廳服務人員服務很好。", "Quadruplet": [{"Aspect": "餐廳服務人員服務", "Category": "SERVICE#GENERAL", "Opinion": "很好", "VA": "6.50#6.38"}]}
+{"ID": "R2491:S004", "Text": "當天我們點了牛肉與雞腿肉，牛肉口感細緻雞腿肉有彈性與嚼勁。", "Quadruplet": [{"Aspect": "牛肉口感", "Category": "FOOD#QUALITY", "Opinion": "細緻", "VA": "5.88#5.50"}, {"Aspect": "雞腿肉", "Category": "FOOD#QUALITY", "Opinion": "有彈性與嚼勁", "VA": "6.00#5.62"}]}
+{"ID": "R2558:S003", "Text": "啤酒鴨沒什麼特色胡椒味太重，涼拌還可以。", "Quadruplet": [{"Aspect": "胡椒味", "Category": "FOOD#QUALITY", "Opinion": "太重", "VA": "4.33#6.00"}, {"Aspect": "啤酒鴨", "Category": "FOOD#QUALITY", "Opinion": "沒什麼特色", "VA": "4.83#5.50"}, {"Aspect": "涼拌", "Category": "FOOD#QUALITY", "Opinion": "還可以", "VA": "5.67#5.50"}]}
+{"ID": "R2558:S010", "Text": "鱈魚是新鮮但香氣不太夠。", "Quadruplet": [{"Aspect": "鱈魚", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "5.83#5.50"}, {"Aspect": "香氣", "Category": "FOOD#QUALITY", "Opinion": "不太夠", "VA": "4.67#5.50"}]}
+{"ID": "R1232:S001", "Text": "品項蠻多，沒有特別突出的菜色。", "Quadruplet": [{"Aspect": "品項", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "蠻多", "VA": "6.17#5.83"}, {"Aspect": "菜色", "Category": "FOOD#QUALITY", "Opinion": "沒有特別突出", "VA": "5.00#5.00"}]}
+{"ID": "R2130:S019", "Text": "店家依舊維持一定的水準，是個適合聚餐喝下午茶的好餐廳，停車方面算蠻方便的。", "Quadruplet": [{"Aspect": "店家", "Category": "RESTAURANT#GENERAL", "Opinion": "維持一定的水準", "VA": "5.62#5.38"}, {"Aspect": "停車", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "蠻方便", "VA": "5.62#5.38"}]}
+{"ID": "R0285:S009", "Text": "蔬菜爽口。", "Quadruplet": [{"Aspect": "蔬菜", "Category": "FOOD#QUALITY", "Opinion": "爽口", "VA": "6.25#5.25"}]}
+{"ID": "R0285:S015", "Text": "他們家泡菜很好吃。", "Quadruplet": [{"Aspect": "泡菜", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.62#6.62"}]}
+{"ID": "R0285:S016", "Text": "口味偏甜", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "偏甜", "VA": "5.12#4.75"}]}
+{"ID": "R0285:S01˙", "Text": "很合我們口味。", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "很合", "VA": "6.17#6.33"}]}
+{"ID": "R0285:S020", "Text": "真的解膩又爽口。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "解膩", "VA": "5.88#5.50"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "爽口", "VA": "6.00#5.38"}]}
+{"ID": "R0285:S023", "Text": "服務還蠻好的。", "Quadruplet": [{"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "蠻好的", "VA": "6.12#5.38"}]}
+{"ID": "R0285:S027", "Text": "牛舌新鮮。", "Quadruplet": [{"Aspect": "牛舌", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.33#6.00"}]}
+{"ID": "R0285:S030", "Text": "油脂多有嚼勁。", "Quadruplet": [{"Aspect": "油脂", "Category": "FOOD#QUALITY", "Opinion": "多", "VA": "6.33#5.83"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "有嚼勁", "VA": "6.00#5.67"}]}
+{"ID": "R0285:S031", "Text": "牛小排還是當天最佳。", "Quadruplet": [{"Aspect": "牛小排", "Category": "FOOD#QUALITY", "Opinion": "最佳", "VA": "6.60#6.20"}]}
+{"ID": "R0285:S032", "Text": "口感棒油脂豐富。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "棒", "VA": "6.00#5.25"}, {"Aspect": "油脂", "Category": "FOOD#QUALITY", "Opinion": "豐富", "VA": "6.12#5.38"}]}
+{"ID": "R0285:S033", "Text": "柚子胡椒醬真的加分很多。", "Quadruplet": [{"Aspect": "柚子胡椒醬", "Category": "FOOD#QUALITY", "Opinion": "加分很多", "VA": "6.83#6.50"}]}
+{"ID": "R0285:S034", "Text": "海鮮類也都不錯。", "Quadruplet": [{"Aspect": "海鮮類", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.67#5.17"}]}
+{"ID": "R0285:S035", "Text": "干貝很新鮮而且很大很飽滿。", "Quadruplet": [{"Aspect": "干貝", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.25#6.00"}, {"Aspect": "干貝", "Category": "FOOD#QUALITY", "Opinion": "很大", "VA": "6.25#6.00"}, {"Aspect": "干貝", "Category": "FOOD#QUALITY", "Opinion": "很飽滿", "VA": "6.25#6.00"}]}
+{"ID": "R0285:S042", "Text": "因為店員烤得過程很用心也很認真。", "Quadruplet": [{"Aspect": "店員", "Category": "SERVICE#GENERAL", "Opinion": "很用心", "VA": "6.50#6.50"}, {"Aspect": "店員", "Category": "SERVICE#GENERAL", "Opinion": "很認真", "VA": "6.50#6.50"}]}
+{"ID": "R1573:S003", "Text": "餐點在水準之上。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "在水準之上", "VA": "6.20#6.00"}]}
+{"ID": "R0435:S004", "Text": "四米大的石鍋拌飯價格較平價。", "Quadruplet": [{"Aspect": "石鍋拌飯價格", "Category": "FOOD#PRICES", "Opinion": "平價", "VA": "6.00#5.25"}]}
+{"ID": "R0435:S023", "Text": "店內的環境有比想像中的大一些。", "Quadruplet": [{"Aspect": "環境", "Category": "AMBIENCE#GENERAL", "Opinion": "大", "VA": "5.50#5.12"}]}
+{"ID": "R0435:S045", "Text": "菜色選擇不算太多。", "Quadruplet": [{"Aspect": "菜色選擇", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不算太多", "VA": "5.00#5.00"}]}
+{"ID": "R0435:S064", "Text": "菜色非常豐富。", "Quadruplet": [{"Aspect": "菜色", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "非常豐富", "VA": "6.83#6.67"}]}
+{"ID": "R0435:S090", "Text": "僅留下爽脆的口感。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "爽脆", "VA": "6.00#5.12"}]}
+{"ID": "R0435:S099", "Text": "雞肉的肉汁很豐富。", "Quadruplet": [{"Aspect": "雞肉的肉汁", "Category": "FOOD#QUALITY", "Opinion": "很豐富", "VA": "6.62#6.50"}]}
+{"ID": "R0435:S100", "Text": "咬起來口感非常好。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "非常好", "VA": "6.62#6.12"}]}
+{"ID": "R0435:S103", "Text": "吃起來味道是很夠的。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "很夠", "VA": "6.25#6.00"}]}
+{"ID": "R0435:S119", "Text": "裡面的配料不多。", "Quadruplet": [{"Aspect": "配料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不多", "VA": "4.67#5.00"}]}
+{"ID": "R0435:S139", "Text": "魚板也煮得剛剛好。", "Quadruplet": [{"Aspect": "魚板", "Category": "FOOD#QUALITY", "Opinion": "煮得剛剛好", "VA": "6.67#6.50"}]}
+{"ID": "R0435:S141", "Text": "也包有魚肉的鮮甜。", "Quadruplet": [{"Aspect": "魚肉", "Category": "FOOD#QUALITY", "Opinion": "鮮甜", "VA": "6.67#5.17"}]}
+{"ID": "R2056:S003", "Text": "豬肝又乾又柴的很扣分。", "Quadruplet": [{"Aspect": "豬肝", "Category": "FOOD#QUALITY", "Opinion": "又乾又柴", "VA": "4.33#5.00"}]}
+{"ID": "R1803:S000", "Text": "賽螃蟹最推。", "Quadruplet": [{"Aspect": "賽螃蟹", "Category": "FOOD#QUALITY", "Opinion": "最推", "VA": "7.00#7.50"}]}
+{"ID": "R2987:S000", "Text": "這是我在金門吃過蚵仔最少的蚵仔湯。", "Quadruplet": [{"Aspect": "蚵仔", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "最少", "VA": "3.62#6.25"}]}
+{"ID": "R2987:S003", "Text": "朋友的炒麵太鹹。", "Quadruplet": [{"Aspect": "炒麵", "Category": "FOOD#QUALITY", "Opinion": "太鹹", "VA": "4.17#6.33"}]}
+{"ID": "R2987:S004", "Text": "整桌人吃了都覺得誇張的鹹。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "誇張的鹹", "VA": "3.62#6.00"}]}
+{"ID": "R2987:S008", "Text": "內餡也沒有特別好吃。", "Quadruplet": [{"Aspect": "內餡", "Category": "FOOD#QUALITY", "Opinion": "沒有特別好吃", "VA": "3.67#5.83"}]}
+{"ID": "R2987:S009", "Text": "店員態度真的很差，覺得自己很不受歡迎似的。", "Quadruplet": [{"Aspect": "店員態度", "Category": "SERVICE#GENERAL", "Opinion": "真的很差", "VA": "3.38#5.75"}]}
+{"ID": "R0147:S006", "Text": "賣的東西有夠多元，價格也很便宜。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "有夠多元", "VA": "5.83#6.17"}, {"Aspect": "價格", "Category": "RESTAURANT#PRICES", "Opinion": "很便宜", "VA": "6.17#6.83"}]}
+{"ID": "R0147:S019", "Text": "豬排鐵板麵份量很足。", "Quadruplet": [{"Aspect": "豬排鐵板麵份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很足", "VA": "6.25#6.00"}]}
+{"ID": "R0147:S021", "Text": "口味有稍微偏重一點。", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "稍微偏重一點", "VA": "4.75#5.12"}]}
+{"ID": "R0147:S022", "Text": "但整體來說是好吃的。", "Quadruplet": [{"Aspect": "整體", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.50"}]}
+{"ID": "R0147:S024", "Text": "麵吃起來很夠味又不會太軟爛。", "Quadruplet": [{"Aspect": "麵", "Category": "FOOD#QUALITY", "Opinion": "很夠味", "VA": "6.00#5.25"}, {"Aspect": "麵", "Category": "FOOD#QUALITY", "Opinion": "不會太軟爛", "VA": "6.00#5.25"}]}
+{"ID": "R0147:S026", "Text": "肉類比較推薦雞肉。", "Quadruplet": [{"Aspect": "雞肉", "Category": "FOOD#QUALITY", "Opinion": "比較推薦", "VA": "6.00#6.00"}]}
+{"ID": "R0147:S027", "Text": "豬排太硬了下次不會再點。", "Quadruplet": [{"Aspect": "豬排", "Category": "FOOD#QUALITY", "Opinion": "太硬", "VA": "3.50#6.00"}, {"Aspect": "豬排", "Category": "FOOD#QUALITY", "Opinion": "不會再點", "VA": "3.17#7.17"}]}
+{"ID": "R3206:S005", "Text": "環境乾淨沒有老店的冷氣臭味。", "Quadruplet": [{"Aspect": "環境", "Category": "AMBIENCE#GENERAL", "Opinion": "乾淨", "VA": "5.75#5.38"}]}
+{"ID": "R3206:S012", "Text": "肉質介於一般，還不到鮮嫩多汁但也不柴。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "一般", "VA": "5.00#5.00"}, {"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "還不到鮮嫩多汁", "VA": "3.50#6.00"}, {"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "不柴", "VA": "5.50#5.00"}]}
+{"ID": "R1019:S019", "Text": "吃完大魚大肉後來口清爽的茶好享受。", "Quadruplet": [{"Aspect": "茶", "Category": "DRINKS#QUALITY", "Opinion": "清爽", "VA": "5.75#5.25"}]}
+{"ID": "R1019:S023", "Text": "干貝真的甜，甜到我都懷疑是不是泡過糖水。", "Quadruplet": [{"Aspect": "干貝", "Category": "FOOD#QUALITY", "Opinion": "真的甜", "VA": "5.70#5.60"}]}
+{"ID": "R1019:S028", "Text": "讓我眼睛為之一亮的甜蝦真的非常好吃啊。", "Quadruplet": [{"Aspect": "甜蝦", "Category": "FOOD#QUALITY", "Opinion": "眼睛為之一亮", "VA": "7.00#7.00"}, {"Aspect": "甜蝦", "Category": "FOOD#QUALITY", "Opinion": "非常好吃", "VA": "7.12#7.12"}]}
+{"ID": "R2340:S005", "Text": "豬腳烤的過久乾柴偏硬。", "Quadruplet": [{"Aspect": "豬腳", "Category": "FOOD#QUALITY", "Opinion": "乾柴偏硬", "VA": "4.12#5.25"}]}
+{"ID": "R2340:S007", "Text": "招牌的烤魚土味超重，魚肉軟爛應該不是活的，這道烤魚超級不推薦。", "Quadruplet": [{"Aspect": "烤魚土味", "Category": "FOOD#QUALITY", "Opinion": "超重", "VA": "4.33#5.00"}, {"Aspect": "魚肉", "Category": "FOOD#QUALITY", "Opinion": "軟爛", "VA": "4.33#4.83"}, {"Aspect": "烤魚", "Category": "FOOD#QUALITY", "Opinion": "超級不推薦", "VA": "3.50#5.67"}]}
+{"ID": "R2340:S011", "Text": "人參菜很嫩，口味很特殊的一道青菜。", "Quadruplet": [{"Aspect": "人參菜", "Category": "FOOD#QUALITY", "Opinion": "很嫩", "VA": "6.25#5.75"}, {"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "很特殊", "VA": "6.25#5.75"}]}
+{"ID": "R1492:S000", "Text": "最最喜歡吃的粥。", "Quadruplet": [{"Aspect": "粥", "Category": "FOOD#QUALITY", "Opinion": "最最喜歡吃", "VA": "7.00#7.00"}]}
+{"ID": "R1492:S009", "Text": "魚片真的很好吃。", "Quadruplet": [{"Aspect": "魚片", "Category": "FOOD#QUALITY", "Opinion": "真的很好吃", "VA": "6.33#6.50"}]}
+{"ID": "R1492:S021", "Text": "粥的份量很大。", "Quadruplet": [{"Aspect": "粥的份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很大", "VA": "6.00#5.62"}]}
+{"ID": "R1492:S022", "Text": "但熱炒的份量比較普通。", "Quadruplet": [{"Aspect": "熱炒的份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "普通", "VA": "5.00#5.00"}]}
+{"ID": "R1492:S024", "Text": "中卷的表現超乎預期的好吃。", "Quadruplet": [{"Aspect": "中卷的表現", "Category": "FOOD#QUALITY", "Opinion": "超乎預期的好吃", "VA": "7.17#6.83"}]}
+{"ID": "R1529:S002", "Text": "餐點份量足。", "Quadruplet": [{"Aspect": "餐點份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "足", "VA": "6.20#5.70"}]}
+{"ID": "R1529:S003", "Text": "尤其是鱈場蟹讓人很驚艷。", "Quadruplet": [{"Aspect": "鱈場蟹", "Category": "FOOD#QUALITY", "Opinion": "很驚艷", "VA": "6.62#6.50"}]}
+{"ID": "R1529:S005", "Text": "還有龍蝦湯的調味真的不習慣。", "Quadruplet": [{"Aspect": "龍蝦湯的調味", "Category": "FOOD#QUALITY", "Opinion": "真的不習慣", "VA": "4.33#5.50"}]}
+{"ID": "R0339:S025", "Text": "口感軟嫩。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "軟嫩", "VA": "6.25#5.88"}]}
+{"ID": "R0339:S026", "Text": "魚肉帶點香氣。", "Quadruplet": [{"Aspect": "魚肉", "Category": "FOOD#QUALITY", "Opinion": "帶點香氣", "VA": "5.75#5.38"}]}
+{"ID": "R0339:S027", "Text": "肉質帶點酸味。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "帶點酸味", "VA": "4.00#6.17"}]}
+{"ID": "R0339:S028", "Text": "味道飽滿。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "飽滿", "VA": "6.25#5.62"}]}
+{"ID": "R0339:S029", "Text": "炸慈菇鮮美。", "Quadruplet": [{"Aspect": "炸慈菇", "Category": "FOOD#QUALITY", "Opinion": "鮮美", "VA": "6.50#6.17"}]}
+{"ID": "R0339:S030", "Text": "味道細緻。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "細緻", "VA": "6.00#5.38"}]}
+{"ID": "R0339:S031", "Text": "牛蒡糕清爽。", "Quadruplet": [{"Aspect": "牛蒡糕", "Category": "FOOD#QUALITY", "Opinion": "清爽", "VA": "6.33#6.00"}]}
+{"ID": "R0339:S040", "Text": "這個就香氣十足。", "Quadruplet": [{"Aspect": "香氣", "Category": "FOOD#QUALITY", "Opinion": "十足", "VA": "6.62#6.62"}]}
+{"ID": "R0339:S043", "Text": "清爽的日式醬料。", "Quadruplet": [{"Aspect": "日式醬料", "Category": "FOOD#QUALITY", "Opinion": "清爽", "VA": "6.62#6.50"}]}
+{"ID": "R0339:S044", "Text": "看看這精美的油花紋路。", "Quadruplet": [{"Aspect": "油花紋路", "Category": "FOOD#QUALITY", "Opinion": "精美", "VA": "6.62#6.00"}]}
+{"ID": "R0339:S049", "Text": "搭配清爽的日式醬汁。", "Quadruplet": [{"Aspect": "日式醬汁", "Category": "FOOD#QUALITY", "Opinion": "清爽", "VA": "6.38#5.88"}]}
+{"ID": "R0339:S069", "Text": "配菜都相當不錯。", "Quadruplet": [{"Aspect": "配菜", "Category": "FOOD#QUALITY", "Opinion": "相當不錯", "VA": "6.50#6.67"}]}
+{"ID": "R0339:S079", "Text": "來碗湯麵確實不錯。", "Quadruplet": [{"Aspect": "湯麵", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.75#5.12"}]}
+{"ID": "R1578:S000", "Text": "海鮮料理新鮮。", "Quadruplet": [{"Aspect": "海鮮料理", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.17#5.50"}]}
+{"ID": "R0327:S036", "Text": "品項簡約。", "Quadruplet": [{"Aspect": "品項", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "簡約", "VA": "5.38#5.00"}]}
+{"ID": "R0327:S064", "Text": "它的味道還是偏淡。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "偏淡", "VA": "4.62#5.62"}]}
+{"ID": "R0327:S068", "Text": "我喜歡這個熟度的溏心蛋。", "Quadruplet": [{"Aspect": "溏心蛋", "Category": "FOOD#QUALITY", "Opinion": "喜歡", "VA": "6.88#6.25"}]}
+{"ID": "R0327:S069", "Text": "到目前都是好吃的麵。", "Quadruplet": [{"Aspect": "麵", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.12#5.75"}]}
+{"ID": "R0327:S075", "Text": "肉丁很香。", "Quadruplet": [{"Aspect": "肉丁", "Category": "FOOD#QUALITY", "Opinion": "很香", "VA": "6.83#6.00"}]}
+{"ID": "R0327:S089", "Text": "味道真的不錯。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "真的不錯", "VA": "6.50#6.50"}]}
+{"ID": "R0327:S092", "Text": "湯我算喜歡。", "Quadruplet": [{"Aspect": "湯", "Category": "FOOD#QUALITY", "Opinion": "喜歡", "VA": "5.88#5.00"}]}
+{"ID": "R0327:S096", "Text": "是好吃的麵。", "Quadruplet": [{"Aspect": "麵", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.75#6.38"}]}
+{"ID": "R3315:S008", "Text": "古早味湯麵也很不錯吃，湯頭熬的好喝。", "Quadruplet": [{"Aspect": "古早味湯麵", "Category": "FOOD#QUALITY", "Opinion": "很不錯吃", "VA": "6.50#5.75"}, {"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "好喝", "VA": "6.50#5.75"}]}
+{"ID": "R3315:S011", "Text": "環境整修過後變得比較舒適。", "Quadruplet": [{"Aspect": "環境", "Category": "AMBIENCE#GENERAL", "Opinion": "舒適", "VA": "5.88#5.50"}]}
+{"ID": "R3315:S014", "Text": "總之這次再訪鵝肉先生的用餐體驗非常不錯。", "Quadruplet": [{"Aspect": "用餐體驗", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "非常不錯", "VA": "6.83#6.50"}]}
+{"ID": "R1475:S002", "Text": "餐點好吃。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "5.88#5.12"}]}
+{"ID": "R1475:S003", "Text": "花生醬的漢堡非常好吃。", "Quadruplet": [{"Aspect": "花生醬的漢堡", "Category": "FOOD#QUALITY", "Opinion": "非常好吃", "VA": "7.00#6.50"}]}
+{"ID": "R1475:S004", "Text": "牛肉很厚。", "Quadruplet": [{"Aspect": "牛肉", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很厚", "VA": "6.17#5.50"}]}
+{"ID": "R1475:S007", "Text": "餐點價格真的太貴。", "Quadruplet": [{"Aspect": "餐點價格", "Category": "FOOD#PRICES", "Opinion": "真的太貴", "VA": "4.00#4.33"}]}
+{"ID": "R3075:S007", "Text": "餐點雖然好吃，價位並不便宜。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.33#5.67"}, {"Aspect": "價位", "Category": "RESTAURANT#PRICES", "Opinion": "不便宜", "VA": "4.67#5.17"}]}
+{"ID": "R3075:S011", "Text": "魚頭放在桌上很讓人驚豔，另外雞湯也很美味。", "Quadruplet": [{"Aspect": "魚頭", "Category": "FOOD#QUALITY", "Opinion": "很讓人驚豔", "VA": "6.50#6.33"}, {"Aspect": "雞湯", "Category": "FOOD#QUALITY", "Opinion": "很美味", "VA": "6.50#6.17"}]}
+{"ID": "R0827:S007", "Text": "餐廳氣氛非常不錯。", "Quadruplet": [{"Aspect": "餐廳氣氛", "Category": "AMBIENCE#GENERAL", "Opinion": "非常不錯", "VA": "6.50#6.25"}]}
+{"ID": "R0827:S018", "Text": "整體口感還蠻順喉的。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "蠻順喉的", "VA": "6.00#5.67"}]}
+{"ID": "R0827:S020", "Text": "這應該是掌門酒款裡相對清爽的啤酒。", "Quadruplet": [{"Aspect": "啤酒", "Category": "DRINKS#QUALITY", "Opinion": "相對清爽", "VA": "6.12#5.25"}]}
+{"ID": "R0595:S021", "Text": "我覺得飲料就比較平凡。", "Quadruplet": [{"Aspect": "飲料", "Category": "DRINKS#QUALITY", "Opinion": "比較平凡", "VA": "5.00#4.75"}]}
+{"ID": "R0595:S025", "Text": "蛋糕是真的美又好吃。", "Quadruplet": [{"Aspect": "蛋糕", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "真的美", "VA": "6.50#6.83"}, {"Aspect": "蛋糕", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#6.00"}]}
+{"ID": "R0595:S028", "Text": "上面的奶油很細緻，吃起來完全不膩口。", "Quadruplet": [{"Aspect": "奶油", "Category": "FOOD#QUALITY", "Opinion": "很細緻", "VA": "6.25#6.00"}, {"Aspect": "奶油", "Category": "FOOD#QUALITY", "Opinion": "完全不膩口", "VA": "6.50#6.00"}]}
+{"ID": "R3287:S013", "Text": "最喜歡的是招待的涼拌石蚵跟絲瓜。", "Quadruplet": [{"Aspect": "涼拌石蚵", "Category": "FOOD#QUALITY", "Opinion": "最喜歡", "VA": "7.10#7.10"}, {"Aspect": "絲瓜", "Category": "FOOD#QUALITY", "Opinion": "最喜歡", "VA": "7.10#7.10"}]}
+{"ID": "R1484:S001", "Text": "幫我們服務的餐廳店員態度很好。", "Quadruplet": [{"Aspect": "餐廳店員態度", "Category": "SERVICE#GENERAL", "Opinion": "很好", "VA": "6.50#6.50"}]}
+{"ID": "R1484:S003", "Text": "餐點份量都算足夠。", "Quadruplet": [{"Aspect": "餐點份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "算足夠", "VA": "5.62#5.00"}]}
+{"ID": "R1484:S006", "Text": "但烙餅非常好吃。", "Quadruplet": [{"Aspect": "烙餅", "Category": "FOOD#QUALITY", "Opinion": "非常好吃", "VA": "6.83#6.67"}]}
+{"ID": "R1698:S001", "Text": "餐廳氣氛會給人很舒適放鬆的感覺。", "Quadruplet": [{"Aspect": "餐廳氣氛", "Category": "AMBIENCE#GENERAL", "Opinion": "很舒適放鬆", "VA": "6.12#5.75"}]}
+{"ID": "R1698:S003", "Text": "餐點用心。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "用心", "VA": "6.12#5.50"}]}
+{"ID": "R1698:S012", "Text": "蔥爆牛肉吃起來味道清爽。", "Quadruplet": [{"Aspect": "蔥爆牛肉", "Category": "FOOD#QUALITY", "Opinion": "清爽", "VA": "6.00#5.50"}]}
+{"ID": "R2900:S000", "Text": "用餐時等了超久。", "Quadruplet": [{"Aspect": "NULL", "Category": "SERVICE#GENERAL", "Opinion": "超久", "VA": "3.62#6.75"}]}
+{"ID": "R0617:S013", "Text": "第一道羊排的熟度剛剛好。", "Quadruplet": [{"Aspect": "羊排的熟度", "Category": "FOOD#QUALITY", "Opinion": "剛剛好", "VA": "5.83#5.17"}]}
+{"ID": "R0617:S015", "Text": "羊肉口感很嫩。", "Quadruplet": [{"Aspect": "羊肉口感", "Category": "FOOD#QUALITY", "Opinion": "很嫩", "VA": "6.38#5.88"}]}
+{"ID": "R0617:S044", "Text": "整體來說除了餐廳比較擠了一點，其他不管服務或餐點都很不錯。", "Quadruplet": [{"Aspect": "餐廳", "Category": "AMBIENCE#GENERAL", "Opinion": "擠了一點", "VA": "4.83#5.50"}, {"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "很不錯", "VA": "6.83#6.33"}, {"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "很不錯", "VA": "6.83#6.33"}]}
+{"ID": "R3203:S021", "Text": "所以吃小炸雞塊時我個人覺得普通。", "Quadruplet": [{"Aspect": "小炸雞塊", "Category": "FOOD#QUALITY", "Opinion": "普通", "VA": "5.12#5.25"}]}
+{"ID": "R3203:S030", "Text": "我自己點的百香果雪泥還不錯喝。", "Quadruplet": [{"Aspect": "百香果雪泥", "Category": "DRINKS#QUALITY", "Opinion": "還不錯喝", "VA": "6.33#5.83"}]}
+{"ID": "R3065:S006", "Text": "小卷三條大的才$120大推。", "Quadruplet": [{"Aspect": "小卷", "Category": "FOOD#QUALITY", "Opinion": "大推", "VA": "6.50#6.83"}]}
+{"ID": "R0024:S005", "Text": "室內用餐空間也很大。", "Quadruplet": [{"Aspect": "用餐空間", "Category": "AMBIENCE#GENERAL", "Opinion": "很大", "VA": "6.17#6.33"}]}
+{"ID": "R0024:S013", "Text": "雞肉肉質紮實。", "Quadruplet": [{"Aspect": "雞肉肉質", "Category": "FOOD#QUALITY", "Opinion": "紮實", "VA": "6.12#5.50"}]}
+{"ID": "R0024:S014", "Text": "雞胸處澀而不乾。", "Quadruplet": [{"Aspect": "雞胸", "Category": "FOOD#QUALITY", "Opinion": "澀而不乾", "VA": "5.83#5.17"}]}
+{"ID": "R0024:S023", "Text": "不死鹹的花生，單吃下飯都很過癮。", "Quadruplet": [{"Aspect": "花生", "Category": "FOOD#QUALITY", "Opinion": "不死鹹", "VA": "5.83#5.33"}, {"Aspect": "花生", "Category": "FOOD#QUALITY", "Opinion": "很過癮", "VA": "6.50#6.50"}]}
+{"ID": "R0024:S025", "Text": "豬肉軟嫩不乾硬。", "Quadruplet": [{"Aspect": "豬肉", "Category": "FOOD#QUALITY", "Opinion": "軟嫩", "VA": "6.67#5.50"}, {"Aspect": "豬肉", "Category": "FOOD#QUALITY", "Opinion": "不乾硬", "VA": "6.33#5.33"}]}
+{"ID": "R0024:S030", "Text": "店家上菜十分迅速。", "Quadruplet": [{"Aspect": "上菜", "Category": "SERVICE#GENERAL", "Opinion": "十分迅速", "VA": "6.33#6.33"}]}
+{"ID": "R0024:S032", "Text": "最後繾綣掛念的，卻是五味花生的滋味。", "Quadruplet": [{"Aspect": "五味花生的滋味", "Category": "FOOD#QUALITY", "Opinion": "繾綣掛念", "VA": "7.25#7.12"}]}
+{"ID": "R3211:S008", "Text": "炙壽司都是一上桌就讓人驚喜不已。", "Quadruplet": [{"Aspect": "炙壽司", "Category": "FOOD#QUALITY", "Opinion": "驚喜不已", "VA": "6.67#6.17"}]}
+{"ID": "R3211:S009", "Text": "份量之大真可說是無人可敵。", "Quadruplet": [{"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "無人可敵", "VA": "7.12#6.75"}]}
+{"ID": "R3211:S011", "Text": "重點是價位不高而且非常新鮮。", "Quadruplet": [{"Aspect": "價位", "Category": "RESTAURANT#PRICES", "Opinion": "不高", "VA": "5.67#5.17"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "非常新鮮", "VA": "6.50#6.33"}]}
+{"ID": "R3211:S030", "Text": "要價$150卻是一盤不合格的炒飯。", "Quadruplet": [{"Aspect": "炒飯", "Category": "FOOD#QUALITY", "Opinion": "不合格", "VA": "4.00#5.50"}]}
+{"ID": "R3211:S035", "Text": "如果是這樣的料理品質，價位已經過高到令人覺得完全是只剩虛名。", "Quadruplet": [{"Aspect": "價位", "Category": "RESTAURANT#PRICES", "Opinion": "過高", "VA": "3.25#5.62"}]}
+{"ID": "R1179:S004", "Text": "並放上清爽的小黃瓜片。", "Quadruplet": [{"Aspect": "小黃瓜片", "Category": "FOOD#QUALITY", "Opinion": "清爽", "VA": "6.12#5.62"}]}
+{"ID": "R1179:S012", "Text": "肉質又軟嫩。", "Quadruplet": [{"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "軟嫩", "VA": "6.25#5.12"}]}
+{"ID": "R1179:S013", "Text": "湯頭很清爽。", "Quadruplet": [{"Aspect": "湯頭", "Category": "FOOD#QUALITY", "Opinion": "很清爽", "VA": "6.00#5.50"}]}
+{"ID": "R1179:S017", "Text": "原味蛋餅蠻好吃的。", "Quadruplet": [{"Aspect": "原味蛋餅", "Category": "FOOD#QUALITY", "Opinion": "蠻好吃的", "VA": "6.12#5.50"}]}
+{"ID": "R2238:S005", "Text": "金黃花枝酥條還不錯吃，份量也不少建議四五人分。", "Quadruplet": [{"Aspect": "金黃花枝酥條", "Category": "FOOD#QUALITY", "Opinion": "不錯吃", "VA": "6.00#5.75"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不少", "VA": "5.50#5.25"}]}
+{"ID": "R2238:S006", "Text": "德國豬腳店員很推，豬腳外脆很香。", "Quadruplet": [{"Aspect": "德國豬腳", "Category": "FOOD#QUALITY", "Opinion": "很推", "VA": "6.83#6.33"}, {"Aspect": "豬腳", "Category": "FOOD#QUALITY", "Opinion": "外脆", "VA": "6.00#5.50"}, {"Aspect": "豬腳", "Category": "FOOD#QUALITY", "Opinion": "很香", "VA": "6.50#6.00"}]}
+{"ID": "R2238:S008", "Text": "友人表示這豬腳是他目前吃過好吃的數一數二，份量很多酸菜還不錯。", "Quadruplet": [{"Aspect": "豬腳", "Category": "FOOD#QUALITY", "Opinion": "好吃的數一數二", "VA": "7.50#7.00"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "6.25#5.75"}, {"Aspect": "酸菜", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "6.25#5.75"}]}
+{"ID": "R2238:S009", "Text": "黑森林炒飯這個素食炒飯沒加蛋居然比葷食還好吃，炒得超級香而且那個醬太好吃了。", "Quadruplet": [{"Aspect": "黑森林炒飯", "Category": "FOOD#QUALITY", "Opinion": "超級香", "VA": "6.50#6.25"}, {"Aspect": "醬", "Category": "FOOD#QUALITY", "Opinion": "太好吃", "VA": "7.00#6.50"}]}
+{"ID": "R2238:S010", "Text": "店員也很推自製雞肉菠菜起司戒指麵，這個大推印象深刻。", "Quadruplet": [{"Aspect": "雞肉菠菜起司戒指麵", "Category": "FOOD#QUALITY", "Opinion": "大推", "VA": "6.67#6.33"}, {"Aspect": "雞肉菠菜起司戒指麵", "Category": "FOOD#QUALITY", "Opinion": "印象深刻", "VA": "6.33#6.17"}]}
+{"ID": "R2238:S012", "Text": "吃起來像是水餃皮微厚但有彈性，搭配香濃的醬驚為天人第一次吃到這樣的創意料理。", "Quadruplet": [{"Aspect": "水餃皮", "Category": "FOOD#QUALITY", "Opinion": "微厚", "VA": "5.50#5.00"}, {"Aspect": "水餃皮", "Category": "FOOD#QUALITY", "Opinion": "有彈性", "VA": "6.00#5.50"}, {"Aspect": "醬", "Category": "FOOD#QUALITY", "Opinion": "香濃", "VA": "6.00#5.50"}, {"Aspect": "醬", "Category": "FOOD#QUALITY", "Opinion": "驚為天人", "VA": "7.50#7.00"}]}
+{"ID": "R2238:S020", "Text": "起司海鮮焗烤飯還不錯吃，採用薑黃飯這個比較沒特色畢竟外面常見，料還算多。", "Quadruplet": [{"Aspect": "起司海鮮焗烤飯", "Category": "FOOD#QUALITY", "Opinion": "不錯吃", "VA": "5.75#5.50"}, {"Aspect": "薑黃飯", "Category": "FOOD#QUALITY", "Opinion": "沒特色", "VA": "4.00#6.00"}, {"Aspect": "料", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "還算多", "VA": "5.50#5.00"}]}
+{"ID": "R2238:S025", "Text": "墨西哥青醬炒板腱牛有點太油，但很香是好吃的人多的話可以一起吃。", "Quadruplet": [{"Aspect": "墨西哥青醬炒板腱牛", "Category": "FOOD#QUALITY", "Opinion": "有點太油", "VA": "4.00#6.00"}, {"Aspect": "墨西哥青醬炒板腱牛", "Category": "FOOD#QUALITY", "Opinion": "很香", "VA": "6.50#6.50"}, {"Aspect": "墨西哥青醬炒板腱牛", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.75"}]}
+{"ID": "R2238:S027", "Text": "蔓越莓草莓汁好喝。", "Quadruplet": [{"Aspect": "蔓越莓草莓汁", "Category": "DRINKS#QUALITY", "Opinion": "好喝", "VA": "6.62#6.38"}]}
+{"ID": "R1775:S008", "Text": "生鮮活蟹真的好吃。", "Quadruplet": [{"Aspect": "生鮮活蟹", "Category": "FOOD#QUALITY", "Opinion": "真的好吃", "VA": "6.75#6.38"}]}
+{"ID": "R1775:S012", "Text": "海鮮煎餅也好吃。", "Quadruplet": [{"Aspect": "海鮮煎餅", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.00#5.38"}]}
+{"ID": "R1775:S013", "Text": "牛小排陶板燒肉質不好。", "Quadruplet": [{"Aspect": "牛小排陶板燒肉質", "Category": "FOOD#QUALITY", "Opinion": "不好", "VA": "3.67#6.00"}]}
+{"ID": "R0844:S003", "Text": "味道口感都很讚。", "Quadruplet": [{"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "都很讚", "VA": "6.20#5.80"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "都很讚", "VA": "6.20#5.80"}]}
+{"ID": "R1687:S031", "Text": "入口後豬排充滿肉汁。", "Quadruplet": [{"Aspect": "豬排", "Category": "FOOD#QUALITY", "Opinion": "充滿肉汁", "VA": "6.50#6.75"}]}
+{"ID": "R3311:S004", "Text": "醃漬小黃瓜跟過貓不錯，可惜米血糕口感偏乾硬。", "Quadruplet": [{"Aspect": "醃漬小黃瓜", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.50"}, {"Aspect": "過貓", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.50"}, {"Aspect": "米血糕口感", "Category": "FOOD#QUALITY", "Opinion": "偏乾硬", "VA": "3.50#4.00"}]}
+{"ID": "R3311:S010", "Text": "用餐感受整體來說算是不錯。", "Quadruplet": [{"Aspect": "用餐感受", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "算是不錯", "VA": "6.17#5.50"}]}
+{"ID": "R2909:S012", "Text": "鹽酥魚塊份量普通，不過口感是好的。", "Quadruplet": [{"Aspect": "鹽酥魚塊份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "普通", "VA": "5.00#5.12"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "好", "VA": "5.75#5.50"}]}
+{"ID": "R2909:S025", "Text": "服務不用期待，超級糟糕。", "Quadruplet": [{"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "超級糟糕", "VA": "2.83#6.83"}, {"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "不用期待", "VA": "3.50#5.83"}]}
+{"ID": "R2652:S002", "Text": "嫩肩牛排(7分熟)真的超級推，第一次吃的時候就愛上它。", "Quadruplet": [{"Aspect": "嫩肩牛排", "Category": "FOOD#QUALITY", "Opinion": "真的超級推", "VA": "6.75#7.25"}, {"Aspect": "嫩肩牛排", "Category": "FOOD#QUALITY", "Opinion": "愛上", "VA": "7.25#6.75"}]}
+{"ID": "R2652:S003", "Text": "首先水果生菜沙拉很新鮮。", "Quadruplet": [{"Aspect": "水果生菜沙拉", "Category": "FOOD#QUALITY", "Opinion": "很新鮮", "VA": "6.12#6.00"}]}
+{"ID": "R2652:S004", "Text": "蘋果醋(有點忘了)不錯喝也可增加胃口!", "Quadruplet": [{"Aspect": "蘋果醋", "Category": "DRINKS#QUALITY", "Opinion": "不錯喝", "VA": "6.38#5.88"}]}
+{"ID": "R2652:S006", "Text": "嫩肩肉非常的鮮甜與嫩咬下去甜甜的肉汁散在嘴裡擴散。", "Quadruplet": [{"Aspect": "嫩肩肉", "Category": "FOOD#QUALITY", "Opinion": "非常的鮮甜與嫩", "VA": "6.50#6.00"}, {"Aspect": "肉汁", "Category": "FOOD#QUALITY", "Opinion": "甜甜的", "VA": "6.25#5.50"}]}
+{"ID": "R2652:S007", "Text": "水果茶來說也算不錯，但是水果偏少一些。", "Quadruplet": [{"Aspect": "水果茶", "Category": "DRINKS#QUALITY", "Opinion": "算不錯", "VA": "5.67#5.50"}, {"Aspect": "水果", "Category": "DRINKS#STYLE_OPTIONS", "Opinion": "偏少一些", "VA": "4.67#5.33"}]}
+{"ID": "R2951:S000", "Text": "金沙蝦球鹹蛋味很充足但個人覺得看起來份量偏少。", "Quadruplet": [{"Aspect": "鹹蛋味", "Category": "FOOD#QUALITY", "Opinion": "很充足", "VA": "6.83#6.17"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "偏少", "VA": "4.83#5.67"}]}
+{"ID": "R2951:S003", "Text": "糖醋里肌有加了鳳梨吃起來還可以。", "Quadruplet": [{"Aspect": "糖醋里肌", "Category": "FOOD#QUALITY", "Opinion": "還可以", "VA": "5.88#5.50"}]}
+{"ID": "R2951:S004", "Text": "炒水蓮好吃以150的價格來看份量很多。", "Quadruplet": [{"Aspect": "炒水蓮", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.33#5.50"}, {"Aspect": "份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "很多", "VA": "6.50#6.00"}]}
+{"ID": "R2951:S005", "Text": "整體來說東西好吃，而且店內的裝潢真的很棒很用心。", "Quadruplet": [{"Aspect": "東西", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.50#5.50"}, {"Aspect": "裝潢", "Category": "AMBIENCE#GENERAL", "Opinion": "真的很棒", "VA": "6.50#6.00"}, {"Aspect": "裝潢", "Category": "AMBIENCE#GENERAL", "Opinion": "很用心", "VA": "6.00#5.50"}]}
+{"ID": "R0771:S036", "Text": "香甜的卡士達醬也太迷人了吧。", "Quadruplet": [{"Aspect": "卡士達醬", "Category": "FOOD#QUALITY", "Opinion": "香甜的", "VA": "6.25#5.75"}, {"Aspect": "卡士達醬", "Category": "FOOD#QUALITY", "Opinion": "太迷人", "VA": "7.00#6.50"}]}
+{"ID": "R2155:S007", "Text": "山豬肉有點偏柴，可能是我這批剛好這樣。", "Quadruplet": [{"Aspect": "山豬肉", "Category": "FOOD#QUALITY", "Opinion": "有點偏柴", "VA": "4.25#5.00"}]}
+{"ID": "R2155:S008", "Text": "筊白筍多汁軟嫩但是不太甜。", "Quadruplet": [{"Aspect": "筊白筍", "Category": "FOOD#QUALITY", "Opinion": "多汁軟嫩", "VA": "6.33#6.00"}, {"Aspect": "筊白筍", "Category": "FOOD#QUALITY", "Opinion": "不太甜", "VA": "4.67#5.17"}]}
+{"ID": "R2155:S012", "Text": "最後的招待甜品山粉圓不錯。", "Quadruplet": [{"Aspect": "山粉圓", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.75#5.50"}]}
+{"ID": "R0090:S002", "Text": "還有附停車場，交通很方便的啦。", "Quadruplet": [{"Aspect": "交通", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "很方便", "VA": "6.12#6.00"}]}
+{"ID": "R0090:S012", "Text": "臭豆腐外皮超酥超香。", "Quadruplet": [{"Aspect": "臭豆腐外皮", "Category": "FOOD#QUALITY", "Opinion": "超酥", "VA": "6.62#6.88"}, {"Aspect": "臭豆腐外皮", "Category": "FOOD#QUALITY", "Opinion": "超香", "VA": "6.62#6.88"}]}
+{"ID": "R0090:S014", "Text": "裡面的豆腐是有縫隙的那種，口感還可以。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "還可以", "VA": "5.50#5.12"}]}
+{"ID": "R0090:S017", "Text": "還有蘿蔔絲和九層塔，更添口感與風味。", "Quadruplet": [{"Aspect": "蘿蔔絲", "Category": "FOOD#QUALITY", "Opinion": "更添口感與風味", "VA": "6.67#6.33"}, {"Aspect": "九層塔", "Category": "FOOD#QUALITY", "Opinion": "更添口感與風味", "VA": "6.67#6.33"}]}
+{"ID": "R0090:S021", "Text": "只能說這間的臭豆腐真的很好吃。", "Quadruplet": [{"Aspect": "臭豆腐", "Category": "FOOD#QUALITY", "Opinion": "真的很好吃", "VA": "7.12#6.88"}]}
+{"ID": "R2326:S005", "Text": "櫻桃鴨要490元偏貴，擺盤尚可但吃起來都一般般。", "Quadruplet": [{"Aspect": "櫻桃鴨", "Category": "FOOD#PRICES", "Opinion": "偏貴", "VA": "4.25#5.00"}, {"Aspect": "擺盤", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "尚可", "VA": "4.75#5.00"}, {"Aspect": "櫻桃鴨", "Category": "FOOD#QUALITY", "Opinion": "一般般", "VA": "4.75#5.00"}]}
+{"ID": "R1965:S006", "Text": "第一次來點的海鮮披薩也是超級棒。", "Quadruplet": [{"Aspect": "海鮮披薩", "Category": "FOOD#QUALITY", "Opinion": "超級棒", "VA": "6.88#7.00"}]}
+{"ID": "R1965:S020", "Text": "缺點是位置有點太窄了。", "Quadruplet": [{"Aspect": "位置", "Category": "AMBIENCE#GENERAL", "Opinion": "有點太窄", "VA": "4.33#4.50"}]}
+{"ID": "R0897:S003", "Text": "這次點了香辣番茄培根青醬麵覺得還不錯吃。", "Quadruplet": [{"Aspect": "香辣番茄培根青醬麵", "Category": "FOOD#QUALITY", "Opinion": "還不錯吃", "VA": "6.00#5.80"}]}
+{"ID": "R0840:S037", "Text": "但雞皮意外地完全不油，Q滑油脆。", "Quadruplet": [{"Aspect": "雞皮", "Category": "FOOD#QUALITY", "Opinion": "意外地完全不油", "VA": "6.67#6.50"}, {"Aspect": "雞皮", "Category": "FOOD#QUALITY", "Opinion": "Q滑油脆", "VA": "6.00#5.50"}]}
+{"ID": "R0840:S050", "Text": "再說豆皮份量不少，重點是超好吃軟Q滑嫩豆味香濃。", "Quadruplet": [{"Aspect": "豆皮份量", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "不少", "VA": "6.50#5.00"}, {"Aspect": "豆皮", "Category": "FOOD#QUALITY", "Opinion": "超好吃", "VA": "6.50#7.00"}, {"Aspect": "豆皮", "Category": "FOOD#QUALITY", "Opinion": "軟Q滑嫩", "VA": "6.50#5.00"}, {"Aspect": "豆味", "Category": "FOOD#QUALITY", "Opinion": "香濃", "VA": "6.50#5.00"}]}
+{"ID": "R0840:S072", "Text": "雞皮一樣是滑脆不油膩。", "Quadruplet": [{"Aspect": "雞皮", "Category": "FOOD#QUALITY", "Opinion": "滑脆", "VA": "6.00#5.00"}, {"Aspect": "雞皮", "Category": "FOOD#QUALITY", "Opinion": "不油膩", "VA": "5.88#5.12"}]}
+{"ID": "R0840:S080", "Text": "高麗菜清脆甜美。", "Quadruplet": [{"Aspect": "高麗菜", "Category": "FOOD#QUALITY", "Opinion": "清脆", "VA": "6.17#5.50"}, {"Aspect": "高麗菜", "Category": "FOOD#QUALITY", "Opinion": "甜美", "VA": "6.17#5.50"}]}
+{"ID": "R0840:S086", "Text": "今天的花椰菜有點硬，梗有點難咬。", "Quadruplet": [{"Aspect": "花椰菜", "Category": "FOOD#QUALITY", "Opinion": "有點硬", "VA": "4.25#4.00"}, {"Aspect": "梗", "Category": "FOOD#QUALITY", "Opinion": "有點難咬", "VA": "4.25#4.25"}]}
+{"ID": "R0840:S088", "Text": "小黃瓜很大根，又脆又甜。", "Quadruplet": [{"Aspect": "小黃瓜", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大根", "VA": "5.75#5.12"}, {"Aspect": "小黃瓜", "Category": "FOOD#QUALITY", "Opinion": "脆", "VA": "5.75#5.00"}, {"Aspect": "小黃瓜", "Category": "FOOD#QUALITY", "Opinion": "甜", "VA": "5.75#5.00"}]}
+{"ID": "R0840:S089", "Text": "白蘿蔔燉得軟脆又不爛。", "Quadruplet": [{"Aspect": "白蘿蔔", "Category": "FOOD#QUALITY", "Opinion": "軟脆", "VA": "6.12#5.25"}, {"Aspect": "白蘿蔔", "Category": "FOOD#QUALITY", "Opinion": "不爛", "VA": "5.62#5.00"}]}
+{"ID": "R0840:S090", "Text": "滷汁有入味又不會太鹹。", "Quadruplet": [{"Aspect": "滷汁", "Category": "FOOD#QUALITY", "Opinion": "入味", "VA": "6.25#5.38"}, {"Aspect": "滷汁", "Category": "FOOD#QUALITY", "Opinion": "不會太鹹", "VA": "5.88#5.25"}]}
+{"ID": "R0840:S091", "Text": "馬鈴薯鬆鬆綿綿，咬兩下就散開。", "Quadruplet": [{"Aspect": "馬鈴薯", "Category": "FOOD#QUALITY", "Opinion": "鬆鬆綿綿", "VA": "5.88#5.38"}]}
+{"ID": "R0840:S093", "Text": "甜不辣意料之外是長條型的那種，軟Q帶勁。", "Quadruplet": [{"Aspect": "甜不辣", "Category": "FOOD#QUALITY", "Opinion": "軟Q帶勁", "VA": "6.38#5.25"}]}
+{"ID": "R0840:S096", "Text": "今天的蔬菜都蠻好吃的，但不會讓人特別印象深刻。", "Quadruplet": [{"Aspect": "蔬菜", "Category": "FOOD#QUALITY", "Opinion": "蠻好吃的", "VA": "5.83#5.83"}, {"Aspect": "蔬菜", "Category": "FOOD#QUALITY", "Opinion": "不會讓人特別印象深刻", "VA": "4.17#5.50"}]}
+{"ID": "R0840:S104", "Text": "相較之下我比較喜歡雞胸，可以咬到雞肉的豐厚軟嫩。", "Quadruplet": [{"Aspect": "雞胸", "Category": "FOOD#QUALITY", "Opinion": "比較喜歡", "VA": "5.88#5.12"}, {"Aspect": "雞胸", "Category": "FOOD#QUALITY", "Opinion": "豐厚軟嫩", "VA": "6.38#5.50"}]}
+{"ID": "R0840:S113", "Text": "龍鬚菜保有蔬菜鮮甜~切得有點太大塊，菜梗的存在感明顯。", "Quadruplet": [{"Aspect": "龍鬚菜", "Category": "FOOD#QUALITY", "Opinion": "保有蔬菜鮮甜", "VA": "6.17#6.00"}, {"Aspect": "龍鬚菜", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "有點太大塊", "VA": "4.50#4.83"}, {"Aspect": "菜梗", "Category": "FOOD#QUALITY", "Opinion": "存在感明顯", "VA": "4.50#5.67"}]}
+{"ID": "R0840:S115", "Text": "蒟蒻絲很入味軟Q好吃~散掉的部分有在吃冬粉的錯覺XD", "Quadruplet": [{"Aspect": "蒟蒻絲", "Category": "FOOD#QUALITY", "Opinion": "很入味", "VA": "6.00#5.88"}, {"Aspect": "蒟蒻絲", "Category": "FOOD#QUALITY", "Opinion": "軟Q", "VA": "5.88#5.25"}, {"Aspect": "蒟蒻絲", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "5.75#5.00"}]}
+{"ID": "R0840:S117", "Text": "香菇飽口多汁又嫩。", "Quadruplet": [{"Aspect": "香菇", "Category": "FOOD#QUALITY", "Opinion": "飽口多汁", "VA": "6.67#5.67"}, {"Aspect": "香菇", "Category": "FOOD#QUALITY", "Opinion": "嫩", "VA": "6.67#5.33"}]}
+{"ID": "R0329:S002", "Text": "點了濃厚雞白湯拉麵整體吃起來還不錯。", "Quadruplet": [{"Aspect": "濃厚雞白湯拉麵", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "5.83#5.33"}]}
+{"ID": "R0329:S004", "Text": "雞白湯底不錯喝。", "Quadruplet": [{"Aspect": "雞白湯底", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.38#5.88"}]}
+{"ID": "R0105:S002", "Text": "午間套餐還蠻划算的。", "Quadruplet": [{"Aspect": "午間套餐", "Category": "FOOD#PRICES", "Opinion": "蠻划算", "VA": "6.33#6.00"}]}
+{"ID": "R0105:S014", "Text": "他們家的辣牛肉湯也很夠味。", "Quadruplet": [{"Aspect": "辣牛肉湯", "Category": "FOOD#QUALITY", "Opinion": "很夠味", "VA": "6.75#6.38"}]}
+{"ID": "R0105:S019", "Text": "肉吃起來口感非常棒。", "Quadruplet": [{"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "非常棒", "VA": "7.12#6.50"}]}
+{"ID": "R0105:S030", "Text": "然後赤虎的布丁真的很好吃。", "Quadruplet": [{"Aspect": "布丁", "Category": "FOOD#QUALITY", "Opinion": "真的很好吃", "VA": "6.90#6.80"}]}
+{"ID": "R0105:S031", "Text": "布丁原價好像是120之類的，真的頗貴。", "Quadruplet": [{"Aspect": "布丁", "Category": "FOOD#PRICES", "Opinion": "真的頗貴", "VA": "3.83#6.17"}]}
+{"ID": "R0105:S036", "Text": "布丁吃起來綿密濃香。", "Quadruplet": [{"Aspect": "布丁", "Category": "FOOD#QUALITY", "Opinion": "綿密濃香", "VA": "6.38#5.62"}]}
+{"ID": "R0105:S038", "Text": "布丁吃完後，覺得超級幸福。", "Quadruplet": [{"Aspect": "布丁", "Category": "FOOD#QUALITY", "Opinion": "超級幸福", "VA": "7.38#7.62"}]}
+{"ID": "R0105:S043", "Text": "是一直會回訪的店。", "Quadruplet": [{"Aspect": "店", "Category": "RESTAURANT#GENERAL", "Opinion": "一直會回訪", "VA": "7.17#6.83"}]}
+{"ID": "R0109:S010", "Text": "當初就是因為這裡有提供各式的簡餐類，且價格也不算太貴。", "Quadruplet": [{"Aspect": "簡餐", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "各式", "VA": "5.50#5.00"}, {"Aspect": "價格", "Category": "FOOD#PRICES", "Opinion": "不算太貴", "VA": "6.00#5.17"}]}
+{"ID": "R0109:S026", "Text": "我點的是原味香酥大雞腿套餐，吃起來酥脆。", "Quadruplet": [{"Aspect": "原味香酥大雞腿套餐", "Category": "FOOD#QUALITY", "Opinion": "酥脆", "VA": "6.88#6.25"}]}
+{"ID": "R0109:S027", "Text": "調味不會過鹹。", "Quadruplet": [{"Aspect": "調味", "Category": "FOOD#QUALITY", "Opinion": "不會過鹹", "VA": "5.67#5.33"}]}
+{"ID": "R0109:S029", "Text": "不過配菜跟甜點的部分就比較一般般一些了。", "Quadruplet": [{"Aspect": "配菜", "Category": "FOOD#QUALITY", "Opinion": "比較一般般一些", "VA": "4.83#5.00"}, {"Aspect": "甜點", "Category": "FOOD#QUALITY", "Opinion": "比較一般般一些", "VA": "5.00#5.17"}]}
+{"ID": "R0109:S035", "Text": "口味上算是中規中矩，至少牛肉不會過柴過硬。", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "中規中矩", "VA": "5.00#5.00"}, {"Aspect": "牛肉", "Category": "FOOD#QUALITY", "Opinion": "不會過柴過硬", "VA": "5.67#5.17"}]}
+{"ID": "R0109:S036", "Text": "另外煲湯裡還有紅蘿蔔菜頭白菜跟洋蔥等配菜，算是還蠻豐富的樣子。", "Quadruplet": [{"Aspect": "煲湯", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "蠻豐富", "VA": "6.17#5.33"}]}
+{"ID": "R0109:S039", "Text": "缺點應該都是配菜的口味比較一般般一些。", "Quadruplet": [{"Aspect": "配菜的口味", "Category": "FOOD#QUALITY", "Opinion": "比較一般般一些", "VA": "5.00#5.00"}]}
+{"ID": "R0109:S053", "Text": "香蕉清冰吃起來非常綿密。", "Quadruplet": [{"Aspect": "香蕉清冰", "Category": "FOOD#QUALITY", "Opinion": "非常綿密", "VA": "6.50#6.83"}]}
+{"ID": "R0109:S055", "Text": "小雪人聖代外表真的超可愛的。", "Quadruplet": [{"Aspect": "小雪人聖代外表", "Category": "FOOD#QUALITY", "Opinion": "真的超可愛", "VA": "6.33#6.83"}]}
+{"ID": "R1697:S001", "Text": "茶很清爽。", "Quadruplet": [{"Aspect": "茶", "Category": "DRINKS#QUALITY", "Opinion": "很清爽", "VA": "6.38#6.00"}]}
+{"ID": "R1697:S002", "Text": "餐點口味都不錯。", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.83#5.00"}]}
+{"ID": "R2245:S003", "Text": "餐點方面是西式，餐點稍微普通，口味偏鹹。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "稍微普通", "VA": "5.00#4.83"}, {"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "偏鹹", "VA": "4.33#5.33"}]}
+{"ID": "R2245:S006", "Text": "豬腳外酥內軟，但酥皮稍稍過硬難咀嚼。", "Quadruplet": [{"Aspect": "豬腳", "Category": "FOOD#QUALITY", "Opinion": "外酥內軟", "VA": "6.00#6.00"}, {"Aspect": "酥皮", "Category": "FOOD#QUALITY", "Opinion": "稍稍過硬", "VA": "4.50#4.50"}, {"Aspect": "酥皮", "Category": "FOOD#QUALITY", "Opinion": "難咀嚼", "VA": "4.50#4.50"}]}
+{"ID": "R2245:S008", "Text": "有中式菜色口味清淡，但都是不錯的味道。。", "Quadruplet": [{"Aspect": "口味", "Category": "FOOD#QUALITY", "Opinion": "清淡", "VA": "5.50#5.00"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.83#5.50"}]}
+{"ID": "R0306:S002", "Text": "價格也高一些。", "Quadruplet": [{"Aspect": "價格", "Category": "FOOD#PRICES", "Opinion": "高一些", "VA": "4.88#5.75"}]}
+{"ID": "R0306:S003", "Text": "但品質都還不錯。", "Quadruplet": [{"Aspect": "品質", "Category": "FOOD#QUALITY", "Opinion": "還不錯", "VA": "6.00#5.17"}]}
+{"ID": "R0306:S011", "Text": "餅們都圓潤潤的。", "Quadruplet": [{"Aspect": "餅", "Category": "FOOD#QUALITY", "Opinion": "圓潤潤", "VA": "5.62#5.62"}]}
+{"ID": "R0306:S014", "Text": "價格是有點貴。", "Quadruplet": [{"Aspect": "價格", "Category": "FOOD#PRICES", "Opinion": "有點貴", "VA": "4.25#4.88"}]}
+{"ID": "R0306:S019", "Text": "蛋黃酥很香。", "Quadruplet": [{"Aspect": "蛋黃酥", "Category": "FOOD#QUALITY", "Opinion": "很香", "VA": "6.17#5.67"}]}
+{"ID": "R0306:S022", "Text": "蛋黃對我來說有點腥味。", "Quadruplet": [{"Aspect": "蛋黃", "Category": "FOOD#QUALITY", "Opinion": "有點腥味", "VA": "4.00#5.38"}]}
+{"ID": "R0306:S027", "Text": "甜度剛好。", "Quadruplet": [{"Aspect": "甜度", "Category": "FOOD#QUALITY", "Opinion": "剛好", "VA": "5.50#5.00"}]}
+{"ID": "R0306:S029", "Text": "吃起來更清香。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "清香", "VA": "6.25#5.88"}]}
+{"ID": "R0306:S033", "Text": "蛋黃有點腥味。", "Quadruplet": [{"Aspect": "蛋黃", "Category": "FOOD#QUALITY", "Opinion": "有點腥味", "VA": "4.00#5.12"}]}
+{"ID": "R0306:S042", "Text": "有機文山茶紅豆酥茶香濃郁。", "Quadruplet": [{"Aspect": "有機文山茶紅豆酥茶香", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "6.75#6.00"}]}
+{"ID": "R0306:S043", "Text": "紅豆不過甜。", "Quadruplet": [{"Aspect": "紅豆", "Category": "FOOD#QUALITY", "Opinion": "不過甜", "VA": "5.83#6.33"}]}
+{"ID": "R0306:S046", "Text": "內餡細緻。", "Quadruplet": [{"Aspect": "內餡", "Category": "FOOD#QUALITY", "Opinion": "細緻", "VA": "6.00#5.00"}]}
+{"ID": "R0306:S047", "Text": "甜度適中。", "Quadruplet": [{"Aspect": "甜度", "Category": "FOOD#QUALITY", "Opinion": "適中", "VA": "5.50#5.00"}]}
+{"ID": "R0306:S050", "Text": "吃起來甜中帶著清香。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "甜中帶著清香", "VA": "6.50#5.50"}]}
+{"ID": "R0306:S051", "Text": "算是爽口。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "爽口", "VA": "5.75#5.38"}]}
+{"ID": "R0306:S054", "Text": "蛋黃酥整體來說味道都還不錯。", "Quadruplet": [{"Aspect": "蛋黃酥", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.88#5.50"}]}
+{"ID": "R0306:S056", "Text": "小月餅跟肚臍餅尤其美味。", "Quadruplet": [{"Aspect": "小月餅", "Category": "FOOD#QUALITY", "Opinion": "美味", "VA": "6.33#5.17"}, {"Aspect": "肚臍餅", "Category": "FOOD#QUALITY", "Opinion": "美味", "VA": "6.33#5.17"}]}
+{"ID": "R2076:S002", "Text": "點的餐點大致上都蠻喜歡。", "Quadruplet": [{"Aspect": "餐點", "Category": "FOOD#QUALITY", "Opinion": "蠻喜歡", "VA": "6.17#5.83"}]}
+{"ID": "R2076:S007", "Text": "服務人員基本上態度良好。", "Quadruplet": [{"Aspect": "態度", "Category": "SERVICE#GENERAL", "Opinion": "良好", "VA": "5.88#5.62"}]}
+{"ID": "R2076:S008", "Text": "氣氛跟香港蠻像，但餐具真的清潔需加強。", "Quadruplet": [{"Aspect": "清潔", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "需加強", "VA": "4.38#5.38"}]}
+{"ID": "R3019:S000", "Text": "店裡面空間足夠坐起來不會太窘迫。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "足夠", "VA": "5.38#5.12"}]}
+{"ID": "R3019:S004", "Text": "豬排幾乎是別人兩倍大而且還是有一定的厚度。", "Quadruplet": [{"Aspect": "豬排", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "兩倍大", "VA": "6.67#6.33"}]}
+{"ID": "R3019:S005", "Text": "可惜豬排略硬這還有進步空間。", "Quadruplet": [{"Aspect": "豬排", "Category": "FOOD#QUALITY", "Opinion": "略硬", "VA": "4.50#5.38"}, {"Aspect": "豬排", "Category": "FOOD#QUALITY", "Opinion": "有進步空間", "VA": "4.62#5.38"}]}
+{"ID": "R3019:S008", "Text": "咖哩中規中矩，牛丼鹹度適中。", "Quadruplet": [{"Aspect": "咖哩", "Category": "FOOD#QUALITY", "Opinion": "中規中矩", "VA": "5.00#5.00"}, {"Aspect": "牛丼鹹度", "Category": "FOOD#QUALITY", "Opinion": "適中", "VA": "5.12#5.00"}]}
+{"ID": "R2841:S001", "Text": "很喜歡吃他的起司牛肉漢堡。", "Quadruplet": [{"Aspect": "起司牛肉漢堡", "Category": "FOOD#QUALITY", "Opinion": "很喜歡", "VA": "6.50#6.50"}]}
+{"ID": "R2841:S002", "Text": "起司味很濃郁，不過吃到後面會有一點小膩。", "Quadruplet": [{"Aspect": "起司味", "Category": "FOOD#QUALITY", "Opinion": "很濃郁", "VA": "6.75#6.25"}, {"Aspect": "起司", "Category": "FOOD#QUALITY", "Opinion": "有一點小膩", "VA": "4.00#5.50"}]}
+{"ID": "R2841:S006", "Text": "薯泥很好吃，配它的醬很讚。", "Quadruplet": [{"Aspect": "薯泥", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.67#6.17"}, {"Aspect": "薯泥", "Category": "FOOD#QUALITY", "Opinion": "很讚", "VA": "6.67#6.33"}]}
+{"ID": "R2841:S008", "Text": "薯條我覺得一般，有點像氣炸鍋炸的那種味道。", "Quadruplet": [{"Aspect": "薯條", "Category": "FOOD#QUALITY", "Opinion": "一般", "VA": "5.00#5.00"}]}
+{"ID": "R2841:S011", "Text": "價位都在250元上下，覺得還在可以接受的範圍內。", "Quadruplet": [{"Aspect": "價位", "Category": "RESTAURANT#PRICES", "Opinion": "可以接受", "VA": "5.62#5.75"}]}
+{"ID": "R0358:S001", "Text": "咖哩醬汁濃郁。", "Quadruplet": [{"Aspect": "咖哩醬汁", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "6.38#5.88"}]}
+{"ID": "R3008:S002", "Text": "菜單非常多樣選擇多。", "Quadruplet": [{"Aspect": "菜單", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "非常多樣", "VA": "6.38#5.88"}]}
+{"ID": "R3008:S004", "Text": "所以選擇招牌餐咖哩豬排$180，超大塊的炸豬排。", "Quadruplet": [{"Aspect": "炸豬排", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "超大塊", "VA": "6.17#6.00"}]}
+{"ID": "R0477:S004", "Text": "大大的排骨很有古早味，味道和口感都很好。", "Quadruplet": [{"Aspect": "排骨", "Category": "FOOD#STYLE_OPTIONS", "Opinion": "大大的", "VA": "6.50#5.00"}, {"Aspect": "排骨", "Category": "FOOD#QUALITY", "Opinion": "很有古早味", "VA": "6.50#6.50"}, {"Aspect": "味道", "Category": "FOOD#QUALITY", "Opinion": "很好", "VA": "6.50#6.50"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "很好", "VA": "6.50#6.50"}]}
+{"ID": "R0477:S010", "Text": "另外它們的炸雞腿也好吃。", "Quadruplet": [{"Aspect": "炸雞腿", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "5.75#5.38"}]}
+{"ID": "R0855:S102", "Text": "招牌菜無疑神作級別。", "Quadruplet": [{"Aspect": "招牌菜", "Category": "FOOD#QUALITY", "Opinion": "神作級別", "VA": "8.00#7.75"}]}
+{"ID": "R0937:S017", "Text": "以鐵板牛肉的概念打造了厚實的漢堡排，口感軟嫩多汁的與貝果堡相當合拍。", "Quadruplet": [{"Aspect": "漢堡排", "Category": "FOOD#QUALITY", "Opinion": "厚實", "VA": "5.50#5.00"}, {"Aspect": "口感", "Category": "FOOD#QUALITY", "Opinion": "軟嫩多汁", "VA": "5.75#5.38"}]}
+{"ID": "R0937:S060", "Text": "外層搭配鬆軟又有嚼勁的貝果，顛覆了貝果乾硬的刻板印象。", "Quadruplet": [{"Aspect": "貝果", "Category": "FOOD#QUALITY", "Opinion": "鬆軟", "VA": "6.00#5.50"}, {"Aspect": "貝果", "Category": "FOOD#QUALITY", "Opinion": "有嚼勁", "VA": "6.12#5.50"}]}
+{"ID": "R0937:S062", "Text": "另外還有酥脆的地瓜餅乾與新鮮的牛番茄。", "Quadruplet": [{"Aspect": "地瓜餅乾", "Category": "FOOD#QUALITY", "Opinion": "酥脆的", "VA": "6.25#5.62"}, {"Aspect": "牛番茄", "Category": "FOOD#QUALITY", "Opinion": "新鮮", "VA": "6.25#5.62"}]}
+{"ID": "R0937:S079", "Text": "燕麥奶系列的飲品皆採用OATLY燕麥奶製成，香醇溫潤又不會太死甜。", "Quadruplet": [{"Aspect": "燕麥奶", "Category": "DRINKS#QUALITY", "Opinion": "香醇溫潤", "VA": "6.17#5.67"}, {"Aspect": "燕麥奶", "Category": "DRINKS#QUALITY", "Opinion": "不會太死甜", "VA": "5.83#5.50"}]}
+{"ID": "R1173:S013", "Text": "發現這間餐廳不貴。", "Quadruplet": [{"Aspect": "餐廳", "Category": "RESTAURANT#PRICES", "Opinion": "不貴", "VA": "5.75#5.12"}]}
+{"ID": "R1173:S020", "Text": "蛋糕櫃裡的點心精緻。", "Quadruplet": [{"Aspect": "點心", "Category": "FOOD#QUALITY", "Opinion": "精緻", "VA": "6.38#5.75"}]}
+{"ID": "R1173:S021", "Text": "英式糕點、餅乾不錯。", "Quadruplet": [{"Aspect": "英式糕點", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.38"}, {"Aspect": "餅乾", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.38"}]}
+{"ID": "R1173:S033", "Text": "店內每張桌子都不大。", "Quadruplet": [{"Aspect": "桌子", "Category": "RESTAURANT#MISCELLANEOUS", "Opinion": "不大", "VA": "4.75#5.00"}]}
+{"ID": "R1173:S040", "Text": "但這杯咖啡喝起來味道醇厚。", "Quadruplet": [{"Aspect": "咖啡", "Category": "DRINKS#QUALITY", "Opinion": "醇厚", "VA": "6.25#5.38"}]}
+{"ID": "R1173:S043", "Text": "冰淇淋吃起來紮實。", "Quadruplet": [{"Aspect": "冰淇淋", "Category": "FOOD#QUALITY", "Opinion": "紮實", "VA": "6.00#5.00"}]}
+{"ID": "R3021:S007", "Text": "服務態度很散漫。", "Quadruplet": [{"Aspect": "服務態度", "Category": "SERVICE#GENERAL", "Opinion": "很散漫", "VA": "3.83#6.33"}]}
+{"ID": "R3021:S008", "Text": "咖哩是好吃的，肉的部分也不錯但是有點太油。", "Quadruplet": [{"Aspect": "咖哩", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "5.50#5.25"}, {"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "5.50#5.25"}, {"Aspect": "肉", "Category": "FOOD#QUALITY", "Opinion": "有點太油", "VA": "4.25#4.75"}]}
+{"ID": "R0084:S014", "Text": "看來是可以坐到8人左右，空間舒適。", "Quadruplet": [{"Aspect": "空間", "Category": "AMBIENCE#GENERAL", "Opinion": "舒適", "VA": "5.67#5.17"}]}
+{"ID": "R0084:S026", "Text": "魚的油脂感滑順，肉質鮮而不膩。", "Quadruplet": [{"Aspect": "魚的油脂感", "Category": "FOOD#QUALITY", "Opinion": "滑順", "VA": "6.17#5.67"}, {"Aspect": "肉質", "Category": "FOOD#QUALITY", "Opinion": "鮮而不膩", "VA": "6.17#5.67"}]}
+{"ID": "R0084:S039", "Text": "酸種麵包帶微酸與小麥香氣，蠻喜歡的。", "Quadruplet": [{"Aspect": "酸種麵包", "Category": "FOOD#QUALITY", "Opinion": "蠻喜歡", "VA": "6.50#5.83"}]}
+{"ID": "R0084:S041", "Text": "單吃就很好吃了。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "很好吃", "VA": "6.00#5.75"}]}
+{"ID": "R0084:S049", "Text": "透抽馬鈴薯麵口感不太合我胃口。", "Quadruplet": [{"Aspect": "透抽馬鈴薯麵口感", "Category": "FOOD#QUALITY", "Opinion": "不太合我胃口", "VA": "4.00#4.83"}]}
+{"ID": "R0084:S075", "Text": "料理至半生熟的直火金目鯛熟度洽恰好。", "Quadruplet": [{"Aspect": "直火金目鯛熟度", "Category": "FOOD#QUALITY", "Opinion": "洽恰好", "VA": "5.67#6.17"}]}
+{"ID": "R0084:S079", "Text": "這道菜配的飲品我非常喜歡。", "Quadruplet": [{"Aspect": "飲品", "Category": "DRINKS#QUALITY", "Opinion": "非常喜歡", "VA": "7.38#7.25"}]}
+{"ID": "R0084:S092", "Text": "豬肉豐腴不膩，油脂滑順。", "Quadruplet": [{"Aspect": "豬肉", "Category": "FOOD#QUALITY", "Opinion": "豐腴", "VA": "6.00#5.00"}, {"Aspect": "豬肉", "Category": "FOOD#QUALITY", "Opinion": "不膩", "VA": "6.00#5.00"}, {"Aspect": "豬肉", "Category": "FOOD#QUALITY", "Opinion": "油脂滑順", "VA": "6.17#5.00"}]}
+{"ID": "R0084:S094", "Text": "吃來多汁且無異味，整體來看處理得很好。", "Quadruplet": [{"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "多汁", "VA": "6.75#6.75"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "無異味", "VA": "5.75#5.50"}, {"Aspect": "NULL", "Category": "FOOD#QUALITY", "Opinion": "很好", "VA": "6.50#6.50"}]}
+{"ID": "R0084:S106", "Text": "冰淇淋也是好吃，不會過於甜膩。", "Quadruplet": [{"Aspect": "冰淇淋", "Category": "FOOD#QUALITY", "Opinion": "好吃", "VA": "6.75#6.38"}, {"Aspect": "冰淇淋", "Category": "FOOD#QUALITY", "Opinion": "不會過於甜膩", "VA": "6.38#6.25"}]}
+{"ID": "R0084:S117", "Text": "整體來說用餐氛圍輕鬆不拘謹，服務不錯。", "Quadruplet": [{"Aspect": "氛圍", "Category": "AMBIENCE#GENERAL", "Opinion": "輕鬆不拘謹", "VA": "5.83#6.17"}, {"Aspect": "服務", "Category": "SERVICE#GENERAL", "Opinion": "不錯", "VA": "5.67#5.50"}]}
+{"ID": "R0084:S119", "Text": "上菜節奏也掌握得很好。", "Quadruplet": [{"Aspect": "上菜節奏", "Category": "SERVICE#GENERAL", "Opinion": "很好", "VA": "6.25#6.25"}]}
+{"ID": "R0386:S001", "Text": "非常道地的豚骨魚介湯頭。", "Quadruplet": [{"Aspect": "豚骨魚介湯頭", "Category": "FOOD#QUALITY", "Opinion": "非常道地", "VA": "6.50#6.83"}]}
+{"ID": "R0386:S008", "Text": "叉燒的表現不錯。", "Quadruplet": [{"Aspect": "叉燒", "Category": "FOOD#QUALITY", "Opinion": "不錯", "VA": "6.00#5.50"}]}
+{"ID": "R2608:S004", "Text": "下水湯湯頭濃郁，但喝到後面會覺得偏油。", "Quadruplet": [{"Aspect": "下水湯湯頭", "Category": "FOOD#QUALITY", "Opinion": "濃郁", "VA": "6.00#5.75"}, {"Aspect": "下水湯湯頭", "Category": "FOOD#QUALITY", "Opinion": "偏油", "VA": "4.25#4.25"}]}
