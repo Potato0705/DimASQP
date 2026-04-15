@@ -1,0 +1,5840 @@
+[
+  {
+    "ID": "lap26_asqp_dev_1",
+    "Text": "Great perforemce at a great price",
+    "line_index": 0,
+    "quads": [
+      {
+        "Aspect": "perforemce",
+        "Opinion": "Great",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "6.88#7.25",
+        "aspect_span": [
+          6,
+          16
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "price",
+        "Opinion": "great",
+        "Category": "LAPTOP#PRICE",
+        "VA": "7.12#7.50",
+        "aspect_span": [
+          28,
+          33
+        ],
+        "opinion_span": [
+          22,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_2",
+    "Text": "Very bright display , and wide color gamut",
+    "line_index": 1,
+    "quads": [
+      {
+        "Aspect": "display",
+        "Opinion": "Very bright",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "8.00#7.25",
+        "aspect_span": [
+          12,
+          19
+        ],
+        "opinion_span": [
+          0,
+          11
+        ]
+      },
+      {
+        "Aspect": "display",
+        "Opinion": "wide color gamut",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "8.00#7.25",
+        "aspect_span": [
+          12,
+          19
+        ],
+        "opinion_span": [
+          26,
+          42
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_3",
+    "Text": "Battery life is bad enough as it is",
+    "line_index": 2,
+    "quads": [
+      {
+        "Aspect": "Battery life",
+        "Opinion": "bad enough",
+        "Category": "BATTERY#GENERAL",
+        "VA": "3.38#6.25",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          16,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_4",
+    "Text": "The Chromebook is very clean looking and it doesn't weigh a lot",
+    "line_index": 3,
+    "quads": [
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "very clean",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "8.00#8.00",
+        "aspect_span": [
+          4,
+          14
+        ],
+        "opinion_span": [
+          18,
+          28
+        ]
+      },
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "doesn't weigh a lot",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          4,
+          14
+        ],
+        "opinion_span": [
+          44,
+          63
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_5",
+    "Text": "This laptop's screen is also very bright and clear , brighter than that of my Sony Vaio",
+    "line_index": 4,
+    "quads": [
+      {
+        "Aspect": "laptop's screen",
+        "Opinion": "very bright",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "7.75#7.50",
+        "aspect_span": [
+          5,
+          20
+        ],
+        "opinion_span": [
+          29,
+          40
+        ]
+      },
+      {
+        "Aspect": "laptop's screen",
+        "Opinion": "clear",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "7.75#7.50",
+        "aspect_span": [
+          5,
+          20
+        ],
+        "opinion_span": [
+          45,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_6",
+    "Text": "Some of the things I like about this laptop is the sound quality is excellent",
+    "line_index": 5,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "like",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.75#6.38",
+        "aspect_span": [
+          37,
+          43
+        ],
+        "opinion_span": [
+          21,
+          25
+        ]
+      },
+      {
+        "Aspect": "sound quality",
+        "Opinion": "excellent",
+        "Category": "MULTIMEDIA_DEVICES#QUALITY",
+        "VA": "7.75#7.12",
+        "aspect_span": [
+          51,
+          64
+        ],
+        "opinion_span": [
+          68,
+          77
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_7",
+    "Text": "Mid-high end video card , very much worth it",
+    "line_index": 6,
+    "quads": [
+      {
+        "Aspect": "video card",
+        "Opinion": "Mid-high end",
+        "Category": "MULTIMEDIA_DEVICES#OPERATION_PERFORMANCE",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          13,
+          23
+        ],
+        "opinion_span": [
+          0,
+          12
+        ]
+      },
+      {
+        "Aspect": "video card",
+        "Opinion": "very much worth",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "7.50#7.00",
+        "aspect_span": [
+          13,
+          23
+        ],
+        "opinion_span": [
+          26,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_8",
+    "Text": "Great budget laptop",
+    "line_index": 7,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Great budget",
+        "Category": "LAPTOP#PRICE",
+        "VA": "6.90#6.60",
+        "aspect_span": [
+          13,
+          19
+        ],
+        "opinion_span": [
+          0,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_9",
+    "Text": "I finally decided on this Zenbook because it seems powerful enough and have enough storage and memory to suit my purposes without paying for just more machine that I really needed",
+    "line_index": 8,
+    "quads": [
+      {
+        "Aspect": "Zenbook",
+        "Opinion": "powerful enough",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          26,
+          33
+        ],
+        "opinion_span": [
+          51,
+          66
+        ]
+      },
+      {
+        "Aspect": "Zenbook",
+        "Opinion": "enough storage",
+        "Category": "LAPTOP#USABILITY",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          26,
+          33
+        ],
+        "opinion_span": [
+          76,
+          90
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_10",
+    "Text": "The RAM is borderline",
+    "line_index": 9,
+    "quads": [
+      {
+        "Aspect": "RAM",
+        "Opinion": "borderline",
+        "Category": "MEMORY#GENERAL",
+        "VA": "5.17#5.33",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          11,
+          21
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_11",
+    "Text": "I had some reservations about this laptop when I first saw the specs , but it ended up being one of the best laptop computers I have ever owned",
+    "line_index": 10,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "one of the best",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.88#7.62",
+        "aspect_span": [
+          35,
+          41
+        ],
+        "opinion_span": [
+          93,
+          108
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_12",
+    "Text": "Chrome OS has some really great elements",
+    "line_index": 11,
+    "quads": [
+      {
+        "Aspect": "elements",
+        "Opinion": "really great",
+        "Category": "OS#GENERAL",
+        "VA": "8.00#7.67",
+        "aspect_span": [
+          32,
+          40
+        ],
+        "opinion_span": [
+          19,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_13",
+    "Text": "This laptop offers a huge screen but it is very lightweight",
+    "line_index": 12,
+    "quads": [
+      {
+        "Aspect": "screen",
+        "Opinion": "huge",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "7.75#7.50",
+        "aspect_span": [
+          26,
+          32
+        ],
+        "opinion_span": [
+          21,
+          25
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "lightweight",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.62#7.38",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          48,
+          59
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_14",
+    "Text": "The trackpad is decent , probably the best part of the laptop for me",
+    "line_index": 13,
+    "quads": [
+      {
+        "Aspect": "trackpad",
+        "Opinion": "decent",
+        "Category": "MOUSE#GENERAL",
+        "VA": "5.62#5.62",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          16,
+          22
+        ]
+      },
+      {
+        "Aspect": "trackpad",
+        "Opinion": "best part",
+        "Category": "MOUSE#GENERAL",
+        "VA": "6.88#6.88",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          38,
+          47
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_15",
+    "Text": "I'm loving this laptop",
+    "line_index": 14,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "loving",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.62#6.38",
+        "aspect_span": [
+          16,
+          22
+        ],
+        "opinion_span": [
+          4,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_16",
+    "Text": "I really like the sleekness of the Chromebook as well as the ability to use it as a tablet",
+    "line_index": 15,
+    "quads": [
+      {
+        "Aspect": "sleekness of the Chromebook",
+        "Opinion": "really like",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          18,
+          45
+        ],
+        "opinion_span": [
+          2,
+          13
+        ]
+      },
+      {
+        "Aspect": "ability to use it as a tablet",
+        "Opinion": "really like",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.00#7.83",
+        "aspect_span": [
+          61,
+          90
+        ],
+        "opinion_span": [
+          2,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_17",
+    "Text": "Also a great feature , its processing speed is spectacular and exceeds any laptop I have had in the past",
+    "line_index": 16,
+    "quads": [
+      {
+        "Aspect": "feature",
+        "Opinion": "great",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "7.75#7.75",
+        "aspect_span": [
+          13,
+          20
+        ],
+        "opinion_span": [
+          7,
+          12
+        ]
+      },
+      {
+        "Aspect": "processing speed",
+        "Opinion": "spectacular",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "8.00#8.25",
+        "aspect_span": [
+          27,
+          43
+        ],
+        "opinion_span": [
+          47,
+          58
+        ]
+      },
+      {
+        "Aspect": "processing speed",
+        "Opinion": "exceeds",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "8.00#7.75",
+        "aspect_span": [
+          27,
+          43
+        ],
+        "opinion_span": [
+          63,
+          70
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_18",
+    "Text": "The replaceable battery is light and much thinner than most models",
+    "line_index": 17,
+    "quads": [
+      {
+        "Aspect": "replaceable battery",
+        "Opinion": "light",
+        "Category": "BATTERY#DESIGN_FEATURES",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          4,
+          23
+        ],
+        "opinion_span": [
+          27,
+          32
+        ]
+      },
+      {
+        "Aspect": "replaceable battery",
+        "Opinion": "much thinner",
+        "Category": "BATTERY#DESIGN_FEATURES",
+        "VA": "7.38#7.25",
+        "aspect_span": [
+          4,
+          23
+        ],
+        "opinion_span": [
+          37,
+          49
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_19",
+    "Text": "Also , the mouse is TERRIBLE",
+    "line_index": 18,
+    "quads": [
+      {
+        "Aspect": "mouse",
+        "Opinion": "TERRIBLE",
+        "Category": "MOUSE#GENERAL",
+        "VA": "2.62#7.62",
+        "aspect_span": [
+          11,
+          16
+        ],
+        "opinion_span": [
+          20,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_20",
+    "Text": "Keyboard is solid and ergonomic , numbers pad is very useful as well",
+    "line_index": 19,
+    "quads": [
+      {
+        "Aspect": "Keyboard",
+        "Opinion": "solid",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "6.50#6.83",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          12,
+          17
+        ]
+      },
+      {
+        "Aspect": "Keyboard",
+        "Opinion": "ergonomic",
+        "Category": "KEYBOARD#USABILITY",
+        "VA": "6.83#7.00",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          22,
+          31
+        ]
+      },
+      {
+        "Aspect": "numbers pad",
+        "Opinion": "very useful",
+        "Category": "KEYBOARD#USABILITY",
+        "VA": "7.33#7.50",
+        "aspect_span": [
+          34,
+          45
+        ],
+        "opinion_span": [
+          49,
+          60
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_21",
+    "Text": "Pretty simple and basic laptop",
+    "line_index": 20,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Pretty simple",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.88#6.50",
+        "aspect_span": [
+          24,
+          30
+        ],
+        "opinion_span": [
+          0,
+          13
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "basic",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.62#6.50",
+        "aspect_span": [
+          24,
+          30
+        ],
+        "opinion_span": [
+          18,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_22",
+    "Text": "It's no 4k screen but for the price , it's a good HD display",
+    "line_index": 21,
+    "quads": [
+      {
+        "Aspect": "HD display",
+        "Opinion": "good",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "6.75#6.12",
+        "aspect_span": [
+          50,
+          60
+        ],
+        "opinion_span": [
+          45,
+          49
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_23",
+    "Text": "Poor/fair battery life",
+    "line_index": 22,
+    "quads": [
+      {
+        "Aspect": "battery life",
+        "Opinion": "Poor/fair",
+        "Category": "BATTERY#GENERAL",
+        "VA": "3.40#6.30",
+        "aspect_span": [
+          10,
+          22
+        ],
+        "opinion_span": [
+          0,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_24",
+    "Text": "This computer has exceeded my expectations",
+    "line_index": 23,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "exceeded my expectations",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.50#7.17",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          18,
+          42
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_25",
+    "Text": "out of the box this is an extremely nice laptop , the value offered is just ridiculously good for the money",
+    "line_index": 24,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "extremely nice",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "8.33#8.33",
+        "aspect_span": [
+          41,
+          47
+        ],
+        "opinion_span": [
+          26,
+          40
+        ]
+      },
+      {
+        "Aspect": "value",
+        "Opinion": "ridiculously good",
+        "Category": "LAPTOP#PRICE",
+        "VA": "8.33#8.33",
+        "aspect_span": [
+          54,
+          59
+        ],
+        "opinion_span": [
+          76,
+          93
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_26",
+    "Text": "Laptop arrived with non functioning keyboard , also the computer was dirty",
+    "line_index": 25,
+    "quads": [
+      {
+        "Aspect": "Laptop",
+        "Opinion": "non functioning keyboard",
+        "Category": "LAPTOP#USABILITY",
+        "VA": "2.25#7.12",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          20,
+          44
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "dirty",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "2.25#7.25",
+        "aspect_span": [
+          56,
+          64
+        ],
+        "opinion_span": [
+          69,
+          74
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_27",
+    "Text": "This is a great laptop for media work , but the fans are super huge in this thing which makes the body very thick and bulky",
+    "line_index": 26,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.25#7.25",
+        "aspect_span": [
+          16,
+          22
+        ],
+        "opinion_span": [
+          10,
+          15
+        ]
+      },
+      {
+        "Aspect": "fans",
+        "Opinion": "super huge",
+        "Category": "FANS_COOLING#GENERAL",
+        "VA": "3.75#7.25",
+        "aspect_span": [
+          48,
+          52
+        ],
+        "opinion_span": [
+          57,
+          67
+        ]
+      },
+      {
+        "Aspect": "body",
+        "Opinion": "very thick",
+        "Category": "HARDWARE#GENERAL",
+        "VA": "3.50#7.00",
+        "aspect_span": [
+          98,
+          102
+        ],
+        "opinion_span": [
+          103,
+          113
+        ]
+      },
+      {
+        "Aspect": "body",
+        "Opinion": "bulky",
+        "Category": "HARDWARE#GENERAL",
+        "VA": "3.25#7.25",
+        "aspect_span": [
+          98,
+          102
+        ],
+        "opinion_span": [
+          118,
+          123
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_28",
+    "Text": "This is a nice laptop",
+    "line_index": 27,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "nice",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "7.50#6.25",
+        "aspect_span": [
+          15,
+          21
+        ],
+        "opinion_span": [
+          10,
+          14
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_29",
+    "Text": "Great computer , very fast , everything I need",
+    "line_index": 28,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "Great",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          6,
+          14
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "very fast",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.00#7.83",
+        "aspect_span": [
+          6,
+          14
+        ],
+        "opinion_span": [
+          17,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_30",
+    "Text": "I love ASUS products",
+    "line_index": 29,
+    "quads": [
+      {
+        "Aspect": "ASUS products",
+        "Opinion": "love",
+        "Category": "COMPANY#GENERAL",
+        "VA": "7.17#7.17",
+        "aspect_span": [
+          7,
+          20
+        ],
+        "opinion_span": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_31",
+    "Text": "Fast processor , clear screen , long battery life",
+    "line_index": 30,
+    "quads": [
+      {
+        "Aspect": "processor",
+        "Opinion": "Fast",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "6.50#6.12",
+        "aspect_span": [
+          5,
+          14
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "screen",
+        "Opinion": "clear",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "6.50#5.88",
+        "aspect_span": [
+          23,
+          29
+        ],
+        "opinion_span": [
+          17,
+          22
+        ]
+      },
+      {
+        "Aspect": "battery life",
+        "Opinion": "long",
+        "Category": "BATTERY#GENERAL",
+        "VA": "6.62#6.00",
+        "aspect_span": [
+          37,
+          49
+        ],
+        "opinion_span": [
+          32,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_32",
+    "Text": "Honestly , I'm very happy with this notebook that DOES NOT have windows 8",
+    "line_index": 31,
+    "quads": [
+      {
+        "Aspect": "notebook",
+        "Opinion": "very happy",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          36,
+          44
+        ],
+        "opinion_span": [
+          15,
+          25
+        ]
+      },
+      {
+        "Aspect": "windows 8",
+        "Opinion": "NOT have",
+        "Category": "OS#GENERAL",
+        "VA": "4.80#6.10",
+        "aspect_span": [
+          64,
+          73
+        ],
+        "opinion_span": [
+          55,
+          63
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_33",
+    "Text": "The laptop is heavier than I expected , but it works nicely and I enjoy using it",
+    "line_index": 32,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "heavier",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "3.50#4.75",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          21
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "works nicely",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "6.75#5.75",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          47,
+          59
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_34",
+    "Text": "I love my laptop , I had to get use to the difference of login of , but orther than that I'm enjoying it very much",
+    "line_index": 33,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.88#6.75",
+        "aspect_span": [
+          10,
+          16
+        ],
+        "opinion_span": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_35",
+    "Text": "This laptop is amazing",
+    "line_index": 34,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "amazing",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.38#8.25",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          15,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_36",
+    "Text": "I haven't had a chance to fully utilize this laptop yet , however , it has great processing speed and graphics",
+    "line_index": 35,
+    "quads": [
+      {
+        "Aspect": "processing speed",
+        "Opinion": "great",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "7.83#7.50",
+        "aspect_span": [
+          81,
+          97
+        ],
+        "opinion_span": [
+          75,
+          80
+        ]
+      },
+      {
+        "Aspect": "graphics",
+        "Opinion": "great",
+        "Category": "GRAPHICS#GENERAL",
+        "VA": "7.83#7.50",
+        "aspect_span": [
+          102,
+          110
+        ],
+        "opinion_span": [
+          75,
+          80
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_37",
+    "Text": "The keyboard is very well sized and comfortable to use",
+    "line_index": 36,
+    "quads": [
+      {
+        "Aspect": "keyboard",
+        "Opinion": "very well sized",
+        "Category": "KEYBOARD#DESIGN_FEATURES",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          16,
+          31
+        ]
+      },
+      {
+        "Aspect": "keyboard",
+        "Opinion": "comfortable",
+        "Category": "KEYBOARD#USABILITY",
+        "VA": "6.83#7.33",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          36,
+          47
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_38",
+    "Text": "Trackpad is horribly draggy even after changing speed and pressure settings",
+    "line_index": 37,
+    "quads": [
+      {
+        "Aspect": "Trackpad",
+        "Opinion": "horribly draggy",
+        "Category": "MOUSE#OPERATION_PERFORMANCE",
+        "VA": "2.50#6.67",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          12,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_39",
+    "Text": "Screen is bright and the display is rich",
+    "line_index": 38,
+    "quads": [
+      {
+        "Aspect": "Screen",
+        "Opinion": "bright",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "6.25#6.00",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          10,
+          16
+        ]
+      },
+      {
+        "Aspect": "display",
+        "Opinion": "rich",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          25,
+          32
+        ],
+        "opinion_span": [
+          36,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_40",
+    "Text": "Camera quality is not great",
+    "line_index": 39,
+    "quads": [
+      {
+        "Aspect": "Camera quality",
+        "Opinion": "not great",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "2.67#6.33",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          18,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_41",
+    "Text": "Computer has a lot of lag and definitely isn't up to par with the speed of modern computers",
+    "line_index": 40,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "lot of lag",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "3.50#6.25",
+        "aspect_span": [
+          82,
+          90
+        ],
+        "opinion_span": [
+          15,
+          25
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "isn't up to par",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "3.38#6.50",
+        "aspect_span": [
+          82,
+          90
+        ],
+        "opinion_span": [
+          41,
+          56
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_42",
+    "Text": "I think this is a lightweight awesome computer with great touchscreen",
+    "line_index": 41,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "lightweight",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "8.00#7.75",
+        "aspect_span": [
+          38,
+          46
+        ],
+        "opinion_span": [
+          18,
+          29
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "awesome",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.00#7.75",
+        "aspect_span": [
+          38,
+          46
+        ],
+        "opinion_span": [
+          30,
+          37
+        ]
+      },
+      {
+        "Aspect": "touchscreen",
+        "Opinion": "great",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "8.00#7.75",
+        "aspect_span": [
+          58,
+          69
+        ],
+        "opinion_span": [
+          52,
+          57
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_43",
+    "Text": "The six gigs of RAM and Core i5 processor are much nicer than my previous Celeron system , The Dragonfly Blue color I optioned is absolutely stunning but does pick up fingerprints very easily",
+    "line_index": 42,
+    "quads": [
+      {
+        "Aspect": "six gigs of RAM",
+        "Opinion": "much nicer",
+        "Category": "HARDWARE#GENERAL",
+        "VA": "6.50#5.83",
+        "aspect_span": [
+          4,
+          19
+        ],
+        "opinion_span": [
+          46,
+          56
+        ]
+      },
+      {
+        "Aspect": "Core i5 processor",
+        "Opinion": "much nicer",
+        "Category": "HARDWARE#GENERAL",
+        "VA": "6.50#5.83",
+        "aspect_span": [
+          24,
+          41
+        ],
+        "opinion_span": [
+          46,
+          56
+        ]
+      },
+      {
+        "Aspect": "Dragonfly Blue color",
+        "Opinion": "absolutely stunning",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          95,
+          115
+        ],
+        "opinion_span": [
+          130,
+          149
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_44",
+    "Text": "Great device , probably one of the best value purchases you can buy when it comes to this product's niche",
+    "line_index": 43,
+    "quads": [
+      {
+        "Aspect": "device",
+        "Opinion": "Great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.00#7.50",
+        "aspect_span": [
+          6,
+          12
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "device",
+        "Opinion": "best value",
+        "Category": "LAPTOP#PRICE",
+        "VA": "6.25#6.75",
+        "aspect_span": [
+          6,
+          12
+        ],
+        "opinion_span": [
+          35,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_45",
+    "Text": "The screen is nice and the key pad as well",
+    "line_index": 44,
+    "quads": [
+      {
+        "Aspect": "screen",
+        "Opinion": "nice",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.62#7.38",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          18
+        ]
+      },
+      {
+        "Aspect": "key pad",
+        "Opinion": "nice",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "7.62#7.50",
+        "aspect_span": [
+          27,
+          34
+        ],
+        "opinion_span": [
+          14,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_46",
+    "Text": "The laptop is lightweight and has all the necessary USB outlets",
+    "line_index": 45,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "lightweight",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.62#6.75",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_47",
+    "Text": "The keys are responsive , although I'm use to my mechanical keyboard so switching to the thin chiclet style makes them feel mushier than they probably are",
+    "line_index": 46,
+    "quads": [
+      {
+        "Aspect": "keys",
+        "Opinion": "responsive",
+        "Category": "KEYBOARD#USABILITY",
+        "VA": "6.83#7.00",
+        "aspect_span": [
+          4,
+          8
+        ],
+        "opinion_span": [
+          13,
+          23
+        ]
+      },
+      {
+        "Aspect": "keys",
+        "Opinion": "thin",
+        "Category": "KEYBOARD#DESIGN_FEATURES",
+        "VA": "6.83#6.33",
+        "aspect_span": [
+          4,
+          8
+        ],
+        "opinion_span": [
+          89,
+          93
+        ]
+      },
+      {
+        "Aspect": "keys",
+        "Opinion": "mushier",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "5.67#6.33",
+        "aspect_span": [
+          4,
+          8
+        ],
+        "opinion_span": [
+          124,
+          131
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_48",
+    "Text": "The graphics are clear",
+    "line_index": 47,
+    "quads": [
+      {
+        "Aspect": "graphics",
+        "Opinion": "clear",
+        "Category": "GRAPHICS#QUALITY",
+        "VA": "6.83#7.17",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          17,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_49",
+    "Text": "I just recently received this most excellent gaming laptop",
+    "line_index": 48,
+    "quads": [
+      {
+        "Aspect": "gaming laptop",
+        "Opinion": "most excellent",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.38#8.38",
+        "aspect_span": [
+          45,
+          58
+        ],
+        "opinion_span": [
+          30,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_50",
+    "Text": "The warranty is no good on this and you are going to need the warranty",
+    "line_index": 49,
+    "quads": [
+      {
+        "Aspect": "warranty",
+        "Opinion": "no good",
+        "Category": "WARRANTY#GENERAL",
+        "VA": "3.50#6.83",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          16,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_51",
+    "Text": "This Chromebook isn't the fastest one out there , but it does move along just fine for what I need it to do",
+    "line_index": 50,
+    "quads": [
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "isn't the fastest",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "4.17#5.67",
+        "aspect_span": [
+          5,
+          15
+        ],
+        "opinion_span": [
+          16,
+          33
+        ]
+      },
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "just fine",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "5.83#5.33",
+        "aspect_span": [
+          5,
+          15
+        ],
+        "opinion_span": [
+          73,
+          82
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_52",
+    "Text": "This Chromebook is surprisingly very nice",
+    "line_index": 51,
+    "quads": [
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "surprisingly very nice",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "8.00#7.50",
+        "aspect_span": [
+          5,
+          15
+        ],
+        "opinion_span": [
+          19,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_53",
+    "Text": "This is the best laptop I've owned I ordered it used condition and it arrived like brand new I replaced the batteries as expected for a used laptop",
+    "line_index": 52,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "best",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "8.50#7.80",
+        "aspect_span": [
+          17,
+          23
+        ],
+        "opinion_span": [
+          12,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_54",
+    "Text": "Battery life on this laptop is not great by a longshot , but when I use it for work on battery saver mode , I was getting 3-4 hours",
+    "line_index": 53,
+    "quads": [
+      {
+        "Aspect": "Battery life",
+        "Opinion": "not great",
+        "Category": "BATTERY#GENERAL",
+        "VA": "3.17#6.33",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          31,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_55",
+    "Text": "Love this laptop",
+    "line_index": 54,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.88#6.50",
+        "aspect_span": [
+          10,
+          16
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_56",
+    "Text": "Better battery , better cooling , mostly better benchmark tests",
+    "line_index": 55,
+    "quads": [
+      {
+        "Aspect": "battery",
+        "Opinion": "Better",
+        "Category": "BATTERY#GENERAL",
+        "VA": "6.83#6.67",
+        "aspect_span": [
+          7,
+          14
+        ],
+        "opinion_span": [
+          0,
+          6
+        ]
+      },
+      {
+        "Aspect": "cooling",
+        "Opinion": "better",
+        "Category": "FANS_COOLING#GENERAL",
+        "VA": "6.83#6.33",
+        "aspect_span": [
+          24,
+          31
+        ],
+        "opinion_span": [
+          17,
+          23
+        ]
+      },
+      {
+        "Aspect": "benchmark tests",
+        "Opinion": "better",
+        "Category": "LAPTOP#MISCELLANEOUS",
+        "VA": "6.67#6.83",
+        "aspect_span": [
+          48,
+          63
+        ],
+        "opinion_span": [
+          17,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_57",
+    "Text": "So far this laptop is great",
+    "line_index": 56,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "great",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "7.50#7.25",
+        "aspect_span": [
+          12,
+          18
+        ],
+        "opinion_span": [
+          22,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_58",
+    "Text": "I absolutely love the computer",
+    "line_index": 57,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "absolutely love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.83#8.00",
+        "aspect_span": [
+          22,
+          30
+        ],
+        "opinion_span": [
+          2,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_59",
+    "Text": "This laptop seems to be powerful enough to run just about any application he will need in school",
+    "line_index": 58,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "powerful enough",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "7.75#7.25",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          24,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_60",
+    "Text": "Well , no can do on this computer because it doesn't have an optical drive",
+    "line_index": 59,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "doesn't have an optical drive",
+        "Category": "OPTICAL_DRIVES#USABILITY",
+        "VA": "3.00#6.17",
+        "aspect_span": [
+          25,
+          33
+        ],
+        "opinion_span": [
+          45,
+          74
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_61",
+    "Text": "This laptop is fast and reliable",
+    "line_index": 60,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "fast",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "6.75#6.50",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "reliable",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.75#6.12",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          24,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_62",
+    "Text": "Fast processor - 2.0GHz Core 2 Duo runs great clock speeds",
+    "line_index": 61,
+    "quads": [
+      {
+        "Aspect": "processor",
+        "Opinion": "Fast",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "7.88#8.12",
+        "aspect_span": [
+          5,
+          14
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_63",
+    "Text": "I do not like Windows 10 & find it extremely frustrating",
+    "line_index": 62,
+    "quads": [
+      {
+        "Aspect": "Windows 10",
+        "Opinion": "not like",
+        "Category": "OS#GENERAL",
+        "VA": "3.38#6.25",
+        "aspect_span": [
+          14,
+          24
+        ],
+        "opinion_span": [
+          5,
+          13
+        ]
+      },
+      {
+        "Aspect": "Windows 10",
+        "Opinion": "extremely frustrating",
+        "Category": "OS#GENERAL",
+        "VA": "2.75#7.12",
+        "aspect_span": [
+          14,
+          24
+        ],
+        "opinion_span": [
+          35,
+          56
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_64",
+    "Text": "The ScreenPad is a delight and look forward to trying out Design / Drawing apps with it",
+    "line_index": 63,
+    "quads": [
+      {
+        "Aspect": "ScreenPad",
+        "Opinion": "delight",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "7.17#6.83",
+        "aspect_span": [
+          4,
+          13
+        ],
+        "opinion_span": [
+          19,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_65",
+    "Text": "Great smaller laptop",
+    "line_index": 64,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.75#6.50",
+        "aspect_span": [
+          14,
+          20
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "smaller",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "6.25#6.00",
+        "aspect_span": [
+          14,
+          20
+        ],
+        "opinion_span": [
+          6,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_66",
+    "Text": "I like how this computer feels",
+    "line_index": 65,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "like",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.50#7.00",
+        "aspect_span": [
+          16,
+          24
+        ],
+        "opinion_span": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_67",
+    "Text": "I really love using Windows 8.1 and it performs nicely on this device",
+    "line_index": 66,
+    "quads": [
+      {
+        "Aspect": "Windows 8.1",
+        "Opinion": "love",
+        "Category": "OS#GENERAL",
+        "VA": "6.67#6.50",
+        "aspect_span": [
+          20,
+          31
+        ],
+        "opinion_span": [
+          9,
+          13
+        ]
+      },
+      {
+        "Aspect": "Windows 8.1",
+        "Opinion": "performs nicely",
+        "Category": "OS#GENERAL",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          20,
+          31
+        ],
+        "opinion_span": [
+          39,
+          54
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_68",
+    "Text": "I love the 17 inch screen",
+    "line_index": 67,
+    "quads": [
+      {
+        "Aspect": "17 inch screen",
+        "Opinion": "love",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          11,
+          25
+        ],
+        "opinion_span": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_69",
+    "Text": "Found this Chromebook and it is amazingly good",
+    "line_index": 68,
+    "quads": [
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "amazingly good",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.00#8.00",
+        "aspect_span": [
+          11,
+          21
+        ],
+        "opinion_span": [
+          32,
+          46
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_70",
+    "Text": "I absolutely love this laptop",
+    "line_index": 69,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "absolutely love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.17#8.33",
+        "aspect_span": [
+          23,
+          29
+        ],
+        "opinion_span": [
+          2,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_71",
+    "Text": "With a SSD and 8 RAM memory , everything is very fast and responsive - I can have multiple tabs open on my internet browser , be playing music and have an app or Windows up and nothing is slow at all",
+    "line_index": 70,
+    "quads": [
+      {
+        "Aspect": "everything",
+        "Opinion": "very fast",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.12#8.00",
+        "aspect_span": [
+          30,
+          40
+        ],
+        "opinion_span": [
+          44,
+          53
+        ]
+      },
+      {
+        "Aspect": "everything",
+        "Opinion": "responsive",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.12#7.88",
+        "aspect_span": [
+          30,
+          40
+        ],
+        "opinion_span": [
+          58,
+          68
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_72",
+    "Text": "The CPU was plenty fast , even for applications like Photoshop",
+    "line_index": 71,
+    "quads": [
+      {
+        "Aspect": "CPU",
+        "Opinion": "plenty fast",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "8.00#7.75",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          12,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_73",
+    "Text": "Nice keyboard , nice screen , nice sounds",
+    "line_index": 72,
+    "quads": [
+      {
+        "Aspect": "keyboard",
+        "Opinion": "Nice",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "7.50#7.38",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "screen",
+        "Opinion": "nice",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "7.62#7.38",
+        "aspect_span": [
+          21,
+          27
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      },
+      {
+        "Aspect": "sounds",
+        "Opinion": "nice",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "7.50#7.38",
+        "aspect_span": [
+          35,
+          41
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_74",
+    "Text": "Sound is awesome",
+    "line_index": 73,
+    "quads": [
+      {
+        "Aspect": "Sound",
+        "Opinion": "awesome",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "8.00#8.00",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          9,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_75",
+    "Text": "My friend bought this laptop and told me his experience that the laptop had big overheating issues and constantly freezing after a couple hours of use",
+    "line_index": 74,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "overheating",
+        "Category": "FANS_COOLING#OPERATION_PERFORMANCE",
+        "VA": "2.67#7.00",
+        "aspect_span": [
+          22,
+          28
+        ],
+        "opinion_span": [
+          80,
+          91
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "constantly freezing",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "2.17#7.50",
+        "aspect_span": [
+          22,
+          28
+        ],
+        "opinion_span": [
+          103,
+          122
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_76",
+    "Text": "This laptop is very powerful and fast , even without a solid-state drive",
+    "line_index": 75,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "very powerful",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "7.50#7.10",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          15,
+          28
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "fast",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "7.00#6.80",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          33,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_77",
+    "Text": "The netbook comes with a pitiful 2GB of RAM - I was constantly getting low memory warnings whenever I had several tabs opened on a web browser",
+    "line_index": 76,
+    "quads": [
+      {
+        "Aspect": "RAM",
+        "Opinion": "pitiful",
+        "Category": "MEMORY#GENERAL",
+        "VA": "3.25#7.25",
+        "aspect_span": [
+          40,
+          43
+        ],
+        "opinion_span": [
+          25,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_78",
+    "Text": "The touch screen is a very large 17 inches",
+    "line_index": 77,
+    "quads": [
+      {
+        "Aspect": "touch screen",
+        "Opinion": "very large",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "7.75#7.12",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          22,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_79",
+    "Text": "My wife is pleasantly surprised by this laptop",
+    "line_index": 78,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "pleasantly surprised",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.38#8.12",
+        "aspect_span": [
+          40,
+          46
+        ],
+        "opinion_span": [
+          11,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_80",
+    "Text": "Nice computer that does everything I want so no problem there",
+    "line_index": 79,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "Nice",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.12#6.00",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "no problem",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "5.62#5.50",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          45,
+          55
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_81",
+    "Text": "This is the worst laptop EVER",
+    "line_index": 80,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "worst",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "1.83#8.00",
+        "aspect_span": [
+          18,
+          24
+        ],
+        "opinion_span": [
+          12,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_82",
+    "Text": "The keyboard is wide and comfortable to use",
+    "line_index": 81,
+    "quads": [
+      {
+        "Aspect": "keyboard",
+        "Opinion": "wide",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "6.33#6.50",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      },
+      {
+        "Aspect": "keyboard",
+        "Opinion": "comfortable",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "6.67#6.67",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          25,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_83",
+    "Text": "The screen is beautiful for gaming and for video",
+    "line_index": 82,
+    "quads": [
+      {
+        "Aspect": "screen",
+        "Opinion": "beautiful",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.88#7.75",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_84",
+    "Text": "This HP Chromebook is great",
+    "line_index": 83,
+    "quads": [
+      {
+        "Aspect": "HP Chromebook",
+        "Opinion": "great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.67#6.83",
+        "aspect_span": [
+          5,
+          18
+        ],
+        "opinion_span": [
+          22,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_85",
+    "Text": "It's fairly light weight and fits in her backpack easily",
+    "line_index": 84,
+    "quads": [
+      {
+        "Aspect": "It's",
+        "Opinion": "light weight",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "6.80#6.80",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          12,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_86",
+    "Text": "Great clear picture and nice sound",
+    "line_index": 85,
+    "quads": [
+      {
+        "Aspect": "picture",
+        "Opinion": "Great",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          12,
+          19
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "picture",
+        "Opinion": "clear",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.50#7.33",
+        "aspect_span": [
+          12,
+          19
+        ],
+        "opinion_span": [
+          6,
+          11
+        ]
+      },
+      {
+        "Aspect": "sound",
+        "Opinion": "nice",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "7.50#7.33",
+        "aspect_span": [
+          29,
+          34
+        ],
+        "opinion_span": [
+          24,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_87",
+    "Text": "Great concept and I love the touch screen functionality",
+    "line_index": 86,
+    "quads": [
+      {
+        "Aspect": "concept",
+        "Opinion": "Great",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "7.00#6.50",
+        "aspect_span": [
+          6,
+          13
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "touch screen",
+        "Opinion": "love",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "7.00#6.50",
+        "aspect_span": [
+          29,
+          41
+        ],
+        "opinion_span": [
+          20,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_88",
+    "Text": "Good price for a good laptop",
+    "line_index": 87,
+    "quads": [
+      {
+        "Aspect": "price",
+        "Opinion": "Good",
+        "Category": "LAPTOP#PRICE",
+        "VA": "7.50#7.25",
+        "aspect_span": [
+          5,
+          10
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "good",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.38#7.25",
+        "aspect_span": [
+          22,
+          28
+        ],
+        "opinion_span": [
+          17,
+          21
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_89",
+    "Text": "Ram is an issue , but I did see some improvement of the device when I had a speedy USB device attached as readyboost",
+    "line_index": 88,
+    "quads": [
+      {
+        "Aspect": "Ram",
+        "Opinion": "issue",
+        "Category": "MEMORY#GENERAL",
+        "VA": "2.83#6.33",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          10,
+          15
+        ]
+      },
+      {
+        "Aspect": "USB device",
+        "Opinion": "speedy",
+        "Category": "HARDWARE#OPERATION_PERFORMANCE",
+        "VA": "7.17#7.33",
+        "aspect_span": [
+          83,
+          93
+        ],
+        "opinion_span": [
+          76,
+          82
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_90",
+    "Text": "The battery life is awful",
+    "line_index": 89,
+    "quads": [
+      {
+        "Aspect": "battery life",
+        "Opinion": "awful",
+        "Category": "BATTERY#GENERAL",
+        "VA": "2.75#6.75",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          20,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_91",
+    "Text": "This HP laptop is as good as it sounds on paper",
+    "line_index": 90,
+    "quads": [
+      {
+        "Aspect": "HP laptop",
+        "Opinion": "good",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "5.75#5.50",
+        "aspect_span": [
+          5,
+          14
+        ],
+        "opinion_span": [
+          21,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_92",
+    "Text": "Love using the Windows 10 and the Intel Core i5 makes this laptop really fast and videos are super sharp",
+    "line_index": 91,
+    "quads": [
+      {
+        "Aspect": "Windows 10",
+        "Opinion": "Love",
+        "Category": "OS#GENERAL",
+        "VA": "6.83#6.33",
+        "aspect_span": [
+          15,
+          25
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "really fast",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "7.17#6.67",
+        "aspect_span": [
+          59,
+          65
+        ],
+        "opinion_span": [
+          66,
+          77
+        ]
+      },
+      {
+        "Aspect": "videos",
+        "Opinion": "super sharp",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.17#6.67",
+        "aspect_span": [
+          82,
+          88
+        ],
+        "opinion_span": [
+          93,
+          104
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_93",
+    "Text": "This is a fantastic laptop",
+    "line_index": 92,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "fantastic",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.00#7.67",
+        "aspect_span": [
+          20,
+          26
+        ],
+        "opinion_span": [
+          10,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_94",
+    "Text": "I love this Asus",
+    "line_index": 93,
+    "quads": [
+      {
+        "Aspect": "Asus",
+        "Opinion": "love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.38#7.00",
+        "aspect_span": [
+          12,
+          16
+        ],
+        "opinion_span": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_95",
+    "Text": "the computer over heats and shuts off constantly",
+    "line_index": 94,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "over heats",
+        "Category": "FANS_COOLING#OPERATION_PERFORMANCE",
+        "VA": "3.17#8.00",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          13,
+          23
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "shuts off constantly",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "2.00#7.50",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          28,
+          48
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_96",
+    "Text": "Battery life is good",
+    "line_index": 95,
+    "quads": [
+      {
+        "Aspect": "Battery life",
+        "Opinion": "good",
+        "Category": "BATTERY#GENERAL",
+        "VA": "6.17#5.83",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_97",
+    "Text": "This is a full-size laptop without the full-size weight",
+    "line_index": 96,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "full-size",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "7.83#8.17",
+        "aspect_span": [
+          20,
+          26
+        ],
+        "opinion_span": [
+          10,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_98",
+    "Text": "The laptop itself is super light weight",
+    "line_index": 97,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "super light weight",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.75#7.50",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          21,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_99",
+    "Text": "We love this computer",
+    "line_index": 98,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.00#6.62",
+        "aspect_span": [
+          13,
+          21
+        ],
+        "opinion_span": [
+          3,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_100",
+    "Text": "Large screen , lots of storage",
+    "line_index": 99,
+    "quads": [
+      {
+        "Aspect": "screen",
+        "Opinion": "Large",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "6.88#6.75",
+        "aspect_span": [
+          6,
+          12
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "storage",
+        "Opinion": "lots of",
+        "Category": "HARD_DISK#USABILITY",
+        "VA": "7.25#7.12",
+        "aspect_span": [
+          23,
+          30
+        ],
+        "opinion_span": [
+          15,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_101",
+    "Text": "Hands down the WORST laptop I've ever owned",
+    "line_index": 100,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "WORST",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "2.38#7.38",
+        "aspect_span": [
+          21,
+          27
+        ],
+        "opinion_span": [
+          15,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_102",
+    "Text": "This laptop is FAST and love the keyboard",
+    "line_index": 101,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "FAST",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "6.62#6.75",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      },
+      {
+        "Aspect": "keyboard",
+        "Opinion": "love",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "6.88#6.62",
+        "aspect_span": [
+          33,
+          41
+        ],
+        "opinion_span": [
+          24,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_103",
+    "Text": "This inexpensive laptop does both great",
+    "line_index": 102,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "inexpensive",
+        "Category": "LAPTOP#PRICE",
+        "VA": "7.80#7.80",
+        "aspect_span": [
+          17,
+          23
+        ],
+        "opinion_span": [
+          5,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_104",
+    "Text": "This computer is amazing",
+    "line_index": 103,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "amazing",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.25#8.00",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          17,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_105",
+    "Text": "Beautiful and super large track pad - just an all around beautiful laptop",
+    "line_index": 104,
+    "quads": [
+      {
+        "Aspect": "track pad",
+        "Opinion": "Beautiful",
+        "Category": "MOUSE#GENERAL",
+        "VA": "7.83#7.83",
+        "aspect_span": [
+          26,
+          35
+        ],
+        "opinion_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "Aspect": "track pad",
+        "Opinion": "super large",
+        "Category": "MOUSE#GENERAL",
+        "VA": "7.67#8.00",
+        "aspect_span": [
+          26,
+          35
+        ],
+        "opinion_span": [
+          14,
+          25
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "beautiful",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "8.00#7.50",
+        "aspect_span": [
+          67,
+          73
+        ],
+        "opinion_span": [
+          57,
+          66
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_106",
+    "Text": "I think its the slowest pc I've ever had",
+    "line_index": 105,
+    "quads": [
+      {
+        "Aspect": "pc",
+        "Opinion": "slowest",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "2.38#7.75",
+        "aspect_span": [
+          24,
+          26
+        ],
+        "opinion_span": [
+          16,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_107",
+    "Text": "So far I really like this laptop , it is powerful enough to run my VR games and can handle anything you throw at it",
+    "line_index": 106,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "really like",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.67#7.33",
+        "aspect_span": [
+          26,
+          32
+        ],
+        "opinion_span": [
+          9,
+          20
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "powerful enough",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "7.67#7.50",
+        "aspect_span": [
+          26,
+          32
+        ],
+        "opinion_span": [
+          41,
+          56
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_108",
+    "Text": "Picture quality wise , it's very solid , no problems there",
+    "line_index": 107,
+    "quads": [
+      {
+        "Aspect": "Picture quality",
+        "Opinion": "very solid",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.88#8.00",
+        "aspect_span": [
+          0,
+          15
+        ],
+        "opinion_span": [
+          28,
+          38
+        ]
+      },
+      {
+        "Aspect": "Picture quality",
+        "Opinion": "no problems",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "7.88#8.12",
+        "aspect_span": [
+          0,
+          15
+        ],
+        "opinion_span": [
+          41,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_109",
+    "Text": "The web cam is unnessecarely hard to use",
+    "line_index": 108,
+    "quads": [
+      {
+        "Aspect": "web cam",
+        "Opinion": "unnessecarely hard to use",
+        "Category": "MULTIMEDIA_DEVICES#USABILITY",
+        "VA": "3.88#6.62",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          15,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_110",
+    "Text": "This laptop is SOOOO much better than the Windows PC that cost 7x more",
+    "line_index": 109,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "SOOOO much better",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.88#8.38",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          15,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_111",
+    "Text": "The touch screen is very responsive and accurate",
+    "line_index": 110,
+    "quads": [
+      {
+        "Aspect": "touch screen",
+        "Opinion": "very responsive",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "7.50#7.50",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          20,
+          35
+        ]
+      },
+      {
+        "Aspect": "touch screen",
+        "Opinion": "accurate",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "7.83#8.00",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          40,
+          48
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_112",
+    "Text": "Probably the most spectacular laptop I've seen",
+    "line_index": 111,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "most spectacular",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.38#8.75",
+        "aspect_span": [
+          30,
+          36
+        ],
+        "opinion_span": [
+          13,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_113",
+    "Text": "The absolute best brand in gaming is Alienware",
+    "line_index": 112,
+    "quads": [
+      {
+        "Aspect": "Alienware",
+        "Opinion": "absolute best brand",
+        "Category": "COMPANY#GENERAL",
+        "VA": "8.12#8.12",
+        "aspect_span": [
+          37,
+          46
+        ],
+        "opinion_span": [
+          4,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_114",
+    "Text": "The display is clear and bright , and it doesn't lag or crash as a previous laptop did when running this intensive program and doing ram-heavy tasks",
+    "line_index": 113,
+    "quads": [
+      {
+        "Aspect": "display",
+        "Opinion": "clear",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.00#6.75",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          15,
+          20
+        ]
+      },
+      {
+        "Aspect": "display",
+        "Opinion": "bright",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          25,
+          31
+        ]
+      },
+      {
+        "Aspect": "display",
+        "Opinion": "doesn't lag or crash",
+        "Category": "DISPLAY#OPERATION_PERFORMANCE",
+        "VA": "7.50#6.88",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          41,
+          61
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_115",
+    "Text": "The charging cord is a decent length , I'm not to sure about battery life but I have been running quite awhile on the first charge , I'll update when I run out of gas on the initial charge",
+    "line_index": 114,
+    "quads": [
+      {
+        "Aspect": "charging cord",
+        "Opinion": "decent length",
+        "Category": "POWER_SUPPLY#GENERAL",
+        "VA": "5.75#5.62",
+        "aspect_span": [
+          4,
+          17
+        ],
+        "opinion_span": [
+          23,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_116",
+    "Text": "Not great for heavy use , but for a inexpensive laptop that is more than a Chromebook but less than a more expensive laptop , it's pretty good",
+    "line_index": 115,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Not great",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "4.17#5.50",
+        "aspect_span": [
+          48,
+          54
+        ],
+        "opinion_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "inexpensive",
+        "Category": "LAPTOP#PRICE",
+        "VA": "5.33#5.17",
+        "aspect_span": [
+          48,
+          54
+        ],
+        "opinion_span": [
+          36,
+          47
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "pretty good",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "5.67#5.50",
+        "aspect_span": [
+          48,
+          54
+        ],
+        "opinion_span": [
+          131,
+          142
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_117",
+    "Text": "I am very pleased with this refurbished computer",
+    "line_index": 116,
+    "quads": [
+      {
+        "Aspect": "refurbished computer",
+        "Opinion": "very pleased",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          28,
+          48
+        ],
+        "opinion_span": [
+          5,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_118",
+    "Text": "Overall , I love this laptop and am amazed at the speed and graphics everytime I use it",
+    "line_index": 117,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.38#7.62",
+        "aspect_span": [
+          22,
+          28
+        ],
+        "opinion_span": [
+          12,
+          16
+        ]
+      },
+      {
+        "Aspect": "speed",
+        "Opinion": "amazed",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.25#8.25",
+        "aspect_span": [
+          50,
+          55
+        ],
+        "opinion_span": [
+          36,
+          42
+        ]
+      },
+      {
+        "Aspect": "graphics",
+        "Opinion": "amazed",
+        "Category": "GRAPHICS#QUALITY",
+        "VA": "8.00#7.75",
+        "aspect_span": [
+          60,
+          68
+        ],
+        "opinion_span": [
+          36,
+          42
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_119",
+    "Text": "Laptop works great",
+    "line_index": 118,
+    "quads": [
+      {
+        "Aspect": "Laptop",
+        "Opinion": "great",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.00#7.75",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          13,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_120",
+    "Text": "The whole laptop just screams of poor quality",
+    "line_index": 119,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "poor quality",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "3.25#6.12",
+        "aspect_span": [
+          10,
+          16
+        ],
+        "opinion_span": [
+          33,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_121",
+    "Text": "The monitor is nice and bright and very easy to read , even in our sun room",
+    "line_index": 120,
+    "quads": [
+      {
+        "Aspect": "monitor",
+        "Opinion": "nice",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.33#7.00",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      },
+      {
+        "Aspect": "monitor",
+        "Opinion": "bright",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.67#7.33",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          24,
+          30
+        ]
+      },
+      {
+        "Aspect": "monitor",
+        "Opinion": "very easy to read",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.67#7.33",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          35,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_122",
+    "Text": "The worst laptop as per me",
+    "line_index": 121,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "worst",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "2.25#7.62",
+        "aspect_span": [
+          10,
+          16
+        ],
+        "opinion_span": [
+          4,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_123",
+    "Text": "Nice laptop for school that's why I chose it",
+    "line_index": 122,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Nice",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.12#7.38",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_124",
+    "Text": "I love the SSDH which boots up and runs programs lightning fast",
+    "line_index": 123,
+    "quads": [
+      {
+        "Aspect": "SSDH",
+        "Opinion": "love",
+        "Category": "HARD_DISK#GENERAL",
+        "VA": "7.50#7.17",
+        "aspect_span": [
+          11,
+          15
+        ],
+        "opinion_span": [
+          2,
+          6
+        ]
+      },
+      {
+        "Aspect": "SSDH",
+        "Opinion": "boots up",
+        "Category": "HARD_DISK#OPERATION_PERFORMANCE",
+        "VA": "7.67#7.33",
+        "aspect_span": [
+          11,
+          15
+        ],
+        "opinion_span": [
+          22,
+          30
+        ]
+      },
+      {
+        "Aspect": "SSDH",
+        "Opinion": "lightning fast",
+        "Category": "HARD_DISK#OPERATION_PERFORMANCE",
+        "VA": "7.67#7.50",
+        "aspect_span": [
+          11,
+          15
+        ],
+        "opinion_span": [
+          49,
+          63
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_125",
+    "Text": "Laptop speakers aren't great , so don't expect too much here",
+    "line_index": 124,
+    "quads": [
+      {
+        "Aspect": "Laptop speakers",
+        "Opinion": "aren't great",
+        "Category": "MULTIMEDIA_DEVICES#QUALITY",
+        "VA": "2.38#7.50",
+        "aspect_span": [
+          0,
+          15
+        ],
+        "opinion_span": [
+          16,
+          28
+        ]
+      },
+      {
+        "Aspect": "Laptop speakers",
+        "Opinion": "don't expect too much",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "2.50#7.62",
+        "aspect_span": [
+          0,
+          15
+        ],
+        "opinion_span": [
+          34,
+          55
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_126",
+    "Text": "The processor speed is impressive and the graphics quality are great too",
+    "line_index": 125,
+    "quads": [
+      {
+        "Aspect": "processor speed",
+        "Opinion": "impressive",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "8.17#7.33",
+        "aspect_span": [
+          4,
+          19
+        ],
+        "opinion_span": [
+          23,
+          33
+        ]
+      },
+      {
+        "Aspect": "graphics quality",
+        "Opinion": "great",
+        "Category": "GRAPHICS#QUALITY",
+        "VA": "8.33#7.33",
+        "aspect_span": [
+          42,
+          58
+        ],
+        "opinion_span": [
+          63,
+          68
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_127",
+    "Text": "This is a great Chromebook",
+    "line_index": 126,
+    "quads": [
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "great",
+        "Category": "LAPTOP#QUALITY",
+        "VA": "7.00#6.88",
+        "aspect_span": [
+          16,
+          26
+        ],
+        "opinion_span": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_128",
+    "Text": "Good processor , good RAM , the hard drives read/write speed defiantly holds this laptop back",
+    "line_index": 127,
+    "quads": [
+      {
+        "Aspect": "processor",
+        "Opinion": "Good",
+        "Category": "CPU#GENERAL",
+        "VA": "6.67#6.17",
+        "aspect_span": [
+          5,
+          14
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "RAM",
+        "Opinion": "good",
+        "Category": "MEMORY#GENERAL",
+        "VA": "6.67#6.17",
+        "aspect_span": [
+          22,
+          25
+        ],
+        "opinion_span": [
+          17,
+          21
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_129",
+    "Text": "Construction feels good , display looks good , the various spec parts seem to behave well together",
+    "line_index": 128,
+    "quads": [
+      {
+        "Aspect": "Construction",
+        "Opinion": "feels good",
+        "Category": "HARDWARE#GENERAL",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          13,
+          23
+        ]
+      },
+      {
+        "Aspect": "display",
+        "Opinion": "looks good",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          26,
+          33
+        ],
+        "opinion_span": [
+          34,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_130",
+    "Text": "The keyboard is comfortable",
+    "line_index": 129,
+    "quads": [
+      {
+        "Aspect": "keyboard",
+        "Opinion": "comfortable",
+        "Category": "KEYBOARD#USABILITY",
+        "VA": "7.62#7.75",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          16,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_131",
+    "Text": "I've been using this laptop for about a month , and I've been very impressed with its performance",
+    "line_index": 130,
+    "quads": [
+      {
+        "Aspect": "performance",
+        "Opinion": "very impressed",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.00#8.00",
+        "aspect_span": [
+          86,
+          97
+        ],
+        "opinion_span": [
+          62,
+          76
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_132",
+    "Text": "In terms of size , this is a very thin and dainty notebook computer , roughly the size of a fat magazine",
+    "line_index": 131,
+    "quads": [
+      {
+        "Aspect": "notebook computer",
+        "Opinion": "very thin",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.67#6.67",
+        "aspect_span": [
+          50,
+          67
+        ],
+        "opinion_span": [
+          29,
+          38
+        ]
+      },
+      {
+        "Aspect": "notebook computer",
+        "Opinion": "dainty",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.00#6.67",
+        "aspect_span": [
+          50,
+          67
+        ],
+        "opinion_span": [
+          43,
+          49
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_133",
+    "Text": "The mouse pad is also not as responsive as the one on the first model",
+    "line_index": 132,
+    "quads": [
+      {
+        "Aspect": "mouse pad",
+        "Opinion": "not as responsive",
+        "Category": "MOUSE#OPERATION_PERFORMANCE",
+        "VA": "3.33#6.33",
+        "aspect_span": [
+          4,
+          13
+        ],
+        "opinion_span": [
+          22,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_134",
+    "Text": "The battery life is OUTSTANDING",
+    "line_index": 133,
+    "quads": [
+      {
+        "Aspect": "battery life",
+        "Opinion": "OUTSTANDING",
+        "Category": "BATTERY#GENERAL",
+        "VA": "8.75#9.00",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          20,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_135",
+    "Text": "I loved the size and the feel",
+    "line_index": 134,
+    "quads": [
+      {
+        "Aspect": "size",
+        "Opinion": "loved",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "8.12#8.00",
+        "aspect_span": [
+          12,
+          16
+        ],
+        "opinion_span": [
+          2,
+          7
+        ]
+      },
+      {
+        "Aspect": "feel",
+        "Opinion": "loved",
+        "Category": "LAPTOP#DESIGN_FEATURES",
+        "VA": "8.12#8.12",
+        "aspect_span": [
+          25,
+          29
+        ],
+        "opinion_span": [
+          2,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_136",
+    "Text": "The graphics are very nice , I've had no problems with gaming settings on high quality",
+    "line_index": 135,
+    "quads": [
+      {
+        "Aspect": "graphics",
+        "Opinion": "very nice",
+        "Category": "GRAPHICS#GENERAL",
+        "VA": "7.00#6.33",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          17,
+          26
+        ]
+      },
+      {
+        "Aspect": "gaming settings",
+        "Opinion": "no problems",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "6.50#5.83",
+        "aspect_span": [
+          55,
+          70
+        ],
+        "opinion_span": [
+          38,
+          49
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_137",
+    "Text": "Super fast , awesome computer",
+    "line_index": 136,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "Super fast",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.00#8.00",
+        "aspect_span": [
+          21,
+          29
+        ],
+        "opinion_span": [
+          0,
+          10
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "awesome",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.88#7.62",
+        "aspect_span": [
+          21,
+          29
+        ],
+        "opinion_span": [
+          13,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_138",
+    "Text": "The screen is bright , sharp and renders vivid colors",
+    "line_index": 137,
+    "quads": [
+      {
+        "Aspect": "screen",
+        "Opinion": "bright",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.67#7.17",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          20
+        ]
+      },
+      {
+        "Aspect": "screen",
+        "Opinion": "sharp",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.50#7.17",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          23,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_139",
+    "Text": "My 17 year old loves this computer",
+    "line_index": 138,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "loves",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.00#7.88",
+        "aspect_span": [
+          26,
+          34
+        ],
+        "opinion_span": [
+          15,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_140",
+    "Text": "Battery life on this is amazing",
+    "line_index": 139,
+    "quads": [
+      {
+        "Aspect": "Battery life",
+        "Opinion": "amazing",
+        "Category": "BATTERY#GENERAL",
+        "VA": "7.33#6.83",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          24,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_141",
+    "Text": "Battery life is very good",
+    "line_index": 140,
+    "quads": [
+      {
+        "Aspect": "Battery life",
+        "Opinion": "very good",
+        "Category": "BATTERY#GENERAL",
+        "VA": "7.00#6.33",
+        "aspect_span": [
+          0,
+          12
+        ],
+        "opinion_span": [
+          16,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_142",
+    "Text": "This is a great laptop",
+    "line_index": 141,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.00#8.00",
+        "aspect_span": [
+          16,
+          22
+        ],
+        "opinion_span": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_143",
+    "Text": "The hard drive is snappy",
+    "line_index": 142,
+    "quads": [
+      {
+        "Aspect": "hard drive",
+        "Opinion": "snappy",
+        "Category": "HARD_DISK#GENERAL",
+        "VA": "6.50#6.20",
+        "aspect_span": [
+          4,
+          14
+        ],
+        "opinion_span": [
+          18,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_144",
+    "Text": "Very very slow processor",
+    "line_index": 143,
+    "quads": [
+      {
+        "Aspect": "processor",
+        "Opinion": "Very very slow",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "3.00#6.25",
+        "aspect_span": [
+          15,
+          24
+        ],
+        "opinion_span": [
+          0,
+          14
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_145",
+    "Text": "The i3 Chromebook is fast",
+    "line_index": 144,
+    "quads": [
+      {
+        "Aspect": "i3 Chromebook",
+        "Opinion": "fast",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "6.25#5.75",
+        "aspect_span": [
+          4,
+          17
+        ],
+        "opinion_span": [
+          21,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_146",
+    "Text": "This is a great little computer and both models we own are still in service in various capacities",
+    "line_index": 145,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          23,
+          31
+        ],
+        "opinion_span": [
+          10,
+          15
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "little",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "6.50#6.25",
+        "aspect_span": [
+          23,
+          31
+        ],
+        "opinion_span": [
+          16,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_147",
+    "Text": "the fans are not too loud as they have been saying so I guess they are just a bit over dramatic",
+    "line_index": 146,
+    "quads": [
+      {
+        "Aspect": "fans",
+        "Opinion": "not too loud",
+        "Category": "FANS_COOLING#OPERATION_PERFORMANCE",
+        "VA": "6.10#5.90",
+        "aspect_span": [
+          4,
+          8
+        ],
+        "opinion_span": [
+          13,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_148",
+    "Text": "The battery life is awesome , and it charges in under 2 hours",
+    "line_index": 147,
+    "quads": [
+      {
+        "Aspect": "battery life",
+        "Opinion": "awesome",
+        "Category": "BATTERY#GENERAL",
+        "VA": "7.75#8.25",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          20,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_149",
+    "Text": "The computer is FAST",
+    "line_index": 148,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "FAST",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.25#8.25",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_150",
+    "Text": "Mousepad does seem a little off , but overall , I didn't plan on using the mousepad very much anyhow",
+    "line_index": 149,
+    "quads": [
+      {
+        "Aspect": "Mousepad",
+        "Opinion": "a little off",
+        "Category": "MOUSE#GENERAL",
+        "VA": "4.00#5.62",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          19,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_151",
+    "Text": "the USB ports are great for charging stuff",
+    "line_index": 150,
+    "quads": [
+      {
+        "Aspect": "USB ports",
+        "Opinion": "great",
+        "Category": "PORTS#QUALITY",
+        "VA": "7.38#6.88",
+        "aspect_span": [
+          4,
+          13
+        ],
+        "opinion_span": [
+          18,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_152",
+    "Text": "Great build quality by Samsung , wonderful battery life , and a screen that only Samsung could make ( you can read outside with very little loss ) , and I will keep and enjoy this while they make it work in the future",
+    "line_index": 151,
+    "quads": [
+      {
+        "Aspect": "build quality",
+        "Opinion": "Great",
+        "Category": "HARDWARE#QUALITY",
+        "VA": "7.75#7.50",
+        "aspect_span": [
+          6,
+          19
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "battery life",
+        "Opinion": "wonderful",
+        "Category": "BATTERY#GENERAL",
+        "VA": "8.38#8.50",
+        "aspect_span": [
+          43,
+          55
+        ],
+        "opinion_span": [
+          33,
+          42
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_153",
+    "Text": "it is a good laptop and is reasonable value",
+    "line_index": 152,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "good",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.00#6.50",
+        "aspect_span": [
+          13,
+          19
+        ],
+        "opinion_span": [
+          8,
+          12
+        ]
+      },
+      {
+        "Aspect": "value",
+        "Opinion": "reasonable",
+        "Category": "LAPTOP#PRICE",
+        "VA": "7.50#7.00",
+        "aspect_span": [
+          38,
+          43
+        ],
+        "opinion_span": [
+          27,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_154",
+    "Text": "The laptop is really light for being 15 honestly , I can carry it around in my backpack and can't tell the difference if I don't have it in my bag",
+    "line_index": 153,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "really light",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.88#7.38",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_155",
+    "Text": "Crisp audio and video",
+    "line_index": 154,
+    "quads": [
+      {
+        "Aspect": "audio",
+        "Opinion": "Crisp",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "5.83#5.33",
+        "aspect_span": [
+          6,
+          11
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "video",
+        "Opinion": "Crisp",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "5.83#5.33",
+        "aspect_span": [
+          16,
+          21
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_156",
+    "Text": "The battery life is just okay",
+    "line_index": 155,
+    "quads": [
+      {
+        "Aspect": "battery life",
+        "Opinion": "just okay",
+        "Category": "BATTERY#GENERAL",
+        "VA": "5.20#5.20",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          20,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_157",
+    "Text": "However , the power consumption of the device during sleep mode is unbelievably bad",
+    "line_index": 156,
+    "quads": [
+      {
+        "Aspect": "power consumption",
+        "Opinion": "unbelievably bad",
+        "Category": "POWER_SUPPLY#OPERATION_PERFORMANCE",
+        "VA": "2.50#7.17",
+        "aspect_span": [
+          14,
+          31
+        ],
+        "opinion_span": [
+          67,
+          83
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_158",
+    "Text": "I was very impressed with this laptop just setting it up",
+    "line_index": 157,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "very impressed",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.38#8.38",
+        "aspect_span": [
+          31,
+          37
+        ],
+        "opinion_span": [
+          6,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_159",
+    "Text": "This laptop is pretty sweet",
+    "line_index": 158,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "pretty sweet",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.50#7.25",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          15,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_160",
+    "Text": "Speakers were okay I guess , they weren't stellar but okay",
+    "line_index": 159,
+    "quads": [
+      {
+        "Aspect": "Speakers",
+        "Opinion": "okay",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "5.50#5.33",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          14,
+          18
+        ]
+      },
+      {
+        "Aspect": "Speakers",
+        "Opinion": "weren't stellar",
+        "Category": "MULTIMEDIA_DEVICES#GENERAL",
+        "VA": "5.33#5.00",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          34,
+          49
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_161",
+    "Text": "Shipping was quick",
+    "line_index": 160,
+    "quads": [
+      {
+        "Aspect": "Shipping",
+        "Opinion": "quick",
+        "Category": "SHIPPING#GENERAL",
+        "VA": "6.38#5.88",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          13,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_162",
+    "Text": "I just updated the memory as I use photography programs and the memory wasn't enough",
+    "line_index": 161,
+    "quads": [
+      {
+        "Aspect": "memory",
+        "Opinion": "wasn't enough",
+        "Category": "MEMORY#GENERAL",
+        "VA": "3.10#6.50",
+        "aspect_span": [
+          19,
+          25
+        ],
+        "opinion_span": [
+          71,
+          84
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_163",
+    "Text": "This new laptop is decades faster than my old Toshiba",
+    "line_index": 162,
+    "quads": [
+      {
+        "Aspect": "new laptop",
+        "Opinion": "decades faster",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "8.25#7.75",
+        "aspect_span": [
+          5,
+          15
+        ],
+        "opinion_span": [
+          19,
+          33
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_164",
+    "Text": "The battery holds a good charge and charges really fast",
+    "line_index": 163,
+    "quads": [
+      {
+        "Aspect": "battery",
+        "Opinion": "holds a good charge",
+        "Category": "BATTERY#OPERATION_PERFORMANCE",
+        "VA": "6.50#6.33",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          12,
+          31
+        ]
+      },
+      {
+        "Aspect": "battery",
+        "Opinion": "charges really fast",
+        "Category": "BATTERY#OPERATION_PERFORMANCE",
+        "VA": "7.33#7.00",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          36,
+          55
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_165",
+    "Text": "Nice Keyboard and Track Pad",
+    "line_index": 164,
+    "quads": [
+      {
+        "Aspect": "Keyboard",
+        "Opinion": "Nice",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "6.12#5.88",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "Track Pad",
+        "Opinion": "Nice",
+        "Category": "MOUSE#GENERAL",
+        "VA": "6.25#6.00",
+        "aspect_span": [
+          18,
+          27
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_166",
+    "Text": "The touchscreen is amazingly responsive , too",
+    "line_index": 165,
+    "quads": [
+      {
+        "Aspect": "touchscreen",
+        "Opinion": "amazingly responsive",
+        "Category": "DISPLAY#OPERATION_PERFORMANCE",
+        "VA": "8.00#7.83",
+        "aspect_span": [
+          4,
+          15
+        ],
+        "opinion_span": [
+          19,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_167",
+    "Text": "Awesome laptop for the price , battery does not last long but what do you expect for $199",
+    "line_index": 166,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Awesome",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.50#7.50",
+        "aspect_span": [
+          8,
+          14
+        ],
+        "opinion_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "Aspect": "battery ",
+        "Opinion": "not last long",
+        "Category": "BATTERY#GENERAL",
+        "VA": "4.50#6.12",
+        "aspect_span": [
+          31,
+          39
+        ],
+        "opinion_span": [
+          44,
+          57
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_168",
+    "Text": "I recommend this laptop",
+    "line_index": 167,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "recommend",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.33#8.33",
+        "aspect_span": [
+          17,
+          23
+        ],
+        "opinion_span": [
+          2,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_169",
+    "Text": "Excellent laptop , touchscreen works well",
+    "line_index": 168,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Excellent",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.50#7.50",
+        "aspect_span": [
+          10,
+          16
+        ],
+        "opinion_span": [
+          0,
+          9
+        ]
+      },
+      {
+        "Aspect": "touchscreen",
+        "Opinion": "works well",
+        "Category": "DISPLAY#DESIGN_FEATURES",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          19,
+          30
+        ],
+        "opinion_span": [
+          31,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_170",
+    "Text": "I love my new laptop",
+    "line_index": 169,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.75#7.50",
+        "aspect_span": [
+          14,
+          20
+        ],
+        "opinion_span": [
+          2,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_171",
+    "Text": "Very happy with this laptop",
+    "line_index": 170,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Very happy",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "8.25#8.12",
+        "aspect_span": [
+          21,
+          27
+        ],
+        "opinion_span": [
+          0,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_172",
+    "Text": "The keyboard is soft and comfortable enough to type everyday",
+    "line_index": 171,
+    "quads": [
+      {
+        "Aspect": "keyboard",
+        "Opinion": "soft",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "6.00#5.50",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      },
+      {
+        "Aspect": "keyboard",
+        "Opinion": "comfortable enough",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          25,
+          43
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_173",
+    "Text": "The battery life is decent",
+    "line_index": 172,
+    "quads": [
+      {
+        "Aspect": "battery life",
+        "Opinion": "decent",
+        "Category": "BATTERY#GENERAL",
+        "VA": "5.38#5.25",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          20,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_174",
+    "Text": "I'm in love with this laptop",
+    "line_index": 173,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "in love",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.88#7.50",
+        "aspect_span": [
+          22,
+          28
+        ],
+        "opinion_span": [
+          4,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_175",
+    "Text": "I would never recommend this computer to anyone",
+    "line_index": 174,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "never recommend",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "2.88#6.50",
+        "aspect_span": [
+          29,
+          37
+        ],
+        "opinion_span": [
+          8,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_176",
+    "Text": "The screen is bright and color is very good and glare doesn't seem to be an issue",
+    "line_index": 175,
+    "quads": [
+      {
+        "Aspect": "screen",
+        "Opinion": "bright",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.38#7.38",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          20
+        ]
+      },
+      {
+        "Aspect": "color",
+        "Opinion": "very good",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "7.75#7.75",
+        "aspect_span": [
+          25,
+          30
+        ],
+        "opinion_span": [
+          34,
+          43
+        ]
+      },
+      {
+        "Aspect": "glare",
+        "Opinion": "doesn't seem to be an issue",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "7.62#7.50",
+        "aspect_span": [
+          48,
+          53
+        ],
+        "opinion_span": [
+          54,
+          81
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_177",
+    "Text": "The weight is not too heavy to carry all day , the performance on the apps I use is snappy and the graphics crisp , the battery is lasting between 8 and 12 hours with my normal use , and the price was well within my budget",
+    "line_index": 176,
+    "quads": [
+      {
+        "Aspect": "weight",
+        "Opinion": "not too heavy",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.00#6.80",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          14,
+          27
+        ]
+      },
+      {
+        "Aspect": "performance",
+        "Opinion": "snappy",
+        "Category": "LAPTOP#OPERATION_PERFORMANCE",
+        "VA": "7.60#7.60",
+        "aspect_span": [
+          51,
+          62
+        ],
+        "opinion_span": [
+          84,
+          90
+        ]
+      },
+      {
+        "Aspect": "graphics",
+        "Opinion": "crisp",
+        "Category": "GRAPHICS#QUALITY",
+        "VA": "7.80#7.60",
+        "aspect_span": [
+          99,
+          107
+        ],
+        "opinion_span": [
+          108,
+          113
+        ]
+      },
+      {
+        "Aspect": "battery",
+        "Opinion": "lasting between 8 and 12 hours",
+        "Category": "BATTERY#GENERAL",
+        "VA": "7.70#7.60",
+        "aspect_span": [
+          120,
+          127
+        ],
+        "opinion_span": [
+          131,
+          161
+        ]
+      },
+      {
+        "Aspect": "price",
+        "Opinion": "well within my budget",
+        "Category": "LAPTOP#PRICE",
+        "VA": "7.80#7.60",
+        "aspect_span": [
+          191,
+          196
+        ],
+        "opinion_span": [
+          201,
+          222
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_178",
+    "Text": "The new 6th gen i5 is a powerful processor and great for low power consumption",
+    "line_index": 177,
+    "quads": [
+      {
+        "Aspect": "6th gen i5",
+        "Opinion": "powerful processor",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "8.00#7.88",
+        "aspect_span": [
+          8,
+          18
+        ],
+        "opinion_span": [
+          24,
+          42
+        ]
+      },
+      {
+        "Aspect": "6th gen i5",
+        "Opinion": "great",
+        "Category": "CPU#GENERAL",
+        "VA": "7.75#7.75",
+        "aspect_span": [
+          8,
+          18
+        ],
+        "opinion_span": [
+          47,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_179",
+    "Text": "The display is just okay , not very bright compared to my MacBook Pro , but then , that's an unfair comparison to make",
+    "line_index": 178,
+    "quads": [
+      {
+        "Aspect": "display",
+        "Opinion": "just okay",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "5.50#5.33",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          15,
+          24
+        ]
+      },
+      {
+        "Aspect": "display",
+        "Opinion": "not very bright",
+        "Category": "DISPLAY#QUALITY",
+        "VA": "4.33#5.83",
+        "aspect_span": [
+          4,
+          11
+        ],
+        "opinion_span": [
+          27,
+          42
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_180",
+    "Text": "Battery was trash , replaced it and plan on upgradeing to a SD Hard drive ( as most of the used computers have old worn out drives , replace them before data is lost )",
+    "line_index": 179,
+    "quads": [
+      {
+        "Aspect": "Battery",
+        "Opinion": "trash",
+        "Category": "BATTERY#GENERAL",
+        "VA": "3.38#6.12",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          12,
+          17
+        ]
+      },
+      {
+        "Aspect": "drives",
+        "Opinion": "old",
+        "Category": "HARD_DISK#GENERAL",
+        "VA": "3.38#6.12",
+        "aspect_span": [
+          124,
+          130
+        ],
+        "opinion_span": [
+          111,
+          114
+        ]
+      },
+      {
+        "Aspect": "drives",
+        "Opinion": "worn out",
+        "Category": "HARD_DISK#QUALITY",
+        "VA": "3.50#6.25",
+        "aspect_span": [
+          124,
+          130
+        ],
+        "opinion_span": [
+          115,
+          123
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_181",
+    "Text": "Screen resolution and viewing angles are outstandingly extending beyond 45 degrees in all directions",
+    "line_index": 180,
+    "quads": [
+      {
+        "Aspect": "Screen resolution",
+        "Opinion": "outstandingly extending beyond 45 degrees",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "8.20#8.00",
+        "aspect_span": [
+          0,
+          17
+        ],
+        "opinion_span": [
+          41,
+          82
+        ]
+      },
+      {
+        "Aspect": "viewing angles",
+        "Opinion": "outstandingly extending beyond 45 degrees",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "8.20#7.90",
+        "aspect_span": [
+          22,
+          36
+        ],
+        "opinion_span": [
+          41,
+          82
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_182",
+    "Text": "The RAM is limited to what's installed and the battery is not user-replaceable",
+    "line_index": 181,
+    "quads": [
+      {
+        "Aspect": "RAM",
+        "Opinion": "limited",
+        "Category": "MEMORY#OPERATION_PERFORMANCE",
+        "VA": "4.50#5.67",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          11,
+          18
+        ]
+      },
+      {
+        "Aspect": "battery",
+        "Opinion": "not user-replaceable",
+        "Category": "BATTERY#GENERAL",
+        "VA": "4.33#6.17",
+        "aspect_span": [
+          47,
+          54
+        ],
+        "opinion_span": [
+          58,
+          78
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_183",
+    "Text": "I am not only very pleased with this laptop , the more I use it the more impressed I become with it",
+    "line_index": 182,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "very pleased",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.67#7.50",
+        "aspect_span": [
+          37,
+          43
+        ],
+        "opinion_span": [
+          14,
+          26
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "impressed",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.17#7.17",
+        "aspect_span": [
+          37,
+          43
+        ],
+        "opinion_span": [
+          73,
+          82
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_184",
+    "Text": "So the battery is smaller and lighter too",
+    "line_index": 183,
+    "quads": [
+      {
+        "Aspect": "battery",
+        "Opinion": "smaller",
+        "Category": "BATTERY#PORTABILITY",
+        "VA": "7.25#6.88",
+        "aspect_span": [
+          7,
+          14
+        ],
+        "opinion_span": [
+          18,
+          25
+        ]
+      },
+      {
+        "Aspect": "battery",
+        "Opinion": "lighter",
+        "Category": "BATTERY#PORTABILITY",
+        "VA": "7.25#7.00",
+        "aspect_span": [
+          7,
+          14
+        ],
+        "opinion_span": [
+          30,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_185",
+    "Text": "And my son loves his computer",
+    "line_index": 184,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "loves",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.88#8.00",
+        "aspect_span": [
+          21,
+          29
+        ],
+        "opinion_span": [
+          11,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_186",
+    "Text": "Display is bright and great",
+    "line_index": 185,
+    "quads": [
+      {
+        "Aspect": "Display",
+        "Opinion": "bright",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "7.00#7.50",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          11,
+          17
+        ]
+      },
+      {
+        "Aspect": "Display",
+        "Opinion": "great",
+        "Category": "DISPLAY#GENERAL",
+        "VA": "7.75#8.25",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          22,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_187",
+    "Text": "great laptop , but after 3 years , i accidentally splashed tea on the keyboard and the keyboard stopped working",
+    "line_index": 186,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.50#7.25",
+        "aspect_span": [
+          6,
+          12
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "keyboard",
+        "Opinion": "stopped working",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "3.25#7.00",
+        "aspect_span": [
+          70,
+          78
+        ],
+        "opinion_span": [
+          96,
+          111
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_188",
+    "Text": "A decent laptop for watching movies , checking e-mail , listening to music , surfing the web and writing documents",
+    "line_index": 187,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "decent",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "6.60#6.40",
+        "aspect_span": [
+          9,
+          15
+        ],
+        "opinion_span": [
+          2,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_189",
+    "Text": "Not happy with this Chromebook",
+    "line_index": 188,
+    "quads": [
+      {
+        "Aspect": "Chromebook",
+        "Opinion": "Not happy",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "3.38#6.25",
+        "aspect_span": [
+          20,
+          30
+        ],
+        "opinion_span": [
+          0,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_190",
+    "Text": "The keyboard does not feel nice to type on at all , it has very low sensitivity so if I'm typing fast it misses letters",
+    "line_index": 189,
+    "quads": [
+      {
+        "Aspect": "keyboard",
+        "Opinion": "not feel nice",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "2.50#4.83",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          18,
+          31
+        ]
+      },
+      {
+        "Aspect": "keyboard",
+        "Opinion": "very low sensitivity",
+        "Category": "KEYBOARD#DESIGN_FEATURES",
+        "VA": "2.83#5.17",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          59,
+          79
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_191",
+    "Text": "This laptop is nice and lightweight and takes up very little room",
+    "line_index": 190,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "nice",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.50#7.50",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "lightweight",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.50#7.50",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          24,
+          35
+        ]
+      },
+      {
+        "Aspect": "laptop",
+        "Opinion": "takes up very little room",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.50#7.50",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          40,
+          65
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_192",
+    "Text": "This computer is easy to use and very light weight",
+    "line_index": 191,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "easy to use",
+        "Category": "LAPTOP#USABILITY",
+        "VA": "7.50#7.00",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          17,
+          28
+        ]
+      },
+      {
+        "Aspect": "computer",
+        "Opinion": "very light weight",
+        "Category": "LAPTOP#PORTABILITY",
+        "VA": "7.50#7.25",
+        "aspect_span": [
+          5,
+          13
+        ],
+        "opinion_span": [
+          33,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_193",
+    "Text": "The keyboard on this computer is about worn out",
+    "line_index": 192,
+    "quads": [
+      {
+        "Aspect": "keyboard",
+        "Opinion": "worn out",
+        "Category": "KEYBOARD#GENERAL",
+        "VA": "2.12#6.62",
+        "aspect_span": [
+          4,
+          12
+        ],
+        "opinion_span": [
+          39,
+          47
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_194",
+    "Text": "The fan is a bit loud , but that was basically to be expected",
+    "line_index": 193,
+    "quads": [
+      {
+        "Aspect": "fan",
+        "Opinion": "bit loud",
+        "Category": "FANS_COOLING#OPERATION_PERFORMANCE",
+        "VA": "5.25#6.00",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          13,
+          21
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_195",
+    "Text": "The mouse button isn't great",
+    "line_index": 194,
+    "quads": [
+      {
+        "Aspect": "mouse button",
+        "Opinion": "isn't great",
+        "Category": "MOUSE#GENERAL",
+        "VA": "4.12#5.88",
+        "aspect_span": [
+          4,
+          16
+        ],
+        "opinion_span": [
+          17,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_196",
+    "Text": "Nice battery life and powerful processor",
+    "line_index": 195,
+    "quads": [
+      {
+        "Aspect": "battery life",
+        "Opinion": "Nice",
+        "Category": "BATTERY#GENERAL",
+        "VA": "6.12#5.75",
+        "aspect_span": [
+          5,
+          17
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "processor",
+        "Opinion": "powerful",
+        "Category": "CPU#OPERATION_PERFORMANCE",
+        "VA": "6.50#6.12",
+        "aspect_span": [
+          31,
+          40
+        ],
+        "opinion_span": [
+          22,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_197",
+    "Text": "Great computer for the money",
+    "line_index": 196,
+    "quads": [
+      {
+        "Aspect": "computer",
+        "Opinion": "Great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          6,
+          14
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_198",
+    "Text": "Great price for the quality",
+    "line_index": 197,
+    "quads": [
+      {
+        "Aspect": "price",
+        "Opinion": "Great",
+        "Category": "LAPTOP#PRICE",
+        "VA": "8.00#7.67",
+        "aspect_span": [
+          6,
+          11
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_199",
+    "Text": "There are not enough ports and I need to get an attachment for my hard drive",
+    "line_index": 198,
+    "quads": [
+      {
+        "Aspect": "ports",
+        "Opinion": "not enough",
+        "Category": "PORTS#USABILITY",
+        "VA": "3.75#5.12",
+        "aspect_span": [
+          21,
+          26
+        ],
+        "opinion_span": [
+          10,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "lap26_asqp_dev_200",
+    "Text": "Great starter laptop",
+    "line_index": 199,
+    "quads": [
+      {
+        "Aspect": "laptop",
+        "Opinion": "Great",
+        "Category": "LAPTOP#GENERAL",
+        "VA": "7.25#6.88",
+        "aspect_span": [
+          14,
+          20
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      }
+    ]
+  }
+]
