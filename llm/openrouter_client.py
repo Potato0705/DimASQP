@@ -93,7 +93,10 @@ class OpenRouterClient:
         for attempt in range(self.max_retries + 1):
             try:
                 resp = requests.post(url, headers=headers, json=payload, timeout=self.timeout_s)
-            except (requests.ConnectionError, requests.Timeout) as e:
+            except (requests.ConnectionError, requests.Timeout,
+                    requests.exceptions.ChunkedEncodingError,
+                    requests.exceptions.ReadTimeout,
+                    requests.exceptions.RequestException) as e:
                 last_err = f"network: {e!r}"
                 self._sleep_backoff(attempt)
                 continue

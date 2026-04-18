@@ -46,7 +46,10 @@ CCA_DEFAULTS = {
     "max_anchor_examples": 4,
     "generation_batch_size": 10,
     "cross_verify": True,
-    "verify_confidence_threshold": 0.5,
+    # Only reject if LLM is highly confident the category is wrong.
+    # 0.5 was too aggressive: zero-shot categories get misclassified by verify
+    # because the LLM hasn't seen them in training, causing 700+ false rejects.
+    "verify_confidence_threshold": 0.75,
     "cache_dir": "cache/cca",
     "rare_threshold": 20,
     "generation_temperature": 0.7,
