@@ -1,22 +1,30 @@
 """LLM integration package for DimASQP.
 
-Offline LLM-assisted pseudo-labeling (scheme 3 from docs/deep-research-report.md).
 Exposes:
-  - OpenRouterClient: minimal HTTP wrapper around the OpenRouter chat/completions API
-  - build_pseudo_label_prompt: few-shot prompt builder
+  - OpenRouterClient: HTTP wrapper around the OpenRouter chat/completions API
+  - build_pseudo_label_prompt: vanilla few-shot prompt builder (baseline)
+  - CCA prompt builders: entity/attribute grounding, compositional generation, cross-verify
   - DEFAULTS: central config defaults (model, temperature, cache dir, ...)
-
-The training/evaluation code paths never import this module; pseudo-labeling is
-a pre-processing step run as a standalone CLI (data/llm_pseudo_labeler.py).
 """
 from .config import DEFAULTS
 from .openrouter_client import OpenRouterClient, OpenRouterError
-from .prompts import build_pseudo_label_prompt, PROMPT_VERSION
+from .prompts import (
+    PROMPT_VERSION,
+    build_pseudo_label_prompt,
+    build_entity_grounding_prompt,
+    build_attribute_grounding_prompt,
+    build_cca_generation_prompt,
+    build_cross_verify_prompt,
+)
 
 __all__ = [
     "DEFAULTS",
     "OpenRouterClient",
     "OpenRouterError",
-    "build_pseudo_label_prompt",
     "PROMPT_VERSION",
+    "build_pseudo_label_prompt",
+    "build_entity_grounding_prompt",
+    "build_attribute_grounding_prompt",
+    "build_cca_generation_prompt",
+    "build_cross_verify_prompt",
 ]

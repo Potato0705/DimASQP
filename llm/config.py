@@ -39,3 +39,18 @@ DEFAULTS = {
     "http_referer": "https://github.com/potato0705/dimasqp",
     "x_title": "DimASQP LLM Pseudo-Labeler",
 }
+
+CCA_DEFAULTS = {
+    "n_per_category": 50,
+    "max_grounding_examples": 8,
+    "max_anchor_examples": 4,
+    "generation_batch_size": 10,
+    "cross_verify": True,
+    "verify_confidence_threshold": 0.5,
+    "cache_dir": "cache/cca",
+    "rare_threshold": 20,
+    "generation_temperature": 0.7,
+    "grounding_temperature": 0.2,
+    "verify_temperature": 0.0,
+    "generation_max_tokens": 2048,
+}

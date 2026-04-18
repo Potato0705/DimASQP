@@ -143,13 +143,96 @@ done
 
 ---
 
-## 7. 多语言 / 跨域扩展
+## 7. CCA: Compositional Category Augmentation（核心创新）
+
+### 7.1 动机
+
+DimASQP 的 Category 标签是 Entity×Attribute 笛卡尔积（6E×5A=30 种组合）。训练集仅覆盖 14/30 种，测试集包含 6 个训练集从未见过的 category（如 AMBIENCE#STYLE_OPTIONS 出现 37 次但 train=0）。这导致 baseline 对这些 category 的 recall ≈ 0。
+
+### 7.2 方法概述
+
+CCA 将 category 分解为 Entity 和 Attribute 两个独立维度，分别从已见样本中提取语义锚点，再组合生成未见/稀缺 category 的新样本。
+
+**三阶段 Pipeline：**
+1. **Entity Grounding** — 从 train 中抽取同 Entity 的样本，让 LLM 理解该 Entity 的典型语境
+2. **Attribute Grounding** — 从 train 中抽取同 Attribute 的样本，让 LLM 理解该 Attribute 的讨论角度
+3. **Compositional Generation** — 给 LLM 两组 anchor，合成目标 E×A 组合的新评论 + VA 标注
+4. **(可选) Cross-Verification** — LLM 反向分类生成句子，丢弃 category drift 的样本
+
+### 7.3 使用流程
+
+```bash
+# Step 1: 生成 gap report
+python tools/category_analysis.py \
+    --task_domain eng_restaurant \
+    --out_dir data/v2/eng/
+
+# Step 2: CCA 生成
+python data/cca_generator.py \
+    --task_domain eng_restaurant \
+    --gap_report data/v2/eng/category_gap_report_eng_restaurant.json \
+    --gold_jsonl data/v2/eng/eng_restaurant_train.jsonl \
+    --llm_model_name meta-llama/llama-3.1-70b-instruct \
+    --n_per_category 50 \
+    --out_prefix data/v2/eng/eng_restaurant_train_cca__llama31-70b
+
+# Step 3: 合并到训练集
+python data/merge_pseudo_with_gold.py \
+    --gold data/v2/eng/eng_restaurant_train.txt \
+    --pseudo data/v2/eng/eng_restaurant_train_cca__llama31-70b.txt \
+    --ratio 1.0 --seed 42 \
+    --out data/v2/eng/eng_restaurant_train__gold+cca_llama31-70b_r1.0.txt
+
+# Step 4: 训练（同基线命令，只换 --train_data）
+```
+
+### 7.4 新评测指标
+
+```bash
+python tools/eval_category_coverage.py \
+    --pred output/.../predictions.jsonl \
+    --gold data/v2/eng/eng_restaurant_test.jsonl \
+    --train data/v2/eng/eng_restaurant_train.jsonl \
+    --out results/ccr_results.json
+```
+
+指标说明：
+- **CCR@k**: 在至少 k 个 test 样本的 E×A 组合上，模型 cF1 > 0 的比例
+- **ZCR**: 对训练集中完全未见 category 的 recall
+- **Seen/Unseen cF1**: 分别在已见/未见 category 上的 cF1
+
+### 7.5 消融实验设计
+
+| 方法 | Overall cF1 | CCR@1 | ZCR | Seen cF1 | Unseen cF1 |
+|------|------------|-------|-----|----------|------------|
+| Baseline (gold only) | | | | | |
+| + Random LLM aug (`llm_pseudo_labeler.py`) | | | | | |
+| + Balanced LLM aug（按频率反向采样） | | | | | |
+| + CCA (ours, 无 verify) | | | | | |
+| + CCA + Cross-Verify (ours, full) | | | | | |
+| + CCA + Contrastive (ours, 创新点 3) | | | | | |
+
+每组 3 seeds (42/66/123)，报均值±标准差。
+
+### 7.6 Confusion 分析（创新点 3 前置）
+
+```bash
+python tools/confusion_analysis.py \
+    --pred output/.../predictions.jsonl \
+    --gold data/v2/eng/eng_restaurant_test.jsonl \
+    --task_domain eng_restaurant \
+    --out_dir analysis/
+```
+
+---
+
+## 8. 多语言 / 跨域扩展
 
 `data/llm_pseudo_labeler.py` 已支持所有 8 个 task_domain（`eng_restaurant` / `eng_laptop` / `zho_restaurant` / `zho_laptop` / `jpn_hotel` / `rus_restaurant` / `tat_restaurant` / `ukr_restaurant`）——把 `--task_domain` 和 `--source_file` 换成对应语言的 gold JSONL 即可。伪标注不会跨域泄漏：每个 task_domain 的允许 category 表是独立从它自己的 gold train JSONL 里动态抽取的。
 
 ---
 
-## 8. 安全性 & 额度注意事项
+## 9. 安全性 & 额度注意事项
 
 - **不要**把 `.env` 或硬编码 key 的文件提交到 git（`.env` 已忽略；`.env.example` 是占位）。
 - LLM 响应磁盘缓存开启后，重跑同一句子不会重复扣费；但更换 `--llm_model_name` 或提升 `PROMPT_VERSION` 会重新调用。
