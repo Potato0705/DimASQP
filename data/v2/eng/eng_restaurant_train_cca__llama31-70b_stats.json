@@ -1,0 +1,185 @@
+{
+  "task_domain": "eng_restaurant",
+  "model": "meta-llama/llama-3.1-70b-instruct",
+  "prompt_version": "v2-cca-2026-04-18",
+  "pipeline": "CCA",
+  "n_target_categories": 23,
+  "n_per_category": 50,
+  "cross_verify": true,
+  "n_written": 285,
+  "n_generated_raw": 4704,
+  "n_clean_fail": 521,
+  "n_verify_reject": 3876,
+  "n_verify_pass": 300,
+  "n_parse_fail": 0,
+  "n_http_fail": 8,
+  "n_cache_hits": 1852,
+  "n_llm_calls": 2746,
+  "tokens_prompt": 933447,
+  "tokens_completion": 316220,
+  "tokens_total": 1249667,
+  "wallclock_s": 30266.59,
+  "per_category": {
+    "AMBIENCE#STYLE_OPTIONS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 162,
+      "verified": 14,
+      "written": 14
+    },
+    "RESTAURANT#STYLE_OPTIONS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 108,
+      "verified": 7,
+      "written": 7
+    },
+    "RESTAURANT#QUALITY": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 183,
+      "verified": 3,
+      "written": 4
+    },
+    "FOOD#MISCELLANEOUS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 216,
+      "verified": 4,
+      "written": 4
+    },
+    "RESTUARANT#STYLE_OPTIONS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 143,
+      "verified": 6,
+      "written": 6
+    },
+    "SERVICE#PRICES": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 334,
+      "verified": 2,
+      "written": 2
+    },
+    "SERVICE#STYLE_OPTIONS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 89,
+      "verified": 56,
+      "written": 50
+    },
+    "SERVICE#MISCELLANEOUS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 225,
+      "verified": 3,
+      "written": 3
+    },
+    "AMBIENCE#PRICES": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 230,
+      "verified": 0,
+      "written": 1
+    },
+    "AMBIENCE#QUALITY": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 317,
+      "verified": 1,
+      "written": 1
+    },
+    "AMBIENCE#MISCELLANEOUS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 377,
+      "verified": 10,
+      "written": 12
+    },
+    "DRINKS#GENERAL": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 237,
+      "verified": 7,
+      "written": 7
+    },
+    "DRINKS#MISCELLANEOUS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 193,
+      "verified": 4,
+      "written": 5
+    },
+    "LOCATION#PRICES": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 231,
+      "verified": 14,
+      "written": 13
+    },
+    "LOCATION#QUALITY": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 286,
+      "verified": 11,
+      "written": 12
+    },
+    "LOCATION#STYLE_OPTIONS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 0,
+      "verified": 0,
+      "written": 0
+    },
+    "LOCATION#MISCELLANEOUS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 134,
+      "verified": 12,
+      "written": 12
+    },
+    "RESTUARANT#GENERAL": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 257,
+      "verified": 18,
+      "written": 17
+    },
+    "RESTUARANT#PRICES": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 84,
+      "verified": 3,
+      "written": 3
+    },
+    "RESTUARANT#QUALITY": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 282,
+      "verified": 7,
+      "written": 7
+    },
+    "RESTUARANT#MISCELLANEOUS": {
+      "status": "zero_shot",
+      "train_count": 0,
+      "generated_raw": 313,
+      "verified": 32,
+      "written": 28
+    },
+    "SERVICE#QUALITY": {
+      "status": "extremely_rare",
+      "train_count": 1,
+      "generated_raw": 62,
+      "verified": 59,
+      "written": 50
+    },
+    "FOOD#GENERAL": {
+      "status": "extremely_rare",
+      "train_count": 1,
+      "generated_raw": 241,
+      "verified": 27,
+      "written": 27
+    }
+  }
+}
