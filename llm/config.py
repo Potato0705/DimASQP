@@ -40,6 +40,12 @@ DEFAULTS = {
     "x_title": "DimASQP LLM Pseudo-Labeler",
 }
 
+ISR_DEFAULTS = {
+    "cache_dir": "cache/isr",
+    "temperature": 0.1,
+    "max_tokens": 256,
+}
+
 CCA_DEFAULTS = {
     "n_per_category": 50,
     "max_grounding_examples": 8,

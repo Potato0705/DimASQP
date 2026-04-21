@@ -26,7 +26,7 @@ from __future__ import annotations
 import json
 from typing import Dict, List, Optional, Tuple
 
-PROMPT_VERSION = "v2-cca-2026-04-18"
+PROMPT_VERSION = "v3-isr-2026-04-21"
 
 
 SYSTEM_PROMPT = (
@@ -110,6 +110,124 @@ def build_pseudo_label_prompt(
         "content": f"{user_preamble}\n\nSentence: {sentence}",
     })
     return messages
+
+
+# =========================================================================
+# ISR (Implicit Sentiment Reasoning) — recover surrogate spans for NULLs
+# =========================================================================
+
+_ISR_RECOVERY_SYSTEM = (
+    "You are an expert linguist specialising in aspect-based sentiment analysis. "
+    "A review sentence contains an IMPLICIT {slot_type} — the {slot_type} is not "
+    "explicitly stated but can be inferred from context.\n\n"
+    "Given:\n"
+    "- The review sentence\n"
+    "- The category ({entity}#{attribute})\n"
+    "- The {other_slot_type}: \"{other_slot_value}\"\n"
+    "- The sentiment values: valence={valence}, arousal={arousal}\n\n"
+    "Your task: identify the best SURROGATE span — a substring of the sentence "
+    "that most closely relates to the implicit {slot_type}.\n\n"
+    "Rules:\n"
+    "1. The surrogate MUST be an exact substring of the sentence (case-sensitive match).\n"
+    "2. Prefer a short, specific noun phrase (for aspect) or adjective/verb phrase (for opinion).\n"
+    "3. Do NOT use the category label itself as the surrogate (e.g., don't use "
+    "\"quality\" or \"style options\" — use an actual phrase from the sentence).\n"
+    "4. If no reasonable substring can be identified, set surrogate to \"NULL\".\n"
+    "5. Provide a brief reasoning chain explaining your choice.\n\n"
+    "Output ONLY a JSON object:\n"
+    '{{\"reasoning\": \"...\", \"surrogate\": \"<exact substring or NULL>\"}}'
+)
+
+
+def build_isr_recovery_prompt(
+    sentence: str,
+    category: str,
+    slot_type: str,
+    other_slot_type: str,
+    other_slot_value: str,
+    valence: float,
+    arousal: float,
+) -> List[Dict[str, str]]:
+    """ISR: build messages to recover a surrogate span for an implicit aspect or opinion.
+
+    Args:
+        sentence:         the review text
+        category:         E#A category, e.g. "RESTAURANT#GENERAL"
+        slot_type:        "aspect" or "opinion" — which slot is NULL
+        other_slot_type:  the non-NULL slot type ("opinion" or "aspect")
+        other_slot_value: the non-NULL slot's text, or "NULL" if both are implicit
+        valence:          gold valence value
+        arousal:          gold arousal value
+    """
+    entity, attribute = category.split("#", 1) if "#" in category else (category, "")
+    system = _ISR_RECOVERY_SYSTEM.format(
+        slot_type=slot_type,
+        other_slot_type=other_slot_type,
+        other_slot_value=other_slot_value,
+        entity=entity,
+        attribute=attribute,
+        valence=valence,
+        arousal=arousal,
+    )
+    user_content = (
+        f"Sentence: {sentence}\n"
+        f"Category: {category}\n"
+        f"Implicit slot: {slot_type} (currently NULL)\n"
+        f"Known {other_slot_type}: \"{other_slot_value}\"\n"
+        f"Valence: {valence}, Arousal: {arousal}\n\n"
+        f"Identify the best surrogate {slot_type} span from the sentence."
+    )
+    return [
+        {"role": "system", "content": system},
+        {"role": "user", "content": user_content},
+    ]
+
+
+_ISR_BOTH_NULL_SYSTEM = (
+    "You are an expert linguist specialising in aspect-based sentiment analysis. "
+    "A review sentence expresses sentiment about {entity}#{attribute}, but BOTH "
+    "the aspect and opinion are implicit — neither is explicitly stated.\n\n"
+    "Given:\n"
+    "- The review sentence\n"
+    "- The category ({entity}#{attribute})\n"
+    "- The sentiment values: valence={valence}, arousal={arousal}\n\n"
+    "Your task: identify surrogate spans for BOTH the aspect and opinion.\n\n"
+    "Rules:\n"
+    "1. Each surrogate MUST be an exact substring of the sentence (case-sensitive).\n"
+    "2. Aspect surrogate: a noun/noun phrase that relates to {entity}.\n"
+    "3. Opinion surrogate: an adjective/verb phrase that conveys the sentiment.\n"
+    "4. Do NOT use category label names (\"quality\", \"general\", etc.) as surrogates.\n"
+    "5. If no reasonable substring exists for a slot, set it to \"NULL\".\n"
+    "6. Provide brief reasoning for each choice.\n\n"
+    "Output ONLY a JSON object:\n"
+    '{{\"reasoning\": \"...\", \"aspect_surrogate\": \"<substring or NULL>\", '
+    '\"opinion_surrogate\": \"<substring or NULL>\"}}'
+)
+
+
+def build_isr_both_null_prompt(
+    sentence: str,
+    category: str,
+    valence: float,
+    arousal: float,
+) -> List[Dict[str, str]]:
+    """ISR: recover surrogate spans when both aspect and opinion are NULL."""
+    entity, attribute = category.split("#", 1) if "#" in category else (category, "")
+    system = _ISR_BOTH_NULL_SYSTEM.format(
+        entity=entity, attribute=attribute,
+        valence=valence, arousal=arousal,
+    )
+    user_content = (
+        f"Sentence: {sentence}\n"
+        f"Category: {category}\n"
+        f"Both aspect and opinion are implicit (NULL).\n"
+        f"Valence: {valence}, Arousal: {arousal}\n\n"
+        f"Identify surrogate spans for both aspect and opinion."
+    )
+    return [
+        {"role": "system", "content": system},
+        {"role": "user", "content": user_content},
+    ]
 
 
 # =========================================================================

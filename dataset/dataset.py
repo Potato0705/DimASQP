@@ -599,8 +599,13 @@ class AcqpDataset(Dataset):
         quad_va = torch.zeros([MAX_QUADS, 2], dtype=torch.float32)      # (V, A) gold
         quad_mask = torch.zeros([MAX_QUADS], dtype=torch.float32)       # 1=valid
 
-        # Known typo in eng_v2 data: normalize before lookup
-        _CAT_NORM = {"RESTUARANT#STYLE_OPTIONS": "RESTAURANT#STYLE_OPTIONS"}
+        _CAT_NORM = {
+            "RESTUARANT#STYLE_OPTIONS": "RESTAURANT#STYLE_OPTIONS",
+            "RESTUARANT#GENERAL": "RESTAURANT#GENERAL",
+            "RESTUARANT#MISCELLANEOUS": "RESTAURANT#MISCELLANEOUS",
+            "RESTUARANT#PRICES": "RESTAURANT#PRICES",
+            "RESTUARANT#QUALITY": "RESTAURANT#QUALITY",
+        }
 
         q_idx = 0
         for category, aspcet, opinion, sentiment_id in answers:
