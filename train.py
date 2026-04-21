@@ -112,6 +112,18 @@ def compute_va_loss(pred_va, va_targets, va_mask):
     return mse
 
 
+def compute_gaussian_nll_va_loss(va_mean, va_logvar, va_targets, quad_mask):
+    """Gaussian NLL loss for probabilistic VA prediction.
+
+    L = 0.5 * (logvar + (target - mean)^2 / var)  per valid quad, averaged.
+    """
+    mask = quad_mask.unsqueeze(-1)  # [B, Q, 1]
+    var = va_logvar.exp().clamp(min=1e-6)
+    nll = 0.5 * (va_logvar + (va_targets - va_mean) ** 2 / var)
+    nll = (nll * mask).sum() / mask.sum().clamp(min=1.0)
+    return nll
+
+
 def compute_va_contrastive_loss(va_cl_embeds, quad_va, quad_mask):
     """VA-aware contrastive loss: enforce representation distance 鈭?VA distance.
 
@@ -193,7 +205,24 @@ def compute_loss(args, pred, data, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
         loss = args.weight1 * loss_mat + args.weight2 * loss_cls_dim
         if args.weight4 > 0:
             va_mode = getattr(args, 'va_mode', 'position')
-            if va_mode in ('span_pair', 'opinion_guided') and "span_va" in pred:
+            if va_mode in ('prob_span_pair', 'prob_opinion_guided') and "span_va" in pred:
+                # Probabilistic VA: Gaussian NLL loss
+                va_mean = pred["span_va"]
+                va_logvar = pred["va_logvar"]
+                span_va_gold = data["quad_va"].to(va_mean.device)
+                qm = data["quad_mask"].to(va_mean.device)
+                loss_va = compute_gaussian_nll_va_loss(va_mean, va_logvar, span_va_gold, qm)
+
+                # Prior auxiliary loss for prob_opinion_guided
+                if va_mode == 'prob_opinion_guided' and "va_prior" in pred:
+                    weight_prior = getattr(args, 'weight_va_prior', 0.3)
+                    if weight_prior > 0:
+                        prior_mean = pred["va_prior"]
+                        prior_logvar = pred.get("va_prior_logvar", pred["va_logvar"])
+                        loss_va_prior = compute_gaussian_nll_va_loss(
+                            prior_mean, prior_logvar, span_va_gold, qm)
+                        loss_va = loss_va + weight_prior * loss_va_prior
+            elif va_mode in ('span_pair', 'opinion_guided') and "span_va" in pred:
                 # Span-Pair / Opinion-Guided VA loss (masked MSE over gold quadruplets)
                 span_va_pred = pred["span_va"]                    # [B, Q, 2]
                 span_va_gold = data["quad_va"].to(span_va_pred.device)   # [B, Q, 2]
@@ -444,7 +473,7 @@ def train(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_seq
                           token_type_ids=data["token_type_ids"],
                           attention_mask=data["attention_mask"])
         va_mode = getattr(args, 'va_mode', 'position')
-        if va_mode in ('span_pair', 'opinion_guided') and args.label_pattern == 'category' and args.weight4 > 0:
+        if va_mode in ('span_pair', 'opinion_guided', 'prob_span_pair', 'prob_opinion_guided') and args.label_pattern == 'category' and args.weight4 > 0:
             fwd_kwargs["quad_spans"] = data["quad_spans"]
             fwd_kwargs["quad_mask"] = data["quad_mask"]
             fwd_kwargs["va_mode"] = va_mode
@@ -552,7 +581,7 @@ def validate(args, dataloader, model, loss_matrix_fn, loss_cls_dim_fn, loss_dim_
                               token_type_ids=data["token_type_ids"],
                               attention_mask=data["attention_mask"])
             va_mode = getattr(args, 'va_mode', 'position')
-            if va_mode in ('span_pair', 'opinion_guided') and args.label_pattern == 'category' and args.weight4 > 0:
+            if va_mode in ('span_pair', 'opinion_guided', 'prob_span_pair', 'prob_opinion_guided') and args.label_pattern == 'category' and args.weight4 > 0:
                 fwd_kwargs["quad_spans"] = data["quad_spans"]
                 fwd_kwargs["quad_mask"] = data["quad_mask"]
                 fwd_kwargs["va_mode"] = va_mode

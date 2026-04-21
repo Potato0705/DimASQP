@@ -58,7 +58,13 @@ def predict(args):
     hidden_states_list = []
     # Check which VA head to use based on va_mode
     va_mode = training_args_dic.get('va_mode', 'position')
-    if va_mode == 'opinion_guided' and hasattr(model, 'opinion_guided_va_head'):
+    if va_mode == 'prob_opinion_guided' and hasattr(model, 'prob_opinion_guided_va_head'):
+        va_head_obj = model.prob_opinion_guided_va_head
+        has_span_va = True
+    elif va_mode == 'prob_span_pair' and hasattr(model, 'prob_span_pair_va_head'):
+        va_head_obj = model.prob_span_pair_va_head
+        has_span_va = True
+    elif va_mode == 'opinion_guided' and hasattr(model, 'opinion_guided_va_head'):
         va_head_obj = model.opinion_guided_va_head
         has_span_va = True
     elif va_mode == 'span_pair' and hasattr(model, 'span_pair_va_head'):
@@ -283,9 +289,10 @@ def attach_span_pair_va(pred_answer, hidden_states_tensor, token_index_map_char_
 
     with torch.no_grad():
         raw_out = span_pair_va_head(hs, quad_spans_t, quad_mask_t)
-        # OpinionGuidedVAHead returns dict, SpanPairVAHead returns tensor
+        # Probabilistic heads return dict with 'va_mean'; deterministic heads
+        # return dict with 'va_final' (OpinionGuided) or a plain tensor (SpanPair)
         if isinstance(raw_out, dict):
-            va_pred = raw_out['va_final']  # [1, Q, 2]
+            va_pred = raw_out.get('va_mean', raw_out.get('va_final'))  # [1, Q, 2]
         else:
             va_pred = raw_out               # [1, Q, 2]
     va_pred = va_pred[0].cpu().numpy()  # [Q, 2]

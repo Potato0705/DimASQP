@@ -34,5 +34,8 @@ Thumbs.db
 .env
 *.env
 
+# LLM pseudo-labeling cache (sha256-keyed responses)
+cache/
+
 # Claude Code
 .claude/

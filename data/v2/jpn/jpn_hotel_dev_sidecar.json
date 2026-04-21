@@ -1,0 +1,6498 @@
+[
+  {
+    "ID": "hotel26_asqp_dev_1",
+    "Text": "部屋も広々とあずましく、室温もちょうど良く満足です。",
+    "line_index": 0,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "広々",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "6.62#6.00",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "あずましく",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.38#5.88",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          6,
+          11
+        ]
+      },
+      {
+        "Aspect": "室温",
+        "Opinion": "ちょうど良く",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          12,
+          14
+        ],
+        "opinion_span": [
+          15,
+          21
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "満足",
+        "Category": "HOTEL#GENERAL",
+        "VA": "7.50#7.25",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          21,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_2",
+    "Text": "地下道への出入り口も近く、慣れない雪道を歩かなくても駅へアクセス出来て良かったです。",
+    "line_index": 1,
+    "quads": [
+      {
+        "Aspect": "出入り口",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "5.83#5.67",
+        "aspect_span": [
+          5,
+          9
+        ],
+        "opinion_span": [
+          10,
+          12
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "良かった",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.17#5.83",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          35,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_3",
+    "Text": "部屋の清掃も行き届いていてリラックスできました。",
+    "line_index": 2,
+    "quads": [
+      {
+        "Aspect": "清掃",
+        "Opinion": "行き届いて",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.33#6.00",
+        "aspect_span": [
+          3,
+          5
+        ],
+        "opinion_span": [
+          6,
+          11
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "リラックス",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.50#5.83",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          13,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_4",
+    "Text": "それなりに綺麗で美味しく、量も多くて、普通サイズの女性には食べ切れない程",
+    "line_index": 3,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.38#5.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          8,
+          12
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "それなりに綺麗",
+        "Category": "FOOD_DRINKS#DESIGN_FEATURES",
+        "VA": "6.00#5.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          7
+        ]
+      },
+      {
+        "Aspect": "量",
+        "Opinion": "多く",
+        "Category": "FOOD_DRINKS#STYLE_OPTIONS",
+        "VA": "6.25#5.50",
+        "aspect_span": [
+          13,
+          14
+        ],
+        "opinion_span": [
+          15,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_5",
+    "Text": "喫煙ルームなのに、タバコの染みついた臭いが無かったのが良かったです",
+    "line_index": 4,
+    "quads": [
+      {
+        "Aspect": "喫煙ルーム",
+        "Opinion": "良かった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.38#5.75",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          27,
+          31
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "無かった",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.38#5.75",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          21,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_6",
+    "Text": "きれいで助かります",
+    "line_index": 5,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "きれい",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "6.50#6.12",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_7",
+    "Text": "とてもお得に楽しめて、大満足でした",
+    "line_index": 6,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "とてもお得",
+        "Category": "HOTEL#PRICE",
+        "VA": "7.12#6.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "大満足",
+        "Category": "HOTEL#COMFORT",
+        "VA": "7.50#7.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          11,
+          14
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "楽しめて",
+        "Category": "HOTEL#COMFORT",
+        "VA": "7.62#7.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          6,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_8",
+    "Text": "窓からの夜景もきれいで、過ごしやすかったです",
+    "line_index": 7,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "過ごしやすかった",
+        "Category": "HOTEL#COMFORT",
+        "VA": "7.00#6.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          12,
+          20
+        ]
+      },
+      {
+        "Aspect": "夜景",
+        "Opinion": "きれい",
+        "Category": "LOCATION#QUALITY",
+        "VA": "7.25#7.00",
+        "aspect_span": [
+          4,
+          6
+        ],
+        "opinion_span": [
+          7,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_9",
+    "Text": "飲食店もコンビニも駅周りに十分あるので困りません",
+    "line_index": 8,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "困りません",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.67#6.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          19,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_10",
+    "Text": "部屋も綺麗でレディースルームの為、ドライヤーやスチーム美顔器もあり充実していた",
+    "line_index": 9,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "充実していた",
+        "Category": "ROOM_AMENITIES#STYLE_OPTIONS",
+        "VA": "6.80#6.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          33,
+          39
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗で",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.40#6.10",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_11",
+    "Text": "も安く利用でき、ロビーのピアノ演奏にも癒されました",
+    "line_index": 10,
+    "quads": [
+      {
+        "Aspect": "ピアノ演奏",
+        "Opinion": "癒されました",
+        "Category": "SERVICE#COMFORT",
+        "VA": "7.12#6.62",
+        "aspect_span": [
+          12,
+          17
+        ],
+        "opinion_span": [
+          19,
+          25
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "安く",
+        "Category": "HOTEL#PRICE",
+        "VA": "6.67#5.67",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          1,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_12",
+    "Text": "ゆっくり眠れてよかったです",
+    "line_index": 11,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "よかった",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          7,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_13",
+    "Text": "なんといってもお風呂が大きくてびっくりしました",
+    "line_index": 12,
+    "quads": [
+      {
+        "Aspect": "風呂",
+        "Opinion": "大きくて",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "5.83#5.83",
+        "aspect_span": [
+          8,
+          10
+        ],
+        "opinion_span": [
+          11,
+          15
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "びっくりしました",
+        "Category": "HOTEL#GENERAL",
+        "VA": "5.50#6.17",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          15,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_14",
+    "Text": "ビジネス利用だったので部屋の中のソファとテーブルも快適に利用できて良かったです",
+    "line_index": 13,
+    "quads": [
+      {
+        "Aspect": "テーブル",
+        "Opinion": "快適",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.00#5.83",
+        "aspect_span": [
+          20,
+          24
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      },
+      {
+        "Aspect": "ソファ",
+        "Opinion": "快適",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          16,
+          19
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "良かった",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.62#6.38",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          33,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_15",
+    "Text": "10階にはマッサージチェアや漫画、ドリンクバーがあり、家族で楽しめました",
+    "line_index": 14,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "楽しめました",
+        "Category": "FACILITIES#GENERAL",
+        "VA": "6.25#5.88",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          30,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_16",
+    "Text": "ご飯は美味しくて、温泉でゆっくりできて、満足しました",
+    "line_index": 15,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "満足",
+        "Category": "HOTEL#COMFORT",
+        "VA": "7.00#6.67",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          20,
+          22
+        ]
+      },
+      {
+        "Aspect": "温泉",
+        "Opinion": "ゆっくり",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "6.00#6.33",
+        "aspect_span": [
+          9,
+          11
+        ],
+        "opinion_span": [
+          12,
+          16
+        ]
+      },
+      {
+        "Aspect": "ご飯",
+        "Opinion": "美味しくて",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#6.25",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_17",
+    "Text": "今回も部屋はきれいで駅にも近いのに静かで気持ちよく過ごせました",
+    "line_index": 16,
+    "quads": [
+      {
+        "Aspect": "駅",
+        "Opinion": "近い",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.17#6.17",
+        "aspect_span": [
+          10,
+          11
+        ],
+        "opinion_span": [
+          13,
+          15
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "きれい",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.17#6.17",
+        "aspect_span": [
+          3,
+          5
+        ],
+        "opinion_span": [
+          6,
+          9
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "気持ちよく",
+        "Category": "HOTEL#QUALITY",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          20,
+          25
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "静か",
+        "Category": "HOTEL#QUALITY",
+        "VA": "6.17#6.17",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          17,
+          19
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "静か",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          3,
+          5
+        ],
+        "opinion_span": [
+          17,
+          19
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "気持ちよく",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.12#5.88",
+        "aspect_span": [
+          3,
+          5
+        ],
+        "opinion_span": [
+          20,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_18",
+    "Text": "部屋が綺麗で、風呂トイレ別、化粧水や乳液も雪肌精が置かれていたりと大満足でした",
+    "line_index": 17,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "大満足",
+        "Category": "ROOM_AMENITIES#QUALITY",
+        "VA": "8.25#8.12",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          33,
+          36
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_19",
+    "Text": "少し古いですが、駅からも近く、便利です",
+    "line_index": 18,
+    "quads": [
+      {
+        "Aspect": "駅",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          8,
+          9
+        ],
+        "opinion_span": [
+          12,
+          14
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "少し古い",
+        "Category": "HOTEL#DESIGN_FEATURES",
+        "VA": "4.00#5.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "便利",
+        "Category": "HOTEL#QUALITY",
+        "VA": "6.62#6.12",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          15,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_20",
+    "Text": "赤坂駅からも近く長浜の市場にも徒歩圏内で朝食や夜に屋台に行くのも便利でした",
+    "line_index": 19,
+    "quads": [
+      {
+        "Aspect": "赤坂駅",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          6,
+          8
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "便利",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.25#5.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          32,
+          34
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_21",
+    "Text": "チェックアウト後に高齢の母が入り口で転倒したさい、スタッフの方が迅速な対応をして頂き、消毒液と絆創膏を持って来て頂き大変助かりました",
+    "line_index": 20,
+    "quads": [
+      {
+        "Aspect": "対応",
+        "Opinion": "迅速",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.00#6.00",
+        "aspect_span": [
+          35,
+          37
+        ],
+        "opinion_span": [
+          32,
+          34
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "大変助かりました",
+        "Category": "SERVICE#COMFORT",
+        "VA": "7.50#6.83",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          58,
+          66
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_22",
+    "Text": "雪の日の次の朝、帰り送迎バスを待ってる間、靴をストーブの近くであっためて下さいました男の方もありがたかったです",
+    "line_index": 21,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "ありがたかった",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.17#6.33",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          46,
+          53
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_23",
+    "Text": "ラウンジもカフェタイム、カクテルタイム、バータイムそれぞれ利用しましたが、メニューが入れ替わる前後に声をかけにきてくださり、とても親切だと感じました",
+    "line_index": 22,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "とても親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.62#6.75",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          62,
+          67
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_24",
+    "Text": "大変満足しています",
+    "line_index": 23,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "大変満足",
+        "Category": "HOTEL#QUALITY",
+        "VA": "7.33#7.67",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_25",
+    "Text": "普通に良かったです",
+    "line_index": 24,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "普通に良かった",
+        "Category": "HOTEL#QUALITY",
+        "VA": "6.67#5.83",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_26",
+    "Text": "朝食などご飯のお代わり良いタイミングで聞いてくれるなど観察してるんだなと好印象でした",
+    "line_index": 25,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "好印象",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          36,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_27",
+    "Text": "設備は新しくはないですが問題はなかったです",
+    "line_index": 26,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "問題はなかった",
+        "Category": "HOTEL#QUALITY",
+        "VA": "5.75#5.25",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          12,
+          19
+        ]
+      },
+      {
+        "Aspect": "設備",
+        "Opinion": "新しくはない",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "4.50#5.00",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_28",
+    "Text": "夜鳴き蕎麦、プリン、名水のサービスは良かったチェックアウト時間も11時でゆっくりできた",
+    "line_index": 27,
+    "quads": [
+      {
+        "Aspect": "プリン",
+        "Opinion": "良かった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#5.88",
+        "aspect_span": [
+          6,
+          9
+        ],
+        "opinion_span": [
+          18,
+          22
+        ]
+      },
+      {
+        "Aspect": "夜鳴き蕎麦",
+        "Opinion": "良かった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#5.88",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          18,
+          22
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "ゆっくりできた",
+        "Category": "HOTEL#COMFORT",
+        "VA": "6.17#5.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          36,
+          43
+        ]
+      },
+      {
+        "Aspect": "サービス",
+        "Opinion": "良かった",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.62#6.00",
+        "aspect_span": [
+          13,
+          17
+        ],
+        "opinion_span": [
+          18,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_29",
+    "Text": "綺麗に清掃され、ツインルームの広さも十分でした",
+    "line_index": 28,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "綺麗",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "6.88#6.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "Aspect": "ツインルームの広さ",
+        "Opinion": "十分",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.50#5.67",
+        "aspect_span": [
+          8,
+          17
+        ],
+        "opinion_span": [
+          18,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_30",
+    "Text": "宮崎県の宿泊割引が使えなかったのが残念でした",
+    "line_index": 29,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "残念",
+        "Category": "HOTEL#QUALITY",
+        "VA": "3.75#5.25",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          17,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_31",
+    "Text": "はじめて泊まりましたが清潔感もあってお部屋も綺麗でした",
+    "line_index": 30,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.62#6.00",
+        "aspect_span": [
+          19,
+          21
+        ],
+        "opinion_span": [
+          22,
+          24
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "清潔",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "6.75#6.12",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          11,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_32",
+    "Text": "その後、のんびり過ごすのが最高です",
+    "line_index": 31,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "最高",
+        "Category": "HOTEL#QUALITY",
+        "VA": "7.38#6.75",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          13,
+          15
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "のんびり",
+        "Category": "HOTEL#COMFORT",
+        "VA": "7.00#6.25",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          4,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_33",
+    "Text": "きれいなホテルで快適に過ごせました",
+    "line_index": 32,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "快適",
+        "Category": "HOTEL#COMFORT",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      },
+      {
+        "Aspect": "ホテル",
+        "Opinion": "きれい",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          0,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_34",
+    "Text": "部屋はきれいで、お風呂もひろく、駅に近く、コンビニも近くよかったです",
+    "line_index": 33,
+    "quads": [
+      {
+        "Aspect": "風呂",
+        "Opinion": "ひろく",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          9,
+          11
+        ],
+        "opinion_span": [
+          12,
+          15
+        ]
+      },
+      {
+        "Aspect": "駅",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          16,
+          17
+        ],
+        "opinion_span": [
+          18,
+          20
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "よかった",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.62#6.12",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          28,
+          32
+        ]
+      },
+      {
+        "Aspect": "コンビニ",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          21,
+          25
+        ],
+        "opinion_span": [
+          18,
+          20
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "きれい",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_35",
+    "Text": "お客さんとの接待に使用さて頂きましたが　車の出入り等利便性が良くスムーズで良かったです",
+    "line_index": 34,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "スムーズ",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          32,
+          36
+        ]
+      },
+      {
+        "Aspect": "利便性",
+        "Opinion": "良く",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.25#5.50",
+        "aspect_span": [
+          26,
+          29
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "良かった",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          37,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_36",
+    "Text": "あと従業員さん外国人が多く接客も良く感じが良かったですが、中には嫌々床掃除を教えて貰ってる方がおられ不快な気分に思いました",
+    "line_index": 35,
+    "quads": [
+      {
+        "Aspect": "接客",
+        "Opinion": "良く",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.25#5.50",
+        "aspect_span": [
+          13,
+          15
+        ],
+        "opinion_span": [
+          16,
+          18
+        ]
+      },
+      {
+        "Aspect": "感じ",
+        "Opinion": "良かった",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.17#5.83",
+        "aspect_span": [
+          18,
+          20
+        ],
+        "opinion_span": [
+          21,
+          25
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "不快",
+        "Category": "HOTEL#COMFORT",
+        "VA": "2.83#6.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          50,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_37",
+    "Text": "ジムもついており運動できたので良かったです。",
+    "line_index": 36,
+    "quads": [
+      {
+        "Aspect": "ジム",
+        "Opinion": "良かった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.25#5.50",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_38",
+    "Text": "大浴場があり、湯船にゆっくりつかることができ満足です。",
+    "line_index": 37,
+    "quads": [
+      {
+        "Aspect": "大浴場",
+        "Opinion": "満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.17#6.00",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          22,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_39",
+    "Text": "値段の割に満足しました。",
+    "line_index": 38,
+    "quads": [
+      {
+        "Aspect": "値段",
+        "Opinion": "満足",
+        "Category": "HOTEL#PRICE",
+        "VA": "6.33#5.83",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          5,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_40",
+    "Text": "朝食のお弁当は、イカメンチ期待してましたが、シューマイ、焼き魚、ミートボール等で、ちょっと残念。蓋を開けた瞬間の漬物箇所のスカスカ感にビックリ。",
+    "line_index": 39,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "ちょっと残念",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "4.17#5.67",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          41,
+          47
+        ]
+      },
+      {
+        "Aspect": "漬物箇所",
+        "Opinion": "スカスカ感",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "3.88#5.62",
+        "aspect_span": [
+          56,
+          60
+        ],
+        "opinion_span": [
+          61,
+          66
+        ]
+      },
+      {
+        "Aspect": "朝食",
+        "Opinion": "ビックリ",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "3.88#5.88",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          67,
+          71
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_41",
+    "Text": "半露天風呂付きのお風呂も大浴場と同じくとろとろで、いつでも入れて満足です。",
+    "line_index": 40,
+    "quads": [
+      {
+        "Aspect": "お風呂",
+        "Opinion": "とろとろ",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.62#6.00",
+        "aspect_span": [
+          8,
+          11
+        ],
+        "opinion_span": [
+          19,
+          23
+        ]
+      },
+      {
+        "Aspect": "お風呂",
+        "Opinion": "満足",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "7.00#6.67",
+        "aspect_span": [
+          8,
+          11
+        ],
+        "opinion_span": [
+          32,
+          34
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_42",
+    "Text": "ロビーには 雛人形が飾ってあり癒される空間でしたまた近いうちに泊まります",
+    "line_index": 41,
+    "quads": [
+      {
+        "Aspect": "ロビー",
+        "Opinion": "癒される",
+        "Category": "HOTEL#COMFORT",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_43",
+    "Text": "朝食バイキングは手作りで美味しく、コスパが良いので満足してます",
+    "line_index": 42,
+    "quads": [
+      {
+        "Aspect": "朝食バイキング",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.33#6.50",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          12,
+          16
+        ]
+      },
+      {
+        "Aspect": "朝食バイキング",
+        "Opinion": "満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      },
+      {
+        "Aspect": "朝食バイキング",
+        "Opinion": "コスパが良い",
+        "Category": "FOOD_DRINKS#PRICE",
+        "VA": "6.00#5.50",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          17,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_44",
+    "Text": "朝ごはんはおかずの種類も多く、おかわりしてしまい食べすぎてしまうほど美味しかったです",
+    "line_index": 43,
+    "quads": [
+      {
+        "Aspect": "おかずの種類",
+        "Opinion": "多く",
+        "Category": "FOOD_DRINKS#STYLE_OPTIONS",
+        "VA": "6.25#5.50",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          12,
+          14
+        ]
+      },
+      {
+        "Aspect": "朝ごはん",
+        "Opinion": "美味しかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.88#6.50",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          34,
+          40
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_45",
+    "Text": "男湯の大浴場の内湯が熱くて余り入れなかったと相方が言っていましたので、一考いただればと思います",
+    "line_index": 44,
+    "quads": [
+      {
+        "Aspect": "内湯",
+        "Opinion": "熱く",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "4.12#5.50",
+        "aspect_span": [
+          7,
+          9
+        ],
+        "opinion_span": [
+          10,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_46",
+    "Text": "バイキングがとても忙しく、喧騒で落ち着がなかったのに対して、日本料理プランを選択される方が余程少ないのか",
+    "line_index": 45,
+    "quads": [
+      {
+        "Aspect": "バイキング",
+        "Opinion": "とても忙しく",
+        "Category": "FOOD_DRINKS#COMFORT",
+        "VA": "3.67#6.00",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          12
+        ]
+      },
+      {
+        "Aspect": "バイキング",
+        "Opinion": "喧騒",
+        "Category": "FOOD_DRINKS#COMFORT",
+        "VA": "3.00#6.33",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          13,
+          15
+        ]
+      },
+      {
+        "Aspect": "バイキング",
+        "Opinion": "落ち着がなかった",
+        "Category": "FOOD_DRINKS#COMFORT",
+        "VA": "3.00#6.33",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          16,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_47",
+    "Text": "夜鳴きラーメンとカレーのサービス大変美味で心も身体も温まりました",
+    "line_index": 46,
+    "quads": [
+      {
+        "Aspect": "夜鳴きラーメン",
+        "Opinion": "大変美味",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.50#6.67",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      },
+      {
+        "Aspect": "カレー",
+        "Opinion": "大変美味",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.75#7.12",
+        "aspect_span": [
+          8,
+          11
+        ],
+        "opinion_span": [
+          16,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_48",
+    "Text": "貸切風呂にはベビーバスも置いてあるので小さい子も安心です",
+    "line_index": 47,
+    "quads": [
+      {
+        "Aspect": "貸切風呂",
+        "Opinion": "安心",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          24,
+          26
+        ]
+      },
+      {
+        "Aspect": "貸切風呂",
+        "Opinion": "安心",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          24,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_49",
+    "Text": "部屋も綺麗で、コーヒーや紅茶のサービスも気合い入れすぎなくらい充実している",
+    "line_index": 48,
+    "quads": [
+      {
+        "Aspect": "サービス",
+        "Opinion": "綺麗",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.67#6.50",
+        "aspect_span": [
+          15,
+          19
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "7.25#7.25",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_50",
+    "Text": "風呂の洗い場も広くゆったりと入れる大きさです",
+    "line_index": 49,
+    "quads": [
+      {
+        "Aspect": "風呂",
+        "Opinion": "広く",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.17#5.50",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          7,
+          9
+        ]
+      },
+      {
+        "Aspect": "風呂",
+        "Opinion": "ゆったり",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          9,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_51",
+    "Text": "朝食バイキングも大変満足出来ました",
+    "line_index": 50,
+    "quads": [
+      {
+        "Aspect": "朝食バイキング",
+        "Opinion": "大変満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.75#7.75",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          8,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_52",
+    "Text": "家族旅行でしたが、みんな満喫できてよかったです",
+    "line_index": 51,
+    "quads": [
+      {
+        "Aspect": "家族旅行",
+        "Opinion": "満喫",
+        "Category": "HOTEL#GENERAL",
+        "VA": "7.50#7.62",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          12,
+          14
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_53",
+    "Text": "部屋が狭いが、温泉は最高だった",
+    "line_index": 52,
+    "quads": [
+      {
+        "Aspect": "温泉",
+        "Opinion": "最高",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.75#7.50",
+        "aspect_span": [
+          7,
+          9
+        ],
+        "opinion_span": [
+          10,
+          12
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "狭い",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "4.25#5.38",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_54",
+    "Text": "近くにコンビニもあり便利でした",
+    "line_index": 53,
+    "quads": [
+      {
+        "Aspect": "コンビニ",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.25#5.62",
+        "aspect_span": [
+          3,
+          7
+        ],
+        "opinion_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "Aspect": "コンビニ",
+        "Opinion": "便利",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          3,
+          7
+        ],
+        "opinion_span": [
+          10,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_55",
+    "Text": "このエリアにホテルができて仕事場に近くて助かりました",
+    "line_index": 54,
+    "quads": [
+      {
+        "Aspect": "仕事場",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.50#5.80",
+        "aspect_span": [
+          13,
+          16
+        ],
+        "opinion_span": [
+          17,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_56",
+    "Text": "食事も美味しく、ウェルカムパフェも一息つくのにはちょうど良い量で大満足です",
+    "line_index": 55,
+    "quads": [
+      {
+        "Aspect": "ウェルカムパフェ",
+        "Opinion": "ちょうど良い",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.33#5.58",
+        "aspect_span": [
+          8,
+          16
+        ],
+        "opinion_span": [
+          24,
+          30
+        ]
+      },
+      {
+        "Aspect": "ウェルカムパフェ",
+        "Opinion": "大満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.60#7.20",
+        "aspect_span": [
+          8,
+          16
+        ],
+        "opinion_span": [
+          32,
+          35
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#6.38",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_57",
+    "Text": "他のおかずが素晴らしかったので、白飯だけ味も見た目ももったいないと思いました",
+    "line_index": 56,
+    "quads": [
+      {
+        "Aspect": "おかず",
+        "Opinion": "素晴らしかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.75#6.38",
+        "aspect_span": [
+          2,
+          5
+        ],
+        "opinion_span": [
+          6,
+          13
+        ]
+      },
+      {
+        "Aspect": "白飯",
+        "Opinion": "もったいない",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "4.25#5.62",
+        "aspect_span": [
+          16,
+          18
+        ],
+        "opinion_span": [
+          26,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_58",
+    "Text": "また、コンビニも近いので不便さはない",
+    "line_index": 57,
+    "quads": [
+      {
+        "Aspect": "不便さ",
+        "Opinion": "ない",
+        "Category": "LOCATION#GENERAL",
+        "VA": "5.75#5.00",
+        "aspect_span": [
+          12,
+          15
+        ],
+        "opinion_span": [
+          16,
+          18
+        ]
+      },
+      {
+        "Aspect": "コンビニ",
+        "Opinion": "近い",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.25#6.12",
+        "aspect_span": [
+          3,
+          7
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_59",
+    "Text": "アクセスが便利です駐車場もあります",
+    "line_index": 58,
+    "quads": [
+      {
+        "Aspect": "アクセス",
+        "Opinion": "便利",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.20#5.50",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_60",
+    "Text": "最近は何でもセルフが多い中、ここはスタッフの皆さんがとても親切です",
+    "line_index": 59,
+    "quads": [
+      {
+        "Aspect": "スタッフ",
+        "Opinion": "とても親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.50#7.33",
+        "aspect_span": [
+          17,
+          21
+        ],
+        "opinion_span": [
+          26,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_61",
+    "Text": "ツインの部屋は、それほど広くはありませんが、テレワークをするには十分な机の広さがあります",
+    "line_index": 60,
+    "quads": [
+      {
+        "Aspect": "机の広さ",
+        "Opinion": "十分",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.50#6.38",
+        "aspect_span": [
+          35,
+          39
+        ],
+        "opinion_span": [
+          32,
+          34
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "それほど広くはありません",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "5.70#5.60",
+        "aspect_span": [
+          4,
+          6
+        ],
+        "opinion_span": [
+          8,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_62",
+    "Text": "おもてなしや設備含め全部が最高でした",
+    "line_index": 61,
+    "quads": [
+      {
+        "Aspect": "全部",
+        "Opinion": "最高",
+        "Category": "HOTEL#GENERAL",
+        "VA": "7.88#7.50",
+        "aspect_span": [
+          10,
+          12
+        ],
+        "opinion_span": [
+          13,
+          15
+        ]
+      },
+      {
+        "Aspect": "おもてなし",
+        "Opinion": "最高",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.88#7.50",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          13,
+          15
+        ]
+      },
+      {
+        "Aspect": "設備",
+        "Opinion": "最高",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.67#7.67",
+        "aspect_span": [
+          6,
+          8
+        ],
+        "opinion_span": [
+          13,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_63",
+    "Text": "短い期間の出張でしたが、立地がよくとても便利でした",
+    "line_index": 62,
+    "quads": [
+      {
+        "Aspect": "立地",
+        "Opinion": "よく",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.75#5.88",
+        "aspect_span": [
+          12,
+          14
+        ],
+        "opinion_span": [
+          15,
+          17
+        ]
+      },
+      {
+        "Aspect": "立地",
+        "Opinion": "とても便利",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.50#7.00",
+        "aspect_span": [
+          12,
+          14
+        ],
+        "opinion_span": [
+          17,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_64",
+    "Text": "お風呂がユニットバスで広く使いやすいし、きれいでした",
+    "line_index": 63,
+    "quads": [
+      {
+        "Aspect": "風呂",
+        "Opinion": "使いやすい",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.62#6.38",
+        "aspect_span": [
+          1,
+          3
+        ],
+        "opinion_span": [
+          13,
+          18
+        ]
+      },
+      {
+        "Aspect": "風呂",
+        "Opinion": "広く",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.50#5.50",
+        "aspect_span": [
+          1,
+          3
+        ],
+        "opinion_span": [
+          11,
+          13
+        ]
+      },
+      {
+        "Aspect": "風呂",
+        "Opinion": "きれい",
+        "Category": "FACILITIES#CLEANLINESS",
+        "VA": "6.50#5.50",
+        "aspect_span": [
+          1,
+          3
+        ],
+        "opinion_span": [
+          20,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_65",
+    "Text": "スタッフの対応も相応で不満はなかった",
+    "line_index": 64,
+    "quads": [
+      {
+        "Aspect": "対応",
+        "Opinion": "不満はなかった",
+        "Category": "SERVICE#QUALITY",
+        "VA": "5.90#4.80",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          11,
+          18
+        ]
+      },
+      {
+        "Aspect": "対応",
+        "Opinion": "相応",
+        "Category": "SERVICE#QUALITY",
+        "VA": "5.62#4.75",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_66",
+    "Text": "・言葉遣は無駄に丁寧→そこ求めてない・館内着で大浴場も行けない、朝食も食べれない→ルールが昭和の時代で止まってる別に謝りやそう言うコメントは求めないですが、時代の最先端にいってるホテルに生まれ変わって欲しいと願うばかりです",
+    "line_index": 65,
+    "quads": [
+      {
+        "Aspect": "言葉遣",
+        "Opinion": "丁寧",
+        "Category": "SERVICE#QUALITY",
+        "VA": "5.88#5.00",
+        "aspect_span": [
+          1,
+          4
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_67",
+    "Text": "交通の便が良く、駅から至近で、10階の部屋、さらには17階の朝食会場さらの眺望も大変よかったです",
+    "line_index": 66,
+    "quads": [
+      {
+        "Aspect": "眺望",
+        "Opinion": "大変よかった",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "7.50#8.00",
+        "aspect_span": [
+          37,
+          39
+        ],
+        "opinion_span": [
+          40,
+          46
+        ]
+      },
+      {
+        "Aspect": "駅",
+        "Opinion": "至近",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.00#6.00",
+        "aspect_span": [
+          8,
+          9
+        ],
+        "opinion_span": [
+          11,
+          13
+        ]
+      },
+      {
+        "Aspect": "交通の便",
+        "Opinion": "良く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_68",
+    "Text": "駅近なのでとても便利です",
+    "line_index": 67,
+    "quads": [
+      {
+        "Aspect": "駅近",
+        "Opinion": "とても便利",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.30#7.20",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          5,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_69",
+    "Text": "朝食は、お弁当形式で部屋或いは指定場所で楽しむことができる方式で、密になることがなく、コロナ以降の対策としては、良い方法と思いました",
+    "line_index": 68,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "良い",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.12#6.50",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          56,
+          58
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_70",
+    "Text": "駅に近く利用しやすかった",
+    "line_index": 69,
+    "quads": [
+      {
+        "Aspect": "駅",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.80#6.10",
+        "aspect_span": [
+          0,
+          1
+        ],
+        "opinion_span": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_71",
+    "Text": "食事もきめ細やかなサービスで提供され、大変満足しました",
+    "line_index": 70,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "大変満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.25#6.75",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          19,
+          23
+        ]
+      },
+      {
+        "Aspect": "サービス",
+        "Opinion": "大変満足",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.83#7.33",
+        "aspect_span": [
+          9,
+          13
+        ],
+        "opinion_span": [
+          19,
+          23
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_72",
+    "Text": "まずは食事がバイキングですがとても材料から調理方法 提供してくれる量も今までで1番よかったです",
+    "line_index": 71,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "1番よかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "8.00#8.12",
+        "aspect_span": [
+          3,
+          5
+        ],
+        "opinion_span": [
+          39,
+          45
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_73",
+    "Text": "設備、お部屋、食事処、どの職員の皆様の対応にも満足出来るお宿ですが、表に立たれるフロントの皆様のみならず職員皆様の温かいおもてなしが故に満足度が高いお宿かと感じます",
+    "line_index": 72,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "満足",
+        "Category": "ROOMS#COMFORT",
+        "VA": "7.00#6.33",
+        "aspect_span": [
+          4,
+          6
+        ],
+        "opinion_span": [
+          23,
+          25
+        ]
+      },
+      {
+        "Aspect": "対応",
+        "Opinion": "満足",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.38#6.62",
+        "aspect_span": [
+          19,
+          21
+        ],
+        "opinion_span": [
+          23,
+          25
+        ]
+      },
+      {
+        "Aspect": "食事処",
+        "Opinion": "満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.00#6.50",
+        "aspect_span": [
+          7,
+          10
+        ],
+        "opinion_span": [
+          23,
+          25
+        ]
+      },
+      {
+        "Aspect": "設備",
+        "Opinion": "満足",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "7.38#6.75",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          23,
+          25
+        ]
+      },
+      {
+        "Aspect": "食事処",
+        "Opinion": "満足",
+        "Category": "FOOD_DRINKS#COMFORT",
+        "VA": "7.38#6.75",
+        "aspect_span": [
+          7,
+          10
+        ],
+        "opinion_span": [
+          23,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_74",
+    "Text": "今まで行った中で1番よかった料理 最高でした",
+    "line_index": 73,
+    "quads": [
+      {
+        "Aspect": "料理",
+        "Opinion": "1番よかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.75#8.38",
+        "aspect_span": [
+          14,
+          16
+        ],
+        "opinion_span": [
+          8,
+          14
+        ]
+      },
+      {
+        "Aspect": "料理",
+        "Opinion": "最高",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "8.00#7.83",
+        "aspect_span": [
+          14,
+          16
+        ],
+        "opinion_span": [
+          17,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_75",
+    "Text": "全体的にとてもキレイ",
+    "line_index": 74,
+    "quads": [
+      {
+        "Aspect": "全体",
+        "Opinion": "とてもキレイ",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "7.00#6.83",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          4,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_76",
+    "Text": "接客して頂いた方、とても丁寧に親切にして頂きました",
+    "line_index": 75,
+    "quads": [
+      {
+        "Aspect": "接客",
+        "Opinion": "とても丁寧",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.33#6.33",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          9,
+          14
+        ]
+      },
+      {
+        "Aspect": "接客",
+        "Opinion": "親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.67#6.83",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          15,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_77",
+    "Text": "新しいホテルで部屋もきれいだし良かったです",
+    "line_index": 76,
+    "quads": [
+      {
+        "Aspect": "ホテル",
+        "Opinion": "良かった",
+        "Category": "HOTEL#QUALITY",
+        "VA": "6.38#5.50",
+        "aspect_span": [
+          3,
+          6
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "きれい",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.38#5.62",
+        "aspect_span": [
+          7,
+          9
+        ],
+        "opinion_span": [
+          10,
+          13
+        ]
+      },
+      {
+        "Aspect": "ホテル",
+        "Opinion": "新しい",
+        "Category": "HOTEL#QUALITY",
+        "VA": "6.50#6.12",
+        "aspect_span": [
+          3,
+          6
+        ],
+        "opinion_span": [
+          0,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_78",
+    "Text": "温泉施設が隣にあり、連泊しましたがどちらも温泉に入って癒されました",
+    "line_index": 77,
+    "quads": [
+      {
+        "Aspect": "温泉",
+        "Opinion": "癒されました",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "6.75#5.88",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          27,
+          33
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_79",
+    "Text": "津山の観光からルミナリエ予定の前夜宿泊しました、とにかく、夜も朝もプランの料理最高でした",
+    "line_index": 78,
+    "quads": [
+      {
+        "Aspect": "料理",
+        "Opinion": "最高",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.88#7.88",
+        "aspect_span": [
+          37,
+          39
+        ],
+        "opinion_span": [
+          39,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_80",
+    "Text": "岡山駅前のビックカメラの上にあり、駅チカでとても便利です",
+    "line_index": 79,
+    "quads": [
+      {
+        "Aspect": "駅チカ",
+        "Opinion": "とても便利",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.75#6.38",
+        "aspect_span": [
+          17,
+          20
+        ],
+        "opinion_span": [
+          21,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_81",
+    "Text": "WiFiは重たい",
+    "line_index": 80,
+    "quads": [
+      {
+        "Aspect": "WiFi",
+        "Opinion": "重たい",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "2.33#6.67",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_82",
+    "Text": "スタッフさんは、親切",
+    "line_index": 81,
+    "quads": [
+      {
+        "Aspect": "スタッフ",
+        "Opinion": "親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.67#6.50",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_83",
+    "Text": "内風呂の露天も良く落ち着いて過ごせました",
+    "line_index": 82,
+    "quads": [
+      {
+        "Aspect": "露天",
+        "Opinion": "良く",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.75#6.00",
+        "aspect_span": [
+          4,
+          6
+        ],
+        "opinion_span": [
+          7,
+          9
+        ]
+      },
+      {
+        "Aspect": "露天",
+        "Opinion": "落ち着いて",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "7.00#6.50",
+        "aspect_span": [
+          4,
+          6
+        ],
+        "opinion_span": [
+          9,
+          14
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_84",
+    "Text": "大鍋作り置きでなく一杯ずつ作る味噌汁、無駄がなくて良いです(味はいまいちでしたが)総じて気持ち良い宿泊でした、ありがとうございました",
+    "line_index": 83,
+    "quads": [
+      {
+        "Aspect": "宿泊",
+        "Opinion": "気持ち良い",
+        "Category": "HOTEL#COMFORT",
+        "VA": "6.88#6.88",
+        "aspect_span": [
+          49,
+          51
+        ],
+        "opinion_span": [
+          44,
+          49
+        ]
+      },
+      {
+        "Aspect": "味噌汁",
+        "Opinion": "良い",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.75#6.12",
+        "aspect_span": [
+          15,
+          18
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      },
+      {
+        "Aspect": "味噌汁",
+        "Opinion": "無駄がなくて",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.38#6.12",
+        "aspect_span": [
+          15,
+          18
+        ],
+        "opinion_span": [
+          19,
+          25
+        ]
+      },
+      {
+        "Aspect": "味",
+        "Opinion": "いまいち",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "3.75#5.25",
+        "aspect_span": [
+          15,
+          16
+        ],
+        "opinion_span": [
+          32,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_85",
+    "Text": "雪が降る寒さのため部屋の寒さが半端なく、ホットカーペットや湯たんぽ用意してくれましたが、それだけでは寒さ凌ぎ出来ず寝れませんでした",
+    "line_index": 84,
+    "quads": [
+      {
+        "Aspect": "部屋の寒さ",
+        "Opinion": "半端なく",
+        "Category": "ROOMS#COMFORT",
+        "VA": "1.88#7.75",
+        "aspect_span": [
+          9,
+          14
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_86",
+    "Text": "朝食場所がそれ以外の時間はフリールームになっており、飲み物もあって時間つぶしに便利でした",
+    "line_index": 85,
+    "quads": [
+      {
+        "Aspect": "時間つぶし",
+        "Opinion": "便利",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.00#6.50",
+        "aspect_span": [
+          33,
+          38
+        ],
+        "opinion_span": [
+          39,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_87",
+    "Text": "レインボーブリッジの見えない方のお部屋でしたが、海の景色が良く素敵なお部屋でした",
+    "line_index": 86,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "素敵",
+        "Category": "ROOMS#QUALITY",
+        "VA": "6.88#7.38",
+        "aspect_span": [
+          17,
+          19
+        ],
+        "opinion_span": [
+          31,
+          33
+        ]
+      },
+      {
+        "Aspect": "景色",
+        "Opinion": "良く",
+        "Category": "LOCATION#QUALITY",
+        "VA": "6.67#6.50",
+        "aspect_span": [
+          26,
+          28
+        ],
+        "opinion_span": [
+          29,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_88",
+    "Text": "パックや入浴剤の提供が嬉しかったです",
+    "line_index": 87,
+    "quads": [
+      {
+        "Aspect": "入浴剤",
+        "Opinion": "嬉しかった",
+        "Category": "ROOM_AMENITIES#COMFORT",
+        "VA": "7.25#7.38",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          11,
+          16
+        ]
+      },
+      {
+        "Aspect": "パック",
+        "Opinion": "嬉しかった",
+        "Category": "ROOM_AMENITIES#COMFORT",
+        "VA": "7.33#7.50",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          11,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_89",
+    "Text": "早朝にチェックアウトしましたが、お弁当やサンドイッチなどの朝食を選べるのがとてもよかったです",
+    "line_index": 88,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "とてもよかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.25#8.12",
+        "aspect_span": [
+          29,
+          31
+        ],
+        "opinion_span": [
+          37,
+          44
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_90",
+    "Text": "お部屋も綺麗ですし、快適に過ごしました",
+    "line_index": 89,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.83#6.83",
+        "aspect_span": [
+          1,
+          3
+        ],
+        "opinion_span": [
+          4,
+          6
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "快適",
+        "Category": "ROOMS#COMFORT",
+        "VA": "7.00#5.83",
+        "aspect_span": [
+          1,
+          3
+        ],
+        "opinion_span": [
+          10,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_91",
+    "Text": "立地は駅近、コンビニも隣にあったので良かった",
+    "line_index": 90,
+    "quads": [
+      {
+        "Aspect": "立地",
+        "Opinion": "駅近",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.12#6.62",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "Aspect": "立地",
+        "Opinion": "良かった",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.17#7.00",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          18,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_92",
+    "Text": "こちらのホテルですべての宿泊をしても良いと思えるホテルでした",
+    "line_index": 91,
+    "quads": [
+      {
+        "Aspect": "ホテル",
+        "Opinion": "良い",
+        "Category": "HOTEL#QUALITY",
+        "VA": "7.50#7.62",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          18,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_93",
+    "Text": "今回初めての利用でしたが、想像以上に部屋の広さ、風呂の設備、食事(朝食)のQUALITYの高さに満足出来ました",
+    "line_index": 92,
+    "quads": [
+      {
+        "Aspect": "広さ",
+        "Opinion": "満足",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "7.00#6.33",
+        "aspect_span": [
+          21,
+          23
+        ],
+        "opinion_span": [
+          48,
+          50
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.00#6.33",
+        "aspect_span": [
+          30,
+          32
+        ],
+        "opinion_span": [
+          48,
+          50
+        ]
+      },
+      {
+        "Aspect": "設備",
+        "Opinion": "満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.00#6.33",
+        "aspect_span": [
+          27,
+          29
+        ],
+        "opinion_span": [
+          48,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_94",
+    "Text": "初めて宿泊しましたが、部屋もゆったり落ち着くしつらえで、デザインも欧州のホテルの様でとても気に入りました",
+    "line_index": 93,
+    "quads": [
+      {
+        "Aspect": "デザイン",
+        "Opinion": "とても気に入り",
+        "Category": "HOTEL#DESIGN_FEATURES",
+        "VA": "7.75#7.62",
+        "aspect_span": [
+          28,
+          32
+        ],
+        "opinion_span": [
+          42,
+          49
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "落ち着く",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.88#6.50",
+        "aspect_span": [
+          11,
+          13
+        ],
+        "opinion_span": [
+          18,
+          22
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_95",
+    "Text": "ホテル周辺には居酒屋さんからコンビニ、カラオケ駅からも近く非常に便利です",
+    "line_index": 94,
+    "quads": [
+      {
+        "Aspect": "カラオケ",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.25#6.88",
+        "aspect_span": [
+          19,
+          23
+        ],
+        "opinion_span": [
+          27,
+          29
+        ]
+      },
+      {
+        "Aspect": "駅",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.25#6.75",
+        "aspect_span": [
+          23,
+          24
+        ],
+        "opinion_span": [
+          27,
+          29
+        ]
+      },
+      {
+        "Aspect": "ホテル",
+        "Opinion": "非常に便利",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.50#7.25",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          29,
+          34
+        ]
+      },
+      {
+        "Aspect": "コンビニ",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.25#6.88",
+        "aspect_span": [
+          14,
+          18
+        ],
+        "opinion_span": [
+          27,
+          29
+        ]
+      },
+      {
+        "Aspect": "居酒屋",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.38#6.88",
+        "aspect_span": [
+          7,
+          10
+        ],
+        "opinion_span": [
+          27,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_96",
+    "Text": "近くにはお惣菜が売っているデパートの入口やドラッグストアがあって買い出しも楽でした",
+    "line_index": 95,
+    "quads": [
+      {
+        "Aspect": "買い出し",
+        "Opinion": "楽",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.25#7.12",
+        "aspect_span": [
+          32,
+          36
+        ],
+        "opinion_span": [
+          37,
+          38
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_97",
+    "Text": "何度も泊まってるせいか名前も覚えられてしまってる感じがありますが、そのような細かい事が個人的には嬉しいです",
+    "line_index": 96,
+    "quads": [
+      {
+        "Aspect": "細かい事",
+        "Opinion": "嬉しい",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.00#7.50",
+        "aspect_span": [
+          38,
+          42
+        ],
+        "opinion_span": [
+          48,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_98",
+    "Text": "温野菜もあったことが嬉しかったです",
+    "line_index": 97,
+    "quads": [
+      {
+        "Aspect": "温野菜",
+        "Opinion": "嬉しかった",
+        "Category": "FOOD_DRINKS#STYLE_OPTIONS",
+        "VA": "6.75#7.25",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          10,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_99",
+    "Text": "梅香の露天風呂は岩風呂で、二人が余裕で入られる大きさ、岩風呂内に腰かけられる岩があり半身浴ができて良かったです",
+    "line_index": 98,
+    "quads": [
+      {
+        "Aspect": "岩風呂",
+        "Opinion": "良かった",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "7.20#6.70",
+        "aspect_span": [
+          8,
+          11
+        ],
+        "opinion_span": [
+          49,
+          53
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_100",
+    "Text": "部屋は広く綺麗で、特にお風呂は最高です",
+    "line_index": 99,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.25#5.62",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          5,
+          7
+        ]
+      },
+      {
+        "Aspect": "風呂",
+        "Opinion": "最高",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.75#6.12",
+        "aspect_span": [
+          12,
+          14
+        ],
+        "opinion_span": [
+          15,
+          17
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "広く",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "6.25#5.75",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_101",
+    "Text": "部屋がとてもよい",
+    "line_index": 100,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "とてもよい",
+        "Category": "ROOMS#QUALITY",
+        "VA": "7.75#7.75",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_102",
+    "Text": "部屋にウォーターサーバーがあるのには、驚きました",
+    "line_index": 101,
+    "quads": [
+      {
+        "Aspect": "ウォーターサーバー",
+        "Opinion": "驚きました",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "6.30#6.50",
+        "aspect_span": [
+          3,
+          12
+        ],
+        "opinion_span": [
+          19,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_103",
+    "Text": "ヨットハーバーの横にありますので、好きな方にはいい眺めのホテルかと思います",
+    "line_index": 102,
+    "quads": [
+      {
+        "Aspect": "ホテル",
+        "Opinion": "いい眺め",
+        "Category": "HOTEL#QUALITY",
+        "VA": "6.38#6.25",
+        "aspect_span": [
+          28,
+          31
+        ],
+        "opinion_span": [
+          23,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_104",
+    "Text": "ホテルも新しいので部屋も綺麗で良かったです",
+    "line_index": 103,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.50#5.88",
+        "aspect_span": [
+          9,
+          11
+        ],
+        "opinion_span": [
+          12,
+          14
+        ]
+      },
+      {
+        "Aspect": "ホテル",
+        "Opinion": "良かった",
+        "Category": "HOTEL#QUALITY",
+        "VA": "7.00#7.17",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          15,
+          19
+        ]
+      },
+      {
+        "Aspect": "ホテル",
+        "Opinion": "新しい",
+        "Category": "HOTEL#DESIGN_FEATURES",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          4,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_105",
+    "Text": "駐車券発券が分かりにくい上に料金が間違っていました",
+    "line_index": 104,
+    "quads": [
+      {
+        "Aspect": "駐車券発券",
+        "Opinion": "分かりにくい",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "3.00#6.10",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_106",
+    "Text": "アメニティが充実している・無料の朝食なのに内容がいい",
+    "line_index": 105,
+    "quads": [
+      {
+        "Aspect": "内容",
+        "Opinion": "いい",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.25#6.12",
+        "aspect_span": [
+          21,
+          23
+        ],
+        "opinion_span": [
+          24,
+          26
+        ]
+      },
+      {
+        "Aspect": "アメニティ",
+        "Opinion": "充実",
+        "Category": "ROOM_AMENITIES#QUALITY",
+        "VA": "7.00#6.17",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_107",
+    "Text": "経験した事ない対応に驚きとともに心から感動しました",
+    "line_index": 106,
+    "quads": [
+      {
+        "Aspect": "対応",
+        "Opinion": "驚き",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.38#6.75",
+        "aspect_span": [
+          7,
+          9
+        ],
+        "opinion_span": [
+          10,
+          12
+        ]
+      },
+      {
+        "Aspect": "対応",
+        "Opinion": "感動",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.67#7.33",
+        "aspect_span": [
+          7,
+          9
+        ],
+        "opinion_span": [
+          19,
+          21
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_108",
+    "Text": "毎回安定の穏やかな接客、気持ちの良い挨拶にリフレッシュ出来ました",
+    "line_index": 107,
+    "quads": [
+      {
+        "Aspect": "挨拶",
+        "Opinion": "気持ちの良い",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.75#6.50",
+        "aspect_span": [
+          18,
+          20
+        ],
+        "opinion_span": [
+          12,
+          18
+        ]
+      },
+      {
+        "Aspect": "接客",
+        "Opinion": "穏やか",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.88#6.50",
+        "aspect_span": [
+          9,
+          11
+        ],
+        "opinion_span": [
+          5,
+          8
+        ]
+      },
+      {
+        "Aspect": "挨拶",
+        "Opinion": "リフレッシュ",
+        "Category": "SERVICE#COMFORT",
+        "VA": "6.62#6.50",
+        "aspect_span": [
+          18,
+          20
+        ],
+        "opinion_span": [
+          21,
+          27
+        ]
+      },
+      {
+        "Aspect": "接客",
+        "Opinion": "安定",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.00#6.30",
+        "aspect_span": [
+          9,
+          11
+        ],
+        "opinion_span": [
+          2,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_109",
+    "Text": "立地場所がいい",
+    "line_index": 108,
+    "quads": [
+      {
+        "Aspect": "立地",
+        "Opinion": "いい",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.50#5.88",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          5,
+          7
+        ]
+      },
+      {
+        "Aspect": "場所",
+        "Opinion": "いい",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.50#5.88",
+        "aspect_span": [
+          2,
+          4
+        ],
+        "opinion_span": [
+          5,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_110",
+    "Text": "部屋の位置関係も有るかもしれませんが、線路沿いに建っているのにさほどうるさくなかったので、ゆっくり休めました",
+    "line_index": 109,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "ゆっくり",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.25#6.12",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          45,
+          49
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_111",
+    "Text": "とても清潔感のあるホテルでした",
+    "line_index": 110,
+    "quads": [
+      {
+        "Aspect": "ホテル",
+        "Opinion": "とても清潔",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "7.30#6.80",
+        "aspect_span": [
+          9,
+          12
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_112",
+    "Text": "朝食が美味しく満足しています",
+    "line_index": 111,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.62#6.25",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          7
+        ]
+      },
+      {
+        "Aspect": "朝食",
+        "Opinion": "満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.17#6.33",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          7,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_113",
+    "Text": "フロントスタッフ、配膳して下さったスタッフの方々も丁寧に接して頂いてとてもいい旅行になりました",
+    "line_index": 112,
+    "quads": [
+      {
+        "Aspect": "スタッフ",
+        "Opinion": "丁寧",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.62#6.00",
+        "aspect_span": [
+          4,
+          8
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      },
+      {
+        "Aspect": "フロントスタッフ",
+        "Opinion": "丁寧",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.00#6.38",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_114",
+    "Text": "温泉の泉質も最高だが、暗めの雰囲気でゆっくり落ち着いて入浴出来、入浴可能時間も長めで朝もしっかり入浴させて頂きました",
+    "line_index": 113,
+    "quads": [
+      {
+        "Aspect": "入浴可能時間",
+        "Opinion": "長め",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "5.50#5.30",
+        "aspect_span": [
+          32,
+          38
+        ],
+        "opinion_span": [
+          39,
+          41
+        ]
+      },
+      {
+        "Aspect": "温泉",
+        "Opinion": "ゆっくり",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "6.62#6.38",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          18,
+          22
+        ]
+      },
+      {
+        "Aspect": "温泉",
+        "Opinion": "暗め",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "5.88#5.88",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          11,
+          13
+        ]
+      },
+      {
+        "Aspect": "温泉",
+        "Opinion": "落ち着いて",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "6.50#6.40",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          22,
+          27
+        ]
+      },
+      {
+        "Aspect": "泉質",
+        "Opinion": "最高",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.70#8.00",
+        "aspect_span": [
+          3,
+          5
+        ],
+        "opinion_span": [
+          6,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_115",
+    "Text": "おもてなしが、心地よくすばらしかったです",
+    "line_index": 114,
+    "quads": [
+      {
+        "Aspect": "おもてなし",
+        "Opinion": "すばらしかった",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.17#8.33",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          11,
+          18
+        ]
+      },
+      {
+        "Aspect": "おもてなし",
+        "Opinion": "心地よく",
+        "Category": "SERVICE#COMFORT",
+        "VA": "7.12#6.50",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          7,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_116",
+    "Text": "ドリンクの種類も豊富だし、窯で焼いたピザもとても美味しいし、まさかのピアノとバイオリンの生演奏付き…五感がフルに癒されました",
+    "line_index": 115,
+    "quads": [
+      {
+        "Aspect": "五感",
+        "Opinion": "癒されました",
+        "Category": "SERVICE#COMFORT",
+        "VA": "7.62#7.62",
+        "aspect_span": [
+          50,
+          52
+        ],
+        "opinion_span": [
+          56,
+          62
+        ]
+      },
+      {
+        "Aspect": "ピザ",
+        "Opinion": "美味しい",
+        "Category": "FOOD_DRINKS#GENERAL",
+        "VA": "7.00#6.67",
+        "aspect_span": [
+          18,
+          20
+        ],
+        "opinion_span": [
+          24,
+          28
+        ]
+      },
+      {
+        "Aspect": "ドリンク",
+        "Opinion": "豊富",
+        "Category": "FOOD_DRINKS#GENERAL",
+        "VA": "7.62#7.25",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_117",
+    "Text": "ハッピーサワーやシャンプーバーなどチェックインも楽しめました",
+    "line_index": 116,
+    "quads": [
+      {
+        "Aspect": "チェックイン",
+        "Opinion": "楽しめました",
+        "Category": "SERVICE#COMFORT",
+        "VA": "7.00#6.62",
+        "aspect_span": [
+          17,
+          23
+        ],
+        "opinion_span": [
+          24,
+          30
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_118",
+    "Text": "入口からすぐ浴槽に出入りするにはけっこうな段差になり、子供や高齢者だと少し不便かも",
+    "line_index": 117,
+    "quads": [
+      {
+        "Aspect": "浴槽",
+        "Opinion": "少し不便",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "3.88#3.88",
+        "aspect_span": [
+          6,
+          8
+        ],
+        "opinion_span": [
+          35,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_119",
+    "Text": "訳あり、ちょっと狭めの部屋、ということでしたが、何の問題もありませんでした",
+    "line_index": 118,
+    "quads": [
+      {
+        "Aspect": "狭めの部屋",
+        "Opinion": "何の問題もありません",
+        "Category": "ROOMS#STYLE_OPTIONS",
+        "VA": "5.88#4.25",
+        "aspect_span": [
+          8,
+          13
+        ],
+        "opinion_span": [
+          24,
+          34
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_120",
+    "Text": "大浴場があるのがとてもよかったです",
+    "line_index": 119,
+    "quads": [
+      {
+        "Aspect": "大浴場",
+        "Opinion": "よかった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.88#6.38",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          11,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_121",
+    "Text": "洋間で、荷物置き場がないなど温泉施設の洋間としては落ち着かない部屋でした",
+    "line_index": 120,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "落ち着かない",
+        "Category": "ROOMS#COMFORT",
+        "VA": "3.67#6.67",
+        "aspect_span": [
+          31,
+          33
+        ],
+        "opinion_span": [
+          25,
+          31
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_122",
+    "Text": "朝食はまずまずです",
+    "line_index": 121,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "まずまず",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "5.67#5.50",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_123",
+    "Text": "温泉は屋上にあり露天風呂もとても綺麗で、4歳の子供も、しあわせぇー^ ^と言うほど気持ちのいい空間でした",
+    "line_index": 122,
+    "quads": [
+      {
+        "Aspect": "空間",
+        "Opinion": "気持ちのいい",
+        "Category": "HOTEL#COMFORT",
+        "VA": "7.50#7.10",
+        "aspect_span": [
+          47,
+          49
+        ],
+        "opinion_span": [
+          41,
+          47
+        ]
+      },
+      {
+        "Aspect": "露天風呂",
+        "Opinion": "とても綺麗",
+        "Category": "FACILITIES#CLEANLINESS",
+        "VA": "6.90#7.20",
+        "aspect_span": [
+          8,
+          12
+        ],
+        "opinion_span": [
+          13,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_124",
+    "Text": "残念な点は渡り廊下が外で冬は寒すぎる",
+    "line_index": 123,
+    "quads": [
+      {
+        "Aspect": "渡り廊下",
+        "Opinion": "残念",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "3.67#5.50",
+        "aspect_span": [
+          5,
+          9
+        ],
+        "opinion_span": [
+          0,
+          2
+        ]
+      },
+      {
+        "Aspect": "渡り廊下",
+        "Opinion": "寒すぎる",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "2.50#6.75",
+        "aspect_span": [
+          5,
+          9
+        ],
+        "opinion_span": [
+          14,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_125",
+    "Text": "テレビを見るのが疲れる",
+    "line_index": 124,
+    "quads": [
+      {
+        "Aspect": "テレビ",
+        "Opinion": "疲れる",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "3.70#5.10",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          8,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_126",
+    "Text": "加湿器をお願いしたところ、空気清浄機付きの重い物を女性のフロントの方が運んできてくださったのには恐縮しました",
+    "line_index": 125,
+    "quads": [
+      {
+        "Aspect": "フロント",
+        "Opinion": "恐縮",
+        "Category": "SERVICE#QUALITY",
+        "VA": "5.25#5.50",
+        "aspect_span": [
+          28,
+          32
+        ],
+        "opinion_span": [
+          48,
+          50
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_127",
+    "Text": "友達との初めての宿泊でしたが、大浴場・朝食・室内共に満足出来ました",
+    "line_index": 126,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.17#5.83",
+        "aspect_span": [
+          19,
+          21
+        ],
+        "opinion_span": [
+          26,
+          28
+        ]
+      },
+      {
+        "Aspect": "大浴場",
+        "Opinion": "満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.17#5.83",
+        "aspect_span": [
+          15,
+          18
+        ],
+        "opinion_span": [
+          26,
+          28
+        ]
+      },
+      {
+        "Aspect": "室内",
+        "Opinion": "満足",
+        "Category": "ROOMS#QUALITY",
+        "VA": "6.17#5.83",
+        "aspect_span": [
+          22,
+          24
+        ],
+        "opinion_span": [
+          26,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_128",
+    "Text": "駅から少し距離があったが部屋はキレイでした朝食がおいしかったです",
+    "line_index": 127,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "キレイ",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "5.83#5.67",
+        "aspect_span": [
+          12,
+          14
+        ],
+        "opinion_span": [
+          15,
+          18
+        ]
+      },
+      {
+        "Aspect": "朝食",
+        "Opinion": "おいしかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.00#5.83",
+        "aspect_span": [
+          21,
+          23
+        ],
+        "opinion_span": [
+          24,
+          30
+        ]
+      },
+      {
+        "Aspect": "駅",
+        "Opinion": "少し距離があった",
+        "Category": "LOCATION#GENERAL",
+        "VA": "4.17#5.00",
+        "aspect_span": [
+          0,
+          1
+        ],
+        "opinion_span": [
+          3,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_129",
+    "Text": "とても広い部屋で、綺麗で大満足でした",
+    "line_index": 128,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "とても広い",
+        "Category": "ROOMS#COMFORT",
+        "VA": "7.00#6.17",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.17#5.33",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          9,
+          11
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "大満足",
+        "Category": "ROOMS#COMFORT",
+        "VA": "7.50#8.00",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          12,
+          15
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_130",
+    "Text": "私が泊まった温泉付きの客室は昔ながらの日本家屋で非日常を感じられて良かったんですが、冬のこの時期は暖房を点けてないと寒いですね",
+    "line_index": 129,
+    "quads": [
+      {
+        "Aspect": "客室",
+        "Opinion": "良かった",
+        "Category": "ROOMS#QUALITY",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          11,
+          13
+        ],
+        "opinion_span": [
+          33,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_131",
+    "Text": "フロントを始め従業員の方達の対応が実にしっかりしており、自分たちのホテルだとの感を抱きお客対応をしている事に感動しました",
+    "line_index": 130,
+    "quads": [
+      {
+        "Aspect": "従業員",
+        "Opinion": "しっかり",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.25#5.62",
+        "aspect_span": [
+          7,
+          10
+        ],
+        "opinion_span": [
+          19,
+          23
+        ]
+      },
+      {
+        "Aspect": "お客対応",
+        "Opinion": "感動",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.62#6.62",
+        "aspect_span": [
+          43,
+          47
+        ],
+        "opinion_span": [
+          54,
+          56
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_132",
+    "Text": "素泊まりのプランでしたが周辺にはファミレスやコンビニ、ドンキホーテなどがあり食事には困りませんでした",
+    "line_index": 131,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "困りません",
+        "Category": "FOOD_DRINKS#STYLE_OPTIONS",
+        "VA": "6.00#5.50",
+        "aspect_span": [
+          38,
+          40
+        ],
+        "opinion_span": [
+          42,
+          47
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_133",
+    "Text": "朝の食事はすばらしくみんなおいしかった",
+    "line_index": 132,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "おいしかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.12#5.62",
+        "aspect_span": [
+          2,
+          4
+        ],
+        "opinion_span": [
+          13,
+          19
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "すばらしく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.67#6.17",
+        "aspect_span": [
+          2,
+          4
+        ],
+        "opinion_span": [
+          5,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_134",
+    "Text": "富士急フリーパス付きだと優先入園もできてとってもお得です",
+    "line_index": 133,
+    "quads": [
+      {
+        "Aspect": "富士急フリーパス付き",
+        "Opinion": "とってもお得",
+        "Category": "SERVICE#PRICE",
+        "VA": "7.38#6.50",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          20,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_135",
+    "Text": "工事しているのにそれについて一言も触れず、ブルーシートで気分も台無し、チェックアウトまで待たず工事のドンドンカンカンギギギギー大音量でイライラ",
+    "line_index": 134,
+    "quads": [
+      {
+        "Aspect": "大音量",
+        "Opinion": "イライラ",
+        "Category": "SERVICE#COMFORT",
+        "VA": "2.70#7.10",
+        "aspect_span": [
+          63,
+          66
+        ],
+        "opinion_span": [
+          67,
+          71
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_136",
+    "Text": "アメニティはフロント前からセルフで取るのですが、種類も多く便利",
+    "line_index": 135,
+    "quads": [
+      {
+        "Aspect": "アメニティ",
+        "Opinion": "便利",
+        "Category": "ROOM_AMENITIES#COMFORT",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          29,
+          31
+        ]
+      },
+      {
+        "Aspect": "アメニティ",
+        "Opinion": "多く",
+        "Category": "ROOM_AMENITIES#STYLE_OPTIONS",
+        "VA": "5.75#5.50",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          27,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_137",
+    "Text": "館内も綺麗で、気持ちよく過ごせました",
+    "line_index": 136,
+    "quads": [
+      {
+        "Aspect": "館内",
+        "Opinion": "綺麗",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "Aspect": "館内",
+        "Opinion": "気持ちよく",
+        "Category": "HOTEL#COMFORT",
+        "VA": "6.50#5.90",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          7,
+          12
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_138",
+    "Text": "庭を楽しめる露天風呂は最高でした",
+    "line_index": 137,
+    "quads": [
+      {
+        "Aspect": "露天風呂",
+        "Opinion": "最高",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.83#7.17",
+        "aspect_span": [
+          6,
+          10
+        ],
+        "opinion_span": [
+          11,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_139",
+    "Text": "土曜日当日空室ありのメールで予約 夕方仕事を終えてチェックイン 夫婦で美味しい食事と温泉を楽しみのんびりできました",
+    "line_index": 138,
+    "quads": [
+      {
+        "Aspect": "温泉",
+        "Opinion": "楽しみ",
+        "Category": "FACILITIES#GENERAL",
+        "VA": "6.00#6.00",
+        "aspect_span": [
+          42,
+          44
+        ],
+        "opinion_span": [
+          45,
+          48
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "美味しい",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          39,
+          41
+        ],
+        "opinion_span": [
+          35,
+          39
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_140",
+    "Text": "道後温泉に行く暇はないかなと思っていたので手軽に入れる温泉の大浴場も良かったです",
+    "line_index": 139,
+    "quads": [
+      {
+        "Aspect": "大浴場",
+        "Opinion": "良かった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "5.83#5.50",
+        "aspect_span": [
+          30,
+          33
+        ],
+        "opinion_span": [
+          34,
+          38
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_141",
+    "Text": "食事はしませんでしたが、風呂（バスタブ）、シャワー、トイレも満足でした",
+    "line_index": 140,
+    "quads": [
+      {
+        "Aspect": "風呂（バスタブ）",
+        "Opinion": "満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          12,
+          20
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      },
+      {
+        "Aspect": "シャワー",
+        "Opinion": "満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.50#6.33",
+        "aspect_span": [
+          21,
+          25
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      },
+      {
+        "Aspect": "トイレ",
+        "Opinion": "満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.50#6.33",
+        "aspect_span": [
+          26,
+          29
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_142",
+    "Text": "この値段なら文句なしです",
+    "line_index": 141,
+    "quads": [
+      {
+        "Aspect": "値段",
+        "Opinion": "文句なし",
+        "Category": "HOTEL#PRICE",
+        "VA": "6.33#5.83",
+        "aspect_span": [
+          2,
+          4
+        ],
+        "opinion_span": [
+          6,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_143",
+    "Text": "笑宿の皆さまも親切で、バースデーケーキを用意してくださったり、雪割桜が見頃とのことを教えてくださったり、アルバイトの男の子もお話してくださったりと、流れ作業ではない接客に温かい気持ちにさせていただけました",
+    "line_index": 142,
+    "quads": [
+      {
+        "Aspect": "皆さま",
+        "Opinion": "親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          3,
+          6
+        ],
+        "opinion_span": [
+          7,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_144",
+    "Text": "ビジネスで利用しましたが、食事処も近くにあり良い立地です",
+    "line_index": 143,
+    "quads": [
+      {
+        "Aspect": "立地",
+        "Opinion": "良い",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          24,
+          26
+        ],
+        "opinion_span": [
+          22,
+          24
+        ]
+      },
+      {
+        "Aspect": "食事処",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.00#6.00",
+        "aspect_span": [
+          13,
+          16
+        ],
+        "opinion_span": [
+          17,
+          19
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_145",
+    "Text": "食事は高知名物のカツオのたたき、新鮮な刺身など、味・量ともに大満足で美味しく頂き、お腹いっぱいで高知グルメを堪能できました",
+    "line_index": 144,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "大満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "8.17#7.83",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          30,
+          33
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.12#6.75",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          34,
+          38
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_146",
+    "Text": "立地も良く部屋も清潔でした",
+    "line_index": 145,
+    "quads": [
+      {
+        "Aspect": "立地",
+        "Opinion": "良く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "清潔",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.50#6.67",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_147",
+    "Text": "朝食が最低、おせちの残り物を盛った感じ，ホテルの用意したものと思えない",
+    "line_index": 146,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "最低",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "1.62#8.25",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_148",
+    "Text": "スタッフの皆さんも明るく親切で、また訪れたいと思います",
+    "line_index": 147,
+    "quads": [
+      {
+        "Aspect": "スタッフ",
+        "Opinion": "明るく",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          9,
+          12
+        ]
+      },
+      {
+        "Aspect": "スタッフ",
+        "Opinion": "親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.67#6.50",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          12,
+          14
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_149",
+    "Text": "強いて言えば、朝ごはんが2泊共ほとんど内容が同じだったことが残念だったかな",
+    "line_index": 148,
+    "quads": [
+      {
+        "Aspect": "朝ごはん",
+        "Opinion": "残念",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "3.33#6.50",
+        "aspect_span": [
+          7,
+          11
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_150",
+    "Text": "本当に親切で丁寧なホテルでした",
+    "line_index": 149,
+    "quads": [
+      {
+        "Aspect": "ホテル",
+        "Opinion": "丁寧",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.75#6.12",
+        "aspect_span": [
+          9,
+          12
+        ],
+        "opinion_span": [
+          6,
+          8
+        ]
+      },
+      {
+        "Aspect": "ホテル",
+        "Opinion": "本当に親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.62#6.75",
+        "aspect_span": [
+          9,
+          12
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_151",
+    "Text": "\\4950コスパ最高です",
+    "line_index": 150,
+    "quads": [
+      {
+        "Aspect": "コスパ",
+        "Opinion": "最高",
+        "Category": "SERVICE#PRICE",
+        "VA": "8.00#7.00",
+        "aspect_span": [
+          5,
+          8
+        ],
+        "opinion_span": [
+          8,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_152",
+    "Text": "駅から近く、部屋も快適です",
+    "line_index": 151,
+    "quads": [
+      {
+        "Aspect": "駅",
+        "Opinion": "近く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.67#6.17",
+        "aspect_span": [
+          0,
+          1
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "快適",
+        "Category": "ROOMS#COMFORT",
+        "VA": "7.12#7.00",
+        "aspect_span": [
+          6,
+          8
+        ],
+        "opinion_span": [
+          9,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_153",
+    "Text": "大人２人、子供２人で予約したところ、部屋が広々としていて、ベッドも大きく、疲れを十分に癒せました",
+    "line_index": 152,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "広々",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          18,
+          20
+        ],
+        "opinion_span": [
+          21,
+          23
+        ]
+      },
+      {
+        "Aspect": "ベッド",
+        "Opinion": "大きく",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.50#6.33",
+        "aspect_span": [
+          29,
+          32
+        ],
+        "opinion_span": [
+          33,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_154",
+    "Text": "風呂場にボディーシャンプーがない洗い場があり大変不便だった",
+    "line_index": 153,
+    "quads": [
+      {
+        "Aspect": "洗い場",
+        "Opinion": "大変不便",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "2.00#7.17",
+        "aspect_span": [
+          16,
+          19
+        ],
+        "opinion_span": [
+          22,
+          26
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_155",
+    "Text": "相変わらずエレベーターがなかなか来ないのがたまに傷ですね",
+    "line_index": 154,
+    "quads": [
+      {
+        "Aspect": "エレベーター",
+        "Opinion": "たまに傷",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "3.50#6.25",
+        "aspect_span": [
+          5,
+          11
+        ],
+        "opinion_span": [
+          21,
+          25
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_156",
+    "Text": "外観が少し古めに感じますけど、中はしっかりと整備されており清潔感がありました",
+    "line_index": 155,
+    "quads": [
+      {
+        "Aspect": "中",
+        "Opinion": "清潔",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "6.17#6.17",
+        "aspect_span": [
+          15,
+          16
+        ],
+        "opinion_span": [
+          29,
+          31
+        ]
+      },
+      {
+        "Aspect": "外観",
+        "Opinion": "少し古め",
+        "Category": "HOTEL#DESIGN_FEATURES",
+        "VA": "4.38#4.75",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_157",
+    "Text": "1月20日宿泊オープンして間もないので全てにおいて綺麗でした",
+    "line_index": 156,
+    "quads": [
+      {
+        "Aspect": "全て",
+        "Opinion": "綺麗",
+        "Category": "HOTEL#CLEANLINESS",
+        "VA": "7.25#7.38",
+        "aspect_span": [
+          19,
+          21
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_158",
+    "Text": "朝ご飯もうなぎがとても美味しかったです",
+    "line_index": 157,
+    "quads": [
+      {
+        "Aspect": "朝ご飯",
+        "Opinion": "とても美味しかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.62#7.12",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          8,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_159",
+    "Text": "部屋も写真通りでかわいかったですが、洗面やポットを置くスペースが狭すぎてごちゃごちゃしている印象でした",
+    "line_index": 158,
+    "quads": [
+      {
+        "Aspect": "スペース",
+        "Opinion": "狭すぎ",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "2.88#6.62",
+        "aspect_span": [
+          27,
+          31
+        ],
+        "opinion_span": [
+          32,
+          35
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "かわいかった",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          8,
+          14
+        ]
+      },
+      {
+        "Aspect": "スペース",
+        "Opinion": "ごちゃごちゃしている",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "3.67#6.33",
+        "aspect_span": [
+          27,
+          31
+        ],
+        "opinion_span": [
+          36,
+          46
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_160",
+    "Text": "もう一度利用したいと思うホテルでした",
+    "line_index": 159,
+    "quads": [
+      {
+        "Aspect": "ホテル",
+        "Opinion": "もう一度利用したい",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          12,
+          15
+        ],
+        "opinion_span": [
+          0,
+          9
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_161",
+    "Text": "駐車場は立体ですが誘導がうまく安心です",
+    "line_index": 160,
+    "quads": [
+      {
+        "Aspect": "駐車場",
+        "Opinion": "安心",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          15,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_162",
+    "Text": "夕食付にしてみましたが、内容が少し寂しい感じでした",
+    "line_index": 161,
+    "quads": [
+      {
+        "Aspect": "内容",
+        "Opinion": "少し寂しい",
+        "Category": "FOOD_DRINKS#DESIGN_FEATURES",
+        "VA": "4.17#5.00",
+        "aspect_span": [
+          12,
+          14
+        ],
+        "opinion_span": [
+          15,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_163",
+    "Text": "朝食はバイキングでとても美味しかったです",
+    "line_index": 162,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "とても美味しかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.12#7.12",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          9,
+          18
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_164",
+    "Text": "全体的に従業員の方が外国の方や年配の方が多かったですが、皆さん親切で丁寧な方ばかりでした",
+    "line_index": 163,
+    "quads": [
+      {
+        "Aspect": "従業員",
+        "Opinion": "親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.38#5.88",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          31,
+          33
+        ]
+      },
+      {
+        "Aspect": "従業員",
+        "Opinion": "丁寧",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.38#5.88",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          34,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_165",
+    "Text": "温かい食事も直ぐ冷めるように思いましたでも1人すき焼きのお肉は柔らかくて美味しく頂きました",
+    "line_index": 164,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "直ぐ冷める",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "4.17#5.33",
+        "aspect_span": [
+          3,
+          5
+        ],
+        "opinion_span": [
+          6,
+          11
+        ]
+      },
+      {
+        "Aspect": "肉",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#6.00",
+        "aspect_span": [
+          29,
+          30
+        ],
+        "opinion_span": [
+          36,
+          40
+        ]
+      },
+      {
+        "Aspect": "肉",
+        "Opinion": "柔らかくて",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.17#6.17",
+        "aspect_span": [
+          29,
+          30
+        ],
+        "opinion_span": [
+          31,
+          36
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_166",
+    "Text": "食事は、とてもおいしくよかったです",
+    "line_index": 165,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "よかった",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#6.17",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          11,
+          15
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "とてもおいしく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.90#6.70",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          4,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_167",
+    "Text": "部屋も広いし綺麗でした",
+    "line_index": 166,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "綺麗",
+        "Category": "ROOMS#CLEANLINESS",
+        "VA": "6.17#6.17",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          6,
+          8
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "広いし",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          6
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_168",
+    "Text": "食事も美味しくて、席も周りに子ども連れの方ばかりで気にすることなく食事出来ました",
+    "line_index": 167,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "美味しくて",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#6.38",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_169",
+    "Text": "無料朝食は美味しくて満足です",
+    "line_index": 168,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "美味しくて",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          2,
+          4
+        ],
+        "opinion_span": [
+          5,
+          10
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_170",
+    "Text": "作りは古く特別な部分は無いが、立地などなど、総合的には及第点",
+    "line_index": 169,
+    "quads": [
+      {
+        "Aspect": "総合的",
+        "Opinion": "及第点",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.00#5.38",
+        "aspect_span": [
+          22,
+          25
+        ],
+        "opinion_span": [
+          27,
+          30
+        ]
+      },
+      {
+        "Aspect": "作り",
+        "Opinion": "古く",
+        "Category": "HOTEL#DESIGN_FEATURES",
+        "VA": "4.17#4.83",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_171",
+    "Text": "朝食付のプランでしたが、期待以上の内容でした",
+    "line_index": 170,
+    "quads": [
+      {
+        "Aspect": "内容",
+        "Opinion": "期待以上",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "7.17#7.33",
+        "aspect_span": [
+          17,
+          19
+        ],
+        "opinion_span": [
+          12,
+          16
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_172",
+    "Text": "様々なホテルモントレの中でも、このホテルモントレ姫路は、立地（目の前に姫路城が見え）、館内の雰囲気も良く、食事（サンミケーレのディナー）も美味しく、お風呂もサウナがあって良かったです",
+    "line_index": 171,
+    "quads": [
+      {
+        "Aspect": "サウナ",
+        "Opinion": "良かった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.33#6.50",
+        "aspect_span": [
+          78,
+          81
+        ],
+        "opinion_span": [
+          85,
+          89
+        ]
+      },
+      {
+        "Aspect": "お風呂",
+        "Opinion": "良かった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.62#6.12",
+        "aspect_span": [
+          74,
+          77
+        ],
+        "opinion_span": [
+          85,
+          89
+        ]
+      },
+      {
+        "Aspect": "立地",
+        "Opinion": "良く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.62#6.12",
+        "aspect_span": [
+          28,
+          30
+        ],
+        "opinion_span": [
+          50,
+          52
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          53,
+          55
+        ],
+        "opinion_span": [
+          69,
+          73
+        ]
+      },
+      {
+        "Aspect": "雰囲気",
+        "Opinion": "良く",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          46,
+          49
+        ],
+        "opinion_span": [
+          50,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_173",
+    "Text": "大浴場とサウナがあるということで予約しました水風呂もありサウナも大満足でした駅からは少し歩きますが、コンビニも近く不便はないですまた泊まりたいと思いました",
+    "line_index": 172,
+    "quads": [
+      {
+        "Aspect": "サウナ",
+        "Opinion": "大満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.62#7.38",
+        "aspect_span": [
+          4,
+          7
+        ],
+        "opinion_span": [
+          32,
+          35
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_174",
+    "Text": "皆さん笑顔で迎えてくださって、子ども目線でお話をしてくださったり、気さくに話しかけてくださったりと、子どもも一人の人間として接していただけたのに感動しました",
+    "line_index": 173,
+    "quads": [
+      {
+        "Aspect": "皆さん",
+        "Opinion": "気さく",
+        "Category": "SERVICE#QUALITY",
+        "VA": "5.83#6.00",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          33,
+          36
+        ]
+      },
+      {
+        "Aspect": "皆さん",
+        "Opinion": "感動",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.50#6.75",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          72,
+          74
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_175",
+    "Text": "・部屋のお風呂もいつでも気軽に入れるので良かった",
+    "line_index": 174,
+    "quads": [
+      {
+        "Aspect": "風呂",
+        "Opinion": "良かった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "5.83#5.50",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          20,
+          24
+        ]
+      },
+      {
+        "Aspect": "風呂",
+        "Opinion": "気軽",
+        "Category": "FACILITIES#COMFORT",
+        "VA": "6.12#5.75",
+        "aspect_span": [
+          5,
+          7
+        ],
+        "opinion_span": [
+          12,
+          14
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_176",
+    "Text": "従業員の方の対応も良く、すべて星5としたいくらいですが・・・正面玄関横に喫煙所を設置しているので「良い朝だ、今日も頑張ろう」とホテルを出た瞬間風や喫煙者がいた場合、たばこの匂いがすごい流れてくるのでこれだけで台無しになっています",
+    "line_index": 175,
+    "quads": [
+      {
+        "Aspect": "対応",
+        "Opinion": "良く",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.62#6.38",
+        "aspect_span": [
+          6,
+          8
+        ],
+        "opinion_span": [
+          9,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_177",
+    "Text": "諸般の事情により慌ただしい利用となりましたが、概ね満足出来るホテルでした",
+    "line_index": 176,
+    "quads": [
+      {
+        "Aspect": "ホテル",
+        "Opinion": "満足",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.88#6.25",
+        "aspect_span": [
+          30,
+          33
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_178",
+    "Text": "風呂もサウナもよかったです",
+    "line_index": 177,
+    "quads": [
+      {
+        "Aspect": "サウナ",
+        "Opinion": "よかった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.38#6.12",
+        "aspect_span": [
+          3,
+          6
+        ],
+        "opinion_span": [
+          7,
+          11
+        ]
+      },
+      {
+        "Aspect": "風呂",
+        "Opinion": "よかった",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.38#6.12",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          7,
+          11
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_179",
+    "Text": "向かいのカフェやパン屋さんでモーニングもあり朝食は問題なし",
+    "line_index": 178,
+    "quads": [
+      {
+        "Aspect": "朝食",
+        "Opinion": "問題なし",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "5.75#4.88",
+        "aspect_span": [
+          22,
+          24
+        ],
+        "opinion_span": [
+          25,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_180",
+    "Text": "メインのステーキの柔らかさにも感動",
+    "line_index": 179,
+    "quads": [
+      {
+        "Aspect": "ステーキ",
+        "Opinion": "感動",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.75#6.50",
+        "aspect_span": [
+          4,
+          8
+        ],
+        "opinion_span": [
+          15,
+          17
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_181",
+    "Text": "くつろげるお部屋で、オーシャンビューバスもあり、ゆったりとした時間が過ごせました",
+    "line_index": 180,
+    "quads": [
+      {
+        "Aspect": "時間",
+        "Opinion": "ゆったり",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          31,
+          33
+        ],
+        "opinion_span": [
+          24,
+          28
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "くつろげる",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.00#6.00",
+        "aspect_span": [
+          6,
+          8
+        ],
+        "opinion_span": [
+          0,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_182",
+    "Text": "料金が、お値打ちの時ばかりですみません",
+    "line_index": 181,
+    "quads": [
+      {
+        "Aspect": "料金",
+        "Opinion": "お値打ち",
+        "Category": "HOTEL#PRICE",
+        "VA": "5.67#5.17",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          4,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_183",
+    "Text": "色々なご縁があって、直前にビジネスホテルから尾花さんに宿泊することにしましたが、一言で言って素晴らしい",
+    "line_index": 182,
+    "quads": [
+      {
+        "Aspect": "尾花",
+        "Opinion": "素晴らしい",
+        "Category": "HOTEL#GENERAL",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          22,
+          24
+        ],
+        "opinion_span": [
+          46,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_184",
+    "Text": "食事で座ったテーブルの位置が料理を取るところまで遠くて面倒でした",
+    "line_index": 183,
+    "quads": [
+      {
+        "Aspect": "食事",
+        "Opinion": "面倒",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "3.33#6.17",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          27,
+          29
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_185",
+    "Text": "立地が良くまた利用したいです",
+    "line_index": 184,
+    "quads": [
+      {
+        "Aspect": "立地",
+        "Opinion": "良く",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.17#6.00",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          3,
+          5
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_186",
+    "Text": "リニューアルされたドームコテージは靴を脱ぐ場所が広くなったので犬の脚を拭いたりハーネスを外したりする時、とても使いやすくなりました",
+    "line_index": 185,
+    "quads": [
+      {
+        "Aspect": "ドームコテージ",
+        "Opinion": "広く",
+        "Category": "FACILITIES#DESIGN_FEATURES",
+        "VA": "6.75#6.38",
+        "aspect_span": [
+          9,
+          16
+        ],
+        "opinion_span": [
+          24,
+          26
+        ]
+      },
+      {
+        "Aspect": "ドームコテージ",
+        "Opinion": "とても使いやすく",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "7.17#6.33",
+        "aspect_span": [
+          9,
+          16
+        ],
+        "opinion_span": [
+          52,
+          60
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_187",
+    "Text": "静かな雰囲気がとても好きです",
+    "line_index": 186,
+    "quads": [
+      {
+        "Aspect": "雰囲気",
+        "Opinion": "静か",
+        "Category": "HOTEL#COMFORT",
+        "VA": "6.00#6.00",
+        "aspect_span": [
+          3,
+          6
+        ],
+        "opinion_span": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_188",
+    "Text": "ただホテルは部屋、スカイスパ、食事 フロント対応全てにおいて満足でした",
+    "line_index": 187,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "満足",
+        "Category": "ROOMS#COMFORT",
+        "VA": "6.88#6.62",
+        "aspect_span": [
+          6,
+          8
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      },
+      {
+        "Aspect": "フロント対応",
+        "Opinion": "満足",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.33#6.50",
+        "aspect_span": [
+          18,
+          24
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      },
+      {
+        "Aspect": "スカイスパ",
+        "Opinion": "満足",
+        "Category": "FACILITIES#QUALITY",
+        "VA": "6.33#6.33",
+        "aspect_span": [
+          9,
+          14
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      },
+      {
+        "Aspect": "食事",
+        "Opinion": "満足",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          15,
+          17
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_189",
+    "Text": "駐車場があって良かったエアコンが臭くて狭い部屋に臭いが広がり不快でした",
+    "line_index": 188,
+    "quads": [
+      {
+        "Aspect": "駐車場",
+        "Opinion": "良かった",
+        "Category": "SERVICE#COMFORT",
+        "VA": "6.17#6.17",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          7,
+          11
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "狭い",
+        "Category": "ROOMS#DESIGN_FEATURES",
+        "VA": "3.17#6.00",
+        "aspect_span": [
+          21,
+          23
+        ],
+        "opinion_span": [
+          19,
+          21
+        ]
+      },
+      {
+        "Aspect": "エアコン",
+        "Opinion": "臭く",
+        "Category": "FACILITIES#CLEANLINESS",
+        "VA": "2.50#6.62",
+        "aspect_span": [
+          11,
+          15
+        ],
+        "opinion_span": [
+          16,
+          18
+        ]
+      },
+      {
+        "Aspect": "部屋",
+        "Opinion": "不快",
+        "Category": "ROOMS#COMFORT",
+        "VA": "2.50#7.12",
+        "aspect_span": [
+          21,
+          23
+        ],
+        "opinion_span": [
+          30,
+          32
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_190",
+    "Text": "スタッフの皆さんが子供を気にかけてくださっていることが分かり、とてもありがたかったです",
+    "line_index": 189,
+    "quads": [
+      {
+        "Aspect": "スタッフ",
+        "Opinion": "とてもありがたかった",
+        "Category": "SERVICE#QUALITY",
+        "VA": "7.25#6.75",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          31,
+          41
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_191",
+    "Text": "立地は空港からも近く二人ならバスよりタクシーの方が安いかもで観光も路面電車の駅まで歩いて行けるし丁度良い感じでした",
+    "line_index": 190,
+    "quads": [
+      {
+        "Aspect": "立地",
+        "Opinion": "丁度良い",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.25#5.88",
+        "aspect_span": [
+          0,
+          2
+        ],
+        "opinion_span": [
+          48,
+          52
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_192",
+    "Text": "岡山駅から徒歩9分という好立地で、非常に安かったです",
+    "line_index": 191,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "好立地",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.50#6.30",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          12,
+          15
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "非常に安かった",
+        "Category": "HOTEL#PRICE",
+        "VA": "7.67#7.00",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          17,
+          24
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_193",
+    "Text": "ちょっと狭かった、もう少しグレードをあげればよかった",
+    "line_index": 192,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "ちょっと狭かった",
+        "Category": "HOTEL#DESIGN_FEATURES",
+        "VA": "3.83#5.83",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          8
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_194",
+    "Text": "安く泊まれることができてよかった",
+    "line_index": 193,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "安く",
+        "Category": "HOTEL#PRICE",
+        "VA": "6.62#6.38",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          2
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_195",
+    "Text": "それなりに綺麗で美味しく、量も多くて、普通サイズの女性には食べ切れない程",
+    "line_index": 194,
+    "quads": [
+      {
+        "Aspect": "量",
+        "Opinion": "多くて",
+        "Category": "FOOD_DRINKS#STYLE_OPTIONS",
+        "VA": "6.00#5.67",
+        "aspect_span": [
+          13,
+          14
+        ],
+        "opinion_span": [
+          15,
+          18
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "美味しく",
+        "Category": "FOOD_DRINKS#QUALITY",
+        "VA": "6.50#5.83",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          8,
+          12
+        ]
+      },
+      {
+        "Aspect": "NULL",
+        "Opinion": "綺麗",
+        "Category": "FOOD_DRINKS#STYLE_OPTIONS",
+        "VA": "6.00#5.83",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          5,
+          7
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_196",
+    "Text": "よかったです",
+    "line_index": 195,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "よかった",
+        "Category": "HOTEL#GENERAL",
+        "VA": "6.12#5.50",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          0,
+          4
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_197",
+    "Text": "年に何度か、宇都宮に家族で宿泊していますが、他のホテルと比較しても、高評価です",
+    "line_index": 196,
+    "quads": [
+      {
+        "Aspect": "NULL",
+        "Opinion": "高評価",
+        "Category": "HOTEL#GENERAL",
+        "VA": "7.38#6.88",
+        "aspect_span": [
+          -1,
+          -1
+        ],
+        "opinion_span": [
+          34,
+          37
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_198",
+    "Text": "草津の源泉に24時間浸かれるお部屋は格別です",
+    "line_index": 197,
+    "quads": [
+      {
+        "Aspect": "部屋",
+        "Opinion": "格別",
+        "Category": "ROOMS#QUALITY",
+        "VA": "7.00#7.00",
+        "aspect_span": [
+          15,
+          17
+        ],
+        "opinion_span": [
+          18,
+          20
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_199",
+    "Text": "スタッフの方々は皆さん親切な対応",
+    "line_index": 198,
+    "quads": [
+      {
+        "Aspect": "対応",
+        "Opinion": "親切",
+        "Category": "SERVICE#QUALITY",
+        "VA": "6.25#6.00",
+        "aspect_span": [
+          14,
+          16
+        ],
+        "opinion_span": [
+          11,
+          13
+        ]
+      }
+    ]
+  },
+  {
+    "ID": "hotel26_asqp_dev_200",
+    "Text": "ホテルの方には関係ない事ですが、飲み屋さんが周辺に多いせいか、遅い時間に帰ってくる宿泊者の話し声がうるさいです",
+    "line_index": 199,
+    "quads": [
+      {
+        "Aspect": "飲み屋",
+        "Opinion": "多い",
+        "Category": "LOCATION#GENERAL",
+        "VA": "6.00#5.50",
+        "aspect_span": [
+          16,
+          19
+        ],
+        "opinion_span": [
+          25,
+          27
+        ]
+      },
+      {
+        "Aspect": "宿泊者",
+        "Opinion": "うるさい",
+        "Category": "HOTEL#COMFORT",
+        "VA": "3.38#6.62",
+        "aspect_span": [
+          41,
+          44
+        ],
+        "opinion_span": [
+          49,
+          53
+        ]
+      }
+    ]
+  }
+]

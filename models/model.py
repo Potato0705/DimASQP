@@ -184,6 +184,85 @@ class OpinionGuidedVAHead(Module):
         return {'va_final': va_final, 'va_prior': va_prior}
 
 
+class ProbabilisticSpanPairVAHead(Module):
+    """Probabilistic variant: predicts (mean, logvar) for V and A.
+
+    Output: [B, Q, 4] = (V_mean, V_logvar, A_mean, A_logvar)
+    At inference, use means; logvar provides uncertainty estimates.
+    """
+
+    def __init__(self, hidden_size, va_hidden=256, dropout=0.1):
+        super().__init__()
+        self.mlp = torch.nn.Sequential(
+            torch.nn.Linear(hidden_size * 3, va_hidden),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden, va_hidden // 2),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden // 2, 4),
+        )
+
+    def forward(self, hidden_states, quad_spans, quad_mask):
+        h_asp, h_opi = _batch_pool_spans(hidden_states, quad_spans, quad_mask)
+        h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)
+        raw = self.mlp(h_pair)  # [B, Q, 4]
+        means = torch.sigmoid(raw[..., :2]) * 8.0 + 1.0  # [B, Q, 2] in [1, 9]
+        logvars = raw[..., 2:].clamp(-10, 4)  # [B, Q, 2] clamped for stability
+        mask = quad_mask.unsqueeze(-1)
+        return {
+            'va_mean': means * mask,
+            'va_logvar': logvars * mask,
+        }
+
+
+class ProbabilisticOpinionGuidedVAHead(Module):
+    """Probabilistic Opinion-Guided: outputs distribution parameters."""
+
+    def __init__(self, hidden_size, va_hidden=256, dropout=0.1):
+        super().__init__()
+        self.prior_mlp = torch.nn.Sequential(
+            torch.nn.Linear(hidden_size, va_hidden),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden, 4),
+        )
+        self.residual_mlp = torch.nn.Sequential(
+            torch.nn.Linear(hidden_size * 3, va_hidden),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden, va_hidden // 2),
+            torch.nn.GELU(),
+            torch.nn.Dropout(dropout),
+            torch.nn.Linear(va_hidden // 2, 4),
+        )
+        self.gate = torch.nn.Parameter(torch.tensor([0.5, 0.5]))
+
+    def forward(self, hidden_states, quad_spans, quad_mask):
+        h_asp, h_opi = _batch_pool_spans(hidden_states, quad_spans, quad_mask)
+        mask = quad_mask.unsqueeze(-1)
+        gate = torch.sigmoid(self.gate)
+
+        prior_raw = self.prior_mlp(h_opi)  # [B, Q, 4]
+        prior_mean = torch.sigmoid(prior_raw[..., :2]) * 8.0 + 1.0
+        prior_logvar = prior_raw[..., 2:].clamp(-10, 4)
+
+        h_pair = torch.cat([h_asp, h_opi, h_asp * h_opi], dim=-1)
+        res_raw = self.residual_mlp(h_pair)  # [B, Q, 4]
+        delta_mean = torch.tanh(res_raw[..., :2]) * 4.0
+        delta_logvar = res_raw[..., 2:].clamp(-10, 4)
+
+        final_mean = torch.clamp(prior_mean + gate * delta_mean, 1.0, 9.0)
+        final_logvar = prior_logvar + delta_logvar
+
+        return {
+            'va_mean': final_mean * mask,
+            'va_logvar': final_logvar * mask,
+            'va_prior_mean': prior_mean * mask,
+            'va_prior_logvar': prior_logvar * mask,
+        }
+
+
 class VAContrastiveProjection(Module):
     """Project span-pair representations to a low-dim space for contrastive learning.
 
@@ -333,6 +412,18 @@ class QuadrupleModel(Module):
             dropout=dropout_rate,
         )
 
+        # Probabilistic VA heads (predict mean + logvar)
+        self.prob_span_pair_va_head = ProbabilisticSpanPairVAHead(
+            hidden_size=self.encoder_hidden_size,
+            va_hidden=va_hidden_size,
+            dropout=dropout_rate,
+        )
+        self.prob_opinion_guided_va_head = ProbabilisticOpinionGuidedVAHead(
+            hidden_size=self.encoder_hidden_size,
+            va_hidden=va_hidden_size,
+            dropout=dropout_rate,
+        )
+
         # VA-Aware Contrastive Projection (training-only, not used at inference)
         self.va_cl_projection = VAContrastiveProjection(
             hidden_size=self.encoder_hidden_size,
@@ -418,10 +509,20 @@ class QuadrupleModel(Module):
 
         # Span-Pair VA: only compute when span info is provided
         if quad_spans is not None and quad_mask is not None:
-            if va_mode == 'opinion_guided':
+            if va_mode == 'prob_opinion_guided':
+                pog_out = self.prob_opinion_guided_va_head(sequence_output, quad_spans, quad_mask)
+                result["span_va"] = pog_out['va_mean']
+                result["va_logvar"] = pog_out['va_logvar']
+                result["va_prior"] = pog_out['va_prior_mean']
+                result["va_prior_logvar"] = pog_out['va_prior_logvar']
+            elif va_mode == 'prob_span_pair':
+                psp_out = self.prob_span_pair_va_head(sequence_output, quad_spans, quad_mask)
+                result["span_va"] = psp_out['va_mean']
+                result["va_logvar"] = psp_out['va_logvar']
+            elif va_mode == 'opinion_guided':
                 og_out = self.opinion_guided_va_head(sequence_output, quad_spans, quad_mask)
-                result["span_va"] = og_out['va_final']       # calibrated VA
-                result["va_prior"] = og_out['va_prior']       # opinion-only prior (for aux loss)
+                result["span_va"] = og_out['va_final']
+                result["va_prior"] = og_out['va_prior']
             else:
                 result["span_va"] = self.span_pair_va_head(sequence_output, quad_spans, quad_mask)
                 if va_mode == 'span_pair':
