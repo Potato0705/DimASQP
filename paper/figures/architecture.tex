@@ -1,0 +1,154 @@
+% Architecture diagram for Opinion-Guided VA Prediction
+% Professional conference figure style: minimal colors, clean hierarchy
+% Colors defined in main.tex
+
+\begin{tikzpicture}[
+    >=Stealth,
+    node distance=0.6cm,
+    % Core styles
+    block/.style={
+        rectangle, rounded corners=2pt, line width=0.6pt, draw=darkgray,
+        minimum height=0.65cm, font=\footnotesize, align=center, fill=white
+    },
+    mainblock/.style={block, minimum width=4.0cm, font=\footnotesize\bfseries},
+    smallblock/.style={block, minimum width=1.8cm, minimum height=0.55cm,
+        font=\scriptsize},
+    opnode/.style={circle, draw=darkgray, line width=0.6pt, inner sep=1.5pt,
+        font=\scriptsize\bfseries, fill=white},
+    flow/.style={->, darkgray, line width=0.5pt},
+    dflow/.style={->, dashed, medgray, line width=0.5pt},
+    lbl/.style={font=\scriptsize, darkgray},
+]
+
+% ============================================================
+% LAYER 1: Input
+% ============================================================
+\node[block, minimum width=9.6cm, fill=concatfill] (input)
+    {\textit{``The spicy tuna roll was unusually good''}};
+
+% ============================================================
+% LAYER 2: Encoder
+% ============================================================
+\node[mainblock, minimum width=9.6cm, fill=encoderbluefill,
+    draw=encoderblue, above=0.5cm of input] (enc)
+    {DeBERTa-v3-base};
+\draw[flow] (input) -- (enc);
+\node[lbl, right=0.15cm of enc]
+    {$\mathbf{H} \!\in\! \mathbb{R}^{n \times d}$};
+
+% ============================================================
+% LAYER 3: Two branches
+% ============================================================
+% Left: Matrix Head
+\node[mainblock, fill=matrixgreenfill, draw=matrixgreen,
+    above=0.7cm of enc, xshift=-2.55cm] (mathead)
+    {Matrix Head (EGP)};
+\draw[flow] ([xshift=-2.55cm]enc.north) -- (mathead.south);
+
+% Right: VA Head entry point
+\node[mainblock, fill=vaheadfill, draw=vahead,
+    above=0.7cm of enc, xshift=2.55cm] (vaentry)
+    {Opinion-Guided VA Head};
+\draw[flow] ([xshift=2.55cm]enc.north) -- (vaentry.south);
+
+% ============================================================
+% LAYER 4a: Matrix Head output
+% ============================================================
+\node[smallblock, draw=matrixgreen, fill=matrixgreenfill,
+    above=0.4cm of mathead, minimum width=2.8cm] (extract)
+    {$(a,\, c,\, o)$ Extraction};
+\draw[flow] (mathead) -- (extract);
+
+% ============================================================
+% LAYER 4b: VA Head internals — clean two-path layout
+% ============================================================
+
+% Span pooling row
+\node[smallblock, fill=ebluefill, draw=encoderblue,
+    above=0.45cm of vaentry, xshift=-1.2cm] (ha)
+    {$\mathbf{h}_a$};
+\node[lbl, below=0.01cm of ha] {Aspect};
+\node[smallblock, fill=ppfill, draw=priorpurple,
+    above=0.45cm of vaentry, xshift=1.2cm] (ho)
+    {$\mathbf{h}_o$};
+\node[lbl, below=0.01cm of ho] {Opinion};
+\draw[flow] ([xshift=-0.6cm]vaentry.north) -- (ha.south);
+\draw[flow] ([xshift=0.6cm]vaentry.north) -- (ho.south);
+
+% --- RIGHT PATH: Opinion Prior ---
+\node[smallblock, fill=priorpurplefill, draw=priorpurple,
+    above=0.7cm of ho, minimum width=2.0cm] (priormlp)
+    {$\text{MLP}_{\text{prior}}$};
+\draw[flow] (ho) -- (priormlp);
+\node[lbl, right=0.1cm of priormlp] {$\hat{\mathbf{y}}_{\text{prior}}$};
+
+% Prior loss annotation
+\node[font=\tiny, color=priorpurple, above right=-0.05cm and 0.1cm of priormlp]
+    (ploss) {$\mathcal{L}_{\text{prior}}$};
+
+% --- LEFT PATH: Context Residual ---
+\node[smallblock, fill=concatfill, draw=medgray,
+    above=0.7cm of ha, xshift=0.3cm, minimum width=2.0cm] (concat)
+    {Concat};
+\node[lbl, below=0.01cm of concat] {$[\mathbf{h}_a;\,\mathbf{h}_o;\,\mathbf{h}_a\!\odot\!\mathbf{h}_o]$};
+\draw[flow] (ha) -- ([xshift=-0.3cm]concat.south);
+\draw[flow] (ho.north) -- ++(0,0.15) -| ([xshift=0.3cm]concat.south);
+
+\node[smallblock, fill=resfill, draw=resborder,
+    above=0.55cm of concat, minimum width=2.0cm] (resmlp)
+    {$\text{MLP}_{\text{res}}$};
+\draw[flow] (concat) -- (resmlp);
+\node[lbl, left=0.1cm of resmlp] {$\Delta\mathbf{y}$};
+
+% --- GATE + COMBINE ---
+\node[opnode, fill=gateofill, draw=gateorange,
+    above=0.55cm of resmlp, xshift=1.2cm] (gate)
+    {$\sigma(\mathbf{g})$};
+\draw[flow] (resmlp) -- ++(0,0.2) -| (gate);
+
+\node[opnode, above=0.35cm of gate] (plus) {$+$};
+\draw[flow] (gate) -- node[lbl, right, xshift=1pt] {$\odot$} (plus);
+\draw[flow] (priormlp.north) -- ++(0,0.55) -| (plus);
+
+% --- VA Output ---
+\node[smallblock, fill=vaheadfill, draw=vahead,
+    above=0.35cm of plus, minimum width=2.2cm,
+    font=\footnotesize\bfseries] (vaout)
+    {$\hat{\mathbf{y}}_{\text{VA}} \!\in\! [1,9]^2$};
+\draw[flow] (plus) -- (vaout);
+
+% ============================================================
+% Dashed box around VA internals
+% ============================================================
+\begin{scope}[on background layer]
+    \node[draw=vaheadborder, dashed, rounded corners=4pt,
+        line width=0.6pt, fill=vaheadlightfill,
+        fit=(ha)(ho)(priormlp)(ploss)(concat)(resmlp)(gate)(plus)(vaout),
+        inner xsep=8pt, inner ysep=6pt] (vabox) {};
+\end{scope}
+
+% ============================================================
+% LAYER 5: Final output
+% ============================================================
+\node[block, minimum width=9.6cm, fill=concatfill,
+    above=0.45cm of vaout, xshift=-2.55cm] (finalout)
+    {Output: $(a,\; c,\; o,\; \langle V, A \rangle)$ Quadruplets};
+\draw[flow] (extract.north) |- (finalout.south west);
+\draw[flow] (vaout) |- ([xshift=1cm]finalout.south);
+
+% ============================================================
+% Span indices feedback arrow
+% ============================================================
+\draw[dflow] ([yshift=0.1cm]extract.east) -- ++(0.4, 0)
+    node[lbl, above, midway, yshift=2pt] {\textit{spans}}
+    |- (vaentry.north west);
+
+% ============================================================
+% Path labels (outside the box, unobtrusive)
+% ============================================================
+\node[font=\tiny, darkgray, rotate=90, anchor=south]
+    at ([xshift=-0.55cm]resmlp.west) {Context path};
+\node[font=\tiny, priorpurple, rotate=90, anchor=south]
+    at ([xshift=0.55cm]priormlp.east) {Prior path};
+
+\end{tikzpicture}

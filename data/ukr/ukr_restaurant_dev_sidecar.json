@@ -1,0 +1,5118 @@
+[
+  {
+    "ID": "1427:2_70",
+    "Text": "Хочу вам сказати, що відвідування вашого закладу на марата змінило моє ставлення в найкращу сторону.",
+    "line_index": 0,
+    "quads": [
+      {
+        "Aspect": "закладу на марата",
+        "Opinion": "змінило моє ставлення в найкращу сторону",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.8#8.3",
+        "aspect_span": [
+          41,
+          58
+        ],
+        "opinion_span": [
+          59,
+          99
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:3_71",
+    "Text": "Зайшли до вас ввечері, втомлені, виявилося що всі зали забиті а на веранді все ж прохолодно сидіти з дитиною, зустрів нас молода людина запропонував кілька столів куди можна було присісти,Проводила нас до столика вже дівчина(імені на жаль не запам'ятала) судячи із зовнішнього вигляду адміністратор,вона ж і подала меню,що найбільше здивувало нам налили абсолютно безкоштовної води по келихах, було дуже приємно.",
+    "line_index": 1,
+    "quads": [
+      {
+        "Aspect": "зали",
+        "Opinion": "забиті",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "2.9#6.7",
+        "aspect_span": [
+          50,
+          54
+        ],
+        "opinion_span": [
+          55,
+          61
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "веранді",
+        "Opinion": "прохолодно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.5#6.1",
+        "aspect_span": [
+          67,
+          74
+        ],
+        "opinion_span": [
+          81,
+          91
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "молода людина",
+        "Opinion": "зустрів",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          122,
+          135
+        ],
+        "opinion_span": [
+          110,
+          117
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "молода людина",
+        "Opinion": "запропонував",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6.67",
+        "aspect_span": [
+          122,
+          135
+        ],
+        "opinion_span": [
+          136,
+          148
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "дівчина",
+        "Opinion": "Проводила",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          217,
+          224
+        ],
+        "opinion_span": [
+          188,
+          197
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "адміністратор",
+        "Opinion": "Проводила",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          285,
+          298
+        ],
+        "opinion_span": [
+          188,
+          197
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:5_72",
+    "Text": "Обслуговування ненав'язливе, відчули себе як вдома.",
+    "line_index": 2,
+    "quads": [
+      {
+        "Aspect": "Обслуговування",
+        "Opinion": "ненав'язливе",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.5#6.3",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          27
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Обслуговування",
+        "Opinion": "як вдома",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.62#7.62",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          42,
+          50
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:6_73",
+    "Text": "Зазвичай любимо поїсти десь увечері і навіть трохи здивована, що адміністратор допомагає у виборі. Зазвичай, куди не піди — це тіні, що мелькають у залі біля каси та щось бурмочуть офіціантам.",
+    "line_index": 3,
+    "quads": [
+      {
+        "Aspect": "адміністратор",
+        "Opinion": "допомагає",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.67",
+        "aspect_span": [
+          65,
+          78
+        ],
+        "opinion_span": [
+          79,
+          88
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:7_74",
+    "Text": "Приніс нам замовлення молода людина,буквально через хвилин 20 гаряче.а ще й жива музика почалася.",
+    "line_index": 4,
+    "quads": [
+      {
+        "Aspect": "молода людина",
+        "Opinion": "буквально через хвилин 20",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.25#7.12",
+        "aspect_span": [
+          22,
+          35
+        ],
+        "opinion_span": [
+          36,
+          61
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "жива музика",
+        "Opinion": "почалася",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.88#6.75",
+        "aspect_span": [
+          76,
+          87
+        ],
+        "opinion_span": [
+          88,
+          96
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1427:9_75",
+    "Text": "Окреме спасибі дівчині за приємну атмосферу і молодій людині, таких співробітників і хочеться бачити в пітерських закладах.",
+    "line_index": 5,
+    "quads": [
+      {
+        "Aspect": "дівчині",
+        "Opinion": "Окреме спасибі",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.38",
+        "aspect_span": [
+          15,
+          22
+        ],
+        "opinion_span": [
+          0,
+          14
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "атмосферу",
+        "Opinion": "приємну",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.3#7.3",
+        "aspect_span": [
+          34,
+          43
+        ],
+        "opinion_span": [
+          26,
+          33
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "молодій людині",
+        "Opinion": "Окреме спасибі",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.38",
+        "aspect_span": [
+          46,
+          60
+        ],
+        "opinion_span": [
+          0,
+          14
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "співробітників",
+        "Opinion": "хочеться бачити",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.38",
+        "aspect_span": [
+          68,
+          82
+        ],
+        "opinion_span": [
+          85,
+          100
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:3_541",
+    "Text": "Вибрали  зал для некурців, який на відміну від Харбіна на Приморській, розташований абсолютно окремо від курців відвідувачів.",
+    "line_index": 6,
+    "quads": [
+      {
+        "Aspect": "зал для некурців",
+        "Opinion": "розташований абсолютно окремо",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.33#7",
+        "aspect_span": [
+          9,
+          25
+        ],
+        "opinion_span": [
+          71,
+          100
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:4_542",
+    "Text": "Стільці в залі для некурящих Європейські, дуже зручні, на відміну від іншого залу, де вони виконані в китайському стилі, але сидіти на них не зручно.",
+    "line_index": 7,
+    "quads": [
+      {
+        "Aspect": "Стільці",
+        "Opinion": "дуже зручні",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8#7.7",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          42,
+          53
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "залу",
+        "Opinion": "не зручно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3#7.25",
+        "aspect_span": [
+          77,
+          81
+        ],
+        "opinion_span": [
+          139,
+          148
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "13912:7_543",
+    "Text": "Страви в ресторані дуже смачні, якість приготування, на наш смак, набагато краще, ніж в Харбіні на Приморській (з метою порівняння замовили кілька страв, таких же як і в іншому ресторані).",
+    "line_index": 8,
+    "quads": [
+      {
+        "Aspect": "Страви",
+        "Opinion": "дуже смачні",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#7.7",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          19,
+          30
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "якість приготування",
+        "Opinion": "набагато краще",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.1#7.8",
+        "aspect_span": [
+          32,
+          51
+        ],
+        "opinion_span": [
+          66,
+          80
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:9_544",
+    "Text": "Вибір тут набагато кращий і багатший.",
+    "line_index": 9,
+    "quads": [
+      {
+        "Aspect": "Вибір",
+        "Opinion": "набагато кращий",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "8#7.5",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          10,
+          25
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Вибір",
+        "Opinion": "багатший",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "7.8#7.3",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          28,
+          36
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:11_545",
+    "Text": "Приємно те, що чай не пакетований на відміну від ресторану на Приморській.",
+    "line_index": 10,
+    "quads": [
+      {
+        "Aspect": "чай",
+        "Opinion": "не пакетований",
+        "Category": "DRINKS#QUALITY",
+        "VA": "6.88#6.5",
+        "aspect_span": [
+          15,
+          18
+        ],
+        "opinion_span": [
+          19,
+          33
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:12_546",
+    "Text": "У меню хороше Французьке червоне сухе вино.",
+    "line_index": 11,
+    "quads": [
+      {
+        "Aspect": "Французьке червоне сухе вино",
+        "Opinion": "хороше",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7#6.6",
+        "aspect_span": [
+          14,
+          42
+        ],
+        "opinion_span": [
+          7,
+          13
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:13_547",
+    "Text": "Сподобалося обслуговування, швидко і якісно, ​​своєчасно прибирався посуд, що звільнився, та інші дрібниці, було приємно.",
+    "line_index": 12,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "Сподобалося",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.7",
+        "aspect_span": [
+          12,
+          26
+        ],
+        "opinion_span": [
+          0,
+          11
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "швидко",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.1#6.9",
+        "aspect_span": [
+          12,
+          26
+        ],
+        "opinion_span": [
+          28,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "якісно",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.25#7",
+        "aspect_span": [
+          12,
+          26
+        ],
+        "opinion_span": [
+          37,
+          43
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "приємно",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.12#7",
+        "aspect_span": [
+          12,
+          26
+        ],
+        "opinion_span": [
+          113,
+          120
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "своєчасно прибирався",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#7",
+        "aspect_span": [
+          12,
+          26
+        ],
+        "opinion_span": [
+          47,
+          67
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "13912:15_548",
+    "Text": "Рекомендуємо ресторан для відвідування.",
+    "line_index": 13,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "Рекомендуємо",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.62#6.75",
+        "aspect_span": [
+          13,
+          21
+        ],
+        "opinion_span": [
+          0,
+          12
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:0_357",
+    "Text": "Була в цьому ресторані тільки одного разу, але із задоволенням сходжу ще раз.",
+    "line_index": 14,
+    "quads": [
+      {
+        "Aspect": "ресторані",
+        "Opinion": "із задоволенням",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.67#7.33",
+        "aspect_span": [
+          13,
+          22
+        ],
+        "opinion_span": [
+          47,
+          62
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:2_358",
+    "Text": "Відмінне обслуговування, усе приносили-уносили швидко і ввічливо.",
+    "line_index": 15,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "Відмінне",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8#7.62",
+        "aspect_span": [
+          9,
+          23
+        ],
+        "opinion_span": [
+          0,
+          8
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "швидко",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          9,
+          23
+        ],
+        "opinion_span": [
+          47,
+          53
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "ввічливо",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          9,
+          23
+        ],
+        "opinion_span": [
+          56,
+          64
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:3_359",
+    "Text": "Дуже сподобався вибір в меню, довго не могли вирішити що замовити через велику різноманітність страв.",
+    "line_index": 16,
+    "quads": [
+      {
+        "Aspect": "меню",
+        "Opinion": "Дуже сподобався",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "8#7.67",
+        "aspect_span": [
+          24,
+          28
+        ],
+        "opinion_span": [
+          0,
+          15
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "різноманітність страв",
+        "Opinion": "велику",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7.2#7.2",
+        "aspect_span": [
+          79,
+          100
+        ],
+        "opinion_span": [
+          72,
+          78
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:4_360",
+    "Text": "Все було дуже смачно, до кухні немає ніяких нарікань.",
+    "line_index": 17,
+    "quads": [
+      {
+        "Aspect": "кухні",
+        "Opinion": "дуже смачно",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#7.6",
+        "aspect_span": [
+          25,
+          30
+        ],
+        "opinion_span": [
+          9,
+          20
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кухні",
+        "Opinion": "немає ніяких нарікань",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.25#7.12",
+        "aspect_span": [
+          25,
+          30
+        ],
+        "opinion_span": [
+          31,
+          52
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:6_361",
+    "Text": "Дуже сподобалася їхня музика.",
+    "line_index": 18,
+    "quads": [
+      {
+        "Aspect": "музика",
+        "Opinion": "Дуже сподобалася",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8#7.6",
+        "aspect_span": [
+          22,
+          28
+        ],
+        "opinion_span": [
+          0,
+          16
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11421:7_362",
+    "Text": "Красиво, але ненав'язливо. загалом, ресторан відмінний.",
+    "line_index": 19,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "відмінний",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.9#7.7",
+        "aspect_span": [
+          36,
+          44
+        ],
+        "opinion_span": [
+          45,
+          54
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:1_248",
+    "Text": "Прямо з порога привітне ставлення.",
+    "line_index": 20,
+    "quads": [
+      {
+        "Aspect": "ставлення",
+        "Opinion": "привітне",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.62",
+        "aspect_span": [
+          24,
+          33
+        ],
+        "opinion_span": [
+          15,
+          23
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:2_249",
+    "Text": "Дуже ввічливий та приємний чоловік з гардероба.",
+    "line_index": 21,
+    "quads": [
+      {
+        "Aspect": "чоловік з гардероба",
+        "Opinion": "Дуже ввічливий",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.88#7.5",
+        "aspect_span": [
+          27,
+          46
+        ],
+        "opinion_span": [
+          0,
+          14
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "чоловік з гардероба",
+        "Opinion": "приємний",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.1#6.6",
+        "aspect_span": [
+          27,
+          46
+        ],
+        "opinion_span": [
+          18,
+          26
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:4_250",
+    "Text": "Викликав нам адміністратора, найприємніша дівчина, все розповіла, показала, ніяких питань не виникло, навіть заглянули краєм ока в Малий зал (в цей час там починався банкет).",
+    "line_index": 22,
+    "quads": [
+      {
+        "Aspect": "адміністратора",
+        "Opinion": "найприємніша",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8.17#8.5",
+        "aspect_span": [
+          13,
+          27
+        ],
+        "opinion_span": [
+          29,
+          41
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "адміністратора",
+        "Opinion": "ніяких питань не виникло",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6.5",
+        "aspect_span": [
+          13,
+          27
+        ],
+        "opinion_span": [
+          76,
+          100
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "дівчина",
+        "Opinion": "найприємніша",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.8#7.9",
+        "aspect_span": [
+          42,
+          49
+        ],
+        "opinion_span": [
+          29,
+          41
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:6_251",
+    "Text": "Дівчата офіціантки всі вітаються і посміхаються, інтер'єр приголомшливий.",
+    "line_index": 23,
+    "quads": [
+      {
+        "Aspect": "Дівчата офіціантки",
+        "Opinion": "вітаються",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#7",
+        "aspect_span": [
+          0,
+          18
+        ],
+        "opinion_span": [
+          23,
+          32
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Дівчата офіціантки",
+        "Opinion": "посміхаються",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.75#6.5",
+        "aspect_span": [
+          0,
+          18
+        ],
+        "opinion_span": [
+          35,
+          47
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "приголомшливий",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.25#8.12",
+        "aspect_span": [
+          49,
+          57
+        ],
+        "opinion_span": [
+          58,
+          72
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:8_252",
+    "Text": "Знову привітна зустріч в гардеробі.",
+    "line_index": 24,
+    "quads": [
+      {
+        "Aspect": "зустріч",
+        "Opinion": "привітна",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.3#7.5",
+        "aspect_span": [
+          15,
+          22
+        ],
+        "opinion_span": [
+          6,
+          14
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:9_253",
+    "Text": "Приємний комплімент в холодну погоду, поки чекали замовлення попили гарячого чаю, приголомшливо!",
+    "line_index": 25,
+    "quads": [
+      {
+        "Aspect": "чаю",
+        "Opinion": "гарячого",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7.17#6.83",
+        "aspect_span": [
+          77,
+          80
+        ],
+        "opinion_span": [
+          68,
+          76
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "чаю",
+        "Opinion": "приголомшливо",
+        "Category": "DRINKS#QUALITY",
+        "VA": "8.1#8.3",
+        "aspect_span": [
+          77,
+          80
+        ],
+        "opinion_span": [
+          82,
+          95
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:10_254",
+    "Text": "Дівчина офіціантка (в чеку було написано Луїза) ввічлива, обслуговування ненав'язливе, якісне.",
+    "line_index": 26,
+    "quads": [
+      {
+        "Aspect": "Дівчина офіціантка",
+        "Opinion": "ввічлива",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.9#6.2",
+        "aspect_span": [
+          0,
+          18
+        ],
+        "opinion_span": [
+          48,
+          56
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "ненав'язливе",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.5#5.8",
+        "aspect_span": [
+          58,
+          72
+        ],
+        "opinion_span": [
+          73,
+          85
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "якісне",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.8#6.2",
+        "aspect_span": [
+          58,
+          72
+        ],
+        "opinion_span": [
+          87,
+          93
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:11_255",
+    "Text": "Кухня дуже хороша!",
+    "line_index": 27,
+    "quads": [
+      {
+        "Aspect": "Кухня",
+        "Opinion": "дуже хороша",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.88#7.88",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          17
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:12_256",
+    "Text": "М'ясо зі своєї коптильні приголомшливе, смакота!",
+    "line_index": 28,
+    "quads": [
+      {
+        "Aspect": "М'ясо",
+        "Opinion": "приголомшливе",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.8#8.4",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          25,
+          38
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "М'ясо",
+        "Opinion": "смакота",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.6#8.6",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          40,
+          47
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:13_257",
+    "Text": "Порції великі.",
+    "line_index": 29,
+    "quads": [
+      {
+        "Aspect": "Порції",
+        "Opinion": "великі",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.75#6.25",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          7,
+          13
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:15_258",
+    "Text": "Сумнівів з приводу вибору ресторану на весілля не виникло, сподіваюся, що в найважливіший день нашого життя ми теж залишимося задоволені, на цьому тижні йдемо замовляти :).",
+    "line_index": 30,
+    "quads": [
+      {
+        "Aspect": "ресторану",
+        "Opinion": "залишимося задоволені",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.88",
+        "aspect_span": [
+          26,
+          35
+        ],
+        "opinion_span": [
+          115,
+          136
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10663:16_259",
+    "Text": "Всім раджу сходити в це чудове місце!",
+    "line_index": 31,
+    "quads": [
+      {
+        "Aspect": "місце",
+        "Opinion": "чудове",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8#8",
+        "aspect_span": [
+          31,
+          36
+        ],
+        "opinion_span": [
+          24,
+          30
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "місце",
+        "Opinion": "раджу сходити",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.17#7",
+        "aspect_span": [
+          31,
+          36
+        ],
+        "opinion_span": [
+          5,
+          18
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:2_260",
+    "Text": "Багато причин для цього: Одна з головних причин-хороша кухня.",
+    "line_index": 32,
+    "quads": [
+      {
+        "Aspect": "кухня",
+        "Opinion": "хороша",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.1#6.7",
+        "aspect_span": [
+          55,
+          60
+        ],
+        "opinion_span": [
+          48,
+          54
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:3_261",
+    "Text": "Потім-уважний персонал,адекватні ціни, затишний та красивий інтер'єр, центр міста.",
+    "line_index": 33,
+    "quads": [
+      {
+        "Aspect": "персонал",
+        "Opinion": "уважний",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.88",
+        "aspect_span": [
+          14,
+          22
+        ],
+        "opinion_span": [
+          6,
+          13
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "затишний",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.6",
+        "aspect_span": [
+          60,
+          68
+        ],
+        "opinion_span": [
+          39,
+          47
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "красивий",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.8",
+        "aspect_span": [
+          60,
+          68
+        ],
+        "opinion_span": [
+          51,
+          59
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:5_262",
+    "Text": "Публіка ,яка приходить, мені теж подобається .",
+    "line_index": 34,
+    "quads": [
+      {
+        "Aspect": "Публіка",
+        "Opinion": "подобається",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.7#6.2",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          33,
+          44
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:6_263",
+    "Text": "Хороша енергетика в цьому ресторані,яку створюють уважні та професійні люди.",
+    "line_index": 35,
+    "quads": [
+      {
+        "Aspect": "ресторані",
+        "Opinion": "Хороша енергетика",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.75",
+        "aspect_span": [
+          26,
+          35
+        ],
+        "opinion_span": [
+          0,
+          17
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "люди",
+        "Opinion": "уважні",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.2#6.8",
+        "aspect_span": [
+          71,
+          75
+        ],
+        "opinion_span": [
+          50,
+          56
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "люди",
+        "Opinion": "професійні",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.6",
+        "aspect_span": [
+          71,
+          75
+        ],
+        "opinion_span": [
+          60,
+          70
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:7_264",
+    "Text": "Шкода, що багато хто не знає цей чудовий ресторан.",
+    "line_index": 36,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "чудовий",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.8#7.5",
+        "aspect_span": [
+          41,
+          49
+        ],
+        "opinion_span": [
+          33,
+          40
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:8_265",
+    "Text": "Тут відчуваєш себе дуже добре в будь-який час і в будь-якому залі,будь то велике свято (наприклад банкет)) або якщо випадково зайдеш випити чашку кави.",
+    "line_index": 37,
+    "quads": [
+      {
+        "Aspect": "залі",
+        "Opinion": "дуже добре",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.83#7.5",
+        "aspect_span": [
+          61,
+          65
+        ],
+        "opinion_span": [
+          19,
+          29
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:9_266",
+    "Text": "Тобі тут раді завжди, атмосфера Домашня в цьому ресторані.",
+    "line_index": 38,
+    "quads": [
+      {
+        "Aspect": "атмосфера",
+        "Opinion": "Домашня",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.8#6.9",
+        "aspect_span": [
+          22,
+          31
+        ],
+        "opinion_span": [
+          32,
+          39
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:10_267",
+    "Text": "Таких хороших і затишних місць в Пітері не так багато.",
+    "line_index": 39,
+    "quads": [
+      {
+        "Aspect": "місць",
+        "Opinion": "хороших",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.5",
+        "aspect_span": [
+          25,
+          30
+        ],
+        "opinion_span": [
+          6,
+          13
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "місць",
+        "Opinion": "затишних",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.12#6.62",
+        "aspect_span": [
+          25,
+          30
+        ],
+        "opinion_span": [
+          16,
+          24
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10778:11_268",
+    "Text": "Я думаю, що гість, який відвідає цей ресторан стане його постійним гостем.",
+    "line_index": 40,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "постійним гостем",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.1#6.6",
+        "aspect_span": [
+          37,
+          45
+        ],
+        "opinion_span": [
+          57,
+          73
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:3_796",
+    "Text": "Дійсно, Ресторан, причому хороший.",
+    "line_index": 41,
+    "quads": [
+      {
+        "Aspect": "Ресторан",
+        "Opinion": "хороший",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.3#6.8",
+        "aspect_span": [
+          8,
+          16
+        ],
+        "opinion_span": [
+          26,
+          33
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:5_797",
+    "Text": "Інтер'єр вражаючий, дуже добротно, красиво, стильно.",
+    "line_index": 42,
+    "quads": [
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "вражаючий",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.9#7.1",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          18
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "дуже добротно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.5#6.9",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          20,
+          33
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "красиво",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.7",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          35,
+          42
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "стильно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.6",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          44,
+          51
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:6_798",
+    "Text": "Столики, що особливо сподобалося, розставлені віддалено один від одного, відвідувачі не заважають один одному, їх не видно і не чути, створюється такий собі відокремлений комфорт.",
+    "line_index": 43,
+    "quads": [
+      {
+        "Aspect": "Столики",
+        "Opinion": "відокремлений комфорт",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8#8",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          157,
+          178
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Столики",
+        "Opinion": "особливо сподобалося",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.67#6.5",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          12,
+          32
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Столики",
+        "Opinion": "розставлені віддалено один від одного",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.67#6.5",
+        "aspect_span": [
+          0,
+          7
+        ],
+        "opinion_span": [
+          34,
+          71
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:7_799",
+    "Text": "Обслуговування чудове!",
+    "line_index": 44,
+    "quads": [
+      {
+        "Aspect": "Обслуговування",
+        "Opinion": "чудове",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8.3#8.1",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          21
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:11_800",
+    "Text": "Кухня на висоті: салати незвичайні, смачні, порції досить пристойні за розміром.",
+    "line_index": 45,
+    "quads": [
+      {
+        "Aspect": "Кухня",
+        "Opinion": "на висоті",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          15
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "салати",
+        "Opinion": "незвичайні",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.88#6.12",
+        "aspect_span": [
+          17,
+          23
+        ],
+        "opinion_span": [
+          24,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "салати",
+        "Opinion": "смачні",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.38#7.12",
+        "aspect_span": [
+          17,
+          23
+        ],
+        "opinion_span": [
+          36,
+          42
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "порції",
+        "Opinion": "досить пристойні",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "6.88#6.38",
+        "aspect_span": [
+          44,
+          50
+        ],
+        "opinion_span": [
+          51,
+          67
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:12_801",
+    "Text": "Гаряче — неймовірне.",
+    "line_index": 46,
+    "quads": [
+      {
+        "Aspect": "Гаряче",
+        "Opinion": "неймовірне",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.3#8",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          9,
+          19
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:13_802",
+    "Text": "Медальйони з телятини приголомшливі, м'ясо тане в роті, соус дуже смачний.",
+    "line_index": 47,
+    "quads": [
+      {
+        "Aspect": "Медальйони з телятини",
+        "Opinion": "приголомшливі",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.6#8.3",
+        "aspect_span": [
+          0,
+          21
+        ],
+        "opinion_span": [
+          22,
+          35
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "м'ясо",
+        "Opinion": "тане в роті",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.2#7.6",
+        "aspect_span": [
+          37,
+          42
+        ],
+        "opinion_span": [
+          43,
+          54
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "соус",
+        "Opinion": "дуже смачний",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.9#7.3",
+        "aspect_span": [
+          56,
+          60
+        ],
+        "opinion_span": [
+          61,
+          73
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:14_803",
+    "Text": "Качка в апельсиновому соусі теж вдалася на славу.",
+    "line_index": 48,
+    "quads": [
+      {
+        "Aspect": "Качка в апельсиновому соусі",
+        "Opinion": "вдалася на славу",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.25#7.88",
+        "aspect_span": [
+          0,
+          27
+        ],
+        "opinion_span": [
+          32,
+          48
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "19439:15_804",
+    "Text": "Десерт, бізе з вершками і фруктами, теж виявилося непоганим, хоча і в самому кінці трапези - втомилися їсти:)",
+    "line_index": 49,
+    "quads": [
+      {
+        "Aspect": "Десерт",
+        "Opinion": "непоганим",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.6#5.9",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          50,
+          59
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "бізе з вершками і фруктами",
+        "Opinion": "непоганим",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.5#5.88",
+        "aspect_span": [
+          8,
+          34
+        ],
+        "opinion_span": [
+          50,
+          59
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "24713:1_997",
+    "Text": "Зал чудовий.",
+    "line_index": 50,
+    "quads": [
+      {
+        "Aspect": "Зал",
+        "Opinion": "чудовий",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.8#7.1",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          4,
+          11
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "24713:3_998",
+    "Text": "Ми вибрали середнє у ціновій категорії меню.",
+    "line_index": 51,
+    "quads": [
+      {
+        "Aspect": "меню",
+        "Opinion": "середнє",
+        "Category": "RESTAURANT#PRICES",
+        "VA": "5#16.5",
+        "aspect_span": [
+          39,
+          43
+        ],
+        "opinion_span": [
+          11,
+          18
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "24713:4_999",
+    "Text": "Коли прийшли, мене здивувала невелика кількість закусок.",
+    "line_index": 52,
+    "quads": [
+      {
+        "Aspect": "закусок",
+        "Opinion": "невелика",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "3.33#5.67",
+        "aspect_span": [
+          48,
+          55
+        ],
+        "opinion_span": [
+          29,
+          37
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:6_1000",
+    "Text": "Сирна тарілка вразила засохлим сиром.",
+    "line_index": 53,
+    "quads": [
+      {
+        "Aspect": "Сирна тарілка",
+        "Opinion": "вразила засохлим сиром",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.67#7.67",
+        "aspect_span": [
+          0,
+          13
+        ],
+        "opinion_span": [
+          14,
+          36
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "сиром",
+        "Opinion": "засохлим",
+        "Category": "FOOD#QUALITY",
+        "VA": "2#7.5",
+        "aspect_span": [
+          31,
+          36
+        ],
+        "opinion_span": [
+          22,
+          30
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:7_1001",
+    "Text": "Фрукти були на останньому подиху.",
+    "line_index": 54,
+    "quads": [
+      {
+        "Aspect": "Фрукти",
+        "Opinion": "на останньому подиху",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.5#7.75",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          12,
+          32
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:8_1002",
+    "Text": "Коли спробувала салати — прийшла в жах.",
+    "line_index": 55,
+    "quads": [
+      {
+        "Aspect": "салати",
+        "Opinion": "жах",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.33#8.33",
+        "aspect_span": [
+          16,
+          22
+        ],
+        "opinion_span": [
+          35,
+          38
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:11_1003",
+    "Text": "Їжа сподобалася.",
+    "line_index": 56,
+    "quads": [
+      {
+        "Aspect": "Їжа",
+        "Opinion": "сподобалася",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.9#6.3",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          4,
+          15
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "24713:13_1004",
+    "Text": "Гаряче теж не сподобалося.",
+    "line_index": 57,
+    "quads": [
+      {
+        "Aspect": "Гаряче",
+        "Opinion": "не сподобалося",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.9#6.4",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          11,
+          25
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:15_1005",
+    "Text": "Весілля, звичайно, пройшло весело, але якість їжі його не прикрасила.",
+    "line_index": 58,
+    "quads": [
+      {
+        "Aspect": "їжі",
+        "Opinion": "не прикрасила",
+        "Category": "FOOD#QUALITY",
+        "VA": "3.12#6.38",
+        "aspect_span": [
+          46,
+          49
+        ],
+        "opinion_span": [
+          55,
+          68
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "24713:18_1006",
+    "Text": "На мій подив, офіціанти мені сказали, що я можу сама все зібрати зі столів, вони за окрему плату дадуть мені контейнери.",
+    "line_index": 59,
+    "quads": [
+      {
+        "Aspect": "офіціанти",
+        "Opinion": "можу сама все зібрати зі столів",
+        "Category": "SERVICE#GENERAL",
+        "VA": "2.38#7.12",
+        "aspect_span": [
+          14,
+          23
+        ],
+        "opinion_span": [
+          43,
+          74
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "11388:2_351",
+    "Text": "Інтер'єр милий, всього в міру!",
+    "line_index": 60,
+    "quads": [
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "милий",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.7#6.1",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          14
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "всього в міру",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.33#6.17",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          16,
+          29
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:3_352",
+    "Text": "Кухня сподобалася!",
+    "line_index": 61,
+    "quads": [
+      {
+        "Aspect": "Кухня",
+        "Opinion": "сподобалася",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.2#7.3",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          6,
+          17
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:6_353",
+    "Text": "Дуже сподобався музичний колектив, хороша музика!",
+    "line_index": 62,
+    "quads": [
+      {
+        "Aspect": "музичний колектив",
+        "Opinion": "Дуже сподобався",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.1#8.1",
+        "aspect_span": [
+          16,
+          33
+        ],
+        "opinion_span": [
+          0,
+          15
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "музичний колектив",
+        "Opinion": "хороша",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          16,
+          33
+        ],
+        "opinion_span": [
+          35,
+          41
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:7_354",
+    "Text": "З обслуговування претензій немає, добре зустріли, проводили за столик (забронювали заздалегідь в VIP зоні, вартість 400 руб.).",
+    "line_index": 63,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "претензій немає",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.4#6.2",
+        "aspect_span": [
+          2,
+          16
+        ],
+        "opinion_span": [
+          17,
+          32
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "добре зустріли",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.33#6.83",
+        "aspect_span": [
+          2,
+          16
+        ],
+        "opinion_span": [
+          34,
+          48
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:8_355",
+    "Text": "Офіціанти не змушували себе довго чекати, дуже все ввічливо і ввічливо!",
+    "line_index": 64,
+    "quads": [
+      {
+        "Aspect": "Офіціанти",
+        "Opinion": "не змушували себе довго чекати",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          0,
+          9
+        ],
+        "opinion_span": [
+          10,
+          40
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Офіціанти",
+        "Opinion": "ввічливо",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.38#7.75",
+        "aspect_span": [
+          0,
+          9
+        ],
+        "opinion_span": [
+          51,
+          59
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Офіціанти",
+        "Opinion": "дуже все ввічливо",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.25#7",
+        "aspect_span": [
+          0,
+          9
+        ],
+        "opinion_span": [
+          42,
+          59
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11388:9_356",
+    "Text": "Цілком пристойно місце!",
+    "line_index": 65,
+    "quads": [
+      {
+        "Aspect": "місце",
+        "Opinion": "Цілком пристойно",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "6.62#6.5",
+        "aspect_span": [
+          17,
+          22
+        ],
+        "opinion_span": [
+          0,
+          16
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:4_941",
+    "Text": "Народу було небагато, обстановка дуже затишна і розташовує до довгих посиденьок.",
+    "line_index": 66,
+    "quads": [
+      {
+        "Aspect": "обстановка",
+        "Opinion": "дуже затишна",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.8#7.2",
+        "aspect_span": [
+          22,
+          32
+        ],
+        "opinion_span": [
+          33,
+          45
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обстановка",
+        "Opinion": "розташовує",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.67#7.67",
+        "aspect_span": [
+          22,
+          32
+        ],
+        "opinion_span": [
+          48,
+          58
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:5_942",
+    "Text": "Інтер'єр досить простий,але в грузинському стилі, грає приємна музика.",
+    "line_index": 67,
+    "quads": [
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "досить простий",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "5#3.33",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          23
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "музика",
+        "Opinion": "приємна",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.5#5.6",
+        "aspect_span": [
+          63,
+          69
+        ],
+        "opinion_span": [
+          55,
+          62
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:7_943",
+    "Text": "Дуже пощастило з офіціантом, який дуже люб'язно і оперативно нас обслуговував.",
+    "line_index": 68,
+    "quads": [
+      {
+        "Aspect": "офіціантом",
+        "Opinion": "Дуже пощастило",
+        "Category": "SERVICE#GENERAL",
+        "VA": "8.12#7.62",
+        "aspect_span": [
+          17,
+          27
+        ],
+        "opinion_span": [
+          0,
+          14
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "офіціантом",
+        "Opinion": "дуже люб'язно",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7",
+        "aspect_span": [
+          17,
+          27
+        ],
+        "opinion_span": [
+          34,
+          47
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "офіціантом",
+        "Opinion": "оперативно",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.5",
+        "aspect_span": [
+          17,
+          27
+        ],
+        "opinion_span": [
+          50,
+          60
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:10_944",
+    "Text": "Що можна сказати про кухню...гаряче дуже порадувало, особливо смачно приготовлено м'ясо-ніжне соковите, смачно приготовлені овочі.",
+    "line_index": 69,
+    "quads": [
+      {
+        "Aspect": "гаряче",
+        "Opinion": "дуже порадувало",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.12#7.62",
+        "aspect_span": [
+          29,
+          35
+        ],
+        "opinion_span": [
+          36,
+          51
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "м'ясо",
+        "Opinion": "особливо смачно",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.7#7.2",
+        "aspect_span": [
+          82,
+          87
+        ],
+        "opinion_span": [
+          53,
+          68
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "м'ясо",
+        "Opinion": "ніжне",
+        "Category": "FOOD#QUALITY",
+        "VA": "7#6.5",
+        "aspect_span": [
+          82,
+          87
+        ],
+        "opinion_span": [
+          88,
+          93
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "м'ясо",
+        "Opinion": "соковите",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.12#6.62",
+        "aspect_span": [
+          82,
+          87
+        ],
+        "opinion_span": [
+          94,
+          102
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "овочі",
+        "Opinion": "смачно",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          124,
+          129
+        ],
+        "opinion_span": [
+          62,
+          68
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:11_945",
+    "Text": "Шашлику з лосося в порції було явно замало, і практично були відсутні овочі.",
+    "line_index": 70,
+    "quads": [
+      {
+        "Aspect": "Шашлику з лосося",
+        "Opinion": "замало",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "3.67#5.67",
+        "aspect_span": [
+          0,
+          16
+        ],
+        "opinion_span": [
+          36,
+          42
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "23369:13_946",
+    "Text": "Салат виявився приправлений занадто гострим соусом.",
+    "line_index": 71,
+    "quads": [
+      {
+        "Aspect": "Салат",
+        "Opinion": "занадто гострим",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.5#6.75",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          28,
+          43
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "соусом",
+        "Opinion": "занадто гострим",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.2#7",
+        "aspect_span": [
+          44,
+          50
+        ],
+        "opinion_span": [
+          28,
+          43
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "23369:14_947",
+    "Text": "Вино виявилося дуже дорогим, тому довелося обійтися пивом і досить смачним домашнім морсом.",
+    "line_index": 72,
+    "quads": [
+      {
+        "Aspect": "Вино",
+        "Opinion": "дуже дорогим",
+        "Category": "DRINKS#PRICES",
+        "VA": "2.2#7.4",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          15,
+          27
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "домашнім морсом",
+        "Opinion": "досить смачним",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.67#5.83",
+        "aspect_span": [
+          75,
+          90
+        ],
+        "opinion_span": [
+          60,
+          74
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "23369:15_948",
+    "Text": "Вибір страв досить широкий,тому думаю, що наступного разу ми спробуємо що-небудь ще.",
+    "line_index": 73,
+    "quads": [
+      {
+        "Aspect": "страв",
+        "Opinion": "досить широкий",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "6.67#5.5",
+        "aspect_span": [
+          6,
+          11
+        ],
+        "opinion_span": [
+          12,
+          26
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "27620:0_1100",
+    "Text": "Я читала негативні відгуки про цей ресторан, але вже дуже мені сподобався інтер'єр, тому визнала їх перебільшеними.",
+    "line_index": 74,
+    "quads": [
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "вже дуже мені сподобався",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.25#7.88",
+        "aspect_span": [
+          74,
+          82
+        ],
+        "opinion_span": [
+          49,
+          73
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "27620:1_1101",
+    "Text": "Я вам скажу, тепер уже на власному досвіді, обслуговування як таке там просто відсутнє.",
+    "line_index": 75,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "як таке там просто відсутнє",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.9#7.4",
+        "aspect_span": [
+          44,
+          58
+        ],
+        "opinion_span": [
+          59,
+          86
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "27620:4_1102",
+    "Text": "Один сік принесли, а ось апельсинового соку не виявилося (!), офіціант уточнила на який замінити і пішла.",
+    "line_index": 76,
+    "quads": [
+      {
+        "Aspect": "офіціант",
+        "Opinion": "пішла",
+        "Category": "SERVICE#GENERAL",
+        "VA": "3.25#6",
+        "aspect_span": [
+          62,
+          70
+        ],
+        "opinion_span": [
+          99,
+          104
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "27620:10_1103",
+    "Text": "Їжа не сподобалася.",
+    "line_index": 77,
+    "quads": [
+      {
+        "Aspect": "Їжа",
+        "Opinion": "не сподобалася",
+        "Category": "FOOD#QUALITY",
+        "VA": "2.5#6.6",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          4,
+          18
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "27620:13_1104",
+    "Text": "Сподобалася тільки кава.",
+    "line_index": 78,
+    "quads": [
+      {
+        "Aspect": "кава",
+        "Opinion": "Сподобалася",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7.17#6.83",
+        "aspect_span": [
+          19,
+          23
+        ],
+        "opinion_span": [
+          0,
+          11
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "27620:14_1105",
+    "Text": "Тістечок зазначених в меню не було.",
+    "line_index": 79,
+    "quads": [
+      {
+        "Aspect": "Тістечок",
+        "Opinion": "не було",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "2.75#6.62",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          27,
+          34
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "11793:0_387",
+    "Text": "Є постійними відвідувачами даного закладу більше року.",
+    "line_index": 80,
+    "quads": [
+      {
+        "Aspect": "закладу",
+        "Opinion": "постійними відвідувачами",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          34,
+          41
+        ],
+        "opinion_span": [
+          2,
+          26
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:1_388",
+    "Text": "Головне, що хотілося б відзначити - постійно висока якість кухні.",
+    "line_index": 81,
+    "quads": [
+      {
+        "Aspect": "кухні",
+        "Opinion": "постійно висока якість",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#7.33",
+        "aspect_span": [
+          59,
+          64
+        ],
+        "opinion_span": [
+          36,
+          58
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:2_389",
+    "Text": "Це одне з небагатьох місць, де хочеться спробувати все і відразу.",
+    "line_index": 82,
+    "quads": [
+      {
+        "Aspect": "місць",
+        "Opinion": "хочеться спробувати все і відразу",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.17#8",
+        "aspect_span": [
+          21,
+          26
+        ],
+        "opinion_span": [
+          31,
+          64
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:3_390",
+    "Text": "Обов'язково рекомендуємо спробувати суші та роли.",
+    "line_index": 83,
+    "quads": [
+      {
+        "Aspect": "суші",
+        "Opinion": "Обов'язково рекомендуємо",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.33#8.33",
+        "aspect_span": [
+          36,
+          40
+        ],
+        "opinion_span": [
+          0,
+          24
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "роли",
+        "Opinion": "Обов'язково рекомендуємо",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.33#8.33",
+        "aspect_span": [
+          44,
+          48
+        ],
+        "opinion_span": [
+          0,
+          24
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:5_391",
+    "Text": "Дивна особливість для мережі ресторанів те, що і в інших ресторанах (комендантський, Петроградська) рівень сервісу і кухні залишається на тому ж рівні.",
+    "line_index": 84,
+    "quads": [
+      {
+        "Aspect": "мережі ресторанів",
+        "Opinion": "на тому ж рівні",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.8#7.6",
+        "aspect_span": [
+          22,
+          39
+        ],
+        "opinion_span": [
+          135,
+          150
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "сервісу",
+        "Opinion": "на тому ж рівні",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.75#7.5",
+        "aspect_span": [
+          107,
+          114
+        ],
+        "opinion_span": [
+          135,
+          150
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кухні",
+        "Opinion": "на тому ж рівні",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.75#7.5",
+        "aspect_span": [
+          117,
+          122
+        ],
+        "opinion_span": [
+          135,
+          150
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:7_392",
+    "Text": "Єдине, що хочеться відзначити з негативного - в залі для некурців буває холодно, коли відкриваються вхідні двері, але це дрібниці.",
+    "line_index": 85,
+    "quads": [
+      {
+        "Aspect": "залі для некурців",
+        "Opinion": "холодно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.67#6.5",
+        "aspect_span": [
+          48,
+          65
+        ],
+        "opinion_span": [
+          72,
+          79
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "11793:8_393",
+    "Text": "Якщо ви йдете туди в перший раз - обов'язково спробуйте морозиво в клярі-найкраще в місті.",
+    "line_index": 86,
+    "quads": [
+      {
+        "Aspect": "морозиво в клярі",
+        "Opinion": "обов'язково спробуйте",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          56,
+          72
+        ],
+        "opinion_span": [
+          34,
+          55
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "морозиво в клярі",
+        "Opinion": "найкраще",
+        "Category": "FOOD#QUALITY",
+        "VA": "9#8.33",
+        "aspect_span": [
+          56,
+          72
+        ],
+        "opinion_span": [
+          73,
+          81
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:9_394",
+    "Text": "А ось гаряче раз на раз не доводиться.",
+    "line_index": 87,
+    "quads": [
+      {
+        "Aspect": "гаряче",
+        "Opinion": "раз на раз не доводиться",
+        "Category": "FOOD#QUALITY",
+        "VA": "4.6#4.6",
+        "aspect_span": [
+          6,
+          12
+        ],
+        "opinion_span": [
+          13,
+          37
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "11793:11_395",
+    "Text": "Обслуговування хороше, але іноді приносять все відразу: і суші і суп і десерт.",
+    "line_index": 88,
+    "quads": [
+      {
+        "Aspect": "Обслуговування",
+        "Opinion": "хороше",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.6#6.6",
+        "aspect_span": [
+          0,
+          14
+        ],
+        "opinion_span": [
+          15,
+          21
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "11793:12_396",
+    "Text": "Сподіваюся, якість обслуговування і кухні буде настільки ж високим, все-таки улюблений ресторан!",
+    "line_index": 89,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "високим",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.67#7.67",
+        "aspect_span": [
+          19,
+          33
+        ],
+        "opinion_span": [
+          59,
+          66
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кухні",
+        "Opinion": "високим",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.67#7.67",
+        "aspect_span": [
+          36,
+          41
+        ],
+        "opinion_span": [
+          59,
+          66
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "ресторан",
+        "Opinion": "улюблений",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.2#8.4",
+        "aspect_span": [
+          87,
+          95
+        ],
+        "opinion_span": [
+          77,
+          86
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:3_1186",
+    "Text": "Другий поверх просто рай якийсь=)",
+    "line_index": 90,
+    "quads": [
+      {
+        "Aspect": "Другий поверх",
+        "Opinion": "просто рай якийсь",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.31#8.1",
+        "aspect_span": [
+          0,
+          13
+        ],
+        "opinion_span": [
+          14,
+          31
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:4_1187",
+    "Text": "Дуже гарний інтер'єр, такий ніжний і затишний.",
+    "line_index": 91,
+    "quads": [
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "Дуже гарний",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.12#7.75",
+        "aspect_span": [
+          12,
+          20
+        ],
+        "opinion_span": [
+          0,
+          11
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "ніжний",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.25",
+        "aspect_span": [
+          12,
+          20
+        ],
+        "opinion_span": [
+          28,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "затишний",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.1#6.5",
+        "aspect_span": [
+          12,
+          20
+        ],
+        "opinion_span": [
+          37,
+          45
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:6_1188",
+    "Text": "Далі що...меню різноманітне, на будь-який смак, але при детальному розгляді в результаті зупинилася на рибі, тому як особисто мені більше нічого не сподобалося (піцу поїсти можна в інших більш спеціалізованих місцях, паста...ну це я і вдома зроблю, суп..не для свята).",
+    "line_index": 92,
+    "quads": [
+      {
+        "Aspect": "меню",
+        "Opinion": "різноманітне",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7#6.3",
+        "aspect_span": [
+          10,
+          14
+        ],
+        "opinion_span": [
+          15,
+          27
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "меню",
+        "Opinion": "на будь-який смак",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7.33#7",
+        "aspect_span": [
+          10,
+          14
+        ],
+        "opinion_span": [
+          29,
+          46
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:7_1189",
+    "Text": "Ціни на вино просто шалені..хоча, може для такого ресторану це і нормально, але ось в співвідношенні з їжею мені здалося дорого!",
+    "line_index": 93,
+    "quads": [
+      {
+        "Aspect": "вино",
+        "Opinion": "дорого",
+        "Category": "DRINKS#PRICES",
+        "VA": "2.17#7.67",
+        "aspect_span": [
+          8,
+          12
+        ],
+        "opinion_span": [
+          121,
+          127
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "вино",
+        "Opinion": "просто шалені",
+        "Category": "DRINKS#PRICES",
+        "VA": "1.12#8.25",
+        "aspect_span": [
+          8,
+          12
+        ],
+        "opinion_span": [
+          13,
+          26
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "29321:8_1190",
+    "Text": "Загалом в цілому кухня наближена до італійської, але ось чогось супер феєричного я не побачила, тому тільки 8.",
+    "line_index": 94,
+    "quads": [
+      {
+        "Aspect": "кухня",
+        "Opinion": "чогось супер феєричного я не побачила",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.75#6",
+        "aspect_span": [
+          17,
+          22
+        ],
+        "opinion_span": [
+          57,
+          94
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кухня",
+        "Opinion": "тільки 8",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.33#5.33",
+        "aspect_span": [
+          17,
+          22
+        ],
+        "opinion_span": [
+          101,
+          109
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29321:9_1191",
+    "Text": "Що стосовно обслуговування...то тут я хочу сказати, що претензій особливих  немає, тарілки прибиралися вчасно, але і зацікавленості в нас особливо у дівчат не було",
+    "line_index": 95,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "претензій особливих  немає",
+        "Category": "SERVICE#GENERAL",
+        "VA": "5#3.5",
+        "aspect_span": [
+          12,
+          26
+        ],
+        "opinion_span": [
+          55,
+          81
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "дівчат",
+        "Opinion": "не було",
+        "Category": "SERVICE#GENERAL",
+        "VA": "4.83#3.67",
+        "aspect_span": [
+          149,
+          155
+        ],
+        "opinion_span": [
+          156,
+          163
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "29321:11_1192",
+    "Text": "Ми сиділи усімох, залишили п'ять тисяч, а ось якогось задоволення від обслуговування і прийому не отримали, хоча все було смачно, красиво подано і прикрашено.",
+    "line_index": 96,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "не отримали",
+        "Category": "SERVICE#GENERAL",
+        "VA": "4.5#4.25",
+        "aspect_span": [
+          70,
+          84
+        ],
+        "opinion_span": [
+          95,
+          106
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "прийому",
+        "Opinion": "не отримали",
+        "Category": "SERVICE#GENERAL",
+        "VA": "4.5#4.5",
+        "aspect_span": [
+          87,
+          94
+        ],
+        "opinion_span": [
+          95,
+          106
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "29321:12_1193",
+    "Text": "За обслуговування тільки 6.",
+    "line_index": 97,
+    "quads": [
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "тільки 6",
+        "Category": "SERVICE#GENERAL",
+        "VA": "5.12#3.62",
+        "aspect_span": [
+          3,
+          17
+        ],
+        "opinion_span": [
+          18,
+          26
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "12467:1_447",
+    "Text": "Вибрали цей ресторан, так як живемо поблизу...",
+    "line_index": 98,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "Вибрали",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "6.17#5.67",
+        "aspect_span": [
+          12,
+          20
+        ],
+        "opinion_span": [
+          0,
+          7
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:4_448",
+    "Text": "Офіціантки всi в красивих формах, дуже привітні.",
+    "line_index": 99,
+    "quads": [
+      {
+        "Aspect": "Офіціантки",
+        "Opinion": "дуже привітні",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.6#7.2",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          34,
+          47
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Офіціантки",
+        "Opinion": "всi в красивих формах",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.8#6.4",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          11,
+          32
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:7_449",
+    "Text": "Ми були приємно здивовані такій швидкості обслуговування)))",
+    "line_index": 100,
+    "quads": [
+      {
+        "Aspect": "швидкості обслуговування",
+        "Opinion": "приємно здивовані",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.25",
+        "aspect_span": [
+          32,
+          56
+        ],
+        "opinion_span": [
+          8,
+          25
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:8_450",
+    "Text": "Салати - пальчики оближеш!!!",
+    "line_index": 101,
+    "quads": [
+      {
+        "Aspect": "Салати",
+        "Opinion": "пальчики оближеш",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.6#8.4",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          9,
+          25
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:9_451",
+    "Text": "Я брала з копченим вугром-СУПЕР!!!",
+    "line_index": 102,
+    "quads": [
+      {
+        "Aspect": "копченим вугром",
+        "Opinion": "СУПЕР",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.8#9",
+        "aspect_span": [
+          10,
+          25
+        ],
+        "opinion_span": [
+          26,
+          31
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:10_452",
+    "Text": "Порції дуже добротні.",
+    "line_index": 103,
+    "quads": [
+      {
+        "Aspect": "Порції",
+        "Opinion": "дуже добротні",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "7.62#7.62",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          7,
+          20
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:11_453",
+    "Text": "Подруга замовляла рибні рулетики, а принесли рулетики і + гору салату!!!",
+    "line_index": 104,
+    "quads": [
+      {
+        "Aspect": "салату",
+        "Opinion": "гору",
+        "Category": "FOOD#QUALITY",
+        "VA": "8#8.5",
+        "aspect_span": [
+          63,
+          69
+        ],
+        "opinion_span": [
+          58,
+          62
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:12_454",
+    "Text": "Потім подали сорбет, теж смачненько)))",
+    "line_index": 105,
+    "quads": [
+      {
+        "Aspect": "сорбет",
+        "Opinion": "смачненько",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.38#6.88",
+        "aspect_span": [
+          13,
+          19
+        ],
+        "opinion_span": [
+          25,
+          35
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:14_455",
+    "Text": "М'ясо просто тануло в роті...",
+    "line_index": 106,
+    "quads": [
+      {
+        "Aspect": "М'ясо",
+        "Opinion": "тануло в роті",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.33#8.5",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          13,
+          26
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:17_456",
+    "Text": "Я давно не отримувала такого задоволення від походу в ресторан!",
+    "line_index": 107,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "давно не отримувала такого задоволення",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.3#8.4",
+        "aspect_span": [
+          54,
+          62
+        ],
+        "opinion_span": [
+          2,
+          40
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:18_457",
+    "Text": "Сподобалося все-обстановка, сервіс і кухня на висоті!",
+    "line_index": 108,
+    "quads": [
+      {
+        "Aspect": "обстановка",
+        "Opinion": "Сподобалося",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          16,
+          26
+        ],
+        "opinion_span": [
+          0,
+          11
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обстановка",
+        "Opinion": "на висоті",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.83#7.67",
+        "aspect_span": [
+          16,
+          26
+        ],
+        "opinion_span": [
+          43,
+          52
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "сервіс",
+        "Opinion": "Сподобалося",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          28,
+          34
+        ],
+        "opinion_span": [
+          0,
+          11
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "сервіс",
+        "Opinion": "на висоті",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.88#7.75",
+        "aspect_span": [
+          28,
+          34
+        ],
+        "opinion_span": [
+          43,
+          52
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кухня",
+        "Opinion": "на висоті",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.9#7.8",
+        "aspect_span": [
+          37,
+          42
+        ],
+        "opinion_span": [
+          43,
+          52
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "12467:19_458",
+    "Text": "Неодмінно цей ресторан увійде в число моїх улюблених)))",
+    "line_index": 109,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "улюблених",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.5#8.38",
+        "aspect_span": [
+          14,
+          22
+        ],
+        "opinion_span": [
+          43,
+          52
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:2_556",
+    "Text": "Наче й не в кафе прийшов, а гості, і тільки на тебе там і чекали.",
+    "line_index": 110,
+    "quads": [
+      {
+        "Aspect": "кафе",
+        "Opinion": "а гості",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.17#6.67",
+        "aspect_span": [
+          12,
+          16
+        ],
+        "opinion_span": [
+          26,
+          33
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:3_557",
+    "Text": "Домашній інтер'єр-так, атмосфера...",
+    "line_index": 111,
+    "quads": [
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "Домашній",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.2#7.2",
+        "aspect_span": [
+          9,
+          17
+        ],
+        "opinion_span": [
+          0,
+          8
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:4_558",
+    "Text": "атмосфера все-таки створюється відвідувачами, не вистачало трохи зайвого шуму, голосів, осіб...",
+    "line_index": 112,
+    "quads": [
+      {
+        "Aspect": "атмосфера",
+        "Opinion": "не вистачало",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "4.67#3.83",
+        "aspect_span": [
+          0,
+          9
+        ],
+        "opinion_span": [
+          46,
+          58
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "14177:5_559",
+    "Text": "Загалом кафе залишило дуже приємне враження.",
+    "line_index": 113,
+    "quads": [
+      {
+        "Aspect": "кафе",
+        "Opinion": "дуже приємне",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.75#7.5",
+        "aspect_span": [
+          8,
+          12
+        ],
+        "opinion_span": [
+          22,
+          34
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:6_560",
+    "Text": "Маленьке, затишне, сухарики з власного смачного хліба скрашують очікування страв.",
+    "line_index": 114,
+    "quads": [
+      {
+        "Aspect": "сухарики з власного смачного хліба",
+        "Opinion": "скрашують",
+        "Category": "FOOD#QUALITY",
+        "VA": "7#6.88",
+        "aspect_span": [
+          19,
+          53
+        ],
+        "opinion_span": [
+          54,
+          63
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14177:7_561",
+    "Text": "Пива немає, але здається, що так і повинно бути в такому форматі.",
+    "line_index": 115,
+    "quads": [
+      {
+        "Aspect": "Пива",
+        "Opinion": "немає",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "5#3",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          5,
+          10
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "Пива",
+        "Opinion": "здається, що так і повинно бути",
+        "Category": "DRINKS#STYLE_OPTIONS",
+        "VA": "5#3.67",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          16,
+          47
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "14177:13_562",
+    "Text": "Їжа не розчарувала, але й особливих захоплень не викликала.",
+    "line_index": 116,
+    "quads": [
+      {
+        "Aspect": "Їжа",
+        "Opinion": "не розчарувала",
+        "Category": "FOOD#QUALITY",
+        "VA": "5.17#4",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          4,
+          18
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "Їжа",
+        "Opinion": "особливих захоплень не викликала",
+        "Category": "FOOD#QUALITY",
+        "VA": "5#3.5",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          26,
+          58
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "14177:14_563",
+    "Text": "Порції пристойні.",
+    "line_index": 117,
+    "quads": [
+      {
+        "Aspect": "Порції",
+        "Opinion": "пристойні",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "6.5#6.1",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          7,
+          16
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:0_577",
+    "Text": "Зайшли в кафе з подругою за рекомендацією батьків, вони були недавно їм дуже сподобалося!",
+    "line_index": 118,
+    "quads": [
+      {
+        "Aspect": "кафе",
+        "Opinion": "дуже сподобалося",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8.1#7.9",
+        "aspect_span": [
+          9,
+          13
+        ],
+        "opinion_span": [
+          72,
+          88
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кафе",
+        "Opinion": "за рекомендацією",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7#6.75",
+        "aspect_span": [
+          9,
+          13
+        ],
+        "opinion_span": [
+          25,
+          41
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:2_578",
+    "Text": "Дуже сподобався інтер'єр, ми сиділи в першому залі, фіранки просто супер, і ще була парочка картин, які моторошно хотілося б мати у себе вдома)",
+    "line_index": 119,
+    "quads": [
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "Дуже сподобався",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.9#7.9",
+        "aspect_span": [
+          16,
+          24
+        ],
+        "opinion_span": [
+          0,
+          15
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "фіранки",
+        "Opinion": "просто супер",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.33#8.17",
+        "aspect_span": [
+          52,
+          59
+        ],
+        "opinion_span": [
+          60,
+          72
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "картин",
+        "Opinion": "моторошно хотілося б мати",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "8.5#8.4",
+        "aspect_span": [
+          92,
+          98
+        ],
+        "opinion_span": [
+          104,
+          129
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:3_579",
+    "Text": "По їжі теж вельми непогано, готують досить швидко, брала судака з овочами і рисом, дуже смачно було і приголомшливий кави Борджіа, раніше його не пробувала!!",
+    "line_index": 120,
+    "quads": [
+      {
+        "Aspect": "їжі",
+        "Opinion": "вельми непогано",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.8#6.4",
+        "aspect_span": [
+          3,
+          6
+        ],
+        "opinion_span": [
+          11,
+          26
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "судака з овочами і рисом",
+        "Opinion": "дуже смачно",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.1#7.9",
+        "aspect_span": [
+          57,
+          81
+        ],
+        "opinion_span": [
+          83,
+          94
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кави Борджіа",
+        "Opinion": "приголомшливий",
+        "Category": "DRINKS#QUALITY",
+        "VA": "8.6#8.3",
+        "aspect_span": [
+          117,
+          129
+        ],
+        "opinion_span": [
+          102,
+          116
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:4_580",
+    "Text": "Подруга брала один зі східних салатів, на жаль не зможу відтворити точно назву, але теж залишилася задоволена!",
+    "line_index": 121,
+    "quads": [
+      {
+        "Aspect": "східних салатів",
+        "Opinion": "задоволена",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.5#7.5",
+        "aspect_span": [
+          22,
+          37
+        ],
+        "opinion_span": [
+          99,
+          109
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:5_581",
+    "Text": "Американо її також не розчарував!",
+    "line_index": 122,
+    "quads": [
+      {
+        "Aspect": "Американо",
+        "Opinion": "не розчарував",
+        "Category": "DRINKS#QUALITY",
+        "VA": "6.7#6.9",
+        "aspect_span": [
+          0,
+          9
+        ],
+        "opinion_span": [
+          19,
+          32
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "14568:6_582",
+    "Text": "Єдине ми були в п'ятницю ввечері і сервіс кілька тормознут, дівчина і молода людина, які там були, більше займалися своїми справами.!",
+    "line_index": 123,
+    "quads": [
+      {
+        "Aspect": "сервіс",
+        "Opinion": "кілька тормознут",
+        "Category": "SERVICE#GENERAL",
+        "VA": "3.62#6.62",
+        "aspect_span": [
+          35,
+          41
+        ],
+        "opinion_span": [
+          42,
+          58
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "14568:8_583",
+    "Text": "Загальний висновок: затишне містечко в центрі, з розумними цінами та дуже комфортною обстановкою)",
+    "line_index": 124,
+    "quads": [
+      {
+        "Aspect": "містечко",
+        "Opinion": "затишне",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.1#6.9",
+        "aspect_span": [
+          28,
+          36
+        ],
+        "opinion_span": [
+          20,
+          27
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "містечко",
+        "Opinion": "з розумними цінами",
+        "Category": "RESTAURANT#PRICES",
+        "VA": "6.67#6.33",
+        "aspect_span": [
+          28,
+          36
+        ],
+        "opinion_span": [
+          47,
+          65
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обстановкою",
+        "Opinion": "дуже комфортною",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.33#7",
+        "aspect_span": [
+          85,
+          96
+        ],
+        "opinion_span": [
+          69,
+          84
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "15567:5_612",
+    "Text": "Скористалися ми на свою голову їх пропозицією на пасту і суші.",
+    "line_index": 125,
+    "quads": [
+      {
+        "Aspect": "пасту",
+        "Opinion": "на свою голову",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.88#7.75",
+        "aspect_span": [
+          49,
+          54
+        ],
+        "opinion_span": [
+          16,
+          30
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "суші",
+        "Opinion": "на свою голову",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.88#7.75",
+        "aspect_span": [
+          57,
+          61
+        ],
+        "opinion_span": [
+          16,
+          30
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:6_613",
+    "Text": "Паста представляла з себе набряклі макарони з незрозумілим соусом, а суші....суші були смачні, але готувалися вони рівно 1 годину 20 хвилин (це як я вже писала при фактично порожньому ресторані).",
+    "line_index": 126,
+    "quads": [
+      {
+        "Aspect": "Паста",
+        "Opinion": "набряклі макарони з незрозумілим соусом",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.8#8.1",
+        "aspect_span": [
+          0,
+          5
+        ],
+        "opinion_span": [
+          26,
+          65
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "макарони",
+        "Opinion": "набряклі",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.8#8.1",
+        "aspect_span": [
+          35,
+          43
+        ],
+        "opinion_span": [
+          26,
+          34
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "соусом",
+        "Opinion": "незрозумілим",
+        "Category": "FOOD#QUALITY",
+        "VA": "1.9#8",
+        "aspect_span": [
+          59,
+          65
+        ],
+        "opinion_span": [
+          46,
+          58
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "суші",
+        "Opinion": "смачні",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.25#7.25",
+        "aspect_span": [
+          69,
+          73
+        ],
+        "opinion_span": [
+          87,
+          93
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "15567:7_614",
+    "Text": "Офіціантка пояснила затримку саме великим обсягом замовлень, і після зауважень взагалі перестала до нас підходити.",
+    "line_index": 127,
+    "quads": [
+      {
+        "Aspect": "Офіціантка",
+        "Opinion": "взагалі перестала до нас підходити",
+        "Category": "SERVICE#GENERAL",
+        "VA": "2#7.8",
+        "aspect_span": [
+          0,
+          10
+        ],
+        "opinion_span": [
+          79,
+          113
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:8_615",
+    "Text": "Кілька разів запитані гарячі рушники, так і не були принесені.",
+    "line_index": 128,
+    "quads": [
+      {
+        "Aspect": "гарячі рушники",
+        "Opinion": "так і не були принесені",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "2#7.33",
+        "aspect_span": [
+          22,
+          36
+        ],
+        "opinion_span": [
+          38,
+          61
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:10_616",
+    "Text": "Все могло б бути непогано: місце розташування, інтер'єр, кухня, але організація роботи жахлива, просто незрозуміло хто займається цим.",
+    "line_index": 129,
+    "quads": [
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "непогано",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.12#5.75",
+        "aspect_span": [
+          47,
+          55
+        ],
+        "opinion_span": [
+          17,
+          25
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кухня",
+        "Opinion": "непогано",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.12#5.75",
+        "aspect_span": [
+          57,
+          62
+        ],
+        "opinion_span": [
+          17,
+          25
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "організація роботи",
+        "Opinion": "жахлива",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.4#8.6",
+        "aspect_span": [
+          68,
+          86
+        ],
+        "opinion_span": [
+          87,
+          94
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:11_617",
+    "Text": "І не організуйте ніякі акції, якщо у вас один кухар і він не здатний обслужити відразу АЖ 4 столика!",
+    "line_index": 130,
+    "quads": [
+      {
+        "Aspect": "кухар",
+        "Opinion": "не здатний обслужити відразу",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.6#8.4",
+        "aspect_span": [
+          46,
+          51
+        ],
+        "opinion_span": [
+          58,
+          86
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:12_618",
+    "Text": "А дівчина офіціантка бачачи, що з нами діти, могла б попередити, що середній термін очікування їжі 1-1,5 години!!!!!!!",
+    "line_index": 131,
+    "quads": [
+      {
+        "Aspect": "дівчина офіціантка",
+        "Opinion": "могла б попередити",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.8#8.5",
+        "aspect_span": [
+          2,
+          20
+        ],
+        "opinion_span": [
+          45,
+          63
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "термін очікування",
+        "Opinion": "1-1,5 години",
+        "Category": "SERVICE#GENERAL",
+        "VA": "1.25#8.75",
+        "aspect_span": [
+          77,
+          94
+        ],
+        "opinion_span": [
+          99,
+          111
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "15567:13_619",
+    "Text": "Думаю такий заклад спіткає долю попередників.",
+    "line_index": 132,
+    "quads": [
+      {
+        "Aspect": "заклад",
+        "Opinion": "спіткає долю попередників",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "2#8.25",
+        "aspect_span": [
+          12,
+          18
+        ],
+        "opinion_span": [
+          19,
+          44
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "29350:1_1194",
+    "Text": "У ресторані дуже смачна їжа, зокрема-суші, роли,свинячий шашлик, теплий мексиканський салат(рекомендую)!!! 2.",
+    "line_index": 133,
+    "quads": [
+      {
+        "Aspect": "їжа",
+        "Opinion": "дуже смачна",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          24,
+          27
+        ],
+        "opinion_span": [
+          12,
+          23
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "суші",
+        "Opinion": "дуже смачна",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          37,
+          41
+        ],
+        "opinion_span": [
+          12,
+          23
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "роли",
+        "Opinion": "дуже смачна",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          43,
+          47
+        ],
+        "opinion_span": [
+          12,
+          23
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "свинячий шашлик",
+        "Opinion": "дуже смачна",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.8#7",
+        "aspect_span": [
+          48,
+          63
+        ],
+        "opinion_span": [
+          12,
+          23
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "теплий мексиканський салат",
+        "Opinion": "дуже смачна",
+        "Category": "FOOD#QUALITY",
+        "VA": "8.17#7.83",
+        "aspect_span": [
+          65,
+          91
+        ],
+        "opinion_span": [
+          12,
+          23
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "теплий мексиканський салат",
+        "Opinion": "рекомендую",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.4#7",
+        "aspect_span": [
+          65,
+          91
+        ],
+        "opinion_span": [
+          92,
+          102
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29350:2_1195",
+    "Text": "Злегка не затишно, від великого простору і небагато прохолодно (взимку), але влітку - це супер види з вікна! 3.",
+    "line_index": 134,
+    "quads": [
+      {
+        "Aspect": "великого простору",
+        "Opinion": "Злегка не затишно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.33#5.33",
+        "aspect_span": [
+          23,
+          40
+        ],
+        "opinion_span": [
+          0,
+          17
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "великого простору",
+        "Opinion": "небагато прохолодно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "3.33#6.67",
+        "aspect_span": [
+          23,
+          40
+        ],
+        "opinion_span": [
+          43,
+          62
+        ],
+        "sentiment_id": 0
+      },
+      {
+        "Aspect": "види з вікна",
+        "Opinion": "супер",
+        "Category": "LOCATION#GENERAL",
+        "VA": "8.1#7.8",
+        "aspect_span": [
+          95,
+          107
+        ],
+        "opinion_span": [
+          89,
+          94
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29350:3_1196",
+    "Text": "Сервіс, на мій погляд дуже хороший, починаючи від зустрічі гостя до проводів.",
+    "line_index": 135,
+    "quads": [
+      {
+        "Aspect": "Сервіс",
+        "Opinion": "дуже хороший",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#6.88",
+        "aspect_span": [
+          0,
+          6
+        ],
+        "opinion_span": [
+          22,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "зустрічі гостя",
+        "Opinion": "дуже хороший",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#6.88",
+        "aspect_span": [
+          50,
+          64
+        ],
+        "opinion_span": [
+          22,
+          34
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "проводів",
+        "Opinion": "дуже хороший",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.5#6.88",
+        "aspect_span": [
+          68,
+          76
+        ],
+        "opinion_span": [
+          22,
+          34
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "29350:4_1197",
+    "Text": "Персонал дуже ввічливий (особливо офіціантка Анастасія),привітний і добре знає склад страв, що не менш важливо.",
+    "line_index": 136,
+    "quads": [
+      {
+        "Aspect": "Персонал",
+        "Opinion": "дуже ввічливий",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.7#6.9",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          23
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Персонал",
+        "Opinion": "привітний",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.88#6.5",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          56,
+          65
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Персонал",
+        "Opinion": "добре знає склад страв",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          68,
+          90
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "офіціантка",
+        "Opinion": "дуже ввічливий",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7.62#7",
+        "aspect_span": [
+          34,
+          44
+        ],
+        "opinion_span": [
+          9,
+          23
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:2_243",
+    "Text": "Про сервіс нічого негативного не скажеш - швидко підходять, всі усміхаються, підходять запитують, чи все подобається.",
+    "line_index": 137,
+    "quads": [
+      {
+        "Aspect": "сервіс",
+        "Opinion": "нічого негативного",
+        "Category": "SERVICE#GENERAL",
+        "VA": "5.83#4.67",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          11,
+          29
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "сервіс",
+        "Opinion": "швидко підходять",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.88#6.38",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          42,
+          58
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "сервіс",
+        "Opinion": "всі усміхаються",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.75#6.25",
+        "aspect_span": [
+          4,
+          10
+        ],
+        "opinion_span": [
+          60,
+          75
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:4_244",
+    "Text": "Інтер'єр на любителя, але мило і зручно.",
+    "line_index": 138,
+    "quads": [
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "на любителя",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "5.25#5",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          9,
+          20
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "мило",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.6#6",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          26,
+          30
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "Інтер'єр",
+        "Opinion": "зручно",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "6.7#6.3",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          33,
+          39
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:5_245",
+    "Text": "Їжа хороша.",
+    "line_index": 139,
+    "quads": [
+      {
+        "Aspect": "Їжа",
+        "Opinion": "хороша",
+        "Category": "FOOD#QUALITY",
+        "VA": "6.6#6",
+        "aspect_span": [
+          0,
+          3
+        ],
+        "opinion_span": [
+          4,
+          10
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "10645:10_246",
+    "Text": "Я особисто очікував трохи більше страв з м'яса в такому ресторані на мангалі.",
+    "line_index": 140,
+    "quads": [
+      {
+        "Aspect": "страв з м'яса",
+        "Opinion": "очікував трохи більше",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "3.75#6",
+        "aspect_span": [
+          33,
+          46
+        ],
+        "opinion_span": [
+          11,
+          32
+        ],
+        "sentiment_id": 0
+      }
+    ]
+  },
+  {
+    "ID": "10645:11_247",
+    "Text": "З іншого боку по одному шашлику є з кожного виду м'яса, в принципі вистачає, але хочеться чогось незвичайного побачити..",
+    "line_index": 141,
+    "quads": [
+      {
+        "Aspect": "шашлику",
+        "Opinion": "в принципі вистачає",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "5#3.8",
+        "aspect_span": [
+          24,
+          31
+        ],
+        "opinion_span": [
+          56,
+          75
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "шашлику",
+        "Opinion": "хочеться чогось незвичайного",
+        "Category": "FOOD#STYLE_OPTIONS",
+        "VA": "5#4.33",
+        "aspect_span": [
+          24,
+          31
+        ],
+        "opinion_span": [
+          81,
+          109
+        ],
+        "sentiment_id": 1
+      }
+    ]
+  },
+  {
+    "ID": "1200:0_37",
+    "Text": "Святкували день народження, все сподобалося,вдалося знайти місце, яке поєднувало б в собі затишний інтер'єр (перший зал), смачну їжу,приємний персонал і дуууже демократичні ціни ( на рахунок знижка 33% на честь дня народження), але все таки було кілька дуже дивних моментів.1.",
+    "line_index": 142,
+    "quads": [
+      {
+        "Aspect": "місце",
+        "Opinion": "дуууже демократичні ціни",
+        "Category": "RESTAURANT#PRICES",
+        "VA": "8.5#8.5",
+        "aspect_span": [
+          59,
+          64
+        ],
+        "opinion_span": [
+          153,
+          177
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "місце",
+        "Opinion": "сподобалося",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.33#7.33",
+        "aspect_span": [
+          59,
+          64
+        ],
+        "opinion_span": [
+          32,
+          43
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "затишний",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.2#6.9",
+        "aspect_span": [
+          99,
+          107
+        ],
+        "opinion_span": [
+          90,
+          98
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "перший зал",
+        "Opinion": "затишний",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7.2#6.9",
+        "aspect_span": [
+          109,
+          119
+        ],
+        "opinion_span": [
+          90,
+          98
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "їжу",
+        "Opinion": "смачну",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.2#7",
+        "aspect_span": [
+          129,
+          132
+        ],
+        "opinion_span": [
+          122,
+          128
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "персонал",
+        "Opinion": "приємний",
+        "Category": "SERVICE#GENERAL",
+        "VA": "7#6.8",
+        "aspect_span": [
+          142,
+          150
+        ],
+        "opinion_span": [
+          133,
+          141
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1200:1_38",
+    "Text": "Ресторан закривається о пів на 12, тому в якийсь момент офіціант ввічливо нам це повідомив, нас це не особливо засмутило, ми поїхали далі танцювати, але все таки.. у місті де будь-який заклад працює до останнього клієнта трохи дивно.",
+    "line_index": 143,
+    "quads": [
+      {
+        "Aspect": "Ресторан",
+        "Opinion": "трохи дивно",
+        "Category": "RESTAURANT#MISCELLANEOUS",
+        "VA": "4.75#4.25",
+        "aspect_span": [
+          0,
+          8
+        ],
+        "opinion_span": [
+          221,
+          232
+        ],
+        "sentiment_id": 1
+      },
+      {
+        "Aspect": "офіціант",
+        "Opinion": "ввічливо",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.5#6",
+        "aspect_span": [
+          56,
+          64
+        ],
+        "opinion_span": [
+          65,
+          73
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "1200:2_39",
+    "Text": "Вино взяли біле сицилійське, сподобалося, попросили ще таке ж, його виявилося більше немає, взяли інше, і воно теж було в одному екземплярі, взяли третє ....",
+    "line_index": 144,
+    "quads": [
+      {
+        "Aspect": "Вино",
+        "Opinion": "сподобалося",
+        "Category": "DRINKS#QUALITY",
+        "VA": "7#6.8",
+        "aspect_span": [
+          0,
+          4
+        ],
+        "opinion_span": [
+          29,
+          40
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "26284:1_1055",
+    "Text": "Ми з Москви,відвідали на вихідні Пітер і Ваш чудовий ресторан!",
+    "line_index": 145,
+    "quads": [
+      {
+        "Aspect": "ресторан",
+        "Opinion": "чудовий",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "7.8#7.4",
+        "aspect_span": [
+          53,
+          61
+        ],
+        "opinion_span": [
+          45,
+          52
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "26284:2_1056",
+    "Text": "Сподобалося все: і незвично виконаний інтер'єр, і хороше обслуговування офіціантки з рекомендацією страв,прекрасний вид з вікна,і найголовніше дуже хороша кухня!!!",
+    "line_index": 146,
+    "quads": [
+      {
+        "Aspect": "інтер'єр",
+        "Opinion": "незвично",
+        "Category": "AMBIENCE#GENERAL",
+        "VA": "7#6.38",
+        "aspect_span": [
+          38,
+          46
+        ],
+        "opinion_span": [
+          19,
+          27
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "обслуговування",
+        "Opinion": "хороше",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.8#6.2",
+        "aspect_span": [
+          57,
+          71
+        ],
+        "opinion_span": [
+          50,
+          56
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "офіціантки",
+        "Opinion": "хороше",
+        "Category": "SERVICE#GENERAL",
+        "VA": "6.67#6",
+        "aspect_span": [
+          72,
+          82
+        ],
+        "opinion_span": [
+          50,
+          56
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "вид з вікна",
+        "Opinion": "прекрасний",
+        "Category": "LOCATION#GENERAL",
+        "VA": "7.9#7.2",
+        "aspect_span": [
+          116,
+          127
+        ],
+        "opinion_span": [
+          105,
+          115
+        ],
+        "sentiment_id": 2
+      },
+      {
+        "Aspect": "кухня",
+        "Opinion": "дуже хороша",
+        "Category": "FOOD#QUALITY",
+        "VA": "7.6#7.1",
+        "aspect_span": [
+          155,
+          160
+        ],
+        "opinion_span": [
+          143,
+          154
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  },
+  {
+    "ID": "26284:3_1057",
+    "Text": "Ціна повністю відповідає якості, все дуже смачно,що на мій погляд рідкість для Пітера, де мало дійсно хороших ресторанів.\"BELLINI\" один з них!",
+    "line_index": 147,
+    "quads": [
+      {
+        "Aspect": "\"BELLINI\"",
+        "Opinion": "дійсно хороших",
+        "Category": "RESTAURANT#GENERAL",
+        "VA": "8#8.17",
+        "aspect_span": [
+          121,
+          130
+        ],
+        "opinion_span": [
+          95,
+          109
+        ],
+        "sentiment_id": 2
+      }
+    ]
+  }
+]

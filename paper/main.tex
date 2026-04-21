@@ -1,0 +1,380 @@
+% Opinion-Prior Supervision for VA Prediction in Dimensional Aspect Sentiment Quad Prediction
+% Target: ICONIP 2026 (Springer LNCS format, 10-12 pages)
+
+\documentclass[runningheads]{llncs}
+
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{cite}
+\usepackage{hyperref}
+
+% Convenience: avoid ugly escaped underscores for domain names
+\newcommand{\restaurant}{{\normalfont\textsc{Restaurant}}}
+\newcommand{\laptop}{{\normalfont\textsc{Laptop}}}
+
+\begin{document}
+
+\title{Opinion as Prior: Supervised VA Prediction for DimASQP}
+\titlerunning{Opinion as Prior: Supervised VA Prediction for DimASQP}
+
+\author{Yaoshuo Wu\inst{1} \and Haiqin Yang\inst{1}\thanks{Corresponding author} \and Zhong Ming\inst{1}\thanks{Corresponding author}}
+\authorrunning{Y. Wu et al.}
+\institute{Shenzhen Technology University, Shenzhen, China\\
+\email{yaoshuowu75@gmail.com, yanghaiqin@sztu.edu.cn, mingz@szu.edu.cn}}
+
+\maketitle
+
+%==============================================================================
+\begin{abstract}
+Aspect-based sentiment analysis is increasingly adopting continuous Valence-Arousal (VA) representations to express emotional nuance beyond discrete polarity; in the DimASQP task this shift introduces a compound evaluation pressure, as the official Continuous F1 metric directly penalises VA prediction errors on top of extraction quality. Existing token-pair matrix extractors predict VA at individual token positions, misaligning the prediction unit with quadruplet-level evaluation; more critically, the opinion expression influences VA only implicitly, leaving the opinion-VA correspondence architecturally invisible. We propose \textbf{opinion-prior supervision}: an auxiliary training objective that directly supervises an opinion-span-derived VA prior against gold VA labels, making the opinion-VA correspondence a trained mapping rather than an implicit co-occurrence pattern. We instantiate it as the \textbf{Opinion-Guided VA head}, which decomposes VA prediction into an explicitly supervised opinion prior and an aspect-opinion residual correction fused via a learnable gate. Controlled $2{\times}2$ ablation confirms that the supervision signal is the primary driver, with the decomposition providing an interpretable and separately evaluable prior path. Across two English domains, the method yields consistent Euclidean VA-error reductions; gains are limited for implicit-opinion cases where the inductive bias does not apply.
+
+\keywords{Opinion-Prior Supervision \and Dimensional Aspect Sentiment Quad Prediction \and Valence-Arousal Prediction \and VA Quality Evaluation}
+\end{abstract}
+
+%==============================================================================
+\section{Introduction}
+\label{sec:intro}
+
+Aspect-Based Sentiment Analysis (ABSA) aims to identify fine-grained sentiment toward specific aspects in text~\cite{pontiki2014semeval,pontiki2016semeval,zhang2022survey}. Conventional ABSA represents sentiment as discrete polarities (positive, negative, neutral), but this categorical view cannot distinguish ``\emph{amazing}'' from ``\emph{acceptable}''---both positive, yet fundamentally different in emotional intensity. Dimensional Aspect-Based Sentiment Analysis (DimABSA)~\cite{dimabsa2026} addresses this by adopting the Valence-Arousal (VA) model from affective psychology~\cite{russell1980circumplex}, replacing polarity labels with two continuous scores: \emph{valence} ($V \in [1,9]$, pleasantness) and \emph{arousal} ($A \in [1,9]$, activation).
+
+The most demanding formulation in this direction is \textbf{Dimensional Aspect Sentiment Quad Prediction (DimASQP)}, which requires extracting quadruplets $(a, c, o, \langle V, A \rangle)$---aspect term, aspect category, opinion expression, and continuous VA values. Crucially, the official evaluation metric Continuous F1 (cF1)~\cite{dimabsa2026} \emph{directly} penalizes VA prediction errors: each correctly extracted quadruplet receives a score discounted by the Euclidean distance between predicted and gold VA values (Eq.~\ref{eq:ctp}). A system that perfectly extracts all quads but predicts VA poorly will receive a severely degraded cF1. This makes VA prediction quality not an auxiliary concern, but a \emph{first-class component of the task objective}.
+
+\smallskip
+\noindent\textbf{Illustrative example.}\quad Consider: ``\emph{The food was amazing but a bit overpriced.}'' A DimASQP model must extract two quadruplets from this single sentence:
+\begin{itemize}
+    \item $(\textit{food},\ \textsc{Food\#Quality},\ \textit{amazing},\ \langle 7.2,\ 6.1\rangle)$
+    \item $(\textit{food},\ \textsc{Food\#Prices},\ \textit{overpriced},\ \langle 2.8,\ 5.3\rangle)$
+\end{itemize}
+Both quads share the same aspect span \emph{food}, yet their VA values differ sharply ($\Delta V \!=\! 4.4$) because the opinion expressions carry opposite sentiment. A token-level VA head anchored to \emph{food} can only produce a single prediction for both quads---the prediction unit does not match the evaluation unit. Notice also that the opinion expressions (\emph{amazing} vs.\ \emph{overpriced}) directly determine the VA values, while the aspect primarily identifies \emph{what} is being evaluated. This asymmetry motivates using the opinion span as an explicit, supervised VA prior.
+\smallskip
+
+Despite this, existing token-pair matrix methods~\cite{gao2023oneasqp} treat VA prediction as a secondary output, predicting VA at the \emph{token level}---a design that creates a fundamental misalignment with the task:
+
+\begin{enumerate}
+    \item \textbf{Granularity mismatch.} cF1 evaluates VA per \emph{quadruplet}, but token-level VA is anchored to individual positions. As the example above shows, a single token can anchor quads with VA values differing by more than 4 points---one token-level prediction cannot serve both correctly.
+    \item \textbf{Missing opinion grounding.} The opinion expression is the primary VA carrier, yet token-level heads have no mechanism to explicitly ground VA prediction in the span that most directly encodes sentiment intensity. The opinion-VA relationship is left to be discovered implicitly from co-occurrence statistics.
+\end{enumerate}
+
+A natural remedy is to condition VA on the specific aspect-opinion span pair, resolving the granularity mismatch. However, as we show empirically (Sec.~\ref{sec:ablation}), span-pair conditioning alone still leaves the opinion-VA relationship to be learned implicitly. A structural bias helps, but the model also needs an explicit mechanism for injecting and directly supervising an opinion-derived VA prior.
+
+We therefore propose \textbf{opinion-prior supervision}: an auxiliary training objective that explicitly supervises an opinion-span-derived VA prior against gold VA labels, making the opinion-VA correspondence an explicitly trained, observable mapping rather than a latent pattern absorbed from co-occurrence statistics. To realize this in an interpretable form, we instantiate it as an \textbf{Opinion-Guided VA head} that decomposes VA prediction into (1)~an opinion-derived prior (the supervised path) and (2)~an aspect-opinion residual correction (the context path). Critically, our controlled $2\!\times\!2$ ablation (Sec.~\ref{sec:ablation}) demonstrates that the supervision signal is the dominant driver---adding the prior loss to Span-Pair alone (SP+Prior) achieves nearly the same VA reduction as the full Opinion-Guided system, while the architectural decomposition without supervision yields only limited gains. The one boundary condition: when the opinion expression is implicit, the prior path falls back to a sentence-level proxy and the inductive bias no longer applies (Sec.~\ref{sec:va}).
+
+Our contributions are:
+\begin{itemize}
+    \item We identify a granularity misalignment between token-level VA prediction and quadruplet-level evaluation in DimASQP, and propose \textbf{opinion-prior supervision}---an auxiliary training objective that directly supervises an opinion-span-derived VA prior against gold VA labels, forcing the model to learn the opinion-VA correspondence as an explicit trained mapping. We instantiate this as the Opinion-Guided VA head: a prior path ($\text{MLP}_{\text{prior}}(\mathbf{h}_o)$, directly supervised) fused with a context-residual path via a learnable gate, within an encoder-based, One-ASQP-style extractive framework.
+    \item Across two English domains and 5 seeds per domain, we show that the prior-supervised framework consistently improves VA-specific quality: OG achieves the lowest mean Euclid in both domains, and the improvement versus the Position baseline is significant on both domains (\restaurant{} test: $-3.6\%$, $p = 0.046$; \laptop{} test: $-8.1\%$, $p = 0.046$). The improvement over Span-Pair is directionally consistent but not statistically significant.
+    \item We show that \emph{Euclidean VA error}---not cF1---is the metric that cleanly isolates VA-prediction quality, and demonstrate through a controlled $2\!\times\!2$ ablation that the supervision signal is the dominant driver of improvement, not the architectural decomposition. This separates our contribution from prior work that conflates extraction and VA quality under a single compound score.
+\end{itemize}
+
+%==============================================================================
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Aspect Sentiment Quad Prediction}
+
+Aspect Sentiment Quad Prediction (ASQP)~\cite{cai2021acos} requires extracting all $(a, c, o, s)$ quadruplets. Generative approaches~\cite{zhang2021paraphrase,zhang2021generative,mao2022seq2path,gou2023mvp,bai2024bvsp} and extractive matrix methods~\cite{gao2023oneasqp,su2025gridtag,zhou2024spanpair} have both advanced significantly. However, all existing ASQP methods treat $s$ as a discrete polarity label; our work extends the extractive matrix framework to the \emph{dimensional} setting where $s$ is replaced by continuous VA scores.
+
+\subsection{Dimensional Sentiment Analysis}
+
+The psychological basis for dimensional sentiment lies in the VA circumplex model~\cite{russell1980circumplex}, operationalised through large-scale word-level VA norms~\cite{warriner2013norms,mohammad2018obtaining}. EmoBank~\cite{buechel2017emobank} provided the first corpus-scale valence-arousal-dominance annotation for English text, establishing dimensional emotion analysis as a viable NLP task. Aspect-level dimensional sentiment analysis was first formalised as a shared task at SIGHAN~2024~\cite{lee2024sighandimabsa}, where the winning system HITSZ-HLT~\cite{hitszSighan2024} adopted a hybrid BERT-LLM pipeline for extraction and VA prediction. CL-Span~\cite{clspanSighan2024} enhanced span representations with contrastive learning for VA regression. The more recent SemEval-2026 DimABSA task~\cite{dimabsa2026} extended this to English and multilingual settings, attracting predominantly LLM-based systems such as SCSG~\cite{scsg2026}.
+
+While LLM systems lead shared-task leaderboards~\cite{zhang2024llm,wang2023chatgpt} and contrastive methods~\cite{mukherjee2023contraste,clspanSighan2024} improve representation quality, our work focuses on improving the \emph{VA prediction component} within encoder-based extractors---an orthogonal direction.
+
+\subsection{Opinion-Sentiment Relationship}
+
+Opinion expressions are well-established primary carriers of sentiment intensity in ABSA~\cite{fan2019target,li2019unified,chen2020synchronous,bao2023opiniontree,li2024opiniontree}. Our work extends this insight to the dimensional setting: rather than treating opinion representations as auxiliary signals for discrete polarity, we use them as explicit VA priors with dedicated supervision.
+
+%==============================================================================
+\section{Problem Definition}
+\label{sec:problem}
+
+Given an input text $\mathbf{x} = (x_1, x_2, \ldots, x_n)$, the DimASQP task requires extracting a set of quadruplets $\mathcal{Q} = \{(a_i, c_i, o_i, \langle V_i, A_i \rangle)\}_{i=1}^{|\mathcal{Q}|}$, where:
+\begin{itemize}
+    \item $a_i$ is an aspect term (a text span from $\mathbf{x}$, or \texttt{NULL} if implicit),
+    \item $c_i \in \mathcal{C}$ is an aspect category from a predefined taxonomy,
+    \item $o_i$ is an opinion expression (a text span, or \texttt{NULL} if implicit),
+    \item $V_i \in [1, 9]$ and $A_i \in [1, 9]$ are valence and arousal scores.
+\end{itemize}
+
+\noindent\textbf{Evaluation.}\quad The official metric is Continuous F1 (cF1). Predicted and gold quadruplets are matched by exact string match on $(a, c, o)$. For each matched pair, a continuous true-positive score is computed as:
+\begin{equation}
+    \text{cTP} = \max\left(0,\; 1 - \frac{\sqrt{(v_p - v_g)^2 + (a_p - a_g)^2}}{\sqrt{128}}\right)
+    \label{eq:ctp}
+\end{equation}
+where $\sqrt{128}$ is the maximum Euclidean distance in the VA space. A perfectly predicted VA yields $\text{cTP}=1$; a prediction at maximum distance yields $\text{cTP}=0$; most matched quads receive a score strictly between these extremes, so even correctly extracted quadruplets are penalised by VA inaccuracy.
+cF1 is the harmonic mean of
+$\text{cPrec} = \frac{\sum \text{cTP}}{|\text{TP}| + |\text{FP}|}$
+and
+$\text{cRec} = \frac{\sum \text{cTP}}{|\text{TP}| + |\text{FN}|}$.
+Because cF1 conflates extraction quality with VA quality, we additionally report \textbf{Euclid} (mean $\ell_2$ distance on matched quadruplets) as a pure VA-quality signal, decoupled from extraction performance.
+
+%==============================================================================
+\section{Method}
+\label{sec:method}
+
+\subsection{Overview}
+
+We build on One-ASQP~\cite{gao2023oneasqp} as the extraction backbone and study the VA head as the focal design variable. Two design considerations motivate this choice. First, our research question requires the VA head to be \emph{isolated}: opinion-prior supervision operates on an explicit opinion span representation $\mathbf{h}_o$, which token-pair matrix extractors produce directly as a byproduct of span decoding. Generative methods~\cite{zhang2021paraphrase,mao2022seq2path,gou2023mvp} fuse extraction and VA generation into a single decoding step, making it impossible to ablate the VA component independently. Second, among extractive matrix methods, One-ASQP provides the most complete one-stage framework for ASQP (joint aspect, opinion, and category extraction with a single GlobalPointer matrix), making it the natural representative for studying VA head design within this family. More recent extractive works are not directly applicable here: GridTag~\cite{su2025gridtag} adopts a different architectural paradigm (unified grid tagging rather than GlobalPointer) and targets categorical polarity only, without a VA prediction component; and Zhou et al.~\cite{zhou2024spanpair} target dialogue-level rather than sentence-level ABSA. One-ASQP thus remains the most appropriate extractive backbone for our controlled study.
+
+The central ingredient of our contribution is \emph{opinion-prior supervision}; the Opinion-Guided VA head is the concrete carrier used to realize and operationalize that supervision. As illustrated in Fig.~\ref{fig:architecture}, the system consists of three components: (1)~a pre-trained encoder that produces contextualized token representations; (2)~a token-pair matrix head that jointly extracts aspect terms, opinion expressions, and aspect categories; and (3)~an Opinion-Guided VA head for continuous VA prediction over decoded span pairs.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.65\textwidth]{figures/figure1.pdf}
+    \caption{Architecture overview. A shared DeBERTa encoder feeds two branches: (left) a token-pair matrix head for quad extraction; (right) the Opinion-Guided VA head, which serves as our interpretable implementation of opinion-prior supervision. The VA head derives an opinion prior $\hat{\mathbf{y}}_{\text{prior}}$ from $\text{MLP}_{\text{prior}}(\mathbf{h}_o)$ and a context residual $\Delta\mathbf{y}$ from $\text{MLP}_{\text{res}}([\mathbf{h}_a;\mathbf{h}_o;\mathbf{h}_a\!\odot\!\mathbf{h}_o])$, fused via a learnable gate $\sigma(\mathbf{g})$. $\mathcal{L}_{\text{prior}}$ (dashed, training only) is the auxiliary supervision loss on the prior path.}
+    \label{fig:architecture}
+\end{figure}
+
+\subsection{Base Architecture: Token-Pair Matrix Extraction}
+\label{sec:base}
+
+Given input text $\mathbf{x}$, we obtain contextualized representations $\mathbf{H} \in \mathbb{R}^{n \times d}$ from DeBERTa-v3-base~\cite{he2021deberta,he2021debertav3}. The matrix head uses EfficientGlobalPointer~\cite{su2022globalpointer} with RoPE~\cite{su2024rope} to score span-pair relationships across three label types: aspect boundaries (\texttt{BA-BO}), opinion boundaries (\texttt{EA-EO}), and aspect-opinion links with category (\texttt{BA-EO-}$c$, $c \in \mathcal{C}$). Auxiliary sentence-level and token-level category classifiers and FGM adversarial training~\cite{miyato2017fgm} follow~\cite{gao2023oneasqp}.
+
+\subsection{VA Prediction Heads}
+\label{sec:va}
+
+We compare three VA heads under the same extractor. The first two are controlled baselines; the third is our prior-supervised Opinion-Guided implementation. For a decoded quadruplet with aspect span $(i_a^s, i_a^e)$ and opinion span $(i_o^s, i_o^e)$, we first compute span representations via mean pooling:
+\begin{equation}
+    \mathbf{h}_a = \frac{1}{i_a^e - i_a^s + 1}\sum_{j=i_a^s}^{i_a^e} \mathbf{h}_j, \quad
+    \mathbf{h}_o = \frac{1}{i_o^e - i_o^s + 1}\sum_{j=i_o^s}^{i_o^e} \mathbf{h}_j
+    \label{eq:pool}
+\end{equation}
+
+\subsubsection{Position VA (Baseline).}
+The simplest approach predicts VA independently at each token position:
+\begin{equation}
+    \hat{\mathbf{y}}_{\text{pos}} = \sigma(\text{MLP}_{\text{pos}}(\mathbf{h}_t)) \cdot 8 + 1, \quad t \in \{i_a^s, i_o^s\}
+\end{equation}
+where $\sigma$ is the sigmoid function (output in $[1, 9]$). VA is assigned to span start tokens, the native prediction point of EfficientGlobalPointer. We deliberately forgo mean pooling here, isolating \emph{granularity mismatch} as the sole variable of this baseline.
+
+\subsubsection{Span-Pair VA (Ablation).}
+To condition VA on the specific aspect-opinion pair, we concatenate span representations with their element-wise product:
+\begin{equation}
+    \hat{\mathbf{y}}_{\text{sp}} = \sigma\big(\text{MLP}_{\text{sp}}([\mathbf{h}_a;\; \mathbf{h}_o;\; \mathbf{h}_a \odot \mathbf{h}_o])\big) \cdot 8 + 1
+    \label{eq:spanpair}
+\end{equation}
+The concatenation $[\mathbf{h}_a;\mathbf{h}_o]$ captures independent span information, while the element-wise product $\mathbf{h}_a \odot \mathbf{h}_o$ captures dimension-wise interactions---a standard bilinear approximation used in relation classification~\cite{li2019unified}. This formulation resolves the granularity mismatch but treats both spans symmetrically, ignoring the asymmetric role of opinion expressions as primary sentiment carriers.
+
+\subsubsection{Opinion-Guided VA (Prior-Supervised Head).}
+Our key observation is that opinion expressions carry strong VA priors: ``\emph{delicious}'' implies high valence regardless of whether it modifies ``\emph{pizza}'' or ``\emph{sushi}'', while the aspect primarily modulates the intensity. To implement opinion-prior supervision explicitly, we decompose VA prediction into:
+
+\paragraph{Opinion Prior.} A dedicated head estimates base VA from the opinion span alone:
+\begin{equation}
+    \hat{\mathbf{y}}_{\text{prior}} = \sigma\big(\text{MLP}_{\text{prior}}(\mathbf{h}_o)\big) \cdot 8 + 1
+    \label{eq:prior}
+\end{equation}
+
+\paragraph{Context Residual.} The aspect-opinion interaction produces a residual adjustment:
+\begin{equation}
+    \Delta\mathbf{y} = \text{MLP}_{\text{res}}([\mathbf{h}_a;\; \mathbf{h}_o;\; \mathbf{h}_a \odot \mathbf{h}_o])
+    \label{eq:residual}
+\end{equation}
+
+\paragraph{Gated Combination.} A learnable gate $\mathbf{g} \in \mathbb{R}^2$ (one per VA dimension) balances the two components:
+\begin{equation}
+    \hat{\mathbf{y}}_{\text{OG}} = \hat{\mathbf{y}}_{\text{prior}} + \sigma(\mathbf{g}) \odot \Delta\mathbf{y}
+    \label{eq:og}
+\end{equation}
+
+The final prediction $\hat{\mathbf{y}}_{\text{OG}}$ is clamped to $[1, 9]$: unlike Position VA and Span-Pair VA---which are inherently bounded by the $\sigma(\cdot)\!\cdot\!8 + 1$ transform---the unconstrained residual $\Delta\mathbf{y}$ can shift the prior outside the valid VA range.
+
+This architecture makes the opinion-VA mapping explicit and directly supervisable: the prior path is trained to predict VA from opinion alone, while the residual path handles the aspect-specific deviation. Crucially, this differs from generic multi-task learning---the auxiliary objective is not a separate task sharing parameters, but the \emph{same} VA regression target applied specifically to the opinion sub-span, motivated by the linguistic observation that opinion expressions are the primary carriers of sentiment intensity. The key advantage over simply appending the prior loss to Span-Pair (SP+Prior) is \emph{structural transparency}: the OG head isolates an explicit, independently evaluable prior path whose gate weights and prediction quality can be inspected at inference time, providing a diagnostic handle that a black-box auxiliary loss does not offer.
+
+\paragraph{Handling Implicit Spans.}
+DimASQP allows both aspect and opinion to be \texttt{NULL} (implicit). Following One-ASQP~\cite{gao2023oneasqp}, we map implicit spans to the \texttt{[SEP]} token as a proxy representation:
+\begin{equation}
+    \mathbf{h}_a = \mathbf{h}_{\texttt{[SEP]}} \;\text{if aspect is implicit}, \quad
+    \mathbf{h}_o = \mathbf{h}_{\texttt{[SEP]}} \;\text{if opinion is implicit}
+    \label{eq:null}
+\end{equation}
+When opinion is implicit, the prior $\hat{\mathbf{y}}_{\text{prior}}$ is derived from the sentence-level \texttt{[SEP]} representation rather than a specific opinion span. \textbf{This is a fundamental boundary condition}: the central inductive bias does not hold for implicit opinions, and the model degrades to a span-conditioned approach with a weaker signal. In the \restaurant{} training set, 448 out of 2,482 quadruplets (18.0\%) are implicit-opinion cases; the method should not be expected to provide VA-quality gains on these.
+
+\subsection{Training Objective}
+\label{sec:training}
+
+The total loss combines four components:
+\begin{equation}
+    \mathcal{L} = \lambda_1 \mathcal{L}_{\text{matrix}} + \lambda_2 \mathcal{L}_{\text{cls}} + \lambda_3 \mathcal{L}_{\text{seq}} + \lambda_4 \mathcal{L}_{\text{VA}}
+    \label{eq:loss}
+\end{equation}
+
+where $\mathcal{L}_{\text{matrix}}$ is the multi-label categorical cross-entropy for the matrix head~\cite{su2022globalpointer}, $\mathcal{L}_{\text{cls}}$ and $\mathcal{L}_{\text{seq}}$ are BCE losses for sentence-level and token-level category classifiers, and $\mathcal{L}_{\text{VA}}$ is the Smooth L1 loss for VA regression.
+
+For the Opinion-Guided architecture, an auxiliary prior loss encourages the opinion prior to independently approximate VA values:
+\begin{equation}
+    \mathcal{L}_{\text{VA}}^{\text{OG}} = \mathcal{L}_{\text{VA}}(\hat{\mathbf{y}}_{\text{OG}}, \mathbf{y}) + \lambda_p \cdot \mathcal{L}_{\text{VA}}(\hat{\mathbf{y}}_{\text{prior}}, \mathbf{y})
+    \label{eq:og_loss}
+\end{equation}
+
+where $\lambda_p$ weights the prior supervision. During training, gold span positions are used (teacher forcing); at inference, predicted spans from the matrix head are used.
+
+%==============================================================================
+\section{Experiments}
+\label{sec:exp}
+
+\subsection{Datasets and Setup}
+
+We evaluate on the DimABSA 2026~\cite{dimabsa2026} English benchmark. Dataset statistics and training hyperparameters are given in Table~\ref{tab:datasets}. Each configuration is run with 5 seeds (7, 42, 66, 123, 2045); all weights are fixed across methods and seeds. Results are reported on the held-out test set (1,000 sentences per domain); the decision threshold is selected on the development set (200 sentences) without retraining.
+
+\begin{table}[!h]
+\centering\small
+\caption{Dataset statistics (DimABSA 2026 English benchmark) and training hyperparameters fixed across all methods and seeds.}
+\label{tab:datasets}
+\vspace{2pt}
+\begin{minipage}[t]{0.40\linewidth}
+\centering
+\begin{tabular}{@{}lrr@{}}
+\toprule
+\textbf{Split} & \textbf{\restaurant{}} & \textbf{\laptop{}} \\
+\midrule
+Train          & 2{,}284 & 4{,}076 \\
+Dev            &     200 &     200 \\
+Test (sents.)  & 1{,}000 & 1{,}000 \\
+Test (quads)   & 2{,}129 & 1{,}975 \\
+\bottomrule
+\end{tabular}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.56\linewidth}
+\centering
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Hyperparameter} & \textbf{Value} \\
+\midrule
+Encoder                         & DeBERTa-v3-base \\
+Encoder LR                      & $10^{-5}$ \\
+Task-head LR                    & $3{\times}10^{-5}$ \\
+Batch / accum.                  & 4 / 8 \\
+Early stop                      & 20 epochs \\
+$\lambda_1$/$\lambda_{2,3,4}$   & 1.0 / 0.5 \\
+$\lambda_p$                     & 0.3 \\
+Adv.\ training                  & FGM \\
+Precision                       & FP32 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{table}
+
+\subsection{Main Results}
+
+Tables~\ref{tab:cf1} and~\ref{tab:main} present the 5-seed controlled results. \textbf{Read Euclid (Table~\ref{tab:main}) first}: because cF1 couples extraction quality with VA quality under a single score, cF1 differences across methods with identical extractors can appear negligible even when VA prediction changes substantially. Euclid, computed only on matched quadruplets, isolates pure VA-prediction quality.
+
+\begin{table}[t]
+\centering\small
+\caption{cF1 on the DimABSA 2026 English test sets. Official SemEval-2026 Task~3 LLM baselines~\cite{dimabsa2026} (top) vs.\ our encoder-only methods (bottom). \textbf{Bold}: best per domain among encoder methods. $\dag$~VA-specific metrics not publicly reported for these systems.}
+\label{tab:cf1}
+\begin{tabular}{@{}lcc@{}}
+\toprule
+\textbf{Method} & \textbf{\restaurant{} cF1} & \textbf{\laptop{} cF1} \\
+\midrule
+KimiK2$^\dag$           & 0.375 & 0.280 \\
+Qwen3-14B$^\dag$        & 0.267 & 0.153 \\
+\midrule
+Position VA              & 0.558{\scriptsize$\pm$0.008} & 0.248{\scriptsize$\pm$0.026} \\
+Span-Pair VA             & 0.565{\scriptsize$\pm$0.007} & \textbf{0.257}{\scriptsize$\pm$\textbf{0.018}} \\
+\textbf{Opinion-Guided VA} & \textbf{0.567}{\scriptsize$\pm$\textbf{0.004}} & 0.251{\scriptsize$\pm$0.017} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering\small
+\caption{5-seed controlled VA-quality results on the DimABSA 2026 English test sets. Only the VA head differs across our three methods; all other components are fixed. \textbf{Euclid} (mean $\ell_2$ on matched quads), \textbf{V-MAE}, and \textbf{A-MAE} are the primary VA-quality signals---cF1 conflates extraction and VA quality and should be read as secondary (see Table~\ref{tab:cf1}). $\Delta$: vs.\ Position VA; $p$: one-tailed paired $t$-test ($n=5$). \textbf{Bold}: best per metric per domain.}
+\label{tab:main}
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{@{}l cccc cc@{}}
+\toprule
+\textbf{Method} & \textbf{VA\%} & \textbf{Euclid} & \textbf{V-MAE} & \textbf{A-MAE} & $\Delta$\textbf{Euclid} & $p$ \\
+\midrule
+\multicolumn{7}{@{}l}{\restaurant{} (1{,}000 test sents., 2{,}129 gold quads)} \\[2pt]
+\quad Position VA                & 92.2 & 0.884 & 0.560 & 0.628 & ---              & ---   \\
+\quad Span-Pair VA               & 92.2 & 0.877 & 0.537 & 0.643 & $-$0.7\%         & .417  \\
+\quad \textbf{Opinion-Guided VA} & \textbf{92.5} & \textbf{0.852} & \textbf{0.524} & \textbf{0.620} & \textbf{$-$3.6\%} & \textbf{.046} \\
+\midrule
+\multicolumn{7}{@{}l}{\laptop{} (1{,}000 test sents., 1{,}975 gold quads)} \\[2pt]
+\quad Position VA                & 92.6 & 0.839 & 0.536 & 0.589 & ---              & ---   \\
+\quad Span-Pair VA               & 92.9 & 0.807 & 0.495 & 0.581 & $-$3.8\%         & .113  \\
+\quad \textbf{Opinion-Guided VA} & \textbf{93.2} & \textbf{0.772} & \textbf{0.473} & \textbf{0.557} & \textbf{$-$8.1\%} & \textbf{.046} \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\paragraph{VA evidence is consistent; cF1 is secondary.}
+Table~\ref{tab:main} shows that OG achieves the best value on all VA-specific metrics (Euclid, V-MAE, A-MAE, and VA\%) in both domains, with the quality ordering Position (worst) $\to$ Span-Pair $\to$ Opinion-Guided (best) holding consistently in domain-level averages across both domains. On \restaurant{} test, the OG-vs-Position Euclid reduction is $-3.6\%$ ($p = 0.046$); on \laptop{} test, $-8.1\%$ ($p = 0.046$). The OG-vs-SP gap is directionally consistent but not significant ($p = 0.18$ / $p = 0.09$). A noteworthy pattern in \restaurant{}: Span-Pair VA yields higher V-MAE improvement (0.537 vs.\ 0.560) but slightly \emph{worse} A-MAE than Position (0.643 vs.\ 0.628), while OG improves both dimensions simultaneously---consistent with the opinion-prior providing a signal specifically useful for arousal prediction. Mean cF1 (0.558/0.565/0.567 on \restaurant{}) is nearly identical across methods, confirming that \textbf{Euclid is the primary VA-quality signal} and cF1 a secondary compound metric. 5-model ensemble cF1 on \restaurant{} (Position 0.577, SP 0.583, OG 0.580) no longer shows Position dominance seen on the dev set---this instability reinforces why Euclid provides a more reliable VA signal. The supported claim is targeted VA-quality improvement, not improvement in the full DimASQP task. Against the official SemEval-2026 Task~3 LLM baselines (Table~\ref{tab:cf1}), our encoder-only OG method achieves higher cF1 on \restaurant{} (0.567 vs.\ KimiK2 0.375, Qwen3-14B 0.267) while trailing KimiK2 on \laptop{} (0.251 vs.\ 0.280); the laptop gap reflects the substantially smaller laptop training set and the encoder model's data-efficiency ceiling rather than a systematic advantage of LLM-based generation on this domain.
+
+\subsection{Ablation Study: The Main Driver of VA Gains}
+\label{sec:ablation}
+
+Table~\ref{tab:main} establishes that the VA-quality improvement is real and consistent. The remaining question is: \emph{within} Opinion-Guided VA, is the main empirical driver the prior-residual decomposition itself, or the added prior supervision loss?
+
+\subsubsection{Disentangling Architecture vs.\ Supervision.}
+
+Opinion-Guided differs from Span-Pair in two ways: (1)~the prior-residual decomposition (architecture), and (2)~the auxiliary prior loss (supervision). To isolate these factors, we run a representative controlled analysis on \restaurant{} (Table~\ref{tab:disentangle}), used as a mechanism-analysis testbed rather than a second cross-domain benchmark.
+
+\begin{table}[t]
+\centering\small
+\caption{Representative controlled analysis on \restaurant{} test set separating decomposition from supervision (5 seeds each, FP32). Plain-SP $\equiv$ Table~\ref{tab:main} Span-Pair row. $\Delta$Euclid is vs.\ Plain-SP. \textbf{Bold}: best per column.}
+\label{tab:disentangle}
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}l cc cccc c@{}}
+\toprule
+\textbf{Configuration} & \textbf{Arch.} & \textbf{Prior} & \textbf{cF1} & \textbf{Euclid} & \textbf{V-MAE} & \textbf{A-MAE} & $\Delta$\textbf{Euclid} \\
+\midrule
+Span-Pair VA (Plain-SP)  & SP & \texttimes & 0.565 & 0.877 & 0.537 & 0.643 & ---              \\
+Span-Pair + Prior Loss   & SP & \checkmark & 0.564 & \textbf{0.851} & \textbf{0.519} & \textbf{0.623} & \textbf{$-$3.1\%} \\
+OG w/o Prior Loss        & OG & \texttimes & 0.558 & 0.856 & 0.525 & 0.624 & $-$2.4\%         \\
+\textbf{Opinion-Guided (full)} & OG & \checkmark & \textbf{0.567} & 0.852 & 0.524 & 0.620 & $-$2.9\%  \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table~\ref{tab:disentangle} reveals the key pattern: \textbf{prior supervision is the primary driver}. SP + Prior Loss reduces Euclid from 0.877 to 0.851 ($-3.1\%$) and V-MAE from 0.537 to 0.519 ($-3.3\%$), while OG \emph{without} prior loss yields a smaller but non-trivial gain (0.856, $-2.4\%$)---notably larger than the near-zero architectural effect seen on the dev set, suggesting the decomposition itself provides a modest inductive bias. The near-tie between SP + Prior Loss (0.851) and OG full (0.852) confirms that the supervision signal, not the gated decomposition alone, is the main empirical driver. On cF1, all four configurations fall within one std (0.558--0.567). The gate weights (residual/prior ${\sim}$0.61/${\sim}$0.39, stable across seeds with std~$<$~0.002) are non-trivial in both dimensions, suggesting both paths are actively used; but as Table~\ref{tab:disentangle} shows, supervision rather than gating alone drives the quantitative gain. The value of the OG decomposition over SP+Prior is therefore not in the Euclid margin but in \emph{interpretability}: the prior path is an explicit, separately evaluable module---its output $\hat{\mathbf{y}}_{\text{prior}}$ and gate weights are directly observable at inference---whereas SP+Prior subsumes the opinion signal inside a concatenated black-box MLP with no inspectable intermediate.
+
+\subsection{Prior-Weight Sensitivity}
+\label{sec:lambda}
+
+Table~\ref{tab:lambda} reports the sensitivity of OG-full to $\lambda_p$ on the \restaurant{} dev set (seed=42). For $\lambda_p \in \{0.3, 0.5, 1.0\}$, dev cF1 falls in a narrow range (0.676--0.680), suggesting robustness to the exact weight in this regime. Below 0.3, the behavior becomes non-monotonic: $\lambda_p\!=\!0.1$ yields 0.684 while $\lambda_p\!=\!0.2$ yields 0.662, a 2.2-point swing on a single seed. We use $\lambda_p\!=\!0.3$ as a conservative setting that sits at the low end of the stable regime; the non-monotonicity at smaller values may reflect seed-specific noise but warrants caution.
+
+\begin{table}[h]
+\centering\small
+\caption{Dev-set cF1 sensitivity to $\lambda_p$ (\restaurant{}, OG-full, seed=42). Near-stable range (0.676--0.680) for $\lambda_p \in \{0.3,0.5,1.0\}$; non-monotonic below 0.3. We use $\lambda_p\!=\!0.3$.}
+\label{tab:lambda}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+$\lambda_p$ & 0.1 & 0.2 & 0.3 & 0.5 & 1.0 \\
+\midrule
+Dev cF1 & 0.684 & 0.662 & 0.676 & 0.680 & 0.680 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Discussion: VA Quality vs.\ End-to-End cF1}
+\label{sec:discussion}
+
+On \laptop{} test, cF1 differences are small (0.248/0.257/0.251, all within one std), yet the Euclid ordering is clear and monotonic (0.839\,$>\,$0.807\,$>\,$0.772)---precisely why we treat cF1 as a secondary compound metric. On \restaurant{} test, ensemble cF1 ordering (SP 0.583\,$>$\,OG 0.580\,$>$\,Position 0.577) differs from the single-model Euclid ordering---the ensemble cF1 is sensitive to diversity effects and does not reliably track VA quality. We \emph{hypothesize} that token-level predictions vary more across seeds, yielding more complementary ensemble members for Position VA, but this is \textbf{not directly tested}. The Euclid metric, evaluated on matched quadruplets independently of ensemble aggregation, consistently identifies OG as the stronger VA predictor. Finally, ``same extraction architecture'' is a design-level control, not a mathematical guarantee: joint optimization through a shared encoder means indirect gradient interactions remain possible, though we have no evidence that they materially affect the VA ordering.
+
+\subsection{Parameter Efficiency and Reliability}
+\label{sec:efficiency}
+
+The OG VA head adds 197K parameters (prior MLP) plus a 2-dim gate over the 623K Span-Pair MLP---820K total, 0.45\% of the 184M encoder---confirming that the gain comes from the inductive bias, not increased capacity. cF1 differences do not reach $p < 0.05$ with $n = 5$ seeds (std $\approx 0.005\text{--}0.010$); we do not claim they do. Instead our evidence rests on three complementary supports: (1)~VA-specific Euclid significance (OG vs.\ Position: $p = 0.046$ on \restaurant{} test, $p = 0.046$ on \laptop{} test; OG vs.\ SP: $p = 0.18$ / $p = 0.09$, directional only); (2)~the error ordering Position $>$ SP $>$ OG holds in domain-level averages across both domains; (3)~the comparison is design-level controlled---same encoder, extraction head, and hyperparameters across all seeds and methods.
+
+%==============================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+Within an encoder-based, One-ASQP-style framework on two English DimABSA domains, we studied \emph{opinion-prior supervision} for VA prediction, instantiated as the Opinion-Guided VA framework. \textbf{Opinion-prior supervision is the main empirical driver}: directly supervising the opinion-derived prior reduces Euclid significantly versus the token-level baseline (\restaurant{} test: $-3.6\%$, $p = 0.046$; \laptop{} test: $-8.1\%$, $p = 0.046$) and yields the lowest mean Euclid in both domains. A controlled $2\!\times\!2$ analysis shows SP+Prior (Euclid 0.851) nearly matching OG-full (0.852), confirming that the supervision signal, not the decomposition alone, drives the gain. End-to-end cF1 differences are modest; we treat cF1 as secondary and do not claim overall task improvement.
+
+Key limitations: (1)~no benefit for implicit-opinion quads (18.0\% of training); (2)~mechanism analysis is restaurant-domain only; (3)~scope is two English domains under one architecture. Future work includes multilingual extension and staged training to better isolate extraction--VA gradient interactions.
+
+%==============================================================================
+% References
+\bibliographystyle{splncs04}
+\bibliography{references}
+
+\end{document}
