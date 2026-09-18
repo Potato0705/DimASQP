@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+
+# Never commit data, checkpoints, outputs or secrets
+data/
+output/
+outputs/
+runs/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.ckpt
+.env
+.env.*
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
